@@ -98,6 +98,33 @@ export type Database = {
         }
         Relationships: []
       }
+      custom_questions: {
+        Row: {
+          created_at: string
+          id: string
+          is_required: boolean
+          question_text: string
+          question_type: string
+          sort_order: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_required?: boolean
+          question_text: string
+          question_type?: string
+          sort_order?: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_required?: boolean
+          question_text?: string
+          question_type?: string
+          sort_order?: number
+        }
+        Relationships: []
+      }
       programs: {
         Row: {
           accent: string
