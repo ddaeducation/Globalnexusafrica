@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
+import ApplicationForm from "@/components/ApplicationForm";
 
 const steps = [
   { num: 1, title: "Submit Application", desc: "Complete the online application form with your personal and academic information.", color: "from-red-500 to-orange-400" },
@@ -49,6 +50,17 @@ const Admissions = () => {
             >
               Apply Now <ArrowRight className="h-5 w-5" />
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Application Form */}
+      <section className="py-16 bg-white" id="application-form">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <h2 className="section-title">Application Form</h2>
+          <p className="section-subtitle">Fill out the form below to apply for your preferred program</p>
+          <div className="card-hover p-6 md:p-8">
+            <ApplicationForm />
           </div>
         </div>
       </section>

@@ -14,6 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
+      applications: {
+        Row: {
+          created_at: string
+          date_of_birth: string | null
+          district: string
+          email: string
+          employment_status: string
+          full_name: string
+          gender: string
+          has_disability: boolean
+          highest_education: string
+          home_address: string
+          id: string
+          location_type: string
+          monthly_income_range: string
+          nationality: string
+          phone_number: string
+          program_applying_for: string
+        }
+        Insert: {
+          created_at?: string
+          date_of_birth?: string | null
+          district?: string
+          email?: string
+          employment_status?: string
+          full_name: string
+          gender: string
+          has_disability?: boolean
+          highest_education?: string
+          home_address?: string
+          id?: string
+          location_type?: string
+          monthly_income_range?: string
+          nationality?: string
+          phone_number?: string
+          program_applying_for?: string
+        }
+        Update: {
+          created_at?: string
+          date_of_birth?: string | null
+          district?: string
+          email?: string
+          employment_status?: string
+          full_name?: string
+          gender?: string
+          has_disability?: boolean
+          highest_education?: string
+          home_address?: string
+          id?: string
+          location_type?: string
+          monthly_income_range?: string
+          nationality?: string
+          phone_number?: string
+          program_applying_for?: string
+        }
+        Relationships: []
+      }
       programs: {
         Row: {
           accent: string
