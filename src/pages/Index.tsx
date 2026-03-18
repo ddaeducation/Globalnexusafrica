@@ -1,188 +1,231 @@
 import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
-import { GraduationCap, Users, Award, BookOpen, ArrowRight, Briefcase, Phone, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
-const stats = [
-  { value: "200+", label: "Students Trained" },
-  { value: "95%", label: "Success Rate" },
-  { value: "10+", label: "Expert Mentors" },
-];
+const IMG_BASE = "https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images";
 
-const quickLinks = [
-  { title: "Apply Now", desc: "Start your journey with Global Nexus", path: "/admissions", icon: GraduationCap },
-  { title: "Scholarships", desc: "Explore funding opportunities", path: "/admissions", icon: Award },
-  { title: "Learning Portal", desc: "Access your online courses", path: "/programs", icon: BookOpen },
-  { title: "Contact Us", desc: "Get in touch with our team", path: "/contact", icon: Phone },
-];
+const Index = () => {
+  const [showPopup, setShowPopup] = useState(false);
 
-const news = [
-  {
-    title: "Professional Data Science & Artificial Intelligence (New)",
-    desc: "Join us new professional Data Science & Artificial Intelligence program in collaboration with Institute of Analytics (Endorsed).",
-    image: "https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/src/pages/images/teaching.jpeg",
-  },
-  {
-    title: "National Computing Center (UK) & Tech Innovation Workshop",
-    desc: "A hands-on workshop exploring the latest trends in AI and Python Data Analytics and more.",
-    image: "https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/src/pages/images/studing.jpeg",
-  },
-  {
-    title: "Professional Business Data Analytics (New)",
-    desc: "Global Nexus Institute is pleased to announce the new program: Professional Business Data Analytics (endorsed by NCC and IoA).",
-    image: "https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/src/pages/images/setting.jpeg",
-  },
-];
+  useEffect(() => {
+    const timer = setTimeout(() => setShowPopup(true), 4000);
+    return () => clearTimeout(timer);
+  }, []);
 
-const Index = () => (
-  <Layout>
-    {/* Hero */}
-    <section className="hero-gradient text-primary-foreground relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/src/pages/images/back.jpeg')] bg-cover bg-center opacity-15" />
-      <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
-        <div className="max-w-3xl">
-          <h1 className="font-display text-4xl md:text-6xl font-bold mb-4 animate-fade-in">
+  return (
+    <Layout>
+      {/* Hero Section */}
+      <section
+        className="relative min-h-screen flex items-center justify-center bg-cover bg-center px-4 sm:px-6"
+        style={{ backgroundImage: `url('${IMG_BASE}/hello.avif')` }}
+      >
+        <div className="absolute inset-0 bg-red-900/10" />
+        <div className="relative z-10 text-center w-full py-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-white">
             Global Nexus Institute
           </h1>
-          <p className="text-xl md:text-2xl opacity-90 mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-white">
             Connect with future tech leaders
           </p>
-          <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
             <Link
               to="/programs"
-              className="bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition flex items-center gap-2"
+              className="bg-white text-primary px-6 py-2 sm:px-8 sm:py-3 rounded-full font-semibold hover:bg-gray-100 transition"
             >
-              Explore Programs <ArrowRight className="h-4 w-4" />
+              Explore Programs
             </Link>
             <a
               href="https://skilla.africa/"
               target="_blank"
               rel="noopener noreferrer"
-              className="border-2 border-primary-foreground/50 px-6 py-3 rounded-lg font-semibold hover:bg-primary-foreground/10 transition"
+              className="bg-transparent border-2 border-white text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition"
             >
-              Our eLearning
+              Our elearning
             </a>
           </div>
-          <a
-            href="https://skilla.africa/auth?redirect=/become-instructor"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-4 text-sm opacity-80 hover:opacity-100 underline transition"
-          >
-            Become an Instructor →
-          </a>
-        </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 mt-12 max-w-lg">
-          {stats.map((s) => (
-            <div key={s.label} className="text-center bg-primary-foreground/10 rounded-lg p-4 backdrop-blur-sm">
-              <div className="font-display text-2xl md:text-3xl font-bold">{s.value}</div>
-              <div className="text-xs md:text-sm opacity-80">{s.label}</div>
+          <div className="flex justify-center mt-8 sm:mt-12">
+            <a
+              href="https://skilla.africa/auth?redirect=/become-instructor"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3 text-lg font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transform transition-all hover:scale-105 shadow-lg hover:shadow-blue-500/25"
+            >
+              Become an Instructor
+            </a>
+          </div>
+
+          {/* Statistics */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center mt-12">
+            <div className="backdrop-blur-sm bg-white/10 rounded-lg p-4">
+              <div className="text-4xl font-bold mb-1 text-white">200+</div>
+              <div className="text-sm text-blue-100">Students Trained</div>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* Call for Application Banner */}
-    <section className="bg-secondary">
-      <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <div>
-          <h2 className="font-display text-lg font-bold text-secondary-foreground">📢 Call For Application!</h2>
-          <p className="text-sm text-secondary-foreground/80">
-            Python For Data Analyst (Online) — 4 Weeks, Live online. Deadline: April 6, 2026
-          </p>
-        </div>
-        <a
-          href="https://forms.gle/ReNWMuzp6vhBLaMs8"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-semibold text-sm hover:opacity-90 transition whitespace-nowrap"
-        >
-          Apply Now
-        </a>
-      </div>
-    </section>
-
-    {/* Quick Links */}
-    <section className="container mx-auto px-4 py-16">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {quickLinks.map((item) => (
-          <Link
-            key={item.title}
-            to={item.path}
-            className="group bg-card p-6 rounded-xl border border-border hover:border-primary/30 hover:shadow-lg transition-all"
-          >
-            <item.icon className="h-8 w-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
-            <h3 className="font-display font-semibold text-foreground mb-1">{item.title}</h3>
-            <p className="text-sm text-muted-foreground">{item.desc}</p>
-            <ChevronRight className="h-4 w-4 text-primary mt-2 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        ))}
-      </div>
-    </section>
-
-    {/* Vision & Mission */}
-    <section className="bg-muted">
-      <div className="container mx-auto px-4 py-16">
-        <h2 className="font-display text-3xl font-bold text-center mb-10 text-foreground">Our Vision & Mission</h2>
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="bg-card p-8 rounded-xl border border-border">
-            <h3 className="font-display text-xl font-semibold text-primary mb-3">Vision</h3>
-            <p className="text-muted-foreground">
-              To be a transformative institution that empowers the next generation of leaders, innovators, and professionals in technology and data sciences across Africa and beyond.
-            </p>
-          </div>
-          <div className="bg-card p-8 rounded-xl border border-border">
-            <h3 className="font-display text-xl font-semibold text-primary mb-3">Mission</h3>
-            <p className="text-muted-foreground">
-              To provide high-quality, accessible education that bridges local needs with global opportunities, creating pathways to employment, innovation, and societal impact.
-            </p>
+            <div className="backdrop-blur-sm bg-white/10 rounded-lg p-4">
+              <div className="text-4xl font-bold mb-1 text-white">95%</div>
+              <div className="text-sm text-blue-100">Success Rate</div>
+            </div>
+            <div className="backdrop-blur-sm bg-white/10 rounded-lg p-4">
+              <div className="text-4xl font-bold mb-1 text-white">10+</div>
+              <div className="text-sm text-blue-100">Expert Mentors</div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    {/* Students at Work */}
-    <section className="container mx-auto px-4 py-16">
-      <h2 className="font-display text-3xl font-bold text-center mb-8 text-foreground">Our Students at Work</h2>
-      <div className="grid md:grid-cols-3 gap-4">
-        {["back.jpeg", "learning.jpeg", "steam2.jpeg"].map((img) => (
-          <div key={img} className="rounded-xl overflow-hidden aspect-[4/3]">
-            <img
-              src={`https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/src/pages/images/${img}`}
-              alt="Students at work"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              loading="lazy"
-            />
-          </div>
-        ))}
-      </div>
-    </section>
-
-    {/* News */}
-    <section className="bg-muted">
-      <div className="container mx-auto px-4 py-16">
-        <h2 className="font-display text-3xl font-bold text-center mb-10 text-foreground">Latest News & Events</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {news.map((item) => (
-            <div key={item.title} className="bg-card rounded-xl overflow-hidden border border-border hover:shadow-lg transition-shadow">
-              <div className="aspect-video overflow-hidden">
-                <img src={item.image} alt={item.title} className="w-full h-full object-cover" loading="lazy" />
+      {/* Popup */}
+      {showPopup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-6 rounded-lg shadow-sm text-center relative max-w-md mx-4">
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                <img src={`${IMG_BASE}/logo.png`} alt="Logo" className="w-16 h-16 object-cover" />
               </div>
-              <div className="p-5">
-                <h3 className="font-display font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
-                <Link to="/news" className="text-primary text-sm font-medium mt-3 inline-block hover:underline">
-                  Learn more →
-                </Link>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Call For Application!</h2>
+              <p className="text-gray-600 mb-2">Don't miss this opportunity to join us!</p>
+              <p className="text-red-600 font-semibold mb-4">Deadline: April 6, 2026</p>
+            </div>
+
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute top-4 right-4 p-2 bg-gray-100 hover:bg-gray-200 rounded-full"
+            >
+              X
+            </button>
+
+            <div className="space-y-4 w-full text-left">
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <h3 className="font-semibold text-blue-900 mb-2">Python For Data Analyst (Online)</h3>
+                <ul className="space-y-2 text-blue-800">
+                  <li>• Learn With our platform: www.skilla.africa</li>
+                  <li>• Python For Data Analyst, 4 Weeks (live online)</li>
+                  <li>• Led by Professional Data Analysts & Scientists</li>
+                  <li>• Live sessions Start on: April 6, 2026</li>
+                  <li>• Attend & Learn From Anywhere & Anytime</li>
+                  <li>• Reach out to WhatsApp: +250787406140</li>
+                  <li>
+                    <a
+                      href="https://skilla.africa/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block mt-2 text-white bg-red-600 px-4 py-2 text-center rounded-lg font-semibold"
+                    >
+                      Use MOMOpay: 030700 & Contact: 0787406140
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
-          ))}
+            <a
+              href="https://forms.gle/ReNWMuzp6vhBLaMs8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block mt-2 text-white bg-blue-600 px-3 py-2 text-center rounded-sm font-semibold"
+            >
+              Click Here to Apply For Python For Data Analyst
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
-  </Layout>
-);
+      )}
+
+      {/* Quick Links */}
+      <section className="py-8 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <Link to="/admissions" className="group">
+              <div className="p-6 bg-gray-50 rounded-lg hover:shadow-lg transition">
+                <h3 className="text-xl font-semibold text-primary mb-2">Apply Now</h3>
+                <p className="text-gray-600">Start your journey with Global Nexus</p>
+              </div>
+            </Link>
+            <Link to="/admissions" className="group">
+              <div className="p-6 bg-gray-50 rounded-lg hover:shadow-lg transition">
+                <h3 className="text-xl font-semibold text-primary mb-2">Scholarships</h3>
+                <p className="text-gray-600">Explore funding opportunities</p>
+              </div>
+            </Link>
+            <Link to="/programs" className="group">
+              <div className="p-6 bg-gray-50 rounded-lg hover:shadow-lg transition">
+                <h3 className="text-xl font-semibold text-primary mb-2">Learning Portal</h3>
+                <p className="text-gray-600">Access your online courses</p>
+              </div>
+            </Link>
+            <Link to="/contact" className="group">
+              <div className="p-6 bg-gray-50 rounded-lg hover:shadow-lg transition">
+                <h3 className="text-xl font-semibold text-primary mb-2">Contact Us</h3>
+                <p className="text-gray-600">Get in touch with our team</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision & Mission */}
+      <section className="py-8 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Vision & Mission</h2>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-semibold text-primary mb-4">Vision</h3>
+                <p className="text-lg text-gray-600">
+                  To be a transformative institution that empowers the next generation of leaders, innovators, and professionals in technology and data sciences across Africa and beyond.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-2xl font-semibold text-primary mb-4">Mission</h3>
+                <p className="text-lg text-gray-600">
+                  To provide high-quality, accessible education that bridges local needs with global opportunities, creating pathways to employment, innovation, and societal impact.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Student Gallery */}
+      <section className="py-8 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Students at Work</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {["back.jpeg", "learning.jpeg", "steam2.jpeg"].map((img, i) => (
+              <img
+                key={i}
+                src={`${IMG_BASE}/${img}`}
+                alt="Students"
+                className="w-full h-64 object-cover rounded-lg shadow-md"
+                loading="lazy"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* News & Events */}
+      <section className="py-8 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Latest News & Events</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { title: "Professional Data Science & Artificial Intelligence (New)", desc: "Join us new professional Data Science & Artificial Intelligence program in collaboration with Institute of Analytics (Endorsed).", img: "teaching.jpeg" },
+              { title: "National Computing Center (UK) & Tech Innovation Workshop", desc: "A hands-on workshop exploring the latest trends in AI and Python Data Analytics and more", img: "studing.jpeg" },
+              { title: "Professional Business Data Analytics (New)", desc: "Global Nexus Institute is pleased to announce the new program: Professional Business Data Analytics (endorsed by NCC and IoA).", img: "setting.jpeg" },
+            ].map((item) => (
+              <div key={item.title} className="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src={`${IMG_BASE}/${item.img}`} alt="Event" className="w-full h-48 object-cover" loading="lazy" />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-gray-600 mb-4">{item.desc}</p>
+                  <Link to="/news" className="text-primary font-semibold hover:opacity-80">Learn more →</Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </Layout>
+  );
+};
 
 export default Index;
