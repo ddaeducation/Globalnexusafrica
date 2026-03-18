@@ -30,7 +30,7 @@ const Index = () => {
 
   const g = (section: string, key: string, fallback: string) => getContent(c, section, key, fallback);
 
-  const heroImage = g("hero", "hero_image", `${IMG_BASE}/hello.avif`);
+  const heroImage = g("hero", "hero_image", "/images/hero-main.jpg");
 
   const stats = [
     { value: g("stats", "stat1_value", "200+"), label: g("stats", "stat1_label", "Students Trained") },
