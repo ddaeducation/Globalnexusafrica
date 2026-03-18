@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
+import ApplicationForm from "@/components/ApplicationForm";
 
 const steps = [
   { num: 1, title: "Submit Application", desc: "Complete the online application form with your personal and academic information.", color: "from-red-500 to-orange-400" },
