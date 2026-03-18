@@ -11,7 +11,7 @@ import AdminFormQuestions from "@/components/AdminFormQuestions";
 import AdminImageManager from "@/components/AdminImageManager";
 import {
   LogOut, Home, Info, BookOpen, Briefcase, Newspaper, GraduationCap, Phone,
-  Save, Loader2, ChevronRight, Users, Mail, UserCheck, FileQuestion, ImageIcon
+  Save, Loader2, ChevronRight, Users, Mail, UserCheck, FileQuestion, Image as ImageIcon
 } from "lucide-react";
 
 type PageConfig = {

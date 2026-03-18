@@ -19,6 +19,7 @@ type Application = {
   employment_status: string;
   monthly_income_range: string;
   has_disability: boolean;
+  custom_answers: Record<string, string> | null;
   created_at: string;
 };
 
