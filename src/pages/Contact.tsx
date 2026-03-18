@@ -8,7 +8,9 @@ import { toast } from "@/hooks/use-toast";
 const donationAmounts = [25, 50, 100, 250];
 
 const Contact = () => {
-  const [selectedDonation, setSelectedDonation] = useState(50);
+  const [selectedDonation, setSelectedDonation] = useState<number | null>(50);
+  const [customAmount, setCustomAmount] = useState("");
+  const [currency, setCurrency] = useState<"USD" | "RWF">("USD");
   const { content: c } = useAllSiteContent("contact");
   const g = (section: string, key: string, fallback: string) => getContent(c, section, key, fallback);
 
