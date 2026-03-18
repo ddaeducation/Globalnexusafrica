@@ -9,7 +9,7 @@ import AdminMessages from "@/components/AdminMessages";
 import AdminSubscribers from "@/components/AdminSubscribers";
 import {
   LogOut, Home, Info, BookOpen, Briefcase, Newspaper, GraduationCap, Phone,
-  Save, Loader2, ChevronRight, Users
+  Save, Loader2, ChevronRight, Users, Mail, UserCheck
 } from "lucide-react";
 
 type PageConfig = {
