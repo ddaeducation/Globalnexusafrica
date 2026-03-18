@@ -325,64 +325,70 @@ const AdminDashboard = () => {
       {/* Main */}
       <main className="flex-1 p-8 overflow-y-auto">
         <div className="max-w-3xl">
-          <h1 className="text-2xl font-bold text-foreground mb-1">{currentPage?.label}</h1>
-          <p className="text-sm text-muted-foreground mb-8">
-            Edit the content for this page. Changes are saved per section.
-          </p>
+          {activePage === "programs" ? (
+            <AdminProgramManager />
+          ) : (
+            <>
+              <h1 className="text-2xl font-bold text-foreground mb-1">{currentPage?.label}</h1>
+              <p className="text-sm text-muted-foreground mb-8">
+                Edit the content for this page. Changes are saved per section.
+              </p>
 
-          <div className="space-y-6">
-            {currentPage?.sections.map((section) => {
-              const isOpen = activeSection === section.key;
-              return (
-                <div key={section.key} className="bg-card border border-border rounded-2xl overflow-hidden">
-                  <button
-                    onClick={() => setActiveSection(isOpen ? null : section.key)}
-                    className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-muted/50 transition"
-                  >
-                    <span className="font-semibold text-foreground">{section.label}</span>
-                    <ChevronRight className={`h-4 w-4 text-muted-foreground transition-transform ${isOpen ? "rotate-90" : ""}`} />
-                  </button>
-
-                  {isOpen && (
-                    <div className="px-6 pb-6 space-y-4 border-t border-border pt-4">
-                      {section.fields.map((field) => (
-                        <div key={field.key}>
-                          <label className="block text-sm font-medium text-foreground mb-1.5">
-                            {field.label}
-                          </label>
-                          {field.type === "textarea" ? (
-                            <textarea
-                              value={getValue(activePage, section.key, field.key)}
-                              onChange={(e) => setValue(activePage, section.key, field.key, e.target.value)}
-                              placeholder={field.placeholder}
-                              rows={4}
-                              className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground resize-none focus:outline-none focus:ring-2 focus:ring-ring transition text-sm"
-                            />
-                          ) : (
-                            <input
-                              type={field.type}
-                              value={getValue(activePage, section.key, field.key)}
-                              onChange={(e) => setValue(activePage, section.key, field.key, e.target.value)}
-                              placeholder={field.placeholder}
-                              className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring transition text-sm"
-                            />
-                          )}
-                        </div>
-                      ))}
+              <div className="space-y-6">
+                {currentPage?.sections.map((section) => {
+                  const isOpen = activeSection === section.key;
+                  return (
+                    <div key={section.key} className="bg-card border border-border rounded-2xl overflow-hidden">
                       <button
-                        onClick={() => handleSave(section.key)}
-                        disabled={saving}
-                        className="btn-primary flex items-center gap-2 text-sm !px-5 !py-2.5 disabled:opacity-50"
+                        onClick={() => setActiveSection(isOpen ? null : section.key)}
+                        className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-muted/50 transition"
                       >
-                        {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
-                        Save Section
+                        <span className="font-semibold text-foreground">{section.label}</span>
+                        <ChevronRight className={`h-4 w-4 text-muted-foreground transition-transform ${isOpen ? "rotate-90" : ""}`} />
                       </button>
+
+                      {isOpen && (
+                        <div className="px-6 pb-6 space-y-4 border-t border-border pt-4">
+                          {section.fields.map((field) => (
+                            <div key={field.key}>
+                              <label className="block text-sm font-medium text-foreground mb-1.5">
+                                {field.label}
+                              </label>
+                              {field.type === "textarea" ? (
+                                <textarea
+                                  value={getValue(activePage, section.key, field.key)}
+                                  onChange={(e) => setValue(activePage, section.key, field.key, e.target.value)}
+                                  placeholder={field.placeholder}
+                                  rows={4}
+                                  className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground resize-none focus:outline-none focus:ring-2 focus:ring-ring transition text-sm"
+                                />
+                              ) : (
+                                <input
+                                  type={field.type}
+                                  value={getValue(activePage, section.key, field.key)}
+                                  onChange={(e) => setValue(activePage, section.key, field.key, e.target.value)}
+                                  placeholder={field.placeholder}
+                                  className="w-full px-4 py-3 rounded-xl border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring transition text-sm"
+                                />
+                              )}
+                            </div>
+                          ))}
+                          <button
+                            onClick={() => handleSave(section.key)}
+                            disabled={saving}
+                            className="btn-primary flex items-center gap-2 text-sm !px-5 !py-2.5 disabled:opacity-50"
+                          >
+                            {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
+                            Save Section
+                          </button>
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
+                  );
+                })}
+              </div>
+            </>
+          )}
         </div>
       </main>
     </div>
