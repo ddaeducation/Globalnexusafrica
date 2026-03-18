@@ -8,7 +8,7 @@ const navLinks = [
   { path: "/programs", label: "Programs" },
   { path: "/services", label: "Services" },
   { path: "/admissions", label: "Admissions" },
-  { path: "/research", label: "Research" },
+  
   { path: "/news", label: "News" },
   { path: "/contact", label: "Contact" },
 ];
