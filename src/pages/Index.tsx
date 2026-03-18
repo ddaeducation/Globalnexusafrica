@@ -85,33 +85,44 @@ const Index = () => {
 
       {/* Popup */}
       {showPopup && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm animate-fade-in">
-          <div className="bg-white p-8 rounded-2xl shadow-2xl text-center relative max-w-md mx-4 animate-scale-in">
-            <button onClick={() => setShowPopup(false)} className="absolute top-3 right-3 p-2 bg-gray-100 hover:bg-gray-200 rounded-full transition">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+          <div className="bg-card w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden relative">
+            {/* Top accent bar */}
+            <div className="h-1.5 bg-gradient-to-r from-primary via-primary to-accent" />
+
+            <button onClick={() => setShowPopup(false)} className="absolute top-4 right-4 p-1.5 rounded-full bg-muted hover:bg-muted/80 text-muted-foreground transition z-10">
               <X className="h-4 w-4" />
             </button>
-            <div className="text-center mb-6">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-4">
-                <img src={`${IMG_BASE}/logo.png`} alt="Logo" className="w-12 h-12 object-cover" />
+
+            <div className="p-8 text-center">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4">
+                <Sparkles className="h-3.5 w-3.5" /> Now Accepting Applications
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">{g("popup", "title", "Call For Application!")}</h2>
-              <p className="text-gray-500 mb-1">{g("popup", "subtitle", "Don't miss this opportunity to join us!")}</p>
+              <h2 className="text-2xl font-bold text-card-foreground mb-1">{g("popup", "title", "Call For Application!")}</h2>
+              <p className="text-muted-foreground text-sm mb-1">{g("popup", "subtitle", "Don't miss this opportunity to join us!")}</p>
               <p className="text-primary font-bold text-sm">{g("popup", "deadline", "Deadline: April 6, 2026")}</p>
             </div>
-            <div className="bg-primary/5 p-5 rounded-xl text-left mb-4">
-              <h3 className="font-bold text-gray-900 mb-3">{g("popup", "program_name", "Python For Data Analyst (Online)")}</h3>
-              <ul className="space-y-1.5 text-sm text-gray-600">
-                {popupDetails.split("\n").map((line, i) => (
-                  <li key={i}>{line.startsWith("•") ? line : `• ${line}`}</li>
-                ))}
-              </ul>
-              <a href="https://skilla.africa/" target="_blank" rel="noopener noreferrer" className="block mt-3 text-white bg-accent text-center rounded-lg py-2 text-sm font-semibold hover:opacity-90 transition">
-                MOMOpay: 030700 | Contact: 0787406140
+
+            <div className="px-8 pb-6">
+              <div className="bg-muted/50 border border-border rounded-xl p-5 text-left mb-5">
+                <h3 className="font-bold text-card-foreground mb-3 text-lg">{g("popup", "program_name", "Python For Data Analyst (Online)")}</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  {popupDetails.split("\n").map((line, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                      <span>{line.replace(/^•\s*/, "")}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-4 bg-accent/10 text-accent border border-accent/20 text-center rounded-lg py-2.5 text-sm font-semibold">
+                  MOMOpay: 030700 | Contact: 0787406140
+                </div>
+              </div>
+
+              <a href={g("popup", "apply_url", "https://forms.gle/ReNWMuzp6vhBLaMs8")} target="_blank" rel="noopener noreferrer" className="block btn-primary w-full text-center text-base">
+                {g("popup", "apply_button_text", "Apply For Python For Data Analyst")}
               </a>
             </div>
-            <a href={g("popup", "apply_url", "https://forms.gle/ReNWMuzp6vhBLaMs8")} target="_blank" rel="noopener noreferrer" className="block btn-primary w-full text-center">
-              {g("popup", "apply_button_text", "Apply For Python For Data Analyst")}
-            </a>
           </div>
         </div>
       )}
