@@ -168,7 +168,7 @@ const Index = () => {
 
       {/* Quick Links */}
       <section className="py-16 bg-muted/50">
-        <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {quickLinks.map((item, i) => (
               <Link key={item.title} to={item.path} className="card-hover p-6 group animate-fade-up" style={{ animationDelay: `${i * 0.1}s` }}>
