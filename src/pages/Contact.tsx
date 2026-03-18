@@ -147,7 +147,7 @@ const Contact = () => {
               </div>
               {/* Preset amounts */}
               <div className="grid grid-cols-4 gap-3 mb-4">
-                {donationAmounts.map((amt) => (
+                {(currency === "USD" ? donationAmountsUSD : donationAmountsRWF).map((amt) => (
                   <button
                     key={amt}
                     onClick={() => { setSelectedDonation(amt); setCustomAmount(""); }}
