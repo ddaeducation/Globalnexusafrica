@@ -239,6 +239,36 @@ const ApplicationForm = () => {
         </select>
       </div>
 
+      {/* Custom Questions */}
+      {customQuestions.length > 0 && (
+        <div className="space-y-4 pt-2 border-t border-border">
+          <p className="text-sm font-semibold text-foreground">Additional Questions</p>
+          {customQuestions.map(q => (
+            <div key={q.id}>
+              <label className={labelClass}>
+                {q.question_text} {q.is_required && "*"}
+              </label>
+              {q.question_type === "textarea" ? (
+                <textarea
+                  className={inputClass + " min-h-[80px] resize-none"}
+                  value={customAnswers[q.id] || ""}
+                  onChange={e => setCustomAnswers(prev => ({ ...prev, [q.id]: e.target.value }))}
+                  required={q.is_required}
+                  rows={3}
+                />
+              ) : (
+                <input
+                  className={inputClass}
+                  value={customAnswers[q.id] || ""}
+                  onChange={e => setCustomAnswers(prev => ({ ...prev, [q.id]: e.target.value }))}
+                  required={q.is_required}
+                />
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+
       <button
         type="submit"
         disabled={submitting}
