@@ -217,6 +217,10 @@ const pages: PageConfig[] = [
       ]},
     ],
   },
+  {
+    key: "applications", label: "Applications", icon: Users,
+    sections: [],
+  },
 ];
 
 const AdminDashboard = () => {
