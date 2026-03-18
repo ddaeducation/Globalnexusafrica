@@ -94,19 +94,19 @@ const ApplicationForm = () => {
 
     setSubmitting(true);
 
-    // Build custom answers string to store alongside the application
-    const customData = customQuestions
-      .filter(q => customAnswers[q.id]?.trim())
-      .map(q => `${q.question_text}: ${customAnswers[q.id].trim()}`)
-      .join("\n");
+    // Build custom answers as JSON object
+    const customAnswersData: Record<string, string> = {};
+    customQuestions.forEach(q => {
+      if (customAnswers[q.id]?.trim()) {
+        customAnswersData[q.question_text] = customAnswers[q.id].trim();
+      }
+    });
 
     const { error } = await supabase.from("applications").insert({
       ...form,
       date_of_birth: form.date_of_birth || null,
-      // Store custom answers in home_address field as a workaround,
-      // or we can append to an existing text field
-      ...(customData ? { home_address: form.home_address ? `${form.home_address}\n\n--- Custom Answers ---\n${customData}` : `--- Custom Answers ---\n${customData}` } : {}),
-    });
+      custom_answers: customAnswersData,
+    } as any);
     setSubmitting(false);
     if (error) {
       toast({ title: "Error", description: "Failed to submit application. Please try again.", variant: "destructive" });
