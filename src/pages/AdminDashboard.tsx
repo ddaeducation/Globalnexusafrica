@@ -3,6 +3,7 @@ import { useAdmin } from "@/hooks/useAdmin";
 import { saveSiteContent } from "@/hooks/useSiteContent";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import AdminProgramManager from "@/components/AdminProgramManager";
 import {
   LogOut, Home, Info, BookOpen, Briefcase, FlaskConical, Newspaper, GraduationCap, Phone,
   Save, Loader2, ChevronRight
