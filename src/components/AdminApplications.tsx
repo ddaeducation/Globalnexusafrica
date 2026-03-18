@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, Eye, Trash2, X, Users, Search } from "lucide-react";
+import { Loader2, Eye, Trash2, X, Users, Search, Download } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
 type Application = {
@@ -102,6 +102,26 @@ const AdminApplications = () => {
     );
   }
 
+  const exportCSV = () => {
+    if (filtered.length === 0) return;
+    const headers = Object.keys(fieldLabels);
+    const headerRow = Object.values(fieldLabels).join(",");
+    const rows = filtered.map((app) =>
+      headers.map((key) => {
+        const val = formatValue(key, app[key as keyof Application]);
+        return `"${String(val).replace(/"/g, '""')}"`;
+      }).join(",")
+    );
+    const csv = [headerRow, ...rows].join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `applications_${new Date().toISOString().slice(0, 10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
@@ -113,6 +133,13 @@ const AdminApplications = () => {
             {applications.length} total application{applications.length !== 1 ? "s" : ""}
           </p>
         </div>
+        <button
+          onClick={exportCSV}
+          disabled={filtered.length === 0}
+          className="btn-primary flex items-center gap-2 text-sm !px-4 !py-2.5 disabled:opacity-50"
+        >
+          <Download className="h-4 w-4" /> Export CSV
+        </button>
       </div>
 
       {/* Search */}
