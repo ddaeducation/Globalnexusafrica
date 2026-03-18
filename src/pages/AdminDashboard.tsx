@@ -5,6 +5,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import AdminProgramManager from "@/components/AdminProgramManager";
 import AdminApplications from "@/components/AdminApplications";
+import AdminMessages from "@/components/AdminMessages";
+import AdminSubscribers from "@/components/AdminSubscribers";
 import {
   LogOut, Home, Info, BookOpen, Briefcase, Newspaper, GraduationCap, Phone,
   Save, Loader2, ChevronRight, Users
