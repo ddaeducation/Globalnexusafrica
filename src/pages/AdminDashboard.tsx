@@ -223,6 +223,14 @@ const pages: PageConfig[] = [
     key: "applications", label: "Applications", icon: Users,
     sections: [],
   },
+  {
+    key: "messages", label: "Messages", icon: Mail,
+    sections: [],
+  },
+  {
+    key: "subscribers", label: "Subscribers", icon: UserCheck,
+    sections: [],
+  },
 ];
 
 const AdminDashboard = () => {
