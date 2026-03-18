@@ -26,9 +26,18 @@ const incomeOptions = [
 ];
 
 type Program = { id: string; title: string };
+type CustomQuestion = {
+  id: string;
+  question_text: string;
+  question_type: "text" | "textarea";
+  is_required: boolean;
+  sort_order: number;
+};
 
 const ApplicationForm = () => {
   const [programs, setPrograms] = useState<Program[]>([]);
+  const [customQuestions, setCustomQuestions] = useState<CustomQuestion[]>([]);
+  const [customAnswers, setCustomAnswers] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
@@ -55,6 +64,14 @@ const ApplicationForm = () => {
       .order("sort_order")
       .then(({ data }) => {
         if (data) setPrograms(data);
+      });
+
+    supabase
+      .from("custom_questions")
+      .select("*")
+      .order("sort_order")
+      .then(({ data }) => {
+        if (data) setCustomQuestions(data as CustomQuestion[]);
       });
   }, []);
 

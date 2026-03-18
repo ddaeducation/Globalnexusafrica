@@ -362,6 +362,10 @@ const AdminDashboard = () => {
             <AdminMessages />
           ) : activePage === "subscribers" ? (
             <AdminSubscribers />
+          ) : activePage === "form-questions" ? (
+            <AdminFormQuestions />
+          ) : activePage === "images" ? (
+            <AdminImageManager />
           ) : (
             <>
               <h1 className="text-2xl font-bold text-foreground mb-1">{currentPage?.label}</h1>
