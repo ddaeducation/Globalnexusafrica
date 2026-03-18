@@ -1,19 +1,24 @@
 import Layout from "@/components/Layout";
 import { useState } from "react";
 import { MapPin, Mail, Phone, Heart, Send, Facebook, Linkedin, Twitter, Instagram } from "lucide-react";
+import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
 const donationAmounts = [25, 50, 100, 250];
 
 const Contact = () => {
   const [selectedDonation, setSelectedDonation] = useState(50);
+  const { content: c } = useAllSiteContent("contact");
+  const g = (section: string, key: string, fallback: string) => getContent(c, section, key, fallback);
 
   return (
     <Layout>
       <section className="hero-section py-20 text-white">
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">Contact Us</h1>
+          <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">
+            {g("hero", "title", "Contact Us")}
+          </h1>
           <p className="text-lg max-w-2xl mx-auto opacity-90 animate-fade-up-delay-1">
-            Get in touch for inquiries about programs, admissions, or partnerships.
+            {g("hero", "subtitle", "Get in touch for inquiries about programs, admissions, or partnerships.")}
           </p>
         </div>
       </section>
@@ -25,9 +30,9 @@ const Contact = () => {
               <h2 className="text-2xl font-bold text-gray-900 mb-8">Get in Touch</h2>
               <div className="space-y-6">
                 {[
-                  { icon: MapPin, title: "Address", text: "Kigali, Rwanda\nKN 78 St, Norrsken House" },
-                  { icon: Mail, title: "Email", text: "info@globalnexus.africa" },
-                  { icon: Phone, title: "Phone", text: "+250 787 406 140\n+254 707 825 181" },
+                  { icon: MapPin, title: "Address", text: g("info", "address", "Kigali, Rwanda\nKN 78 St, Norrsken House") },
+                  { icon: Mail, title: "Email", text: g("info", "email", "info@globalnexus.africa") },
+                  { icon: Phone, title: "Phone", text: g("info", "phone", "+250 787 406 140\n+254 707 825 181") },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
@@ -68,7 +73,6 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Donation */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
