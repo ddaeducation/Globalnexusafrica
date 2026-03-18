@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAdmin } from "@/hooks/useAdmin";
 import { saveSiteContent } from "@/hooks/useSiteContent";
 import { supabase } from "@/integrations/supabase/client";
