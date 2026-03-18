@@ -84,10 +84,28 @@ const ApplicationForm = () => {
       toast({ title: "Missing fields", description: "Please fill in all required fields.", variant: "destructive" });
       return;
     }
+
+    // Validate required custom questions
+    const missingCustom = customQuestions.filter(q => q.is_required && !customAnswers[q.id]?.trim());
+    if (missingCustom.length > 0) {
+      toast({ title: "Missing fields", description: `Please answer: ${missingCustom.map(q => q.question_text).join(", ")}`, variant: "destructive" });
+      return;
+    }
+
     setSubmitting(true);
+
+    // Build custom answers string to store alongside the application
+    const customData = customQuestions
+      .filter(q => customAnswers[q.id]?.trim())
+      .map(q => `${q.question_text}: ${customAnswers[q.id].trim()}`)
+      .join("\n");
+
     const { error } = await supabase.from("applications").insert({
       ...form,
       date_of_birth: form.date_of_birth || null,
+      // Store custom answers in home_address field as a workaround,
+      // or we can append to an existing text field
+      ...(customData ? { home_address: form.home_address ? `${form.home_address}\n\n--- Custom Answers ---\n${customData}` : `--- Custom Answers ---\n${customData}` } : {}),
     });
     setSubmitting(false);
     if (error) {
