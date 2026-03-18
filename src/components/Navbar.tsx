@@ -39,7 +39,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6 text-gray-700">
+          <div className="hidden md:flex items-center space-x-6 text-gray-700">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -51,6 +51,14 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
+            <a
+              href="https://skilla.africa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition"
+            >
+              eLearning Portal
+            </a>
           </div>
 
           {/* Mobile Button */}
