@@ -8,7 +8,9 @@ import { toast } from "@/hooks/use-toast";
 const donationAmounts = [25, 50, 100, 250];
 
 const Contact = () => {
-  const [selectedDonation, setSelectedDonation] = useState(50);
+  const [selectedDonation, setSelectedDonation] = useState<number | null>(50);
+  const [customAmount, setCustomAmount] = useState("");
+  const [currency, setCurrency] = useState<"USD" | "RWF">("USD");
   const { content: c } = useAllSiteContent("contact");
   const g = (section: string, key: string, fallback: string) => getContent(c, section, key, fallback);
 
@@ -125,29 +127,60 @@ const Contact = () => {
               </div>
             </div>
             <div className="card-hover p-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Make a Donation</h3>
-              <div className="grid grid-cols-4 gap-3 mb-6">
+              <h3 className="text-xl font-bold text-foreground mb-6">Make a Donation</h3>
+              {/* Currency toggle */}
+              <div className="flex gap-2 mb-4">
+                {(["USD", "RWF"] as const).map((cur) => (
+                  <button
+                    key={cur}
+                    onClick={() => setCurrency(cur)}
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                      currency === cur
+                        ? "bg-primary text-primary-foreground shadow-sm"
+                        : "bg-muted text-muted-foreground hover:bg-muted/80"
+                    }`}
+                  >
+                    {cur}
+                  </button>
+                ))}
+              </div>
+              {/* Preset amounts */}
+              <div className="grid grid-cols-4 gap-3 mb-4">
                 {donationAmounts.map((amt) => (
                   <button
                     key={amt}
-                    onClick={() => setSelectedDonation(amt)}
+                    onClick={() => { setSelectedDonation(amt); setCustomAmount(""); }}
                     className={`py-3 rounded-xl font-bold text-sm transition-all duration-200 ${
-                      selectedDonation === amt
-                        ? "bg-primary text-white shadow-md shadow-primary/30 scale-105"
-                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      selectedDonation === amt && !customAmount
+                        ? "bg-primary text-primary-foreground shadow-md shadow-primary/30 scale-105"
+                        : "bg-muted text-muted-foreground hover:bg-muted/80"
                     }`}
                   >
-                    ${amt}
+                    {currency === "USD" ? `$${amt}` : `${amt.toLocaleString()} RWF`}
                   </button>
                 ))}
+              </div>
+              {/* Custom amount */}
+              <div className="relative mb-6">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground font-semibold text-sm">
+                  {currency === "USD" ? "$" : "RWF"}
+                </span>
+                <input
+                  type="number"
+                  min="1"
+                  placeholder="Enter custom amount"
+                  value={customAmount}
+                  onChange={(e) => { setCustomAmount(e.target.value); setSelectedDonation(null); }}
+                  className="w-full pl-14 pr-4 py-3 rounded-xl border border-input bg-muted/30 text-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-ring/20 transition"
+                />
               </div>
               <a
                 href="https://flutterwave.com/pay/8atwd1q3u556"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-center bg-accent text-white py-3.5 rounded-xl font-bold hover:opacity-90 transition shadow-md shadow-accent/30"
+                className="block w-full text-center bg-accent text-accent-foreground py-3.5 rounded-xl font-bold hover:opacity-90 transition shadow-md shadow-accent/30"
               >
-                Donate Now — ${selectedDonation}
+                Donate Now — {currency === "USD" ? "$" : ""}{customAmount || selectedDonation || 50}{currency === "RWF" ? " RWF" : ""}
               </a>
             </div>
           </div>
