@@ -154,12 +154,12 @@ const Index = () => {
       {/* Gallery */}
       <section className="py-16 bg-card">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">Our Students at Work</h2>
-          <p className="section-subtitle">Hands-on learning and collaborative problem solving</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {["/images/gallery-1.jpg", "/images/gallery-2.jpg", "/images/gallery-3.jpg"].map((src, i) => (
+          <h2 className="section-title">Our Team & Students</h2>
+          <p className="section-subtitle">Our team brings together diverse talents and expertise.</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {["/images/gallery-1.jpg", "/images/gallery-2.jpg", "/images/gallery-3.jpg", "/images/gallery-4.jpg"].map((src, i) => (
               <div key={i} className="rounded-2xl overflow-hidden shadow-md aspect-[4/3]">
-                <img src={src} alt={`Students collaborating ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                <img src={src} alt={`Team collaborating ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
               </div>
             ))}
           </div>
