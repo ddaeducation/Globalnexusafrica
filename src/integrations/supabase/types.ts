@@ -17,6 +17,7 @@ export type Database = {
       applications: {
         Row: {
           created_at: string
+          custom_answers: Json | null
           date_of_birth: string | null
           district: string
           email: string
@@ -35,6 +36,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          custom_answers?: Json | null
           date_of_birth?: string | null
           district?: string
           email?: string
@@ -53,6 +55,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          custom_answers?: Json | null
           date_of_birth?: string | null
           district?: string
           email?: string
@@ -95,6 +98,33 @@ export type Database = {
           id?: string
           message?: string
           subject?: string
+        }
+        Relationships: []
+      }
+      custom_questions: {
+        Row: {
+          created_at: string
+          id: string
+          is_required: boolean
+          question_text: string
+          question_type: string
+          sort_order: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_required?: boolean
+          question_text: string
+          question_type?: string
+          sort_order?: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_required?: boolean
+          question_text?: string
+          question_type?: string
+          sort_order?: number
         }
         Relationships: []
       }

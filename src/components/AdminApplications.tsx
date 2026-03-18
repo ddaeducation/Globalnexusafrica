@@ -19,6 +19,7 @@ type Application = {
   employment_status: string;
   monthly_income_range: string;
   has_disability: boolean;
+  custom_answers: Record<string, string> | null;
   created_at: string;
 };
 
@@ -220,6 +221,20 @@ const AdminApplications = () => {
                   </span>
                 </div>
               ))}
+              {/* Custom Answers */}
+              {selected.custom_answers && Object.keys(selected.custom_answers).length > 0 && (
+                <div className="pt-3 border-t border-border space-y-3">
+                  <span className="text-xs font-bold text-muted-foreground uppercase tracking-wide">Custom Answers</span>
+                  {Object.entries(selected.custom_answers).map(([question, answer]) => (
+                    <div key={question} className="flex flex-col sm:flex-row sm:items-start gap-1">
+                      <span className="text-xs font-medium text-muted-foreground sm:w-40 shrink-0">
+                        {question}
+                      </span>
+                      <span className="text-sm text-foreground">{answer || "—"}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="p-5 border-t border-border flex justify-end gap-2">
               <button

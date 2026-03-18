@@ -26,9 +26,18 @@ const incomeOptions = [
 ];
 
 type Program = { id: string; title: string };
+type CustomQuestion = {
+  id: string;
+  question_text: string;
+  question_type: "text" | "textarea";
+  is_required: boolean;
+  sort_order: number;
+};
 
 const ApplicationForm = () => {
   const [programs, setPrograms] = useState<Program[]>([]);
+  const [customQuestions, setCustomQuestions] = useState<CustomQuestion[]>([]);
+  const [customAnswers, setCustomAnswers] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
@@ -56,6 +65,14 @@ const ApplicationForm = () => {
       .then(({ data }) => {
         if (data) setPrograms(data);
       });
+
+    supabase
+      .from("custom_questions")
+      .select("*")
+      .order("sort_order")
+      .then(({ data }) => {
+        if (data) setCustomQuestions(data as CustomQuestion[]);
+      });
   }, []);
 
   const set = (key: string, value: string | boolean) =>
@@ -67,11 +84,29 @@ const ApplicationForm = () => {
       toast({ title: "Missing fields", description: "Please fill in all required fields.", variant: "destructive" });
       return;
     }
+
+    // Validate required custom questions
+    const missingCustom = customQuestions.filter(q => q.is_required && !customAnswers[q.id]?.trim());
+    if (missingCustom.length > 0) {
+      toast({ title: "Missing fields", description: `Please answer: ${missingCustom.map(q => q.question_text).join(", ")}`, variant: "destructive" });
+      return;
+    }
+
     setSubmitting(true);
+
+    // Build custom answers as JSON object
+    const customAnswersData: Record<string, string> = {};
+    customQuestions.forEach(q => {
+      if (customAnswers[q.id]?.trim()) {
+        customAnswersData[q.question_text] = customAnswers[q.id].trim();
+      }
+    });
+
     const { error } = await supabase.from("applications").insert({
       ...form,
       date_of_birth: form.date_of_birth || null,
-    });
+      custom_answers: customAnswersData,
+    } as any);
     setSubmitting(false);
     if (error) {
       toast({ title: "Error", description: "Failed to submit application. Please try again.", variant: "destructive" });
@@ -203,6 +238,36 @@ const ApplicationForm = () => {
           <option value="Yes">Yes</option>
         </select>
       </div>
+
+      {/* Custom Questions */}
+      {customQuestions.length > 0 && (
+        <div className="space-y-4 pt-2 border-t border-border">
+          <p className="text-sm font-semibold text-foreground">Additional Questions</p>
+          {customQuestions.map(q => (
+            <div key={q.id}>
+              <label className={labelClass}>
+                {q.question_text} {q.is_required && "*"}
+              </label>
+              {q.question_type === "textarea" ? (
+                <textarea
+                  className={inputClass + " min-h-[80px] resize-none"}
+                  value={customAnswers[q.id] || ""}
+                  onChange={e => setCustomAnswers(prev => ({ ...prev, [q.id]: e.target.value }))}
+                  required={q.is_required}
+                  rows={3}
+                />
+              ) : (
+                <input
+                  className={inputClass}
+                  value={customAnswers[q.id] || ""}
+                  onChange={e => setCustomAnswers(prev => ({ ...prev, [q.id]: e.target.value }))}
+                  required={q.is_required}
+                />
+              )}
+            </div>
+          ))}
+        </div>
+      )}
 
       <button
         type="submit"
