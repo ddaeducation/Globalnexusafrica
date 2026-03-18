@@ -4,9 +4,10 @@ import { saveSiteContent } from "@/hooks/useSiteContent";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import AdminProgramManager from "@/components/AdminProgramManager";
+import AdminApplications from "@/components/AdminApplications";
 import {
   LogOut, Home, Info, BookOpen, Briefcase, Newspaper, GraduationCap, Phone,
-  Save, Loader2, ChevronRight
+  Save, Loader2, ChevronRight, Users
 } from "lucide-react";
 
 type PageConfig = {
@@ -216,6 +217,10 @@ const pages: PageConfig[] = [
       ]},
     ],
   },
+  {
+    key: "applications", label: "Applications", icon: Users,
+    sections: [],
+  },
 ];
 
 const AdminDashboard = () => {
@@ -331,6 +336,8 @@ const AdminDashboard = () => {
         <div className="max-w-3xl">
           {activePage === "programs" ? (
             <AdminProgramManager />
+          ) : activePage === "applications" ? (
+            <AdminApplications />
           ) : (
             <>
               <h1 className="text-2xl font-bold text-foreground mb-1">{currentPage?.label}</h1>
