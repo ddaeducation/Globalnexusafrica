@@ -1,7 +1,9 @@
 import Layout from "@/components/Layout";
 import { useState } from "react";
-import { MapPin, Mail, Phone, Heart, Send, Facebook, Linkedin, Twitter, Instagram } from "lucide-react";
+import { MapPin, Mail, Phone, Heart, Send, Facebook, Linkedin, Twitter, Instagram, Loader2 } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/hooks/use-toast";
 
 const donationAmounts = [25, 50, 100, 250];
 
@@ -9,6 +11,31 @@ const Contact = () => {
   const [selectedDonation, setSelectedDonation] = useState(50);
   const { content: c } = useAllSiteContent("contact");
   const g = (section: string, key: string, fallback: string) => getContent(c, section, key, fallback);
+
+  const [form, setForm] = useState({ full_name: "", email: "", subject: "", message: "" });
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.full_name.trim() || !form.email.trim() || !form.message.trim()) {
+      toast({ title: "Please fill in all required fields", variant: "destructive" });
+      return;
+    }
+    setSending(true);
+    const { error } = await supabase.from("contact_messages").insert({
+      full_name: form.full_name.trim(),
+      email: form.email.trim(),
+      subject: form.subject.trim(),
+      message: form.message.trim(),
+    });
+    setSending(false);
+    if (error) {
+      toast({ title: "Failed to send message", description: error.message, variant: "destructive" });
+    } else {
+      toast({ title: "Message sent!", description: "We'll get back to you soon." });
+      setForm({ full_name: "", email: "", subject: "", message: "" });
+    }
+  };
 
   return (
     <Layout>
@@ -59,13 +86,14 @@ const Contact = () => {
 
             <div className="card-hover p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <input type="text" placeholder="Full Name" className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" />
-                <input type="email" placeholder="Email Address" className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" />
-                <input type="text" placeholder="Subject" className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" />
-                <textarea placeholder="Message" rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 resize-none focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" />
-                <button type="submit" className="w-full btn-primary flex items-center justify-center gap-2">
-                  <Send className="h-4 w-4" /> Send Message
+              <form className="space-y-4" onSubmit={handleSubmit}>
+                <input type="text" placeholder="Full Name *" value={form.full_name} onChange={(e) => setForm(f => ({ ...f, full_name: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" required />
+                <input type="email" placeholder="Email Address *" value={form.email} onChange={(e) => setForm(f => ({ ...f, email: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" required />
+                <input type="text" placeholder="Subject" value={form.subject} onChange={(e) => setForm(f => ({ ...f, subject: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" />
+                <textarea placeholder="Message *" rows={4} value={form.message} onChange={(e) => setForm(f => ({ ...f, message: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 resize-none focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" required />
+                <button type="submit" disabled={sending} className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50">
+                  {sending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+                  {sending ? "Sending..." : "Send Message"}
                 </button>
               </form>
             </div>

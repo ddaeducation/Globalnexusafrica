@@ -158,44 +158,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Student Gallery */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title">Our Students at Work</h2>
-          <p className="section-subtitle">Hands-on learning experiences that transform careers</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {["back.jpeg", "learning.jpeg", "steam2.jpeg"].map((img, i) => (
-              <div key={i} className="rounded-2xl overflow-hidden group cursor-pointer shadow-sm">
-                <img src={`${IMG_BASE}/${img}`} alt="Students" className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* News & Events */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title">Latest News & Events</h2>
-          <p className="section-subtitle">Stay informed about programs, workshops, and partnerships</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {defaultNews.map((item) => (
-              <div key={item.title} className="card-hover overflow-hidden group">
-                <div className="overflow-hidden">
-                  <img src={`${IMG_BASE}/${item.img}`} alt="Event" className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">{item.title}</h3>
-                  <p className="text-sm text-gray-500 mb-4 line-clamp-3">{item.desc}</p>
-                  <Link to="/news" className="text-primary font-semibold text-sm hover:underline inline-flex items-center gap-1">
-                    Learn more <ArrowRight className="h-3 w-3" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </Layout>
   );
 };

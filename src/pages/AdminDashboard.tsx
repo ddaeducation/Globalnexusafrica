@@ -5,9 +5,11 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import AdminProgramManager from "@/components/AdminProgramManager";
 import AdminApplications from "@/components/AdminApplications";
+import AdminMessages from "@/components/AdminMessages";
+import AdminSubscribers from "@/components/AdminSubscribers";
 import {
   LogOut, Home, Info, BookOpen, Briefcase, Newspaper, GraduationCap, Phone,
-  Save, Loader2, ChevronRight, Users
+  Save, Loader2, ChevronRight, Users, Mail, UserCheck
 } from "lucide-react";
 
 type PageConfig = {
@@ -221,6 +223,14 @@ const pages: PageConfig[] = [
     key: "applications", label: "Applications", icon: Users,
     sections: [],
   },
+  {
+    key: "messages", label: "Messages", icon: Mail,
+    sections: [],
+  },
+  {
+    key: "subscribers", label: "Subscribers", icon: UserCheck,
+    sections: [],
+  },
 ];
 
 const AdminDashboard = () => {
@@ -338,6 +348,10 @@ const AdminDashboard = () => {
             <AdminProgramManager />
           ) : activePage === "applications" ? (
             <AdminApplications />
+          ) : activePage === "messages" ? (
+            <AdminMessages />
+          ) : activePage === "subscribers" ? (
+            <AdminSubscribers />
           ) : (
             <>
               <h1 className="text-2xl font-bold text-foreground mb-1">{currentPage?.label}</h1>
