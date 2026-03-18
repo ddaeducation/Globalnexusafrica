@@ -1,44 +1,49 @@
 import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
+import { ClipboardList, Database, Cog, FileText, GraduationCap, Users, ArrowRight } from "lucide-react";
 
 const services = [
-  { title: "Training Enumerators", desc: "Our comprehensive enumerator training program combines theoretical knowledge with hands-on practice, covering survey methodologies, data quality protocols, and ethical guidelines." },
-  { title: "Data Collection", desc: "Utilizing cutting-edge digital tools and methodologies, we conduct comprehensive data collection across various sectors with rigorous quality control measures." },
-  { title: "Data Processing", desc: "Transform raw data into meaningful insights through our advanced processing services. We employ sophisticated cleaning algorithms, statistical validation techniques, and quality assurance protocols." },
-  { title: "Report Writing", desc: "Our expert report writing service transforms complex data into clear, actionable insights with detailed analysis, visual representations, and strategic recommendations." },
-  { title: "Internship", desc: "We offer academic and professional internship to students in Data Analytics, Data Science, Software Development and IT, providing hands-on experience in real-world projects." },
-  { title: "Interns to Companies", desc: "We connect companies in tech and data-driven fields with skilled interns proficient in data analytics, machine learning, software development, and IT." },
+  { icon: ClipboardList, title: "Training Enumerators", desc: "Comprehensive training covering survey methodologies, data quality protocols, and ethical guidelines with hands-on practice.", color: "from-red-500 to-rose-400" },
+  { icon: Database, title: "Data Collection", desc: "Cutting-edge digital tools and methodologies with rigorous quality control across various sectors.", color: "from-blue-500 to-cyan-400" },
+  { icon: Cog, title: "Data Processing", desc: "Advanced cleaning algorithms, statistical validation, and quality assurance for meaningful insights.", color: "from-purple-500 to-violet-400" },
+  { icon: FileText, title: "Report Writing", desc: "Complex data transformed into clear, actionable insights with visual representations and recommendations.", color: "from-orange-500 to-amber-400" },
+  { icon: GraduationCap, title: "Internship", desc: "Academic and professional internships in Data Analytics, Data Science, and Software Development.", color: "from-green-500 to-emerald-400" },
+  { icon: Users, title: "Interns to Companies", desc: "Connecting companies with skilled interns proficient in data analytics, ML, and software development.", color: "from-pink-500 to-rose-400" },
 ];
 
 const Services = () => (
   <Layout>
-    <section className="bg-primary py-16 text-white">
-      <div className="container mx-auto px-4 text-center">
-        <h1 className="text-3xl md:text-5xl font-bold mb-4">Professional Services</h1>
-        <p className="text-lg max-w-2xl mx-auto opacity-90">
-          We deliver comprehensive data solutions and actionable insights to drive informed business decisions.
+    <section className="hero-section py-20 text-white">
+      <div className="container mx-auto px-4 text-center relative z-10">
+        <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">Professional Services</h1>
+        <p className="text-lg max-w-2xl mx-auto opacity-90 animate-fade-up-delay-1">
+          Comprehensive data solutions and actionable insights for informed business decisions.
         </p>
       </div>
     </section>
 
-    <section className="py-12 bg-gray-50">
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((s) => (
-            <div key={s.title} className="bg-white rounded-lg p-8 shadow-md hover:shadow-lg transition">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{s.title}</h3>
-              <p className="text-sm text-gray-600">{s.desc}</p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((s, i) => (
+            <div key={s.title} className="card-hover p-7 group" style={{ animationDelay: `${i * 0.08}s` }}>
+              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${s.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <s.icon className="h-6 w-6 text-white" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{s.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 text-center bg-white rounded-lg p-10 shadow-md">
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Ready to Get Started?</h2>
-          <p className="text-gray-600 mb-6">
+        <div className="mt-16 text-center bg-white rounded-2xl p-12 shadow-sm border border-gray-100 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary" />
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Ready to Get Started?</h2>
+          <p className="text-gray-500 mb-8 max-w-lg mx-auto">
             Contact us to discuss your project requirements and how we can help you achieve your goals.
           </p>
-          <Link to="/contact" className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition inline-block">
-            Contact Us
+          <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
+            Contact Us <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>
