@@ -132,7 +132,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <h2 className="section-title">Our Vision & Mission</h2>
           <p className="section-subtitle">Shaping the future of technology education in Africa</p>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <div className="bg-card p-8 rounded-2xl shadow-sm border border-border relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/40" />
               <h3 className="text-2xl font-bold text-primary mb-4">Vision</h3>
