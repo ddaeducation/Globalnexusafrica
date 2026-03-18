@@ -57,13 +57,19 @@ const About = () => {
               </div>
             ))}
           </div>
-          <div className="bg-gray-50 rounded-2xl p-8 md:p-10">
-            <p className="text-gray-600 text-lg leading-relaxed mb-4">
-              {g("story", "paragraph1", "Global Nexus Institute is a leading educational institution dedicated to empowering the next generation of technology leaders. Founded with the vision of bridging the digital skills gap in Rwanda and East Africa, we provide world-class education in partnership with industry leaders.")}
-            </p>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              {g("story", "paragraph2", "Our institute combines theoretical knowledge with practical, hands-on experience to prepare students for the demands of the modern tech industry. Through our partnerships with leading technology companies and research institutions, we ensure our curriculum remains cutting-edge and relevant.")}
-            </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-muted/50 rounded-2xl p-8 border border-border">
+              <h3 className="text-xl font-bold text-foreground mb-3">Who We Are</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {g("story", "paragraph1", "A leading institution empowering Africa's next generation of tech leaders. We bridge the digital skills gap in Rwanda and East Africa through world-class education and industry partnerships.")}
+              </p>
+            </div>
+            <div className="bg-muted/50 rounded-2xl p-8 border border-border">
+              <h3 className="text-xl font-bold text-foreground mb-3">How We Teach</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {g("story", "paragraph2", "We blend theory with hands-on practice to prepare students for today's tech industry. Our partnerships with leading companies and research institutions keep our curriculum cutting-edge.")}
+              </p>
+            </div>
           </div>
         </div>
       </section>
