@@ -233,6 +233,14 @@ const pages: PageConfig[] = [
     key: "subscribers", label: "Subscribers", icon: UserCheck,
     sections: [],
   },
+  {
+    key: "form-questions", label: "Form Questions", icon: FileQuestion,
+    sections: [],
+  },
+  {
+    key: "images", label: "Images", icon: ImageIcon,
+    sections: [],
+  },
 ];
 
 const AdminDashboard = () => {
