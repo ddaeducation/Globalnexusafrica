@@ -228,7 +228,7 @@ const AdminDashboard = () => {
   const [loadingContent, setLoadingContent] = useState(true);
 
   // Load all existing content on mount
-  useState(() => {
+  useEffect(() => {
     const loadContent = async () => {
       const { data } = await supabase.from("site_content").select("*");
       if (data) {
