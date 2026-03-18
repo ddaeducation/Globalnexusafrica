@@ -14,6 +14,57 @@ export type Database = {
   }
   public: {
     Tables: {
+      programs: {
+        Row: {
+          accent: string
+          created_at: string
+          description: string
+          duration: string
+          focus: string
+          id: string
+          level: string
+          lms_url: string
+          pay_url: string
+          price: string
+          sort_order: number
+          title: string
+          tools: string
+          updated_at: string
+        }
+        Insert: {
+          accent?: string
+          created_at?: string
+          description?: string
+          duration?: string
+          focus?: string
+          id?: string
+          level?: string
+          lms_url?: string
+          pay_url?: string
+          price?: string
+          sort_order?: number
+          title: string
+          tools?: string
+          updated_at?: string
+        }
+        Update: {
+          accent?: string
+          created_at?: string
+          description?: string
+          duration?: string
+          focus?: string
+          id?: string
+          level?: string
+          lms_url?: string
+          pay_url?: string
+          price?: string
+          sort_order?: number
+          title?: string
+          tools?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       site_content: {
         Row: {
           content: Json
