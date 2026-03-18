@@ -1,0 +1,1 @@
+ALTER TABLE public.applications ADD COLUMN custom_answers jsonb DEFAULT '{}'::jsonb;

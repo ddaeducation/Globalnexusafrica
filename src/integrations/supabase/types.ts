@@ -17,6 +17,7 @@ export type Database = {
       applications: {
         Row: {
           created_at: string
+          custom_answers: Json | null
           date_of_birth: string | null
           district: string
           email: string
@@ -35,6 +36,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          custom_answers?: Json | null
           date_of_birth?: string | null
           district?: string
           email?: string
@@ -53,6 +55,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          custom_answers?: Json | null
           date_of_birth?: string | null
           district?: string
           email?: string
