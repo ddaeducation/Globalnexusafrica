@@ -5,7 +5,8 @@ import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 
-const donationAmounts = [25, 50, 100, 250];
+const donationAmountsUSD = [25, 50, 100, 250];
+const donationAmountsRWF = [5000, 10000, 25000, 50000];
 
 const Contact = () => {
   const [selectedDonation, setSelectedDonation] = useState<number | null>(50);
