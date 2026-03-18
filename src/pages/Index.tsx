@@ -53,7 +53,7 @@ const Index = () => {
             <Sparkles className="h-4 w-4" /> {g("hero", "badge", "Empowering Africa's Tech Future")}
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-4 sm:mb-6 text-white tracking-tight animate-fade-up-delay-1">
-            {g("hero", "title_line1", "Global Nexus")}<br />{g("hero", "title_line2", "Institute")}
+            {g("hero", "title_line1", "Global Nexus")} {g("hero", "title_line2", "Institute")}
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl mb-8 text-white/90 animate-fade-up-delay-2">
             {g("hero", "subtitle", "Connect with future tech leaders")}
