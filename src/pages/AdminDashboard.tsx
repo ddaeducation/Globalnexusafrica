@@ -7,9 +7,11 @@ import AdminProgramManager from "@/components/AdminProgramManager";
 import AdminApplications from "@/components/AdminApplications";
 import AdminMessages from "@/components/AdminMessages";
 import AdminSubscribers from "@/components/AdminSubscribers";
+import AdminFormQuestions from "@/components/AdminFormQuestions";
+import AdminImageManager from "@/components/AdminImageManager";
 import {
   LogOut, Home, Info, BookOpen, Briefcase, Newspaper, GraduationCap, Phone,
-  Save, Loader2, ChevronRight, Users, Mail, UserCheck
+  Save, Loader2, ChevronRight, Users, Mail, UserCheck, FileQuestion, ImageIcon
 } from "lucide-react";
 
 type PageConfig = {
