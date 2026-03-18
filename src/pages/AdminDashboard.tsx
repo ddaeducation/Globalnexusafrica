@@ -4,6 +4,7 @@ import { saveSiteContent } from "@/hooks/useSiteContent";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import AdminProgramManager from "@/components/AdminProgramManager";
+import AdminApplications from "@/components/AdminApplications";
 import {
   LogOut, Home, Info, BookOpen, Briefcase, Newspaper, GraduationCap, Phone,
   Save, Loader2, ChevronRight
