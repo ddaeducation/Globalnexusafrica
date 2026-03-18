@@ -129,7 +129,7 @@ const Index = () => {
 
       {/* Vision & Mission */}
       <section className="py-16 bg-muted/50">
-        <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <h2 className="section-title">Our Vision & Mission</h2>
           <p className="section-subtitle">Shaping the future of technology education in Africa</p>
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
