@@ -1,11 +1,12 @@
 import Layout from "@/components/Layout";
-import { Clock, BookOpen, ExternalLink } from "lucide-react";
+
+const IMG_BASE = "https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images";
 
 const programs = [
   {
     title: "Professional Data Analytics & GenAI",
     level: "Intermediate",
-    desc: "Master the Advanced of Python programming and its powerful data analysis tools, Excel, Python, VScode, and PowerBI. Accredited by Institute of Analytics (United Kingdom).",
+    desc: 'Master the Advanced of Python programming and its powerful data analysis tools, Excel, Python, VScode, and PowerBI. Accredited by Institute of Analytics (United Kingdom).',
     duration: "3 months",
     focus: "Comprehensive Data Analysis Tools",
     tools: "Python, Excel, MySQL, and PowerBI",
@@ -50,75 +51,49 @@ const programs = [
 
 const Programs = () => (
   <Layout>
-    <section className="hero-gradient text-primary-foreground">
-      <div className="container mx-auto px-4 py-20">
-        <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">Professional Programs</h1>
-        <p className="text-lg opacity-90 max-w-2xl">
+    <section className="bg-primary py-16 text-white">
+      <div className="container mx-auto px-4 text-center">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4">Professional Programs</h1>
+        <p className="text-lg max-w-2xl mx-auto opacity-90">
           Discover our comprehensive range of professional programs designed to prepare you for success in the data-driven world.
         </p>
       </div>
     </section>
 
-    <section className="container mx-auto px-4 py-16">
-      <div className="grid md:grid-cols-2 gap-8">
-        {programs.map((p) => (
-          <div key={p.title} className="bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-shadow">
-            <div className="p-6">
-              <span className="inline-block bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-3">
-                {p.level}
-              </span>
-              <h3 className="font-display text-xl font-bold text-foreground mb-2">{p.title}</h3>
-              <p className="text-sm text-muted-foreground mb-4">{p.desc}</p>
-              <div className="space-y-2 mb-4">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Clock className="h-4 w-4 text-primary" /> Duration: {p.duration}
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <BookOpen className="h-4 w-4 text-primary" /> {p.focus}
-                </div>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <BookOpen className="h-4 w-4 text-primary" /> {p.tools}
-                </div>
-              </div>
-              <div className="flex items-center justify-between pt-4 border-t border-border">
-                <span className="font-display text-2xl font-bold text-primary">{p.price}</span>
-                <div className="flex gap-2">
-                  <a
-                    href={p.lms}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition flex items-center gap-1"
-                  >
-                    Open LMS <ExternalLink className="h-3 w-3" />
-                  </a>
-                  <a
-                    href={p.pay}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-secondary text-secondary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition"
-                  >
-                    Pay Now
-                  </a>
+    <section className="py-12 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-2 gap-8">
+          {programs.map((p) => (
+            <div key={p.title} className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="p-6">
+                <span className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                  {p.level}
+                </span>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{p.title}</h3>
+                <p className="text-sm text-gray-600 mb-4">{p.desc}</p>
+                <ul className="space-y-2 mb-4">
+                  <li className="text-sm text-gray-600">• Duration: {p.duration}</li>
+                  <li className="text-sm text-gray-600">• {p.focus}</li>
+                  <li className="text-sm text-gray-600">• {p.tools}</li>
+                </ul>
+                <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                  <span className="text-2xl font-bold text-primary">{p.price}</span>
+                  <div className="flex gap-2">
+                    <a href={p.lms} target="_blank" rel="noopener noreferrer" className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition">
+                      Open LMS
+                    </a>
+                    <a href="https://skilla.africa/" target="_blank" rel="noopener noreferrer" className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition">
+                      Sign In
+                    </a>
+                    <a href={p.pay} target="_blank" rel="noopener noreferrer" className="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition">
+                      Pay Now
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-16 text-center bg-muted rounded-xl p-10 border border-border">
-        <h2 className="font-display text-2xl font-bold text-foreground mb-3">Want to Learn More?</h2>
-        <p className="text-muted-foreground mb-6">
-          Open our comprehensive program brochure for detailed information about our courses, faculty, and admission requirements.
-        </p>
-        <a
-          href="https://skilla.africa/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition inline-block"
-        >
-          Visit eLearning Portal
-        </a>
+          ))}
+        </div>
       </div>
     </section>
   </Layout>
