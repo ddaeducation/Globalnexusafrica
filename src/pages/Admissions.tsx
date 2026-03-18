@@ -52,22 +52,28 @@ const Admissions = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
           <h2 className="section-title">Scholarships & Financial Aid</h2>
           <p className="section-subtitle">We're committed to making education accessible</p>
-          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="card-hover p-8 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/40" />
               <CheckCircle className="h-10 w-10 text-primary mb-4" />
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Merit Scholarships</h3>
-              <p className="text-sm text-gray-500">Available for outstanding academic achievers, covering up to 30% of tuition fees.</p>
+              <h3 className="text-lg font-bold text-foreground mb-2">Merit Scholarships</h3>
+              <p className="text-sm text-muted-foreground">Available for outstanding academic achievers, covering up to 30% of tuition fees.</p>
             </div>
             <div className="card-hover p-8 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent to-accent/40" />
               <CheckCircle className="h-10 w-10 text-accent mb-4" />
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Installment Plans</h3>
-              <p className="text-sm text-gray-500">Flexible payment options available to help manage your educational investment.</p>
+              <h3 className="text-lg font-bold text-foreground mb-2">Installment Plans</h3>
+              <p className="text-sm text-muted-foreground">Flexible payment options available to help manage your educational investment.</p>
+            </div>
+            <div className="card-hover p-8 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 to-emerald-400" />
+              <BadgePercent className="h-10 w-10 text-green-600 mb-4" />
+              <h3 className="text-lg font-bold text-foreground mb-2">Pay Upfront & Save</h3>
+              <p className="text-sm text-muted-foreground">Pay your full tuition before the program starts and receive an exclusive early-bird discount on your fees.</p>
             </div>
           </div>
         </div>
