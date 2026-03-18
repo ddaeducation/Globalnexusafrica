@@ -1,12 +1,13 @@
 import Layout from "@/components/Layout";
+import { Users, Target, Lightbulb } from "lucide-react";
 
 const IMG_BASE = "https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images";
 
 const partners = [
-  { name: "NCC Education UK", desc: "Certified programs in collaboration with NCC Education UK, ensuring international recognition of our qualifications.", img: "ncc.png" },
-  { name: "RMI-Rwanda", desc: "Strategic partnership for professional development and industry-aligned training programs.", img: "rmi.png" },
-  { name: "SOLVIT AFRICA", desc: "Collaborations with leading tech companies for internships, mentorship, and employment opportunities.", img: "solvit.png" },
-  { name: "ICT Chamber-Rwanda", desc: "Collaborations with ICT Chamber Rwanda and their leading tech companies for mentorship and employment opportunities.", img: "ict.png" },
+  { name: "NCC Education UK", desc: "Certified programs ensuring international recognition of qualifications.", img: "ncc.png" },
+  { name: "RMI-Rwanda", desc: "Strategic partnership for professional development and industry-aligned training.", img: "rmi.png" },
+  { name: "SOLVIT AFRICA", desc: "Collaborations for internships, mentorship, and employment opportunities.", img: "solvit.png" },
+  { name: "ICT Chamber-Rwanda", desc: "Leading tech companies partnerships for mentorship and employment.", img: "ict.png" },
 ];
 
 const team = [
@@ -23,38 +24,57 @@ const team = [
 
 const About = () => (
   <Layout>
-    {/* Hero */}
-    <section className="bg-primary py-16 text-white">
-      <div className="container mx-auto px-4 text-center">
-        <h1 className="text-3xl md:text-5xl font-bold mb-4">About Global Nexus Institute</h1>
-        <p className="text-lg max-w-2xl mx-auto opacity-90">
-          Global Nexus Institute: Bridging the Digital Skills Gap Empowering the next generation of tech leaders with world-class education and hands-on experience.
+    <section className="hero-section py-20 text-white">
+      <div className="container mx-auto px-4 text-center relative z-10">
+        <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">About Global Nexus Institute</h1>
+        <p className="text-lg max-w-2xl mx-auto opacity-90 animate-fade-up-delay-1">
+          Bridging the Digital Skills Gap — Empowering the next generation of tech leaders with world-class education and hands-on experience.
         </p>
       </div>
     </section>
 
-    {/* Story */}
-    <section className="py-12 bg-white">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <p className="text-gray-600 text-lg mb-4">
-          Global Nexus Institute is a leading educational institution dedicated to empowering the next generation of technology leaders. Founded with the vision of bridging the digital skills gap in Rwanda and East Africa, we provide world-class education in partnership with industry leaders.
-        </p>
-        <p className="text-gray-600 text-lg">
-          Our institute combines theoretical knowledge with practical, hands-on experience to prepare students for the demands of the modern tech industry. Through our partnerships with leading technology companies and research institutions, we ensure our curriculum remains cutting-edge and relevant.
-        </p>
+    {/* Story with icons */}
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
+          {[
+            { icon: Target, title: "Our Purpose", text: "Bridging the digital skills gap in Rwanda and East Africa." },
+            { icon: Users, title: "Our Approach", text: "Combining theory with practical, hands-on industry experience." },
+            { icon: Lightbulb, title: "Our Edge", text: "Partnerships with leading tech companies keep us cutting-edge." },
+          ].map((item) => (
+            <div key={item.title} className="text-center p-6">
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <item.icon className="h-7 w-7 text-primary" />
+              </div>
+              <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+              <p className="text-sm text-gray-500">{item.text}</p>
+            </div>
+          ))}
+        </div>
+        <div className="bg-gray-50 rounded-2xl p-8 md:p-10">
+          <p className="text-gray-600 text-lg leading-relaxed mb-4">
+            Global Nexus Institute is a leading educational institution dedicated to empowering the next generation of technology leaders. Founded with the vision of bridging the digital skills gap in Rwanda and East Africa, we provide world-class education in partnership with industry leaders.
+          </p>
+          <p className="text-gray-600 text-lg leading-relaxed">
+            Our institute combines theoretical knowledge with practical, hands-on experience to prepare students for the demands of the modern tech industry. Through our partnerships with leading technology companies and research institutions, we ensure our curriculum remains cutting-edge and relevant.
+          </p>
+        </div>
       </div>
     </section>
 
     {/* Partners */}
-    <section className="py-12 bg-gray-50">
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-900 text-center mb-10">Accreditation & Partnerships</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {partners.map((p) => (
-            <div key={p.name} className="bg-white rounded-lg p-6 shadow-md text-center">
-              <img src={`${IMG_BASE}/${p.img}`} alt={p.name} className="h-20 w-20 mx-auto mb-4 object-contain" loading="lazy" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{p.name}</h3>
-              <p className="text-sm text-gray-600">{p.desc}</p>
+        <h2 className="section-title">Accreditation & Partnerships</h2>
+        <p className="section-subtitle">Globally recognized certifications and industry partnerships</p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {partners.map((p, i) => (
+            <div key={p.name} className="card-hover p-6 text-center" style={{ animationDelay: `${i * 0.1}s` }}>
+              <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gray-50 flex items-center justify-center overflow-hidden p-2">
+                <img src={`${IMG_BASE}/${p.img}`} alt={p.name} className="max-h-full max-w-full object-contain" loading="lazy" />
+              </div>
+              <h3 className="font-bold text-gray-900 mb-1">{p.name}</h3>
+              <p className="text-xs text-gray-500">{p.desc}</p>
             </div>
           ))}
         </div>
@@ -62,21 +82,19 @@ const About = () => (
     </section>
 
     {/* Team */}
-    <section className="py-12 bg-white">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-gray-900 text-center mb-10">Our Passionate Team</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <h2 className="section-title">Our Passionate Team</h2>
+        <p className="section-subtitle">Meet the experts driving innovation and excellence</p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {team.map((t) => (
-            <div key={t.name} className="bg-gray-50 rounded-lg p-6 text-center hover:shadow-lg transition">
-              <img
-                src={`${IMG_BASE}/${t.img}`}
-                alt={t.name}
-                className="w-24 h-24 mx-auto mb-4 rounded-full object-cover"
-                loading="lazy"
-              />
-              <h3 className="text-lg font-semibold text-gray-900">{t.name}</h3>
-              <p className="text-sm text-primary font-medium">{t.role}</p>
-              <p className="text-xs text-gray-600 mt-1">{t.desc}</p>
+            <div key={t.name} className="card-hover p-6 text-center group">
+              <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-gray-100 group-hover:ring-primary/20 transition-all duration-300">
+                <img src={`${IMG_BASE}/${t.img}`} alt={t.name} className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <h3 className="font-bold text-gray-900">{t.name}</h3>
+              <p className="text-sm text-primary font-semibold mt-0.5">{t.role}</p>
+              <p className="text-xs text-gray-500 mt-1">{t.desc}</p>
             </div>
           ))}
         </div>
