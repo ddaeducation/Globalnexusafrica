@@ -127,8 +127,47 @@ const Index = () => {
         </div>
       )}
 
+      {/* Vision & Mission */}
+      <section className="py-16 bg-muted/50">
+        <div className="container mx-auto px-4">
+          <h2 className="section-title">Our Vision & Mission</h2>
+          <p className="section-subtitle">Shaping the future of technology education in Africa</p>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-card p-8 rounded-2xl shadow-sm border border-border relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/40" />
+              <h3 className="text-2xl font-bold text-primary mb-4">Vision</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {g("vision_mission", "vision", "To be a transformative institution that empowers the next generation of leaders, innovators, and professionals in technology and data sciences across Africa and beyond.")}
+              </p>
+            </div>
+            <div className="bg-card p-8 rounded-2xl shadow-sm border border-border relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent to-accent/40" />
+              <h3 className="text-2xl font-bold text-accent mb-4">Mission</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {g("vision_mission", "mission", "To provide high-quality, accessible education that bridges local needs with global opportunities, creating pathways to employment, innovation, and societal impact.")}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className="py-16 bg-card">
+        <div className="container mx-auto px-4">
+          <h2 className="section-title">Our Students at Work</h2>
+          <p className="section-subtitle">Hands-on learning and collaborative problem solving</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {["/images/gallery-1.jpg", "/images/gallery-2.jpg", "/images/gallery-3.jpg"].map((src, i) => (
+              <div key={i} className="rounded-2xl overflow-hidden shadow-md aspect-[4/3]">
+                <img src={src} alt={`Students collaborating ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Quick Links */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {quickLinks.map((item, i) => (
@@ -136,35 +175,11 @@ const Index = () => {
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                   <item.icon className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h3>
-                <p className="text-sm text-gray-500">{item.desc}</p>
+                <h3 className="text-lg font-bold text-foreground mb-1">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.desc}</p>
                 <ArrowRight className="h-4 w-4 text-primary mt-3 group-hover:translate-x-1 transition-transform" />
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Vision & Mission */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title">Our Vision & Mission</h2>
-          <p className="section-subtitle">Shaping the future of technology education in Africa</p>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/40" />
-              <h3 className="text-2xl font-bold text-primary mb-4">Vision</h3>
-              <p className="text-gray-600 leading-relaxed">
-                {g("vision_mission", "vision", "To be a transformative institution that empowers the next generation of leaders, innovators, and professionals in technology and data sciences across Africa and beyond.")}
-              </p>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent to-accent/40" />
-              <h3 className="text-2xl font-bold text-accent mb-4">Mission</h3>
-              <p className="text-gray-600 leading-relaxed">
-                {g("vision_mission", "mission", "To provide high-quality, accessible education that bridges local needs with global opportunities, creating pathways to employment, innovation, and societal impact.")}
-              </p>
-            </div>
           </div>
         </div>
       </section>
