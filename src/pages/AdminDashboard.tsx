@@ -348,6 +348,10 @@ const AdminDashboard = () => {
             <AdminProgramManager />
           ) : activePage === "applications" ? (
             <AdminApplications />
+          ) : activePage === "messages" ? (
+            <AdminMessages />
+          ) : activePage === "subscribers" ? (
+            <AdminSubscribers />
           ) : (
             <>
               <h1 className="text-2xl font-bold text-foreground mb-1">{currentPage?.label}</h1>
