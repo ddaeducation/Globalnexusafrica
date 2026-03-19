@@ -371,6 +371,8 @@ const AdminDashboard = () => {
             <AdminFormQuestions />
           ) : activePage === "images" ? (
             <AdminImageManager />
+          ) : activePage === "send-message" ? (
+            <AdminSendMessage />
           ) : (
             <>
               <h1 className="text-2xl font-bold text-foreground mb-1">{currentPage?.label}</h1>
