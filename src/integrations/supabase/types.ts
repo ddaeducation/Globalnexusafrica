@@ -179,6 +179,36 @@ export type Database = {
         }
         Relationships: []
       }
+      sent_messages: {
+        Row: {
+          created_at: string
+          id: string
+          message: string
+          recipient_count: number
+          recipient_emails: Json
+          sent_by: string | null
+          subject: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          message: string
+          recipient_count?: number
+          recipient_emails?: Json
+          sent_by?: string | null
+          subject: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          message?: string
+          recipient_count?: number
+          recipient_emails?: Json
+          sent_by?: string | null
+          subject?: string
+        }
+        Relationships: []
+      }
       site_content: {
         Row: {
           content: Json
