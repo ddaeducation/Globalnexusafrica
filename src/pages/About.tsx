@@ -92,19 +92,19 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-card">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="section-title">Our Passionate Team</h2>
           <p className="section-subtitle">Meet the experts driving innovation and excellence</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {team.map((t) => (
               <div key={t.name} className="card-hover p-6 text-center group">
-                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-border group-hover:ring-primary/20 transition-all duration-300">
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-gray-100 group-hover:ring-primary/20 transition-all duration-300">
                   <img src={`${IMG_BASE}/${t.img}`} alt={t.name} className="w-full h-full object-cover" loading="lazy" />
                 </div>
-                <h3 className="font-bold text-foreground">{t.name}</h3>
+                <h3 className="font-bold text-gray-900">{t.name}</h3>
                 <p className="text-sm text-primary font-semibold mt-0.5">{t.role}</p>
-                <p className="text-xs text-muted-foreground mt-1">{t.desc}</p>
+                <p className="text-xs text-gray-500 mt-1">{t.desc}</p>
               </div>
             ))}
           </div>
