@@ -9,9 +9,10 @@ import AdminMessages from "@/components/AdminMessages";
 import AdminSubscribers from "@/components/AdminSubscribers";
 import AdminFormQuestions from "@/components/AdminFormQuestions";
 import AdminImageManager from "@/components/AdminImageManager";
+import AdminSendMessage from "@/components/AdminSendMessage";
 import {
   LogOut, Home, Info, BookOpen, Briefcase, Newspaper, GraduationCap, Phone,
-  Save, Loader2, ChevronRight, Users, Mail, UserCheck, FileQuestion, Image as ImageIcon
+  Save, Loader2, ChevronRight, Users, Mail, UserCheck, FileQuestion, Image as ImageIcon, Send
 } from "lucide-react";
 
 type PageConfig = {
@@ -241,6 +242,10 @@ const pages: PageConfig[] = [
     key: "images", label: "Images", icon: ImageIcon,
     sections: [],
   },
+  {
+    key: "send-message", label: "Send Message", icon: Send,
+    sections: [],
+  },
 ];
 
 const AdminDashboard = () => {
@@ -366,6 +371,8 @@ const AdminDashboard = () => {
             <AdminFormQuestions />
           ) : activePage === "images" ? (
             <AdminImageManager />
+          ) : activePage === "send-message" ? (
+            <AdminSendMessage />
           ) : (
             <>
               <h1 className="text-2xl font-bold text-foreground mb-1">{currentPage?.label}</h1>
