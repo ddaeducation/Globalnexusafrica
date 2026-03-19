@@ -40,7 +40,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-card">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {[
@@ -52,21 +52,21 @@ const About = () => {
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <item.icon className="h-7 w-7 text-primary" />
                 </div>
-                <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.text}</p>
+                <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-500">{item.text}</p>
               </div>
             ))}
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-muted/50 rounded-2xl p-8 border border-border">
-              <h3 className="text-xl font-bold text-foreground mb-3">Who We Are</h3>
-              <p className="text-muted-foreground leading-relaxed">
+            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Who We Are</h3>
+              <p className="text-gray-500 leading-relaxed">
                 {g("story", "paragraph1", "A leading institution empowering Africa's next generation of tech leaders. We bridge the digital skills gap in Rwanda and East Africa through world-class education and industry partnerships.")}
               </p>
             </div>
-            <div className="bg-muted/50 rounded-2xl p-8 border border-border">
-              <h3 className="text-xl font-bold text-foreground mb-3">How We Teach</h3>
-              <p className="text-muted-foreground leading-relaxed">
+            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">How We Teach</h3>
+              <p className="text-gray-500 leading-relaxed">
                 {g("story", "paragraph2", "We blend theory with hands-on practice to prepare students for today's tech industry. Our partnerships with leading companies and research institutions keep our curriculum cutting-edge.")}
               </p>
             </div>
