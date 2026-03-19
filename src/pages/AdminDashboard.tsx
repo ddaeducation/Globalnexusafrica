@@ -9,9 +9,10 @@ import AdminMessages from "@/components/AdminMessages";
 import AdminSubscribers from "@/components/AdminSubscribers";
 import AdminFormQuestions from "@/components/AdminFormQuestions";
 import AdminImageManager from "@/components/AdminImageManager";
+import AdminSendMessage from "@/components/AdminSendMessage";
 import {
   LogOut, Home, Info, BookOpen, Briefcase, Newspaper, GraduationCap, Phone,
-  Save, Loader2, ChevronRight, Users, Mail, UserCheck, FileQuestion, Image as ImageIcon
+  Save, Loader2, ChevronRight, Users, Mail, UserCheck, FileQuestion, Image as ImageIcon, Send
 } from "lucide-react";
 
 type PageConfig = {
