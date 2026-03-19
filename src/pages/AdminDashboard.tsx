@@ -242,6 +242,10 @@ const pages: PageConfig[] = [
     key: "images", label: "Images", icon: ImageIcon,
     sections: [],
   },
+  {
+    key: "send-message", label: "Send Message", icon: Send,
+    sections: [],
+  },
 ];
 
 const AdminDashboard = () => {
