@@ -37,7 +37,7 @@ const Footer = () => {
           <div>
             <div className="mb-5 flex items-center gap-3">
               <img
-                src="https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images/lgo.png"
+                src="https://www.globalnexus.africa/images/lgo.png"
                 alt="Global Nexus Institute"
                 className="h-14 w-auto rounded-xl bg-white p-1.5 shadow-lg"
               />
