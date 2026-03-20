@@ -13,24 +13,6 @@ const quickLinks = [
   { title: "Contact Us", desc: "Get in touch with our team", path: "/contact", icon: Phone },
 ];
 
-const defaultNews = [
-  {
-    title: "Professional Data Science & Artificial Intelligence (New)",
-    desc: "Join us new professional Data Science & Artificial Intelligence program in collaboration with Institute of Analytics (Endorsed).",
-    img: "teaching.jpeg",
-  },
-  {
-    title: "National Computing Center (UK) & Tech Innovation Workshop",
-    desc: "A hands-on workshop exploring the latest trends in AI and Python Data Analytics and more",
-    img: "studing.jpeg",
-  },
-  {
-    title: "Professional Business Data Analytics (New)",
-    desc: "Global Nexus Institute is pleased to announce the new program: Professional Business Data Analytics (endorsed by NCC and IoA).",
-    img: "setting.jpeg",
-  },
-];
-
 const Index = () => {
   const [showPopup, setShowPopup] = useState(false);
   const { content: c } = useAllSiteContent("home");
@@ -56,28 +38,31 @@ const Index = () => {
 • 4 Weeks, live online sessions
 • Led by Professional Data Analysts & Scientists
 • Live sessions Start on: April 6, 2026
-• WhatsApp: +250787406140`,
+• WhatsApp: +250787406140`
   );
 
   return (
     <Layout>
       {/* Hero Section */}
       <section
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center px-4 sm:px-6"
-        style={{ backgroundImage: `url('${heroImage}')` }}
+        className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
+        style={{ backgroundImage: `url('${heroImage}')`, zIndex: 50 }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
-        <div className="relative z-10 text-center w-full max-w-4xl mx-auto py-6">
-          <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md text-white text-sm px-4 py-1.5 rounded-full mb-6 animate-fade-up">
+        {/* ✅ No overlay */}
+        <div className="relative z-50 text-center w-full max-w-4xl mx-auto py-6">
+          <div className="inline-flex items-center gap-2 text-white text-sm px-4 py-1.5 rounded-full mb-6 animate-fade-up">
             <Sparkles className="h-4 w-4" />
             {g("hero", "badge", "Empowering Africa's Tech Future")}
           </div>
+
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-4 sm:mb-6 text-white tracking-tight animate-fade-up-delay-1">
             {g("hero", "title_line1", "Global Nexus")} {g("hero", "title_line2", "Institute")}
           </h1>
+
           <p className="text-lg sm:text-xl md:text-2xl mb-8 text-white/90 animate-fade-up-delay-2">
             {g("hero", "subtitle", "Connect with future tech leaders")}
           </p>
+
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-up-delay-3">
             <Link
               to="/programs"
@@ -94,6 +79,7 @@ const Index = () => {
               Our eLearning
             </a>
           </div>
+
           <a
             href="https://skilla.africa/auth?redirect=/become-instructor"
             target="_blank"
@@ -102,9 +88,10 @@ const Index = () => {
           >
             Become an Instructor
           </a>
+
           <div className="grid grid-cols-3 gap-4 sm:gap-6 mt-14 max-w-lg mx-auto">
             {stats.map((s) => (
-              <div key={s.label} className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-4 sm:p-5">
+              <div key={s.label} className="rounded-2xl p-4 sm:p-5 border border-white/20 bg-transparent">
                 <div className="text-3xl sm:text-4xl font-extrabold mb-1 text-white">{s.value}</div>
                 <div className="text-xs sm:text-sm text-white/70">{s.label}</div>
               </div>
@@ -167,7 +154,7 @@ const Index = () => {
       )}
 
       {/* Vision & Mission */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16 relative z-0">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="section-title">Our Vision & Mission</h2>
           <p className="section-subtitle">Shaping the future of technology education in Africa</p>
@@ -179,7 +166,7 @@ const Index = () => {
                 {g(
                   "vision_mission",
                   "vision",
-                  "To be a transformative institution that empowers the next generation of leaders, innovators, and professionals in technology and data sciences across Africa and beyond.",
+                  "To be a transformative institution that empowers the next generation of leaders, innovators, and professionals in technology and data sciences across Africa and beyond."
                 )}
               </p>
             </div>
@@ -190,7 +177,7 @@ const Index = () => {
                 {g(
                   "vision_mission",
                   "mission",
-                  "To provide high-quality, accessible education that bridges local needs with global opportunities, creating pathways to employment, innovation, and societal impact.",
+                  "To provide high-quality, accessible education that bridges local needs with global opportunities, creating pathways to employment, innovation, and societal impact."
                 )}
               </p>
             </div>
@@ -199,7 +186,7 @@ const Index = () => {
       </section>
 
       {/* Gallery */}
-      <section className="py-16 bg-card">
+      <section className="py-16 relative z-0">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="section-title">Our Team & Students</h2>
           <p className="section-subtitle">Our team brings together diverse talents and expertise.</p>
@@ -213,14 +200,14 @@ const Index = () => {
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-              ),
+              )
             )}
           </div>
         </div>
       </section>
 
       {/* Quick Links */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16 relative z-0">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {quickLinks.map((item, i) => (
