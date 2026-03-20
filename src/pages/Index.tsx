@@ -14,9 +14,21 @@ const quickLinks = [
 ];
 
 const defaultNews = [
-  { title: "Professional Data Science & Artificial Intelligence (New)", desc: "Join us new professional Data Science & Artificial Intelligence program in collaboration with Institute of Analytics (Endorsed).", img: "teaching.jpeg" },
-  { title: "National Computing Center (UK) & Tech Innovation Workshop", desc: "A hands-on workshop exploring the latest trends in AI and Python Data Analytics and more", img: "studing.jpeg" },
-  { title: "Professional Business Data Analytics (New)", desc: "Global Nexus Institute is pleased to announce the new program: Professional Business Data Analytics (endorsed by NCC and IoA).", img: "setting.jpeg" },
+  {
+    title: "Professional Data Science & Artificial Intelligence (New)",
+    desc: "Join us new professional Data Science & Artificial Intelligence program in collaboration with Institute of Analytics (Endorsed).",
+    img: "teaching.jpeg",
+  },
+  {
+    title: "National Computing Center (UK) & Tech Innovation Workshop",
+    desc: "A hands-on workshop exploring the latest trends in AI and Python Data Analytics and more",
+    img: "studing.jpeg",
+  },
+  {
+    title: "Professional Business Data Analytics (New)",
+    desc: "Global Nexus Institute is pleased to announce the new program: Professional Business Data Analytics (endorsed by NCC and IoA).",
+    img: "setting.jpeg",
+  },
 ];
 
 const Index = () => {
@@ -38,7 +50,11 @@ const Index = () => {
     { value: g("stats", "stat3_value", "10+"), label: g("stats", "stat3_label", "Expert Mentors") },
   ];
 
-  const popupDetails = g("popup", "details", "• Learn With our platform: www.skilla.africa\n• 4 Weeks, live online sessions\n• Led by Professional Data Analysts & Scientists\n• Live sessions Start on: April 6, 2026\n• WhatsApp: +250787406140");
+  const popupDetails = g(
+    "popup",
+    "details",
+    "• Learn With our platform: www.skilla.africa\n• 4 Weeks, live online sessions\n• Led by Professional Data Analysts & Scientists\n• Live sessions Start on: April 6, 2026\n• WhatsApp: +250787406140",
+  );
 
   return (
     <Layout>
@@ -47,7 +63,7 @@ const Index = () => {
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center px-4 sm:px-6"
         style={{ backgroundImage: `url('${heroImage}')` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" /> */}
         <div className="relative z-10 text-center w-full max-w-4xl mx-auto py-6">
           <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md text-white text-sm px-4 py-1.5 rounded-full mb-6 animate-fade-up">
             <Sparkles className="h-4 w-4" /> {g("hero", "badge", "Empowering Africa's Tech Future")}
@@ -60,15 +76,28 @@ const Index = () => {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-up-delay-3">
-            <Link to="/programs" className="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2">
+            <Link
+              to="/programs"
+              className="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2"
+            >
               Explore Programs <ArrowRight className="h-4 w-4" />
             </Link>
-            <a href="https://skilla.africa/" target="_blank" rel="noopener noreferrer" className="border-2 border-white/70 text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition-all duration-300">
+            <a
+              href="https://skilla.africa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-white/70 text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition-all duration-300"
+            >
               Our eLearning
             </a>
           </div>
 
-          <a href="https://skilla.africa/auth?redirect=/become-instructor" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-xl text-white bg-primary hover:bg-primary-dark transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-primary/40">
+          <a
+            href="https://skilla.africa/auth?redirect=/become-instructor"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-xl text-white bg-primary hover:bg-primary-dark transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-primary/40"
+          >
             Become an Instructor
           </a>
 
@@ -90,7 +119,10 @@ const Index = () => {
             {/* Top accent bar */}
             <div className="h-1.5 bg-gradient-to-r from-primary via-primary to-accent" />
 
-            <button onClick={() => setShowPopup(false)} className="absolute top-4 right-4 p-1.5 rounded-full bg-muted hover:bg-muted/80 text-muted-foreground transition z-10">
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute top-4 right-4 p-1.5 rounded-full bg-muted hover:bg-muted/80 text-muted-foreground transition z-10"
+            >
               <X className="h-4 w-4" />
             </button>
 
@@ -98,14 +130,20 @@ const Index = () => {
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4">
                 <Sparkles className="h-3.5 w-3.5" /> Now Accepting Applications
               </div>
-              <h2 className="text-2xl font-bold text-card-foreground mb-1">{g("popup", "title", "Call For Application!")}</h2>
-              <p className="text-muted-foreground text-sm mb-1">{g("popup", "subtitle", "Don't miss this opportunity to join us!")}</p>
+              <h2 className="text-2xl font-bold text-card-foreground mb-1">
+                {g("popup", "title", "Call For Application!")}
+              </h2>
+              <p className="text-muted-foreground text-sm mb-1">
+                {g("popup", "subtitle", "Don't miss this opportunity to join us!")}
+              </p>
               <p className="text-primary font-bold text-sm">{g("popup", "deadline", "Deadline: April 6, 2026")}</p>
             </div>
 
             <div className="px-8 pb-6">
               <div className="bg-muted/50 border border-border rounded-xl p-5 text-left mb-5">
-                <h3 className="font-bold text-card-foreground mb-3 text-lg">{g("popup", "program_name", "Python For Data Analyst (Online)")}</h3>
+                <h3 className="font-bold text-card-foreground mb-3 text-lg">
+                  {g("popup", "program_name", "Python For Data Analyst (Online)")}
+                </h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   {popupDetails.split("\n").map((line, i) => (
                     <li key={i} className="flex items-start gap-2">
@@ -119,7 +157,12 @@ const Index = () => {
                 </div>
               </div>
 
-              <a href={g("popup", "apply_url", "https://forms.gle/ReNWMuzp6vhBLaMs8")} target="_blank" rel="noopener noreferrer" className="block btn-primary w-full text-center text-base">
+              <a
+                href={g("popup", "apply_url", "https://forms.gle/ReNWMuzp6vhBLaMs8")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block btn-primary w-full text-center text-base"
+              >
                 {g("popup", "apply_button_text", "Apply For Python For Data Analyst")}
               </a>
             </div>
@@ -137,14 +180,22 @@ const Index = () => {
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/40" />
               <h3 className="text-2xl font-bold text-primary mb-4">Vision</h3>
               <p className="text-muted-foreground leading-relaxed">
-                {g("vision_mission", "vision", "To be a transformative institution that empowers the next generation of leaders, innovators, and professionals in technology and data sciences across Africa and beyond.")}
+                {g(
+                  "vision_mission",
+                  "vision",
+                  "To be a transformative institution that empowers the next generation of leaders, innovators, and professionals in technology and data sciences across Africa and beyond.",
+                )}
               </p>
             </div>
             <div className="bg-card p-8 rounded-2xl shadow-sm border border-border relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent to-accent/40" />
               <h3 className="text-2xl font-bold text-accent mb-4">Mission</h3>
               <p className="text-muted-foreground leading-relaxed">
-                {g("vision_mission", "mission", "To provide high-quality, accessible education that bridges local needs with global opportunities, creating pathways to employment, innovation, and societal impact.")}
+                {g(
+                  "vision_mission",
+                  "mission",
+                  "To provide high-quality, accessible education that bridges local needs with global opportunities, creating pathways to employment, innovation, and societal impact.",
+                )}
               </p>
             </div>
           </div>
@@ -157,11 +208,17 @@ const Index = () => {
           <h2 className="section-title">Our Team & Students</h2>
           <p className="section-subtitle">Our team brings together diverse talents and expertise.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {["/images/gallery-1.jpg", "/images/gallery-2.jpg", "/images/gallery-3.jpg", "/images/gallery-4.jpg"].map((src, i) => (
-              <div key={i} className="rounded-2xl overflow-hidden shadow-md aspect-[4/3]">
-                <img src={src} alt={`Team collaborating ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-              </div>
-            ))}
+            {["/images/gallery-1.jpg", "/images/gallery-2.jpg", "/images/gallery-3.jpg", "/images/gallery-4.jpg"].map(
+              (src, i) => (
+                <div key={i} className="rounded-2xl overflow-hidden shadow-md aspect-[4/3]">
+                  <img
+                    src={src}
+                    alt={`Team collaborating ${i + 1}`}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              ),
+            )}
           </div>
         </div>
       </section>
@@ -171,7 +228,12 @@ const Index = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {quickLinks.map((item, i) => (
-              <Link key={item.title} to={item.path} className="card-hover p-6 group animate-fade-up" style={{ animationDelay: `${i * 0.1}s` }}>
+              <Link
+                key={item.title}
+                to={item.path}
+                className="card-hover p-6 group animate-fade-up"
+                style={{ animationDelay: `${i * 0.1}s` }}
+              >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                   <item.icon className="h-6 w-6 text-primary" />
                 </div>
@@ -183,7 +245,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
     </Layout>
   );
 };
