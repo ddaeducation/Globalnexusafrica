@@ -62,7 +62,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3 text-gray-400 text-sm">
               <li>
-                <a href="https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images/Privacy-Policy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <a href="https://www.globalnexus.africa/images/Privacy-Policy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
                   Privacy Policy <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition" />
                 </a>
               </li>
