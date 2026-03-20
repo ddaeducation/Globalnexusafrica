@@ -4,7 +4,20 @@ import { useState, useEffect } from "react";
 import { GraduationCap, Award, BookOpen, Phone, ArrowRight, X, Sparkles } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
-const quickLinkIcons = [GraduationCap, Award, BookOpen, Phone];
+const IMG_BASE = "https://www.globalnexus.africa/images";
+
+const quickLinks = [
+  { title: "Apply Now", desc: "Start your journey with Global Nexus", path: "/admissions", icon: GraduationCap },
+  { title: "Scholarships", desc: "Explore funding opportunities", path: "/admissions", icon: Award },
+  { title: "Learning Portal", desc: "Access your online courses", path: "/programs", icon: BookOpen },
+  { title: "Contact Us", desc: "Get in touch with our team", path: "/contact", icon: Phone },
+];
+
+const defaultNews = [
+  { title: "Professional Data Science & Artificial Intelligence (New)", desc: "Join us new professional Data Science & Artificial Intelligence program in collaboration with Institute of Analytics (Endorsed).", img: "teaching.jpeg" },
+  { title: "National Computing Center (UK) & Tech Innovation Workshop", desc: "A hands-on workshop exploring the latest trends in AI and Python Data Analytics and more", img: "studing.jpeg" },
+  { title: "Professional Business Data Analytics (New)", desc: "Global Nexus Institute is pleased to announce the new program: Professional Business Data Analytics (endorsed by NCC and IoA).", img: "setting.jpeg" },
+];
 
 const Index = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -26,24 +39,6 @@ const Index = () => {
   ];
 
   const popupDetails = g("popup", "details", "• Learn With our platform: www.skilla.africa\n• 4 Weeks, live online sessions\n• Led by Professional Data Analysts & Scientists\n• Live sessions Start on: April 6, 2026\n• WhatsApp: +250787406140");
-  const paymentInfo = g("popup", "payment_info", "MOMOpay: 030700 | Contact: 0787406140");
-
-  const galleryImages = [
-    g("gallery", "img1", "/images/gallery-1.jpg"),
-    g("gallery", "img2", "/images/gallery-2.jpg"),
-    g("gallery", "img3", "/images/gallery-3.jpg"),
-    g("gallery", "img4", "/images/gallery-4.jpg"),
-  ];
-
-  const quickLinks = Array.from({ length: 4 }, (_, i) => {
-    const n = i + 1;
-    return {
-      title: g("quicklinks", `ql${n}_title`, ["Apply Now", "Scholarships", "Learning Portal", "Contact Us"][i]),
-      desc: g("quicklinks", `ql${n}_desc`, ""),
-      path: g("quicklinks", `ql${n}_path`, "/"),
-      icon: quickLinkIcons[i],
-    };
-  });
 
   return (
     <Layout>
@@ -92,10 +87,13 @@ const Index = () => {
       {showPopup && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
           <div className="bg-card w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden relative">
+            {/* Top accent bar */}
             <div className="h-1.5 bg-gradient-to-r from-primary via-primary to-accent" />
+
             <button onClick={() => setShowPopup(false)} className="absolute top-4 right-4 p-1.5 rounded-full bg-muted hover:bg-muted/80 text-muted-foreground transition z-10">
               <X className="h-4 w-4" />
             </button>
+
             <div className="p-8 text-center">
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4">
                 <Sparkles className="h-3.5 w-3.5" /> Now Accepting Applications
@@ -104,6 +102,7 @@ const Index = () => {
               <p className="text-muted-foreground text-sm mb-1">{g("popup", "subtitle", "Don't miss this opportunity to join us!")}</p>
               <p className="text-primary font-bold text-sm">{g("popup", "deadline", "Deadline: April 6, 2026")}</p>
             </div>
+
             <div className="px-8 pb-6">
               <div className="bg-muted/50 border border-border rounded-xl p-5 text-left mb-5">
                 <h3 className="font-bold text-card-foreground mb-3 text-lg">{g("popup", "program_name", "Python For Data Analyst (Online)")}</h3>
@@ -116,9 +115,10 @@ const Index = () => {
                   ))}
                 </ul>
                 <div className="mt-4 bg-accent/10 text-accent border border-accent/20 text-center rounded-lg py-2.5 text-sm font-semibold">
-                  {paymentInfo}
+                  MOMOpay: 030700 | Contact: 0787406140
                 </div>
               </div>
+
               <a href={g("popup", "apply_url", "https://forms.gle/ReNWMuzp6vhBLaMs8")} target="_blank" rel="noopener noreferrer" className="block btn-primary w-full text-center text-base">
                 {g("popup", "apply_button_text", "Apply For Python For Data Analyst")}
               </a>
@@ -157,7 +157,7 @@ const Index = () => {
           <h2 className="section-title">Our Team & Students</h2>
           <p className="section-subtitle">Our team brings together diverse talents and expertise.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {galleryImages.map((src, i) => (
+            {["/images/gallery-1.jpg", "/images/gallery-2.jpg", "/images/gallery-3.jpg", "/images/gallery-4.jpg"].map((src, i) => (
               <div key={i} className="rounded-2xl overflow-hidden shadow-md aspect-[4/3]">
                 <img src={src} alt={`Team collaborating ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
               </div>
@@ -183,6 +183,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
     </Layout>
   );
 };
