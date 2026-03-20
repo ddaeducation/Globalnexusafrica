@@ -63,7 +63,7 @@ const Index = () => {
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center px-4 sm:px-6"
         style={{ backgroundImage: `url('${heroImage}')` }}
       >
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" /> */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
         <div className="relative z-10 text-center w-full max-w-4xl mx-auto py-6">
           <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md text-white text-sm px-4 py-1.5 rounded-full mb-6 animate-fade-up">
             <Sparkles className="h-4 w-4" /> {g("hero", "badge", "Empowering Africa's Tech Future")}
