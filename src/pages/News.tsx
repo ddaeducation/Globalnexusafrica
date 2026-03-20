@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import { ArrowRight, Quote } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
-const IMG_BASE = "https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images";
+const IMG_BASE = "https://www.globalnexus.africa/images";
 
 const newsItems = [
   { title: "New Partnership with ASSA (University of Rwanda)", date: "March 15, 2024", desc: "Global Nexus announces strategic partnerships with University of Rwanda Students to enhance student opportunities...", image: "team.jpeg", link: "https://www.linkedin.com/pulse/global-nexus-institute-updates-global-nexus-institute-nunyf/" },

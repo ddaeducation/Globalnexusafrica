@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { GraduationCap, Award, BookOpen, Phone, ArrowRight, X, Sparkles } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
-const IMG_BASE = "https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images";
+const IMG_BASE = "https://www.globalnexus.africa/images";
 
 const quickLinks = [
   { title: "Apply Now", desc: "Start your journey with Global Nexus", path: "/admissions", icon: GraduationCap },

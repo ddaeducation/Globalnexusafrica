@@ -37,7 +37,7 @@ const Footer = () => {
           <div>
             <div className="mb-5 flex items-center gap-3">
               <img
-                src="https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images/lgo.png"
+                src="https://www.globalnexus.africa/images/lgo.png"
                 alt="Global Nexus Institute"
                 className="h-14 w-auto rounded-xl bg-white p-1.5 shadow-lg"
               />
@@ -62,17 +62,17 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3 text-gray-400 text-sm">
               <li>
-                <a href="https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images/Privacy-Policy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <a href="https://www.globalnexus.africa/images/Privacy-Policy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
                   Privacy Policy <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition" />
                 </a>
               </li>
               <li>
-                <a href="https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images/Refund-Policy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <a href="https://www.globalnexus.africa/images/Refund-Policy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
                   Refund Policy <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition" />
                 </a>
               </li>
               <li>
-                <a href="https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images/Terms-and-Conditions.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <a href="https://www.globalnexus.africa/images/Terms-and-Conditions.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
                   Terms and Conditions <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition" />
                 </a>
               </li>
@@ -136,7 +136,7 @@ const Footer = () => {
               className="hover:opacity-80 transition"
             >
               <img
-                src="https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images/seal.png"
+                src="https://www.globalnexus.africa/images/seal.png"
                 alt="Global Nexus Institute Certification"
                 className="h-28 sm:h-32 w-auto"
               />
