@@ -72,7 +72,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images/Terms-and-Conditions.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <a href="https://www.globalnexus.africa/images/Terms-and-Conditions.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
                   Terms and Conditions <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition" />
                 </a>
               </li>
