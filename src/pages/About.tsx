@@ -7,6 +7,7 @@ const IMG_BASE = "https://www.globalnexus.africa/images";
 const partners = [
   { name: "RTB Rwanda", desc: "Accredited by Rwanda TVET Board for quality technical and vocational education.", img: "/images/rtb.jpg", isLocal: true },
   { name: "NCC Education UK", desc: "Certified programs ensuring international recognition of qualifications.", img: "ncc.png" },
+  { name: "WorldQuant University", desc: "Partnership coming soon — global online university for data science and quantitative finance.", img: "/images/wqu.png", isLocal: true },
   { name: "RMI-Rwanda", desc: "Strategic partnership for professional development and industry-aligned training.", img: "rmi.png" },
   { name: "SOLVIT AFRICA", desc: "Collaborations for internships, mentorship, and employment opportunities.", img: "solvit.png" },
   { name: "ICT Chamber-Rwanda", desc: "Leading tech companies partnerships for mentorship and employment.", img: "ict.png" },
