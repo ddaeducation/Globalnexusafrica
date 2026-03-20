@@ -83,7 +83,7 @@ const About = () => {
             {partners.map((p, i) => (
               <div key={p.name} className="card-hover p-6 text-center" style={{ animationDelay: `${i * 0.1}s` }}>
                 <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gray-100 flex items-center justify-center overflow-hidden p-2">
-                  <img src={`${IMG_BASE}/${p.img}`} alt={p.name} className="max-h-full max-w-full object-contain" loading="lazy" />
+                  <img src={(p as any).isLocal ? p.img : `${IMG_BASE}/${p.img}`} alt={p.name} className="max-h-full max-w-full object-contain" loading="lazy" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-1">{p.name}</h3>
                 <p className="text-xs text-gray-500">{p.desc}</p>
