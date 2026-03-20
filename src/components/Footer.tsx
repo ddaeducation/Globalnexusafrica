@@ -67,7 +67,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images/Refund-Policy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <a href="https://www.globalnexus.africa/images/Refund-Policy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
                   Refund Policy <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition" />
                 </a>
               </li>
