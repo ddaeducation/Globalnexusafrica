@@ -34,7 +34,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
             <img
-              src="https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images/lgo.png"
+              src="https://www.globalnexus.africa/images/lgo.png"
               alt="Global Nexus Institute Logo"
               className="h-12 md:h-14 w-auto transition-transform duration-300 group-hover:scale-105"
             />

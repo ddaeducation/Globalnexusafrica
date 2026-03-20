@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import { Users, Target, Lightbulb } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
-const IMG_BASE = "https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images";
+const IMG_BASE = "https://www.globalnexus.africa/images";
 
 const partners = [
   { name: "NCC Education UK", desc: "Certified programs ensuring international recognition of qualifications.", img: "ncc.png" },

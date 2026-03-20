@@ -136,7 +136,7 @@ const Footer = () => {
               className="hover:opacity-80 transition"
             >
               <img
-                src="https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images/seal.png"
+                src="https://www.globalnexus.africa/images/seal.png"
                 alt="Global Nexus Institute Certification"
                 className="h-28 sm:h-32 w-auto"
               />
