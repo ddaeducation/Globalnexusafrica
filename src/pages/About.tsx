@@ -6,23 +6,23 @@ const IMG_BASE = "https://www.globalnexus.africa/images";
 
 const partners = [
   { name: "RTB Rwanda", desc: "Accredited by Rwanda TVET Board for quality technical and vocational education.", img: "/images/rtb.jpg", isLocal: true },
-  { name: "NCC Education UK", desc: "Certified programs ensuring international recognition of qualifications.", img: "/images/ncc.png" },
+  { name: "NCC Education UK", desc: "Certified programs ensuring international recognition of qualifications.", img: "ncc.png" },
   { name: "WorldQuant University", desc: "Partnership coming soon — global online university for data science and quantitative finance.", img: "/images/wqu.png", isLocal: true },
-  { name: "RMI-Rwanda", desc: "Strategic partnership for professional development and industry-aligned training.", img: "/images/rmi.png" },
-  { name: "SOLVIT AFRICA", desc: "Collaborations for internships, mentorship, and employment opportunities.", img: "/images/solvit.png" },
-  { name: "ICT Chamber-Rwanda", desc: "Leading tech companies partnerships for mentorship and employment.", img: "/images/ict.png" },
+  { name: "RMI-Rwanda", desc: "Strategic partnership for professional development and industry-aligned training.", img: "rmi.png" },
+  { name: "SOLVIT AFRICA", desc: "Collaborations for internships, mentorship, and employment opportunities.", img: "solvit.png" },
+  { name: "ICT Chamber-Rwanda", desc: "Leading tech companies partnerships for mentorship and employment.", img: "ict.png" },
 ];
 
 const team = [
-  { name: "Theoneste NDAYISENGA", role: "Founder, CEO & Project Lead", desc: "Educator, Data Scientist, and Analyst", img: "/images/theoneste.jpeg" },
-  { name: "Francis KIPKOGEI YEGO", role: "Board Member & Data Scientist", desc: "AI, Actuarial Scientist, Statistician", img: "/images/francis.png" },
-  { name: "Ass Prof. Innocent NGARUYE", role: "Board Member & Senior Researcher", desc: "Data Scientist, and Researcher", img: "/images/innocent.png" },
-  { name: "Didier NGAMIJE", role: "Data Analytics Instructor", desc: "Data Analyst, and Developer", img: "/images/didier.png" },
-  { name: "Dieudonne UWASE", role: "Board Member & Coach", desc: "Educational Technology, Business Coach", img: "/images/Uwase.jpg" },
-  { name: "Eugene MUTUYIMANA", role: "Software Developer & Facilitator", desc: "Software development, Data Analysis", img: "/images/eugene.jpg" },
-  { name: "Francis Muhirwa", role: "Web & Graphic Designer", desc: "Project management, Content Creation", img: "/images/muhirwa.png" },
-  { name: "Elizen Awuor", role: "Client Experience Coordinator", desc: "Customer Experience, Quality Assurance", img: "/images/elizen.jpeg" },
-  { name: "Geredi NIYIBIGIRA", role: "AI Instructor", desc: "Artificial Intelligence, Machine Learning", img: "/images/geredi.png" },
+  { name: "Theoneste NDAYISENGA", role: "Founder, CEO & Project Lead", desc: "Educator, Data Scientist, and Analyst", img: "theoneste.jpeg" },
+  { name: "Francis KIPKOGEI YEGO", role: "Board Member & Data Scientist", desc: "AI, Actuarial Scientist, Statistician", img: "francis.png" },
+  { name: "Ass Prof. Innocent NGARUYE", role: "Board Member & Senior Researcher", desc: "Data Scientist, and Researcher", img: "innocent.png" },
+  { name: "Didier NGAMIJE", role: "Data Analytics Instructor", desc: "Data Analyst, and Developer", img: "didier.png" },
+  { name: "Dieudonne UWASE", role: "Board Member & Coach", desc: "Educational Technology, Business Coach", img: "Uwase.jpg" },
+  { name: "Eugene MUTUYIMANA", role: "Software Developer & Facilitator", desc: "Software development, Data Analysis", img: "eugene.jpg" },
+  { name: "Francis Muhirwa", role: "Web & Graphic Designer", desc: "Project management, Content Creation", img: "muhirwa.png" },
+  { name: "Elizen Awuor", role: "Client Experience Coordinator", desc: "Customer Experience, Quality Assurance", img: "elizen.jpeg" },
+  { name: "Geredi NIYIBIGIRA", role: "AI Instructor", desc: "Artificial Intelligence, Machine Learning", img: "geredi.png" },
 ];
 
 const About = () => {
