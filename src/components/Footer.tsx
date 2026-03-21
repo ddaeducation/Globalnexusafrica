@@ -43,7 +43,7 @@ const Footer = () => {
               />
               <div>
                 <h2 className="text-base font-bold">Global Nexus Institute</h2>
-                <span className="text-xs text-gray-400">of Technology</span>
+                <span className="text-xs text-gray-400">—Innovation & Excellence—</span>
               </div>
             </div>
             <div className="space-y-2.5 text-gray-400 text-sm">
