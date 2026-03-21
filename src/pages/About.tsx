@@ -89,7 +89,7 @@ const About = () => {
                     alt={p.name}
                     className="max-h-full max-w-full object-contain"
                     loading="lazy"
-                    onError={(e) => { (e.target as HTMLImageElement).src = '/placeholder.svg'; }}
+                    onError={(e) => { (e.target as HTMLImageElement).src = '/placeholder-avatar.png'; }}
                   />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-1">{p.name}</h3>
