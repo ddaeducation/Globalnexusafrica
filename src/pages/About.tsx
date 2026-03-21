@@ -108,7 +108,7 @@ const About = () => {
             {team.map((t) => (
               <div key={t.name} className="card-hover p-6 text-center group">
                 <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-gray-100 group-hover:ring-primary/20 transition-all duration-300">
-                  <img src={`${IMG_BASE}/${t.img}`} alt={t.name} className="w-full h-full object-cover" loading="lazy" />
+                  <img src={`${IMG_BASE}/${t.img}`} alt={t.name} className="w-full h-full object-cover" loading="lazy" onError={(e) => { (e.target as HTMLImageElement).src = '/placeholder.svg'; }} />
                 </div>
                 <h3 className="font-bold text-gray-900">{t.name}</h3>
                 <p className="text-sm text-primary font-semibold mt-0.5">{t.role}</p>
