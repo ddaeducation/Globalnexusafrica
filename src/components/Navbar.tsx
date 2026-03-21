@@ -42,8 +42,8 @@ const Navbar = () => {
               <span className="block text-sm md:text-base font-bold text-gray-900">
                 Global Nexus Institute
               </span>
-              <span className="block text-xs text-gray-500 tracking-wider uppercase">
-                Innovation & Excellence
+              <span className="block text-xs text-gray-500 tracking-wider">
+                —Innovation & Excellence—
               </span>
             </span>
           </Link>

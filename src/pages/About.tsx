@@ -83,7 +83,7 @@ const About = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {partners.map((p, i) => (
               <div key={p.name} className="card-hover p-6 text-center" style={{ animationDelay: `${i * 0.1}s` }}>
-                <div className="w-28 h-28 mx-auto mb-4 rounded-2xl bg-gray-100 flex items-center justify-center overflow-hidden p-3">
+                <div className="w-28 h-28 mx-auto mb-4 rounded-2xl flex items-center justify-center overflow-hidden p-3">
                   <img
                     src={(p as any).isLocal ? p.img : `${IMG_BASE}/${p.img}`}
                     alt={p.name}
