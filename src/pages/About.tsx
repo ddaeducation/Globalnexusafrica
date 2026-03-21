@@ -80,11 +80,17 @@ const About = () => {
         <div className="container mx-auto px-4">
           <h2 className="section-title">Accreditation & Partnerships</h2>
           <p className="section-subtitle">Globally recognized certifications and industry partnerships</p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {partners.map((p, i) => (
               <div key={p.name} className="card-hover p-6 text-center" style={{ animationDelay: `${i * 0.1}s` }}>
-                <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gray-100 flex items-center justify-center overflow-hidden p-2">
-                  <img src={(p as any).isLocal ? p.img : `${IMG_BASE}/${p.img}`} alt={p.name} className="max-h-full max-w-full object-contain" loading="lazy" />
+                <div className="w-28 h-28 mx-auto mb-4 rounded-2xl bg-gray-100 flex items-center justify-center overflow-hidden p-3">
+                  <img
+                    src={(p as any).isLocal ? p.img : `${IMG_BASE}/${p.img}`}
+                    alt={p.name}
+                    className="max-h-full max-w-full object-contain"
+                    loading="lazy"
+                    onError={(e) => { (e.target as HTMLImageElement).src = '/placeholder.svg'; }}
+                  />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-1">{p.name}</h3>
                 <p className="text-xs text-gray-500">{p.desc}</p>
@@ -102,7 +108,7 @@ const About = () => {
             {team.map((t) => (
               <div key={t.name} className="card-hover p-6 text-center group">
                 <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-gray-100 group-hover:ring-primary/20 transition-all duration-300">
-                  <img src={`${IMG_BASE}/${t.img}`} alt={t.name} className="w-full h-full object-cover" loading="lazy" />
+                  <img src={`${IMG_BASE}/${t.img}`} alt={t.name} className="w-full h-full object-cover" loading="lazy" onError={(e) => { (e.target as HTMLImageElement).src = '/placeholder.svg'; }} />
                 </div>
                 <h3 className="font-bold text-gray-900">{t.name}</h3>
                 <p className="text-sm text-primary font-semibold mt-0.5">{t.role}</p>
