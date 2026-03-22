@@ -102,50 +102,46 @@ const Index = () => {
 
       {/* Popup */}
       {showPopup &&
-      <div className="fixed inset-0 z-[60] flex items-end justify-center sm:items-center bg-black/40 backdrop-blur-sm px-4 pb-4 sm:pb-0">
-          <div className="bg-card w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden relative animate-fade-up">
-            <div className="h-1.5 bg-gradient-to-r from-primary via-primary to-accent" />
+      <div className="fixed bottom-4 right-4 z-[60] w-full max-w-sm animate-fade-up">
+          <div className="bg-card rounded-2xl shadow-2xl overflow-hidden relative border border-border">
+            <div className="h-1 bg-gradient-to-r from-primary via-primary to-accent" />
             <button
-            onClick={() => setShowPopup(false)}
-            className="absolute top-4 right-4 p-1.5 rounded-full bg-muted hover:bg-muted/80 text-muted-foreground transition z-10">
-            
-              <X className="h-4 w-4" />
+              onClick={() => setShowPopup(false)}
+              className="absolute top-3 right-3 p-1 rounded-full bg-muted hover:bg-muted/80 text-muted-foreground transition z-10">
+              <X className="h-3.5 w-3.5" />
             </button>
-            <div className="p-8 text-center">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4">
-                <Sparkles className="h-3.5 w-3.5" /> Now Accepting Applications
+            <div className="p-5">
+              <div className="inline-flex items-center gap-1.5 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full mb-3">
+                <Sparkles className="h-3 w-3" /> Now Accepting Applications
               </div>
-              <h2 className="text-2xl font-bold text-card-foreground mb-1">
+              <h2 className="text-lg font-bold text-card-foreground mb-0.5">
                 {g("popup", "title", "Call For Application!")}
               </h2>
-              <p className="text-muted-foreground text-sm mb-1">
+              <p className="text-muted-foreground text-xs mb-0.5">
                 {g("popup", "subtitle", "Don't miss this opportunity to join us!")}
               </p>
-              <p className="text-primary font-bold text-sm">{g("popup", "deadline", "Deadline: April 6, 2026")}</p>
-            </div>
-            <div className="px-8 pb-6">
-              <div className="bg-muted/50 border border-border rounded-xl p-5 text-left mb-5">
-                <h3 className="font-bold text-card-foreground mb-3 text-lg">
+              <p className="text-primary font-bold text-xs mb-3">{g("popup", "deadline", "Deadline: April 6, 2026")}</p>
+              <div className="bg-muted/50 border border-border rounded-lg p-3 text-left mb-3">
+                <h3 className="font-bold text-card-foreground mb-2 text-sm">
                   {g("popup", "program_name", "Python For Data Analyst (Online)")}
                 </h3>
-                <ul className="space-y-2 text-sm text-muted-foreground">
+                <ul className="space-y-1.5 text-xs text-muted-foreground">
                   {popupDetails.split("\n").map((line, i) =>
-                <li key={i} className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
+                    <li key={i} className="flex items-start gap-1.5">
+                      <span className="w-1 h-1 rounded-full bg-primary mt-1.5 shrink-0" />
                       <span>{line.replace(/^•\s*/, "")}</span>
                     </li>
-                )}
+                  )}
                 </ul>
-                <div className="mt-4 bg-accent/10 text-accent border border-accent/20 text-center rounded-lg py-2.5 text-sm font-semibold">
+                <div className="mt-2 bg-accent/10 text-accent border border-accent/20 text-center rounded-md py-1.5 text-xs font-semibold">
                   MOMOpay: 030700 | Contact: 0787406140
                 </div>
               </div>
               <a
-              href={g("popup", "apply_url", "https://forms.gle/ReNWMuzp6vhBLaMs8")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block btn-primary w-full text-center text-base">
-              
+                href={g("popup", "apply_url", "https://forms.gle/ReNWMuzp6vhBLaMs8")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block btn-primary w-full text-center text-sm py-2.5">
                 {g("popup", "apply_button_text", "Apply For Python For Data Analyst")}
               </a>
             </div>
