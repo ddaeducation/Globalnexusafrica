@@ -102,8 +102,8 @@ const Index = () => {
 
       {/* Popup */}
       {showPopup &&
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-4">
-          <div className="bg-card w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden relative">
+      <div className="fixed inset-0 z-[60] flex items-end justify-center sm:items-center bg-black/40 backdrop-blur-sm px-4 pb-4 sm:pb-0">
+          <div className="bg-card w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden relative animate-fade-up">
             <div className="h-1.5 bg-gradient-to-r from-primary via-primary to-accent" />
             <button
             onClick={() => setShowPopup(false)}
