@@ -70,7 +70,11 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-900 mb-0.5">{item.title}</h3>
-                      <p className="text-gray-500 text-sm whitespace-pre-line">{item.text}</p>
+                      {'whatsapp' in item && item.whatsapp ? (
+                        <a href={`https://wa.me/${item.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm whitespace-pre-line">{item.text}</a>
+                      ) : (
+                        <p className="text-gray-500 text-sm whitespace-pre-line">{item.text}</p>
+                      )}
                     </div>
                   </div>
                 ))}
