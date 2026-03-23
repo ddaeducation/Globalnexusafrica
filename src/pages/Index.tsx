@@ -48,7 +48,7 @@ const Index = () => {
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: "url(\"/lovable-uploads/fb7532f3-e7ce-41da-af33-33bfd4d503ab.jpg\")", zIndex: 50 }}>
         
-        {/* ✅ No overlay */}
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-50 text-center w-full max-w-4xl mx-auto py-6">
           <div className="inline-flex items-center gap-2 text-white text-sm px-4 py-1.5 rounded-full mb-6 animate-fade-up">
             <Sparkles className="h-4 w-4" />
