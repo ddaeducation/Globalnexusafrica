@@ -22,7 +22,7 @@ const team = [
   { name: "Eugene MUTUYIMANA", role: "Software Developer & Facilitator", desc: "Software development, Data Analysis", img: "eugene.jpg" },
   { name: "Francis Muhirwa", role: "Web & Graphic Designer", desc: "Project management, Content Creation", img: "muhirwa.png" },
   { name: "Joie Sophia UMUHOZA", role: "Marketing & Project Manager", desc: "Marketing, Project Experience", img: "/images/sophia.jpeg", isLocal: true },
-  { name: "Geredi NIYIBIGIRA", role: "AI Instructor", desc: "Artificial Intelligence, Machine Learning", img: "geredi.png" },
+  { name: "Geredi NIYIBIGIRA", role: "AI & Data Science Instructor", desc: "Artificial Intelligence, Machine Learning", img: "geredi.png" },
 ];
 
 const About = () => {
