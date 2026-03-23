@@ -91,7 +91,7 @@ const Footer = () => {
             <ul className="space-y-3 text-gray-400 text-sm">
               <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary shrink-0" />Kigali, Rwanda — Norrsken House</li>
               <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary shrink-0" />info@globalnexus.africa</li>
-              <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary shrink-0" />+250 787 406 140</li>
+              <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary shrink-0" /><a href="https://wa.me/250787406140" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">+250 787 406 140</a></li>
               <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary shrink-0" />+254 707 825 181</li>
             </ul>
           </div>
