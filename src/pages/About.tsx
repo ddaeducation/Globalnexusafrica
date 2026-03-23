@@ -21,7 +21,7 @@ const team = [
   { name: "Dieudonne UWASE", role: "Board Member & Coach", desc: "Educational Technology, Business Coach", img: "Uwase.jpg" },
   { name: "Eugene MUTUYIMANA", role: "Software Developer & Facilitator", desc: "Software development, Data Analysis", img: "eugene.jpg" },
   { name: "Francis Muhirwa", role: "Web & Graphic Designer", desc: "Project management, Content Creation", img: "muhirwa.png" },
-  { name: "Elizen Awuor", role: "Client Experience Coordinator", desc: "Customer Experience, Quality Assurance", img: "elizen.jpeg" },
+  { name: "Joie Sophia UMUHOZA", role: "Marketing & Project Manager", desc: "Marketing, Project Experience", img: "/images/sophia.jpeg", isLocal: true },
   { name: "Geredi NIYIBIGIRA", role: "AI Instructor", desc: "Artificial Intelligence, Machine Learning", img: "geredi.png" },
 ];
 
