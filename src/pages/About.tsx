@@ -21,7 +21,7 @@ const team = [
   { name: "Dieudonne UWASE", role: "Board Member & Coach", desc: "Educational Technology, Business Coach", img: "Uwase.jpg" },
   { name: "Eugene MUTUYIMANA", role: "Software Developer & Facilitator", desc: "Software development, Data Analysis", img: "eugene.jpg" },
   { name: "Francis Muhirwa", role: "Web & Graphic Designer", desc: "Project management, Content Creation", img: "muhirwa.png" },
-  { name: "Elizen Awuor", role: "Client Experience Coordinator", desc: "Customer Experience, Quality Assurance", img: "elizen.jpeg" },
+  { name: "Joie Sophia UMUHOZA", role: "Marketing & Project Manager", desc: "Marketing, Project Experience", img: "/images/sophia.jpeg", isLocal: true },
   { name: "Geredi NIYIBIGIRA", role: "AI Instructor", desc: "Artificial Intelligence, Machine Learning", img: "geredi.png" },
 ];
 
@@ -108,7 +108,7 @@ const About = () => {
             {team.map((t) => (
               <div key={t.name} className="card-hover p-6 text-center group">
                 <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-gray-100 group-hover:ring-primary/20 transition-all duration-300">
-                  <img src={`${IMG_BASE}/${t.img}`} alt={t.name} className="w-full h-full object-cover" loading="lazy" onError={(e) => { (e.target as HTMLImageElement).src = '/placeholder-avatar.png'; }} />
+                  <img src={(t as any).isLocal ? t.img : `${IMG_BASE}/${t.img}`} alt={t.name} className="w-full h-full object-cover" loading="lazy" onError={(e) => { (e.target as HTMLImageElement).src = '/placeholder-avatar.png'; }} />
                 </div>
                 <h3 className="font-bold text-gray-900">{t.name}</h3>
                 <p className="text-sm text-primary font-semibold mt-0.5">{t.role}</p>
