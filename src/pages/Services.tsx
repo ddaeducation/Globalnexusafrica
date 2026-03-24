@@ -3,18 +3,24 @@ import { Link } from "react-router-dom";
 import { ClipboardList, Database, Cog, FileText, GraduationCap, Users, ArrowRight } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
-const services = [
-  { icon: ClipboardList, title: "Training Enumerators", desc: "Comprehensive training covering survey methodologies, data quality protocols, and ethical guidelines with hands-on practice.", color: "from-red-500 to-rose-400" },
-  { icon: Database, title: "Data Collection", desc: "Cutting-edge digital tools and methodologies with rigorous quality control across various sectors.", color: "from-blue-500 to-cyan-400" },
-  { icon: Cog, title: "Data Processing", desc: "Advanced cleaning algorithms, statistical validation, and quality assurance for meaningful insights.", color: "from-purple-500 to-violet-400" },
-  { icon: FileText, title: "Report Writing", desc: "Complex data transformed into clear, actionable insights with visual representations and recommendations.", color: "from-orange-500 to-amber-400" },
-  { icon: GraduationCap, title: "Internship", desc: "Academic and professional internships in Data Analytics, Data Science, and Software Development.", color: "from-green-500 to-emerald-400" },
-  { icon: Users, title: "Interns to Companies", desc: "Connecting companies with skilled interns proficient in data analytics, ML, and software development.", color: "from-pink-500 to-rose-400" },
+const iconMap: Record<string, any> = {
+  ClipboardList, Database, Cog, FileText, GraduationCap, Users,
+};
+
+const defaultServices = [
+  { title: "Training Enumerators", desc: "Comprehensive training covering survey methodologies, data quality protocols, and ethical guidelines with hands-on practice.", icon: "ClipboardList", color: "from-red-500 to-rose-400" },
+  { title: "Data Collection", desc: "Cutting-edge digital tools and methodologies with rigorous quality control across various sectors.", icon: "Database", color: "from-blue-500 to-cyan-400" },
+  { title: "Data Processing", desc: "Advanced cleaning algorithms, statistical validation, and quality assurance for meaningful insights.", icon: "Cog", color: "from-purple-500 to-violet-400" },
+  { title: "Report Writing", desc: "Complex data transformed into clear, actionable insights with visual representations and recommendations.", icon: "FileText", color: "from-orange-500 to-amber-400" },
+  { title: "Internship", desc: "Academic and professional internships in Data Analytics, Data Science, and Software Development.", icon: "GraduationCap", color: "from-green-500 to-emerald-400" },
+  { title: "Interns to Companies", desc: "Connecting companies with skilled interns proficient in data analytics, ML, and software development.", icon: "Users", color: "from-pink-500 to-rose-400" },
 ];
 
 const Services = () => {
   const { content: c } = useAllSiteContent("services");
   const g = (section: string, key: string, fallback: string) => getContent(c, section, key, fallback);
+
+  const services = (c.services_list as any)?.items || defaultServices;
 
   return (
     <Layout>
@@ -32,15 +38,18 @@ const Services = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((s, i) => (
-              <div key={s.title} className="card-hover p-7 group" style={{ animationDelay: `${i * 0.08}s` }}>
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${s.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <s.icon className="h-6 w-6 text-white" />
+            {services.map((s: any, i: number) => {
+              const Icon = iconMap[s.icon] || Briefcase;
+              return (
+                <div key={s.title + i} className="card-hover p-7 group" style={{ animationDelay: `${i * 0.08}s` }}>
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${s.color || "from-primary to-primary/60"} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{s.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{s.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="mt-16 text-center bg-white rounded-2xl p-12 shadow-sm border border-gray-100 relative overflow-hidden">
@@ -60,5 +69,8 @@ const Services = () => {
     </Layout>
   );
 };
+
+// Need Briefcase as fallback icon
+import { Briefcase } from "lucide-react";
 
 export default Services;

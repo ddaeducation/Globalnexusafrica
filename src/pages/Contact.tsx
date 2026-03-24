@@ -18,6 +18,22 @@ const Contact = () => {
   const [form, setForm] = useState({ full_name: "", email: "", subject: "", message: "" });
   const [sending, setSending] = useState(false);
 
+  const donationUrl = g("donation", "donation_url", "https://flutterwave.com/pay/8atwd1q3u556");
+
+  const socialLinks = {
+    facebook: g("social", "facebook", ""),
+    linkedin: g("social", "linkedin", ""),
+    twitter: g("social", "twitter", ""),
+    instagram: g("social", "instagram", ""),
+  };
+
+  const socialIcons = [
+    { icon: Facebook, url: socialLinks.facebook },
+    { icon: Linkedin, url: socialLinks.linkedin },
+    { icon: Twitter, url: socialLinks.twitter },
+    { icon: Instagram, url: socialLinks.instagram },
+  ];
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.full_name.trim() || !form.email.trim() || !form.message.trim()) {
@@ -81,9 +97,15 @@ const Contact = () => {
                 <div>
                   <h3 className="font-bold text-gray-900 mb-3">Follow Us</h3>
                   <div className="flex gap-3">
-                    {[Facebook, Linkedin, Twitter, Instagram].map((Icon, i) => (
-                      <a key={i} href="#" className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all duration-300">
-                        <Icon className="h-4 w-4" />
+                    {socialIcons.map((s, i) => (
+                      <a
+                        key={i}
+                        href={s.url || "#"}
+                        target={s.url ? "_blank" : undefined}
+                        rel={s.url ? "noopener noreferrer" : undefined}
+                        className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all duration-300"
+                      >
+                        <s.icon className="h-4 w-4" />
                       </a>
                     ))}
                   </div>
@@ -133,7 +155,6 @@ const Contact = () => {
             </div>
             <div className="card-hover p-8">
               <h3 className="text-xl font-bold text-foreground mb-6">Make a Donation</h3>
-              {/* Currency toggle */}
               <div className="flex gap-2 mb-4">
                 {(["USD", "RWF"] as const).map((cur) => (
                   <button
@@ -149,7 +170,6 @@ const Contact = () => {
                   </button>
                 ))}
               </div>
-              {/* Preset amounts */}
               <div className="grid grid-cols-4 gap-3 mb-4">
                 {(currency === "USD" ? donationAmountsUSD : donationAmountsRWF).map((amt) => (
                   <button
@@ -165,7 +185,6 @@ const Contact = () => {
                   </button>
                 ))}
               </div>
-              {/* Custom amount */}
               <div className="relative mb-6">
                 <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground font-semibold text-sm">
                   {currency === "USD" ? "$" : "RWF"}
@@ -180,7 +199,7 @@ const Contact = () => {
                 />
               </div>
               <a
-                href="https://flutterwave.com/pay/8atwd1q3u556"
+                href={donationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-center bg-accent text-accent-foreground py-3.5 rounded-xl font-bold hover:opacity-90 transition shadow-md shadow-accent/30"
