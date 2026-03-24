@@ -33,7 +33,7 @@ const AdminListEditor = ({ title, description, page, sectionKey, fields, default
   const [uploadTarget, setUploadTarget] = useState<{ idx: number; fieldKey: string } | null>(null);
 
   // Load from DB on mount
-  useState(() => {
+  useEffect(() => {
     const load = async () => {
       const { data: row } = await supabase
         .from("site_content")
@@ -48,7 +48,7 @@ const AdminListEditor = ({ title, description, page, sectionKey, fields, default
       setLoaded(true);
     };
     load();
-  });
+  }, [page, sectionKey]);
 
   const handleSave = async () => {
     setSaving(true);
