@@ -4,30 +4,33 @@ import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
 const IMG_BASE = "https://www.globalnexus.africa/images";
 
-const partners = [
-  { name: "RTB Rwanda", desc: "Accredited by Rwanda TVET Board for quality technical and vocational education.", img: "/images/rtb.jpg", isLocal: true },
-  { name: "NCC Education UK", desc: "Certified programs ensuring international recognition of qualifications.", img: "ncc.png" },
-  { name: "WorldQuant University", desc: "Partnership coming soon — global online university for data science and quantitative finance.", img: "/images/wqu.png", isLocal: true },
-  { name: "RMI-Rwanda", desc: "Strategic partnership for professional development and industry-aligned training.", img: "rmi.png" },
-  { name: "SOLVIT AFRICA", desc: "Collaborations for internships, mentorship, and employment opportunities.", img: "solvit.png" },
-  { name: "ICT Chamber-Rwanda", desc: "Leading tech companies partnerships for mentorship and employment.", img: "ict.png" },
+const defaultPartners = [
+  { name: "RTB Rwanda", desc: "Accredited by Rwanda TVET Board for quality technical and vocational education.", img: "/images/rtb.jpg" },
+  { name: "NCC Education UK", desc: "Certified programs ensuring international recognition of qualifications.", img: `${IMG_BASE}/ncc.png` },
+  { name: "WorldQuant University", desc: "Partnership coming soon — global online university for data science and quantitative finance.", img: "/images/wqu.png" },
+  { name: "RMI-Rwanda", desc: "Strategic partnership for professional development and industry-aligned training.", img: `${IMG_BASE}/rmi.png` },
+  { name: "SOLVIT AFRICA", desc: "Collaborations for internships, mentorship, and employment opportunities.", img: `${IMG_BASE}/solvit.png` },
+  { name: "ICT Chamber-Rwanda", desc: "Leading tech companies partnerships for mentorship and employment.", img: `${IMG_BASE}/ict.png` },
 ];
 
-const team = [
-  { name: "Theoneste NDAYISENGA", role: "Founder, CEO & Project Lead", desc: "Educator, Data Scientist, and Analyst", img: "theoneste.jpeg" },
-  { name: "Francis KIPKOGEI YEGO", role: "Board Member & Data Scientist", desc: "AI, Actuarial Scientist, Statistician", img: "francis.png" },
-  { name: "Ass Prof. Innocent NGARUYE", role: "Board Member & Senior Researcher", desc: "Data Scientist, and Researcher", img: "innocent.png" },
-  { name: "Didier NGAMIJE", role: "Data Analytics Instructor", desc: "Data Analyst, and Developer", img: "didier.png" },
-  { name: "Dieudonne UWASE", role: "Board Member & Coach", desc: "Educational Technology, Business Coach", img: "Uwase.jpg" },
-  { name: "Eugene MUTUYIMANA", role: "Software Developer & Facilitator", desc: "Software development, Data Analysis", img: "eugene.jpg" },
-  { name: "Francis Muhirwa", role: "Web & Graphic Designer", desc: "Project management, Content Creation", img: "muhirwa.png" },
-  { name: "Joie Sophia UMUHOZA", role: "Marketing & Project Manager", desc: "Marketing, Project Experience", img: "/images/sophia.jpeg", isLocal: true },
-  { name: "Geredi NIYIBIGIRA", role: "AI & Data Science Instructor", desc: "Artificial Intelligence, Machine Learning", img: "geredi.png" },
+const defaultTeam = [
+  { name: "Theoneste NDAYISENGA", role: "Founder, CEO & Project Lead", desc: "Educator, Data Scientist, and Analyst", img: `${IMG_BASE}/theoneste.jpeg` },
+  { name: "Francis KIPKOGEI YEGO", role: "Board Member & Data Scientist", desc: "AI, Actuarial Scientist, Statistician", img: `${IMG_BASE}/francis.png` },
+  { name: "Ass Prof. Innocent NGARUYE", role: "Board Member & Senior Researcher", desc: "Data Scientist, and Researcher", img: `${IMG_BASE}/innocent.png` },
+  { name: "Didier NGAMIJE", role: "Data Analytics Instructor", desc: "Data Analyst, and Developer", img: `${IMG_BASE}/didier.png` },
+  { name: "Dieudonne UWASE", role: "Board Member & Coach", desc: "Educational Technology, Business Coach", img: `${IMG_BASE}/Uwase.jpg` },
+  { name: "Eugene MUTUYIMANA", role: "Software Developer & Facilitator", desc: "Software development, Data Analysis", img: `${IMG_BASE}/eugene.jpg` },
+  { name: "Francis Muhirwa", role: "Web & Graphic Designer", desc: "Project management, Content Creation", img: `${IMG_BASE}/muhirwa.png` },
+  { name: "Joie Sophia UMUHOZA", role: "Marketing & Project Manager", desc: "Marketing, Project Experience", img: "/images/sophia.jpeg" },
+  { name: "Geredi NIYIBIGIRA", role: "AI & Data Science Instructor", desc: "Artificial Intelligence, Machine Learning", img: `${IMG_BASE}/geredi.png` },
 ];
 
 const About = () => {
   const { content: c } = useAllSiteContent("about");
   const g = (section: string, key: string, fallback: string) => getContent(c, section, key, fallback);
+
+  const partners = (c.partners as any)?.items || defaultPartners;
+  const team = (c.team as any)?.items || defaultTeam;
 
   return (
     <Layout>
@@ -81,15 +84,15 @@ const About = () => {
           <h2 className="section-title">Accreditation & Partnerships</h2>
           <p className="section-subtitle">Globally recognized certifications and industry partnerships</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {partners.map((p, i) => (
-              <div key={p.name} className="card-hover p-6 text-center" style={{ animationDelay: `${i * 0.1}s` }}>
+            {partners.map((p: any, i: number) => (
+              <div key={p.name + i} className="card-hover p-6 text-center" style={{ animationDelay: `${i * 0.1}s` }}>
                 <div className="w-28 h-28 mx-auto mb-4 rounded-2xl flex items-center justify-center overflow-hidden p-3">
                   <img
-                    src={(p as any).isLocal ? p.img : `${IMG_BASE}/${p.img}`}
+                    src={p.img}
                     alt={p.name}
                     className="max-h-full max-w-full object-contain"
                     loading="lazy"
-                    onError={(e) => { (e.target as HTMLImageElement).src = '/placeholder-avatar.png'; }}
+                    onError={(e) => { (e.target as HTMLImageElement).src = '/placeholder.svg'; }}
                   />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-1">{p.name}</h3>
@@ -105,10 +108,10 @@ const About = () => {
           <h2 className="section-title">Our Passionate Team</h2>
           <p className="section-subtitle">Meet the experts driving innovation and excellence</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {team.map((t) => (
-              <div key={t.name} className="card-hover p-6 text-center group">
+            {team.map((t: any, i: number) => (
+              <div key={t.name + i} className="card-hover p-6 text-center group">
                 <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-gray-100 group-hover:ring-primary/20 transition-all duration-300">
-                  <img src={(t as any).isLocal ? t.img : `${IMG_BASE}/${t.img}`} alt={t.name} className="w-full h-full object-cover" loading="lazy" onError={(e) => { (e.target as HTMLImageElement).src = '/placeholder-avatar.png'; }} />
+                  <img src={t.img} alt={t.name} className="w-full h-full object-cover" loading="lazy" onError={(e) => { (e.target as HTMLImageElement).src = '/placeholder.svg'; }} />
                 </div>
                 <h3 className="font-bold text-gray-900">{t.name}</h3>
                 <p className="text-sm text-primary font-semibold mt-0.5">{t.role}</p>

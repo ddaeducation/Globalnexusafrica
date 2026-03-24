@@ -3,15 +3,17 @@ import { CheckCircle, ArrowRight, BadgePercent } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 import { Link } from "react-router-dom";
 
-const steps = [
-  { num: 1, title: "Submit Application", desc: "Complete the online application form with your personal and academic information.", color: "from-red-500 to-orange-400" },
-  { num: 2, title: "Document Review", desc: "Our admissions team will review your application and supporting documents.", color: "from-blue-500 to-cyan-400" },
-  { num: 3, title: "Interview", desc: "Selected candidates will be invited for an interview with faculty members.", color: "from-green-500 to-emerald-400" },
+const defaultSteps = [
+  { title: "Submit Application", desc: "Complete the online application form with your personal and academic information.", color: "from-red-500 to-orange-400" },
+  { title: "Document Review", desc: "Our admissions team will review your application and supporting documents.", color: "from-blue-500 to-cyan-400" },
+  { title: "Interview", desc: "Selected candidates will be invited for an interview with faculty members.", color: "from-green-500 to-emerald-400" },
 ];
 
 const Admissions = () => {
   const { content: c } = useAllSiteContent("admissions");
   const g = (section: string, key: string, fallback: string) => getContent(c, section, key, fallback);
+
+  const steps = (c.steps as any)?.items || defaultSteps;
 
   return (
     <Layout>
@@ -31,10 +33,10 @@ const Admissions = () => {
           <h2 className="section-title">How to Apply</h2>
           <p className="section-subtitle">Three simple steps to start your tech career</p>
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {steps.map((s) => (
-              <div key={s.num} className="text-center group">
-                <div className={`w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br ${s.color} text-white flex items-center justify-center text-2xl font-extrabold shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  {s.num}
+            {steps.map((s: any, idx: number) => (
+              <div key={s.title + idx} className="text-center group">
+                <div className={`w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br ${s.color || "from-primary to-primary/60"} text-white flex items-center justify-center text-2xl font-extrabold shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  {idx + 1}
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2 text-lg">{s.title}</h3>
                 <p className="text-sm text-gray-500">{s.desc}</p>
