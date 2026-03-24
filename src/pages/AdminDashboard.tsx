@@ -10,9 +10,11 @@ import AdminSubscribers from "@/components/AdminSubscribers";
 import AdminFormQuestions from "@/components/AdminFormQuestions";
 import AdminImageManager from "@/components/AdminImageManager";
 import AdminSendMessage from "@/components/AdminSendMessage";
+import AdminListEditor, { FieldDef } from "@/components/AdminListEditor";
 import {
   LogOut, Home, Info, BookOpen, Briefcase, Newspaper, GraduationCap, Phone,
-  Save, Loader2, ChevronRight, Users, Mail, UserCheck, FileQuestion, Image as ImageIcon, Send
+  Save, Loader2, ChevronRight, Users, Mail, UserCheck, FileQuestion, Image as ImageIcon, Send,
+  Menu, X
 } from "lucide-react";
 
 type PageConfig = {
@@ -35,7 +37,6 @@ type FieldConfig = {
   defaultValue?: string;
 };
 
-// Defaults matching what the frontend pages show
 const defaults: Record<string, Record<string, Record<string, string>>> = {
   home: {
     hero: {
@@ -115,6 +116,15 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       email: "info@globalnexus.africa",
       phone: "+250 787 406 140\n+254 707 825 181",
     },
+    social: {
+      facebook: "",
+      linkedin: "",
+      twitter: "",
+      instagram: "",
+    },
+    donation: {
+      donation_url: "https://flutterwave.com/pay/8atwd1q3u556",
+    },
   },
 };
 
@@ -152,6 +162,7 @@ const pages: PageConfig[] = [
       ]},
     ],
   },
+  { key: "home-gallery", label: "Home Gallery", icon: ImageIcon, sections: [] },
   {
     key: "about", label: "About Page", icon: Info,
     sections: [
@@ -165,6 +176,8 @@ const pages: PageConfig[] = [
       ]},
     ],
   },
+  { key: "about-team", label: "Team Members", icon: Users, sections: [] },
+  { key: "about-partners", label: "Partners", icon: Users, sections: [] },
   {
     key: "programs", label: "Programs", icon: BookOpen,
     sections: [
@@ -175,7 +188,7 @@ const pages: PageConfig[] = [
     ],
   },
   {
-    key: "services", label: "Services", icon: Briefcase,
+    key: "services", label: "Services Page", icon: Briefcase,
     sections: [
       { key: "hero", label: "Hero Section", fields: [
         { key: "title", label: "Title", type: "text" },
@@ -187,8 +200,9 @@ const pages: PageConfig[] = [
       ]},
     ],
   },
+  { key: "services-list", label: "Services List", icon: Briefcase, sections: [] },
   {
-    key: "news", label: "News", icon: Newspaper,
+    key: "news", label: "News Page", icon: Newspaper,
     sections: [
       { key: "hero", label: "Hero Section", fields: [
         { key: "title", label: "Title", type: "text" },
@@ -196,6 +210,8 @@ const pages: PageConfig[] = [
       ]},
     ],
   },
+  { key: "news-items", label: "News Items", icon: Newspaper, sections: [] },
+  { key: "testimonials", label: "Testimonials", icon: Mail, sections: [] },
   {
     key: "admissions", label: "Admissions", icon: GraduationCap,
     sections: [
@@ -208,6 +224,7 @@ const pages: PageConfig[] = [
       ]},
     ],
   },
+  { key: "admissions-steps", label: "Admission Steps", icon: GraduationCap, sections: [] },
   {
     key: "contact", label: "Contact", icon: Phone,
     sections: [
@@ -220,32 +237,128 @@ const pages: PageConfig[] = [
         { key: "email", label: "Email", type: "text" },
         { key: "phone", label: "Phone Numbers", type: "textarea" },
       ]},
+      { key: "social", label: "Social Media Links", fields: [
+        { key: "facebook", label: "Facebook URL", type: "url" },
+        { key: "linkedin", label: "LinkedIn URL", type: "url" },
+        { key: "twitter", label: "Twitter/X URL", type: "url" },
+        { key: "instagram", label: "Instagram URL", type: "url" },
+      ]},
+      { key: "donation", label: "Donation Settings", fields: [
+        { key: "donation_url", label: "Donation Payment URL", type: "url" },
+      ]},
     ],
   },
-  {
-    key: "applications", label: "Applications", icon: Users,
-    sections: [],
-  },
-  {
-    key: "messages", label: "Messages", icon: Mail,
-    sections: [],
-  },
-  {
-    key: "subscribers", label: "Subscribers", icon: UserCheck,
-    sections: [],
-  },
-  {
-    key: "form-questions", label: "Form Questions", icon: FileQuestion,
-    sections: [],
-  },
-  {
-    key: "images", label: "Images", icon: ImageIcon,
-    sections: [],
-  },
-  {
-    key: "send-message", label: "Send Message", icon: Send,
-    sections: [],
-  },
+  { key: "applications", label: "Applications", icon: Users, sections: [] },
+  { key: "messages", label: "Messages", icon: Mail, sections: [] },
+  { key: "subscribers", label: "Subscribers", icon: UserCheck, sections: [] },
+  { key: "form-questions", label: "Form Questions", icon: FileQuestion, sections: [] },
+  { key: "images", label: "Images", icon: ImageIcon, sections: [] },
+  { key: "send-message", label: "Send Message", icon: Send, sections: [] },
+];
+
+// Default data for list editors
+const IMG_BASE = "https://www.globalnexus.africa/images";
+
+const defaultTeam = [
+  { name: "Theoneste NDAYISENGA", role: "Founder, CEO & Project Lead", desc: "Educator, Data Scientist, and Analyst", img: `${IMG_BASE}/theoneste.jpeg` },
+  { name: "Francis KIPKOGEI YEGO", role: "Board Member & Data Scientist", desc: "AI, Actuarial Scientist, Statistician", img: `${IMG_BASE}/francis.png` },
+  { name: "Ass Prof. Innocent NGARUYE", role: "Board Member & Senior Researcher", desc: "Data Scientist, and Researcher", img: `${IMG_BASE}/innocent.png` },
+  { name: "Didier NGAMIJE", role: "Data Analytics Instructor", desc: "Data Analyst, and Developer", img: `${IMG_BASE}/didier.png` },
+  { name: "Dieudonne UWASE", role: "Board Member & Coach", desc: "Educational Technology, Business Coach", img: `${IMG_BASE}/Uwase.jpg` },
+  { name: "Eugene MUTUYIMANA", role: "Software Developer & Facilitator", desc: "Software development, Data Analysis", img: `${IMG_BASE}/eugene.jpg` },
+  { name: "Francis Muhirwa", role: "Web & Graphic Designer", desc: "Project management, Content Creation", img: `${IMG_BASE}/muhirwa.png` },
+  { name: "Joie Sophia UMUHOZA", role: "Marketing & Project Manager", desc: "Marketing, Project Experience", img: "/images/sophia.jpeg" },
+  { name: "Geredi NIYIBIGIRA", role: "AI & Data Science Instructor", desc: "Artificial Intelligence, Machine Learning", img: `${IMG_BASE}/geredi.png` },
+];
+
+const defaultPartners = [
+  { name: "RTB Rwanda", desc: "Accredited by Rwanda TVET Board for quality technical and vocational education.", img: "/images/rtb.jpg" },
+  { name: "NCC Education UK", desc: "Certified programs ensuring international recognition of qualifications.", img: `${IMG_BASE}/ncc.png` },
+  { name: "WorldQuant University", desc: "Partnership coming soon — global online university for data science and quantitative finance.", img: "/images/wqu.png" },
+  { name: "RMI-Rwanda", desc: "Strategic partnership for professional development and industry-aligned training.", img: `${IMG_BASE}/rmi.png` },
+  { name: "SOLVIT AFRICA", desc: "Collaborations for internships, mentorship, and employment opportunities.", img: `${IMG_BASE}/solvit.png` },
+  { name: "ICT Chamber-Rwanda", desc: "Leading tech companies partnerships for mentorship and employment.", img: `${IMG_BASE}/ict.png` },
+];
+
+const defaultNews = [
+  { title: "New Partnership with ASSA (University of Rwanda)", date: "March 15, 2024", desc: "Global Nexus announces strategic partnerships with University of Rwanda Students to enhance student opportunities...", image: `${IMG_BASE}/team.jpeg`, link: "https://www.linkedin.com/pulse/global-nexus-institute-updates-global-nexus-institute-nunyf/" },
+  { title: "Data Analytics & Data Science in-person Training", date: "September 15, 2024", desc: "Global Nexus Institute we don't keep all of our training online, we do meet in-person, cheer and discuss more.", image: `${IMG_BASE}/team1.jpeg`, link: "https://www.linkedin.com/feed/update/urn:li:activity:7289945115026989056/" },
+  { title: "Student at Tech Innovation GIZ learning facilities", date: "August 21, 2024", desc: "Our students secured top positions at the Innovation Challenge, highlighting that learning and collaboration are key to success.", image: `${IMG_BASE}/learning.jpeg`, link: "#" },
+  { title: "Student Success at Tech Innovation Challenge", date: "June 10, 2024", desc: "Our students secured a meeting with the Business Manager at the National Computing Center (UK).", image: `${IMG_BASE}/studing.jpeg`, link: "#" },
+];
+
+const defaultTestimonials = [
+  { name: "Didier NGAMIJE", role: "Data Analyst at Ganza Africa", quote: "The Data Science course completely transformed my career. Within 3 months of graduation, I landed my first job at Ganza Africa.", img: `${IMG_BASE}/didier.png` },
+  { name: "Samuelson MUKIZA", role: "Student at University of Rwanda", quote: "I am excited to have completed the Python for Data Science course at GNI, gaining invaluable skills. I highly recommend this course.", img: `${IMG_BASE}/samuelson.jpg` },
+  { name: "Samuel KIPKOGEI", role: "Data Analyst Intern", quote: "Thanks to the Data Analytics program, I transitioned from statistics to a data analytics career successfully.", img: `${IMG_BASE}/samuel.png` },
+];
+
+const defaultServices = [
+  { title: "Training Enumerators", desc: "Comprehensive training covering survey methodologies, data quality protocols, and ethical guidelines with hands-on practice.", icon: "ClipboardList", color: "from-red-500 to-rose-400" },
+  { title: "Data Collection", desc: "Cutting-edge digital tools and methodologies with rigorous quality control across various sectors.", icon: "Database", color: "from-blue-500 to-cyan-400" },
+  { title: "Data Processing", desc: "Advanced cleaning algorithms, statistical validation, and quality assurance for meaningful insights.", icon: "Cog", color: "from-purple-500 to-violet-400" },
+  { title: "Report Writing", desc: "Complex data transformed into clear, actionable insights with visual representations and recommendations.", icon: "FileText", color: "from-orange-500 to-amber-400" },
+  { title: "Internship", desc: "Academic and professional internships in Data Analytics, Data Science, and Software Development.", icon: "GraduationCap", color: "from-green-500 to-emerald-400" },
+  { title: "Interns to Companies", desc: "Connecting companies with skilled interns proficient in data analytics, ML, and software development.", icon: "Users", color: "from-pink-500 to-rose-400" },
+];
+
+const defaultGallery = [
+  { title: "Team Photo 1", image: "/images/gallery-1.jpg" },
+  { title: "Team Photo 2", image: "/images/gallery-2.jpg" },
+  { title: "Team Photo 3", image: "/images/gallery-3.jpg" },
+  { title: "Team Photo 4", image: "/images/gallery-4.jpg" },
+];
+
+const defaultSteps = [
+  { title: "Submit Application", desc: "Complete the online application form with your personal and academic information.", color: "from-red-500 to-orange-400" },
+  { title: "Document Review", desc: "Our admissions team will review your application and supporting documents.", color: "from-blue-500 to-cyan-400" },
+  { title: "Interview", desc: "Selected candidates will be invited for an interview with faculty members.", color: "from-green-500 to-emerald-400" },
+];
+
+// Field definitions for list editors
+const teamFields: FieldDef[] = [
+  { key: "name", label: "Full Name", type: "text" },
+  { key: "role", label: "Role / Title", type: "text" },
+  { key: "desc", label: "Description", type: "text" },
+  { key: "img", label: "Photo", type: "image" },
+];
+
+const partnerFields: FieldDef[] = [
+  { key: "name", label: "Partner Name", type: "text" },
+  { key: "desc", label: "Description", type: "text" },
+  { key: "img", label: "Logo", type: "image" },
+];
+
+const newsFields: FieldDef[] = [
+  { key: "title", label: "Title", type: "text" },
+  { key: "date", label: "Date", type: "text", placeholder: "e.g. March 15, 2024" },
+  { key: "desc", label: "Description", type: "textarea" },
+  { key: "image", label: "Image", type: "image" },
+  { key: "link", label: "Read More Link", type: "url" },
+];
+
+const testimonialFields: FieldDef[] = [
+  { key: "name", label: "Name", type: "text" },
+  { key: "role", label: "Role / Position", type: "text" },
+  { key: "quote", label: "Testimonial Quote", type: "textarea" },
+  { key: "img", label: "Photo", type: "image" },
+];
+
+const serviceFields: FieldDef[] = [
+  { key: "title", label: "Service Title", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+  { key: "color", label: "Gradient Color (e.g. from-red-500 to-rose-400)", type: "text" },
+];
+
+const galleryFields: FieldDef[] = [
+  { key: "title", label: "Caption / Alt Text", type: "text" },
+  { key: "image", label: "Image", type: "image" },
+];
+
+const stepsFields: FieldDef[] = [
+  { key: "title", label: "Step Title", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+  { key: "color", label: "Gradient Color", type: "text" },
 ];
 
 const AdminDashboard = () => {
@@ -255,18 +368,15 @@ const AdminDashboard = () => {
   const [formData, setFormData] = useState<Record<string, Record<string, Record<string, string>>>>({});
   const [saving, setSaving] = useState(false);
   const [loadingContent, setLoadingContent] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // Load DB content, merge with defaults so admin always sees current values
   useEffect(() => {
     const loadContent = async () => {
-      // Start with defaults
       const merged: Record<string, Record<string, Record<string, string>>> = JSON.parse(JSON.stringify(defaults));
-
       const { data } = await supabase.from("site_content").select("*");
       if (data) {
         data.forEach((row) => {
           if (!merged[row.page]) merged[row.page] = {};
-          // DB values override defaults
           merged[row.page][row.section_key] = {
             ...(merged[row.page][row.section_key] || {}),
             ...(row.content as Record<string, string>),
@@ -301,8 +411,9 @@ const AdminDashboard = () => {
   const handleSave = async (sectionKey: string) => {
     if (!userId) return;
     setSaving(true);
-    const sectionData = formData[activePage]?.[sectionKey] || {};
-    const { error } = await saveSiteContent(activePage, sectionKey, sectionData, userId);
+    const pageKey = activePage;
+    const sectionData = formData[pageKey]?.[sectionKey] || {};
+    const { error } = await saveSiteContent(pageKey, sectionKey, sectionData, userId);
 
     if (error) {
       toast({ title: "Error", description: error.message, variant: "destructive" });
@@ -322,10 +433,43 @@ const AdminDashboard = () => {
 
   if (!isAdmin) return null;
 
+  const renderListEditor = () => {
+    if (!userId) return null;
+
+    switch (activePage) {
+      case "about-team":
+        return <AdminListEditor title="Team Members" description="Edit your team members shown on the About page." page="about" sectionKey="team" fields={teamFields} defaultItems={defaultTeam} userId={userId} />;
+      case "about-partners":
+        return <AdminListEditor title="Partners & Accreditations" description="Edit partners shown on the About page." page="about" sectionKey="partners" fields={partnerFields} defaultItems={defaultPartners} userId={userId} />;
+      case "news-items":
+        return <AdminListEditor title="News Articles" description="Edit news items shown on the News page." page="news" sectionKey="items" fields={newsFields} defaultItems={defaultNews} userId={userId} />;
+      case "testimonials":
+        return <AdminListEditor title="Testimonials" description="Edit success stories shown on the News page." page="news" sectionKey="testimonials" fields={testimonialFields} defaultItems={defaultTestimonials} userId={userId} />;
+      case "services-list":
+        return <AdminListEditor title="Services" description="Edit services shown on the Services page." page="services" sectionKey="services_list" fields={serviceFields} defaultItems={defaultServices} userId={userId} />;
+      case "home-gallery":
+        return <AdminListEditor title="Gallery Images" description="Edit gallery images on the Home page." page="home" sectionKey="gallery" fields={galleryFields} defaultItems={defaultGallery} userId={userId} />;
+      case "admissions-steps":
+        return <AdminListEditor title="Admission Steps" description="Edit the steps shown on the Admissions page." page="admissions" sectionKey="steps" fields={stepsFields} defaultItems={defaultSteps} userId={userId} />;
+      default:
+        return null;
+    }
+  };
+
+  const isListEditor = ["about-team", "about-partners", "news-items", "testimonials", "services-list", "home-gallery", "admissions-steps"].includes(activePage);
+
   return (
     <div className="min-h-screen bg-background flex">
+      {/* Mobile sidebar toggle */}
+      <button
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+        className="fixed top-4 left-4 z-50 p-2 rounded-xl bg-card border border-border shadow-md md:hidden"
+      >
+        {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+      </button>
+
       {/* Sidebar */}
-      <aside className="w-64 bg-card border-r border-border flex flex-col shrink-0">
+      <aside className={`${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 fixed md:static z-40 w-64 bg-card border-r border-border flex flex-col shrink-0 h-screen transition-transform duration-200`}>
         <div className="p-5 border-b border-border">
           <h2 className="font-bold text-foreground text-lg">Admin Panel</h2>
           <p className="text-xs text-muted-foreground">Global Nexus Institute</p>
@@ -334,7 +478,7 @@ const AdminDashboard = () => {
           {pages.map((page) => (
             <button
               key={page.key}
-              onClick={() => { setActivePage(page.key); setActiveSection(null); }}
+              onClick={() => { setActivePage(page.key); setActiveSection(null); setSidebarOpen(false); }}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
                 activePage === page.key
                   ? "bg-primary text-primary-foreground"
@@ -356,8 +500,11 @@ const AdminDashboard = () => {
         </div>
       </aside>
 
+      {/* Overlay for mobile */}
+      {sidebarOpen && <div className="fixed inset-0 bg-black/30 z-30 md:hidden" onClick={() => setSidebarOpen(false)} />}
+
       {/* Main */}
-      <main className="flex-1 p-8 overflow-y-auto">
+      <main className="flex-1 p-4 md:p-8 overflow-y-auto md:ml-0 mt-14 md:mt-0">
         <div className="max-w-3xl">
           {activePage === "programs" ? (
             <AdminProgramManager />
@@ -373,6 +520,8 @@ const AdminDashboard = () => {
             <AdminImageManager />
           ) : activePage === "send-message" ? (
             <AdminSendMessage />
+          ) : isListEditor ? (
+            renderListEditor()
           ) : (
             <>
               <h1 className="text-2xl font-bold text-foreground mb-1">{currentPage?.label}</h1>
