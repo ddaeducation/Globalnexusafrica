@@ -144,6 +144,12 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       seal_image: "https://www.globalnexus.africa/images/seal.png",
       seal_link: "https://certification.dbi.rw/public?name=Global Nexus Institute Ltd",
     },
+    newsletter: {
+      heading: "Stay Updated",
+      description: "Subscribe to receive updates and opportunities.",
+      button_text: "Subscribe",
+      placeholder: "Enter your email",
+    },
   },
 };
 
@@ -286,6 +292,12 @@ const pages: PageConfig[] = [
       { key: "seal", label: "Certification Seal", fields: [
         { key: "seal_image", label: "Seal Image URL", type: "url" },
         { key: "seal_link", label: "Seal Link URL", type: "url" },
+      ]},
+      { key: "newsletter", label: "Newsletter Section", fields: [
+        { key: "heading", label: "Heading", type: "text" },
+        { key: "description", label: "Description", type: "text" },
+        { key: "button_text", label: "Button Text", type: "text" },
+        { key: "placeholder", label: "Input Placeholder", type: "text" },
       ]},
     ],
   },

@@ -108,16 +108,16 @@ const Footer = () => {
           {/* Newsletter */}
           <div>
             <h4 className="mb-5 text-base font-bold relative">
-              Stay Updated
+              {g("newsletter", "heading", "Stay Updated")}
               <span className="absolute -bottom-1.5 left-0 w-8 h-0.5 bg-primary rounded-full" />
             </h4>
             <p className="mb-4 text-gray-400 text-sm">
-              Subscribe to receive updates and opportunities.
+              {g("newsletter", "description", "Subscribe to receive updates and opportunities.")}
             </p>
             <form className="space-y-3" onSubmit={handleSubscribe}>
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={g("newsletter", "placeholder", "Enter your email")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -129,7 +129,7 @@ const Footer = () => {
                 className="w-full btn-primary text-sm !rounded-lg flex items-center justify-center gap-2 disabled:opacity-50"
               >
                 {subscribing ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
-                {subscribing ? "Subscribing..." : "Subscribe"}
+                {subscribing ? "Subscribing..." : g("newsletter", "button_text", "Subscribe")}
               </button>
             </form>
           </div>
