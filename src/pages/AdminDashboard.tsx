@@ -293,6 +293,12 @@ const pages: PageConfig[] = [
         { key: "seal_image", label: "Seal Image URL", type: "url" },
         { key: "seal_link", label: "Seal Link URL", type: "url" },
       ]},
+      { key: "newsletter", label: "Newsletter Section", fields: [
+        { key: "heading", label: "Heading", type: "text" },
+        { key: "description", label: "Description", type: "text" },
+        { key: "button_text", label: "Button Text", type: "text" },
+        { key: "placeholder", label: "Input Placeholder", type: "text" },
+      ]},
     ],
   },
   { key: "footer-links", label: "Footer Links", icon: Phone, sections: [] },
