@@ -126,6 +126,25 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       donation_url: "https://flutterwave.com/pay/8atwd1q3u556",
     },
   },
+  footer: {
+    contact: {
+      address: "Kigali, Rwanda — Norrsken House",
+      email: "info@globalnexus.africa",
+      phone1: "+250 787 406 140",
+      phone2: "+254 707 825 181",
+      whatsapp: "250787406140",
+    },
+    highlights: {
+      item1: "Earn global certifications",
+      item2: "Master key tech skills",
+      item3: "Connect with tech leaders",
+      item4: "Soft skills & job readiness",
+    },
+    seal: {
+      seal_image: "https://www.globalnexus.africa/images/seal.png",
+      seal_link: "https://certification.dbi.rw/public?name=Global Nexus Institute Ltd",
+    },
+  },
 };
 
 const pages: PageConfig[] = [
@@ -248,6 +267,29 @@ const pages: PageConfig[] = [
       ]},
     ],
   },
+  {
+    key: "footer", label: "Footer", icon: Phone,
+    sections: [
+      { key: "contact", label: "Footer Contact Info", fields: [
+        { key: "address", label: "Address", type: "text" },
+        { key: "email", label: "Email", type: "text" },
+        { key: "phone1", label: "Phone 1 (WhatsApp)", type: "text" },
+        { key: "phone2", label: "Phone 2", type: "text" },
+        { key: "whatsapp", label: "WhatsApp Number (no +)", type: "text" },
+      ]},
+      { key: "highlights", label: "Footer Highlights", fields: [
+        { key: "item1", label: "Highlight 1", type: "text" },
+        { key: "item2", label: "Highlight 2", type: "text" },
+        { key: "item3", label: "Highlight 3", type: "text" },
+        { key: "item4", label: "Highlight 4", type: "text" },
+      ]},
+      { key: "seal", label: "Certification Seal", fields: [
+        { key: "seal_image", label: "Seal Image URL", type: "url" },
+        { key: "seal_link", label: "Seal Link URL", type: "url" },
+      ]},
+    ],
+  },
+  { key: "footer-links", label: "Footer Links", icon: Phone, sections: [] },
   { key: "applications", label: "Applications", icon: Users, sections: [] },
   { key: "messages", label: "Messages", icon: Mail, sections: [] },
   { key: "subscribers", label: "Subscribers", icon: UserCheck, sections: [] },
@@ -359,6 +401,19 @@ const stepsFields: FieldDef[] = [
   { key: "title", label: "Step Title", type: "text" },
   { key: "desc", label: "Description", type: "textarea" },
   { key: "color", label: "Gradient Color", type: "text" },
+];
+
+const footerLinkFields: FieldDef[] = [
+  { key: "label", label: "Link Text", type: "text" },
+  { key: "url", label: "URL", type: "url" },
+  { key: "external", label: "External? (yes/no)", type: "text", placeholder: "yes or no" },
+];
+
+const defaultFooterLinks = [
+  { label: "Privacy Policy", url: "https://www.globalnexus.africa/images/Privacy-Policy.pdf", external: "yes" },
+  { label: "Refund Policy", url: "https://www.globalnexus.africa/images/Refund-Policy.pdf", external: "yes" },
+  { label: "Terms and Conditions", url: "https://www.globalnexus.africa/images/Terms-and-Conditions.pdf", external: "yes" },
+  { label: "Research", url: "/research", external: "no" },
 ];
 
 const AdminDashboard = () => {
