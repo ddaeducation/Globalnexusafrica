@@ -506,12 +506,14 @@ const AdminDashboard = () => {
         return <AdminListEditor title="Gallery Images" description="Edit gallery images on the Home page." page="home" sectionKey="gallery" fields={galleryFields} defaultItems={defaultGallery} userId={userId} />;
       case "admissions-steps":
         return <AdminListEditor title="Admission Steps" description="Edit the steps shown on the Admissions page." page="admissions" sectionKey="steps" fields={stepsFields} defaultItems={defaultSteps} userId={userId} />;
+      case "footer-links":
+        return <AdminListEditor title="Footer Quick Links" description="Edit the quick access links in the footer." page="footer" sectionKey="links" fields={footerLinkFields} defaultItems={defaultFooterLinks} userId={userId} />;
       default:
         return null;
     }
   };
 
-  const isListEditor = ["about-team", "about-partners", "news-items", "testimonials", "services-list", "home-gallery", "admissions-steps"].includes(activePage);
+  const isListEditor = ["about-team", "about-partners", "news-items", "testimonials", "services-list", "home-gallery", "admissions-steps", "footer-links"].includes(activePage);
 
   return (
     <div className="min-h-screen bg-background flex">
