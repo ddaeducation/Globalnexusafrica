@@ -144,6 +144,12 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       seal_image: "https://www.globalnexus.africa/images/seal.png",
       seal_link: "https://certification.dbi.rw/public?name=Global Nexus Institute Ltd",
     },
+    newsletter: {
+      heading: "Stay Updated",
+      description: "Subscribe to receive updates and opportunities.",
+      button_text: "Subscribe",
+      placeholder: "Enter your email",
+    },
   },
 };
 
