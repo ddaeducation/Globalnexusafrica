@@ -3,10 +3,22 @@ import { useState } from "react";
 import { MapPin, Mail, Phone, ArrowUpRight, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
+
+const defaultLinks = [
+  { label: "Privacy Policy", url: "https://www.globalnexus.africa/images/Privacy-Policy.pdf", external: "yes" },
+  { label: "Refund Policy", url: "https://www.globalnexus.africa/images/Refund-Policy.pdf", external: "yes" },
+  { label: "Terms and Conditions", url: "https://www.globalnexus.africa/images/Terms-and-Conditions.pdf", external: "yes" },
+  { label: "Research", url: "/research", external: "no" },
+];
 
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [subscribing, setSubscribing] = useState(false);
+  const { content: c } = useAllSiteContent("footer");
+  const g = (section: string, key: string, fallback: string) => getContent(c, section, key, fallback);
+
+  const links = (c.links as any)?.items || defaultLinks;
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,6 +38,8 @@ const Footer = () => {
       setEmail("");
     }
   };
+
+  const whatsapp = g("contact", "whatsapp", "250787406140");
 
   return (
     <footer className="bg-gray-900 text-white relative overflow-hidden">
@@ -47,10 +61,10 @@ const Footer = () => {
               </div>
             </div>
             <div className="space-y-2.5 text-gray-400 text-sm">
-              <p className="flex items-center gap-2">✦ Earn global certifications</p>
-              <p className="flex items-center gap-2">✦ Master key tech skills</p>
-              <p className="flex items-center gap-2">✦ Connect with tech leaders</p>
-              <p className="flex items-center gap-2">✦ Soft skills & job readiness</p>
+              <p className="flex items-center gap-2">✦ {g("highlights", "item1", "Earn global certifications")}</p>
+              <p className="flex items-center gap-2">✦ {g("highlights", "item2", "Master key tech skills")}</p>
+              <p className="flex items-center gap-2">✦ {g("highlights", "item3", "Connect with tech leaders")}</p>
+              <p className="flex items-center gap-2">✦ {g("highlights", "item4", "Soft skills & job readiness")}</p>
             </div>
           </div>
 
@@ -61,24 +75,17 @@ const Footer = () => {
               <span className="absolute -bottom-1.5 left-0 w-8 h-0.5 bg-primary rounded-full" />
             </h4>
             <ul className="space-y-3 text-gray-400 text-sm">
-              <li>
-                <a href="https://www.globalnexus.africa/images/Privacy-Policy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
-                  Privacy Policy <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition" />
-                </a>
-              </li>
-              <li>
-                <a href="https://www.globalnexus.africa/images/Refund-Policy.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
-                  Refund Policy <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition" />
-                </a>
-              </li>
-              <li>
-                <a href="https://www.globalnexus.africa/images/Terms-and-Conditions.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
-                  Terms and Conditions <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition" />
-                </a>
-              </li>
-              <li>
-                <Link to="/research" className="hover:text-white transition-colors">Research</Link>
-              </li>
+              {links.map((link: any, i: number) => (
+                <li key={i}>
+                  {link.external === "yes" ? (
+                    <a href={link.url} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-1 group">
+                      {link.label} <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition" />
+                    </a>
+                  ) : (
+                    <Link to={link.url} className="hover:text-white transition-colors">{link.label}</Link>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -89,10 +96,12 @@ const Footer = () => {
               <span className="absolute -bottom-1.5 left-0 w-8 h-0.5 bg-primary rounded-full" />
             </h4>
             <ul className="space-y-3 text-gray-400 text-sm">
-              <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary shrink-0" />Kigali, Rwanda — Norrsken House</li>
-              <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary shrink-0" />info@globalnexus.africa</li>
-              <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary shrink-0" /><a href="https://wa.me/250787406140" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">+250 787 406 140</a></li>
-              <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary shrink-0" />+254 707 825 181</li>
+              <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary shrink-0" />{g("contact", "address", "Kigali, Rwanda — Norrsken House")}</li>
+              <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-primary shrink-0" />{g("contact", "email", "info@globalnexus.africa")}</li>
+              <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary shrink-0" /><a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{g("contact", "phone1", "+250 787 406 140")}</a></li>
+              {g("contact", "phone2", "+254 707 825 181") && (
+                <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-primary shrink-0" />{g("contact", "phone2", "+254 707 825 181")}</li>
+              )}
             </ul>
           </div>
 
@@ -130,13 +139,13 @@ const Footer = () => {
         <div className="mt-12 border-t border-gray-800 pt-8 text-center text-gray-500">
           <div className="flex flex-col items-center gap-4">
             <a
-              href="https://certification.dbi.rw/public?name=Global Nexus Institute Ltd"
+              href={g("seal", "seal_link", "https://certification.dbi.rw/public?name=Global Nexus Institute Ltd")}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:opacity-80 transition"
             >
               <img
-                src="https://www.globalnexus.africa/images/seal.png"
+                src={g("seal", "seal_image", "https://www.globalnexus.africa/images/seal.png")}
                 alt="Global Nexus Institute Certification"
                 className="h-28 sm:h-32 w-auto"
               />
