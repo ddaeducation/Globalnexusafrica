@@ -574,7 +574,7 @@ const AdminDashboard = () => {
 
       {/* Main */}
       <main className="flex-1 p-4 md:p-8 overflow-y-auto md:ml-0 mt-14 md:mt-0">
-        <div className={["applications", "programs", "messages"].includes(activePage) ? "w-full" : "max-w-3xl"}>
+        <div className="w-full">
           {activePage === "programs" ? (
             <AdminProgramManager />
           ) : activePage === "applications" ? (
