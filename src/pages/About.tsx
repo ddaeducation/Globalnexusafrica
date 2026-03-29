@@ -62,7 +62,7 @@ const About = () => {
               </div>
             ))}
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-full">
             <div className="bg-muted rounded-2xl p-8 border border-border">
               <h3 className="text-xl font-bold text-foreground mb-3">Who We Are</h3>
               <p className="text-muted-foreground leading-relaxed">
