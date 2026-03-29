@@ -88,7 +88,7 @@ const Admissions = () => {
         <div className="container mx-auto px-6 md:px-10">
           <h2 className="section-title">Frequently Asked Questions</h2>
           <p className="section-subtitle">Find answers to common questions about our admissions</p>
-          <div className="max-w-3xl mx-auto space-y-3">
+          <div className="grid md:grid-cols-2 gap-3">
             {[
               { q: "What are the entry requirements?", a: "Requirements vary by program. Generally, you need a high school diploma or equivalent. Some advanced programs may require prior experience or coursework in related fields." },
               { q: "How long do the programs take?", a: "Program duration ranges from 4 weeks for short courses to several months for comprehensive certifications. Each program page lists the specific duration." },
