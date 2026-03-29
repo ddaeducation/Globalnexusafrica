@@ -52,6 +52,7 @@ const Index = () => {
 
   return (
     <Layout>
+      <PageSEO title="Home" description="Global Nexus Institute — Empowering Africa's tech future through world-class data science, AI, and technology education." path="/" />
       {/* Hero Section */}
       <section
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
