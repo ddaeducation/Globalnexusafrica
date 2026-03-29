@@ -59,7 +59,7 @@ const Services = () => {
                 <FlaskConical className="h-7 w-7 text-primary" />
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">Research & Publications</h3>
+                <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">Research</h3>
                 <p className="text-sm text-muted-foreground">Explore our applied research in AI, data science, educational technology, and community development.</p>
               </div>
               <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform" />
