@@ -12,6 +12,7 @@ const donationAmountsRWF = [5000, 10000, 25000, 50000];
 
 const Contact = () => {
   const [selectedDonation, setSelectedDonation] = useState<number | null>(50);
+  const [donating, setDonating] = useState(false);
   const [customAmount, setCustomAmount] = useState("");
   const [currency, setCurrency] = useState<"USD" | "RWF">("USD");
   const { content: c } = useAllSiteContent("contact");
