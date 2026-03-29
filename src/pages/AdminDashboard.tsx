@@ -45,6 +45,11 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       title_line2: "Institute",
       subtitle: "Connect with future tech leaders",
       hero_image: "https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images/hello.avif",
+      explore_text: "Explore Programs",
+      elearning_text: "Our eLearning",
+      elearning_url: "https://skilla.africa/",
+      instructor_text: "Become an Instructor",
+      instructor_url: "https://skilla.africa/auth?redirect=/become-instructor",
     },
     stats: {
       stat1_value: "200+", stat1_label: "Students Trained",
@@ -59,10 +64,24 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       details: "• Learn With our platform: www.skilla.africa\n• 4 Weeks, live online sessions\n• Led by Professional Data Analysts & Scientists\n• Live sessions Start on: April 6, 2026\n• WhatsApp: +250787406140",
       apply_url: "https://forms.gle/ReNWMuzp6vhBLaMs8",
       apply_button_text: "Apply For Python For Data Analyst",
+      momopay: "030700",
+      whatsapp: "250787406140",
     },
     vision_mission: {
+      section_title: "Our Vision & Mission",
+      section_subtitle: "Shaping the future of technology education in Africa",
       vision: "To be a transformative institution that empowers the next generation of leaders, innovators, and professionals in technology and data sciences across Africa and beyond.",
       mission: "To provide high-quality, accessible education that bridges local needs with global opportunities, creating pathways to employment, innovation, and societal impact.",
+    },
+    gallery: {
+      section_title: "Our Team & Students",
+      section_subtitle: "Our team brings together diverse talents and expertise.",
+    },
+    quick_links: {
+      link1_title: "Apply Now", link1_desc: "Start your journey with Global Nexus",
+      link2_title: "Scholarships", link2_desc: "Explore funding opportunities",
+      link3_title: "Learning Portal", link3_desc: "Access your online courses",
+      link4_title: "Contact Us", link4_desc: "Get in touch with our team",
     },
   },
   about: {
@@ -73,6 +92,17 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
     story: {
       paragraph1: "Global Nexus Institute is a leading educational institution dedicated to empowering the next generation of technology leaders. Founded with the vision of bridging the digital skills gap in Rwanda and East Africa, we provide world-class education in partnership with industry leaders.",
       paragraph2: "Our institute combines theoretical knowledge with practical, hands-on experience to prepare students for the demands of the modern tech industry. Through our partnerships with leading technology companies and research institutions, we ensure our curriculum remains cutting-edge and relevant.",
+    },
+    values: {
+      purpose_title: "Our Purpose", purpose_text: "Bridging the digital skills gap in Rwanda and East Africa.",
+      approach_title: "Our Approach", approach_text: "Combining theory with practical, hands-on industry experience.",
+      edge_title: "Our Edge", edge_text: "Partnerships with leading tech companies keep us cutting-edge.",
+    },
+    sections: {
+      partners_title: "Accreditation & Partnerships",
+      partners_subtitle: "Globally recognized certifications and industry partnerships",
+      team_title: "Our Passionate Team",
+      team_subtitle: "Meet the experts driving innovation and excellence",
     },
   },
   programs: {
@@ -96,6 +126,10 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       title: "Research",
       subtitle: "Driving innovation through applied research and collaboration across Africa's tech ecosystem.",
     },
+    sections: {
+      focus_title: "Our Research Focus",
+      focus_subtitle: "We conduct impactful research that bridges the gap between academia and industry.",
+    },
     cta: {
       title: "Collaborate With Us",
       subtitle: "We welcome partnerships with universities, organizations, and researchers. Get in touch to explore opportunities.",
@@ -107,6 +141,12 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       title: "News & Events",
       subtitle: "Stay updated with the latest happenings at Global Nexus Institute.",
     },
+    sections: {
+      news_title: "Latest News",
+      news_subtitle: "Updates, events, and achievements from our community",
+      stories_title: "Success Stories",
+      stories_subtitle: "Hear from graduates who transformed their careers",
+    },
   },
   admissions: {
     hero: {
@@ -115,6 +155,40 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
     },
     apply: {
       apply_url: "https://forms.gle/B1vbHxjXeQMt4hDx9",
+    },
+    sections: {
+      steps_title: "How to Apply",
+      steps_subtitle: "Three simple steps to start your tech career",
+      scholarships_title: "Scholarships & Financial Aid",
+      scholarships_subtitle: "We're committed to making education accessible",
+      faq_title: "Frequently Asked Questions",
+      faq_subtitle: "Find answers to common questions about our admissions",
+    },
+    scholarship1: {
+      title: "Merit Scholarships",
+      description: "Available for outstanding academic achievers, covering up to 30% of tuition fees.",
+    },
+    scholarship2: {
+      title: "Installment Plans",
+      description: "Flexible payment options available to help manage your educational investment.",
+    },
+    scholarship3: {
+      title: "Pay Upfront & Save",
+      description: "Pay your full tuition before the program starts and receive an exclusive early-bird discount on your fees.",
+    },
+    faq: {
+      faq1_q: "What are the entry requirements?",
+      faq1_a: "Requirements vary by program. Generally, you need a high school diploma or equivalent. Some advanced programs may require prior experience or coursework in related fields.",
+      faq2_q: "How long do the programs take?",
+      faq2_a: "Program duration ranges from 4 weeks for short courses to several months for comprehensive certifications. Each program page lists the specific duration.",
+      faq3_q: "Are classes online or in-person?",
+      faq3_a: "We offer both online and in-person training options. Our online programs are delivered through our eLearning platform (skilla.africa) with live sessions, while in-person sessions are held at our Kigali campus.",
+      faq4_q: "What payment methods are accepted?",
+      faq4_a: "We accept MoMo Pay, bank transfers, and online payments through our payment portal. Installment plans are available for most programs.",
+      faq5_q: "Do you offer certificates upon completion?",
+      faq5_a: "Yes! All graduates receive a certificate of completion. Our programs accredited by RTB Rwanda and NCC Education UK carry internationally recognized certifications.",
+      faq6_q: "Can I apply for multiple programs?",
+      faq6_a: "Yes, you can apply for multiple programs. However, we recommend focusing on one program at a time to maximize your learning experience.",
     },
   },
   contact: {
