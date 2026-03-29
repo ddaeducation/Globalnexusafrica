@@ -21,6 +21,7 @@ const Research = () => {
 
   return (
     <Layout>
+      <PageSEO title="Research" description="Applied research in AI, data science, educational technology, and community development at Global Nexus Institute." path="/research" />
       <section className="hero-section text-white py-20 md:py-28">
         <div className="relative z-10 container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
