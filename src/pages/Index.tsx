@@ -222,11 +222,11 @@ const Index = () => {
                 className="card-hover p-6 group animate-fade-up cursor-pointer"
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 mx-auto group-hover:bg-primary/20 transition-colors">
                   <item.icon className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
+                <h3 className="text-lg font-bold text-foreground mb-1 text-center group-hover:text-primary transition-colors">{item.title}</h3>
+                <p className="text-sm text-muted-foreground text-center">{item.desc}</p>
               </Link>
             ))}
           </div>
