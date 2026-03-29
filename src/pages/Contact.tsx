@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import PageSEO from "@/components/PageSEO";
+import ScrollReveal from "@/components/ScrollReveal";
 import { useState } from "react";
 import { MapPin, Mail, Phone, Heart, Send, Facebook, Linkedin, Twitter, Instagram, Loader2 } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
@@ -71,6 +72,7 @@ const Contact = () => {
         </div>
       </section>
 
+      <ScrollReveal>
       <section className="py-16 bg-card">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
@@ -134,7 +136,9 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
+      <ScrollReveal delay={100}>
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
@@ -217,6 +221,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      </ScrollReveal>
     </Layout>
   );
 };

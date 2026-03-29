@@ -193,6 +193,7 @@ const Index = () => {
       )}
 
       {/* Vision & Mission */}
+      <ScrollReveal>
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6 md:px-10">
           <h2 className="section-title">{g("vision_mission", "section_title", "Our Vision & Mission")}</h2>
@@ -215,8 +216,10 @@ const Index = () => {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Gallery */}
+      <ScrollReveal delay={100}>
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-6 md:px-10">
           <h2 className="section-title">{g("gallery", "section_title", "Our Team & Students")}</h2>
@@ -236,8 +239,10 @@ const Index = () => {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* Quick Links */}
+      <ScrollReveal delay={200}>
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -245,8 +250,7 @@ const Index = () => {
               <Link
                 key={item.title}
                 to={item.path}
-                className="card-hover p-6 group animate-fade-up cursor-pointer"
-                style={{ animationDelay: `${i * 0.1}s` }}
+                className="card-hover p-6 group cursor-pointer"
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 mx-auto group-hover:bg-primary/20 transition-colors">
                   <item.icon className="h-6 w-6 text-primary" />
@@ -258,6 +262,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+      </ScrollReveal>
     </Layout>
   );
 };
