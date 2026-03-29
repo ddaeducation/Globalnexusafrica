@@ -59,6 +59,7 @@ const Contact = () => {
 
   return (
     <Layout>
+      <PageSEO title="Contact Us" description="Get in touch with Global Nexus Institute for inquiries about programs, admissions, partnerships, or donations." path="/contact" />
       <section className="hero-section py-20 text-white">
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">
