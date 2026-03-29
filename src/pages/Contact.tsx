@@ -164,12 +164,6 @@ const Contact = () => {
                   ))}
                 </ul>
               </div>
-              <div className="bg-card rounded-2xl p-6 border border-border">
-                <h3 className="font-bold text-foreground mb-3">Why Donate?</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Every donation, no matter the size, helps us train the next generation of data scientists, analysts, and developers. Together, we can bridge the digital divide and unlock potential across the continent.
-                </p>
-              </div>
             </div>
             <div className="card-hover p-8">
               <h3 className="text-xl font-bold text-foreground mb-2">Make a Donation</h3>
