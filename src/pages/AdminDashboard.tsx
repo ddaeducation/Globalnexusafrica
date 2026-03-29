@@ -14,7 +14,7 @@ import AdminListEditor, { FieldDef } from "@/components/AdminListEditor";
 import {
   LogOut, Home, Info, BookOpen, Briefcase, Newspaper, GraduationCap, Phone,
   Save, Loader2, ChevronRight, Users, Mail, UserCheck, FileQuestion, Image as ImageIcon, Send,
-  Menu, X
+  Menu, X, FlaskConical
 } from "lucide-react";
 
 type PageConfig = {
@@ -89,6 +89,17 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
     cta: {
       title: "Ready to Get Started?",
       subtitle: "Contact us to discuss your project requirements and how we can help you achieve your goals.",
+    },
+  },
+  research: {
+    hero: {
+      title: "Research & Publications",
+      subtitle: "Driving innovation through applied research and collaboration across Africa's tech ecosystem.",
+    },
+    cta: {
+      title: "Collaborate With Us",
+      subtitle: "We welcome partnerships with universities, organizations, and researchers. Get in touch to explore opportunities.",
+      button_text: "Contact Our Team",
     },
   },
   news: {
@@ -227,6 +238,21 @@ const pages: PageConfig[] = [
   },
   { key: "services-list", label: "Services List", icon: Briefcase, sections: [] },
   {
+    key: "research", label: "Research Page", icon: FlaskConical,
+    sections: [
+      { key: "hero", label: "Hero Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+      ]},
+      { key: "cta", label: "CTA Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+        { key: "button_text", label: "Button Text", type: "text" },
+      ]},
+    ],
+  },
+  { key: "research-areas", label: "Research Areas", icon: FlaskConical, sections: [] },
+  {
     key: "news", label: "News Page", icon: Newspaper,
     sections: [
       { key: "hero", label: "Hero Section", fields: [
@@ -345,6 +371,19 @@ const defaultTestimonials = [
   { name: "Didier NGAMIJE", role: "Data Analyst at Ganza Africa", quote: "The Data Science course completely transformed my career. Within 3 months of graduation, I landed my first job at Ganza Africa.", img: `${IMG_BASE}/didier.png` },
   { name: "Samuelson MUKIZA", role: "Student at University of Rwanda", quote: "I am excited to have completed the Python for Data Science course at GNI, gaining invaluable skills. I highly recommend this course.", img: `${IMG_BASE}/samuelson.jpg` },
   { name: "Samuel KIPKOGEI", role: "Data Analyst Intern", quote: "Thanks to the Data Analytics program, I transitioned from statistics to a data analytics career successfully.", img: `${IMG_BASE}/samuel.png` },
+];
+
+const defaultResearchAreas = [
+  { title: "Artificial Intelligence & Machine Learning", desc: "Exploring AI applications in healthcare, agriculture, and education across East Africa.", icon: "Lightbulb" },
+  { title: "Data Science & Analytics", desc: "Leveraging data-driven insights to solve real-world challenges in the region.", icon: "FileText" },
+  { title: "Educational Technology", desc: "Researching innovative approaches to digital learning and skills development.", icon: "BookOpen" },
+  { title: "Community & Development", desc: "Studying the impact of technology training on socioeconomic growth in Rwanda and beyond.", icon: "Users" },
+];
+
+const researchAreaFields: FieldDef[] = [
+  { key: "title", label: "Area Title", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+  { key: "icon", label: "Icon Name (e.g. Lightbulb, FileText, BookOpen, Users)", type: "text" },
 ];
 
 const defaultServices = [
@@ -520,12 +559,14 @@ const AdminDashboard = () => {
         return <AdminListEditor title="Admission Steps" description="Edit the steps shown on the Admissions page." page="admissions" sectionKey="steps" fields={stepsFields} defaultItems={defaultSteps} userId={userId} />;
       case "footer-links":
         return <AdminListEditor title="Footer Quick Links" description="Edit the quick access links in the footer." page="footer" sectionKey="links" fields={footerLinkFields} defaultItems={defaultFooterLinks} userId={userId} />;
+      case "research-areas":
+        return <AdminListEditor title="Research Areas" description="Edit research focus areas shown on the Research page." page="research" sectionKey="areas" fields={researchAreaFields} defaultItems={defaultResearchAreas} userId={userId} />;
       default:
         return null;
     }
   };
 
-  const isListEditor = ["about-team", "about-partners", "news-items", "testimonials", "services-list", "home-gallery", "admissions-steps", "footer-links"].includes(activePage);
+  const isListEditor = ["about-team", "about-partners", "news-items", "testimonials", "services-list", "home-gallery", "admissions-steps", "footer-links", "research-areas"].includes(activePage);
 
   return (
     <div className="min-h-screen bg-background flex">
