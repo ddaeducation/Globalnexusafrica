@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import PageSEO from "@/components/PageSEO";
 import { useState } from "react";
 import { MapPin, Mail, Phone, Heart, Send, Facebook, Linkedin, Twitter, Instagram, Loader2 } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
@@ -58,6 +59,7 @@ const Contact = () => {
 
   return (
     <Layout>
+      <PageSEO title="Contact Us" description="Get in touch with Global Nexus Institute for inquiries about programs, admissions, partnerships, or donations." path="/contact" />
       <section className="hero-section py-20 text-white">
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">
@@ -97,17 +99,20 @@ const Contact = () => {
                 <div>
                   <h3 className="font-bold text-foreground mb-3">Follow Us</h3>
                   <div className="flex gap-3">
-                    {socialIcons.map((s, i) => (
+                    {socialIcons.filter(s => s.url && s.url !== "#").map((s, i) => (
                       <a
                         key={i}
-                        href={s.url || "#"}
-                        target={s.url ? "_blank" : undefined}
-                        rel={s.url ? "noopener noreferrer" : undefined}
+                        href={s.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                       >
                         <s.icon className="h-4 w-4" />
                       </a>
                     ))}
+                    {socialIcons.every(s => !s.url || s.url === "#") && (
+                      <p className="text-sm text-muted-foreground">Coming soon</p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -132,29 +137,46 @@ const Contact = () => {
 
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Heart className="h-6 w-6 text-primary" />
                 <h2 className="text-2xl font-bold text-foreground">Support Our Mission</h2>
               </div>
-              <p className="text-muted-foreground mb-6">
-                Help us provide education to underrepresented groups including females, young mothers, and people with disabilities.
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Help us provide education to underrepresented groups including females, young mothers, and people with disabilities. Your contribution directly impacts lives and creates lasting change in communities across Africa.
               </p>
-              <div className="bg-card rounded-2xl p-6 border border-border">
-                <h3 className="font-bold text-foreground mb-4">Your Impact</h3>
-                <ul className="space-y-3 text-sm text-muted-foreground">
-                  {["Fund scholarships for deserving students", "Support educational resources and equipment", "Enable impactful mentorship programs", "Create opportunities for vulnerable communities"].map((item) => (
-                    <li key={item} className="flex items-center gap-2">
-                      <span className="w-5 h-5 rounded-full bg-accent/10 text-accent flex items-center justify-center text-xs font-bold">✓</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-card rounded-2xl p-5 border border-border">
+                  <h3 className="font-bold text-foreground mb-3">Your Impact</h3>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {[
+                      "Fund scholarships for deserving students",
+                      "Support educational resources and equipment",
+                      "Enable impactful mentorship programs",
+                      "Create opportunities for vulnerable communities",
+                      "Provide access to modern technology and tools",
+                      "Empower women and youth through digital skills",
+                    ].map((item) => (
+                      <li key={item} className="flex items-center gap-2">
+                        <span className="w-4 h-4 rounded-full bg-accent/10 text-accent flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-card rounded-2xl p-5 border border-primary/10 flex flex-col items-center justify-center text-center">
+                  <p className="text-lg mb-2">🙏</p>
+                  <h3 className="font-bold text-foreground mb-2">Thank You for Your Donation!</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Your generosity makes a real difference. Every contribution helps us empower communities through education and technology across Africa.
+                  </p>
+                </div>
               </div>
             </div>
             <div className="card-hover p-8">
-              <h3 className="text-xl font-bold text-foreground mb-6">Make a Donation</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">Make a Donation</h3>
+              <p className="text-sm text-muted-foreground mb-6">Choose an amount or enter a custom value below.</p>
               <div className="flex gap-2 mb-4">
                 {(["USD", "RWF"] as const).map((cur) => (
                   <button

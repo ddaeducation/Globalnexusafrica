@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import PageSEO from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { GraduationCap, Award, BookOpen, Phone, ArrowRight, X, Sparkles } from "lucide-react";
@@ -51,6 +52,7 @@ const Index = () => {
 
   return (
     <Layout>
+      <PageSEO title="Home" description="Global Nexus Institute — Empowering Africa's tech future through world-class data science, AI, and technology education." path="/" />
       {/* Hero Section */}
       <section
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
