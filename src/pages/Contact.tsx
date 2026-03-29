@@ -99,17 +99,20 @@ const Contact = () => {
                 <div>
                   <h3 className="font-bold text-foreground mb-3">Follow Us</h3>
                   <div className="flex gap-3">
-                    {socialIcons.map((s, i) => (
+                    {socialIcons.filter(s => s.url && s.url !== "#").map((s, i) => (
                       <a
                         key={i}
-                        href={s.url || "#"}
-                        target={s.url ? "_blank" : undefined}
-                        rel={s.url ? "noopener noreferrer" : undefined}
+                        href={s.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                       >
                         <s.icon className="h-4 w-4" />
                       </a>
                     ))}
+                    {socialIcons.every(s => !s.url || s.url === "#") && (
+                      <p className="text-sm text-muted-foreground">Coming soon</p>
+                    )}
                   </div>
                 </div>
               </div>

@@ -2,7 +2,8 @@ import Layout from "@/components/Layout";
 import PageSEO from "@/components/PageSEO";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Clock, BookOpen, ExternalLink, CreditCard, Loader2 } from "lucide-react";
+import { Clock, BookOpen, ExternalLink, CreditCard, Loader2, GraduationCap } from "lucide-react";
+import { Link } from "react-router-dom";
 
 type Program = {
   id: string;
@@ -75,9 +76,12 @@ const Programs = () => {
                         <BookOpen className="h-4 w-4 text-primary shrink-0" /> {p.tools}
                       </div>
                     </div>
-                    <div className="flex items-center justify-between pt-5 border-t border-border">
+                      <div className="flex items-center justify-between pt-5 border-t border-border">
                       <span className="text-3xl font-extrabold text-foreground">{p.price}</span>
                       <div className="flex gap-2">
+                        <Link to="/apply" className="bg-muted text-foreground px-4 py-2 rounded-xl text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition flex items-center gap-1">
+                          <GraduationCap className="h-3 w-3" /> Apply
+                        </Link>
                         <a href={p.lms_url} target="_blank" rel="noopener noreferrer" className="btn-primary !px-4 !py-2 text-sm flex items-center gap-1">
                           <ExternalLink className="h-3 w-3" /> LMS
                         </a>
