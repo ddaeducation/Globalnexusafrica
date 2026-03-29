@@ -72,10 +72,7 @@ const Programs = () => {
                     <div className="mb-5">
                       <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Learning Outcomes</h4>
                       <ul className="space-y-1.5">
-                        {[...(p.focus || "").split(","), ...(p.tools || "").split(",")]
-                          .map(s => s.trim())
-                          .filter(Boolean)
-                          .map((item, idx) => (
+                        {(p.focus || "").split(",").map(s => s.trim()).filter(Boolean).slice(0, 5).map((item, idx) => (
                             <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
                               <CheckCircle2 className="h-4 w-4 text-accent shrink-0 mt-0.5" />
                               <span>{item}</span>
