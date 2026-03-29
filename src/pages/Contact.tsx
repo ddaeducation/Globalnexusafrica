@@ -146,32 +146,23 @@ const Contact = () => {
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 Help us provide education to underrepresented groups including females, young mothers, and people with disabilities. Your contribution directly impacts lives and creates lasting change in communities across Africa.
               </p>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-card rounded-2xl p-5 border border-border">
-                  <h3 className="font-bold text-foreground mb-3">Your Impact</h3>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    {[
-                      "Fund scholarships for deserving students",
-                      "Support educational resources and equipment",
-                      "Enable impactful mentorship programs",
-                      "Create opportunities for vulnerable communities",
-                      "Provide access to modern technology and tools",
-                      "Empower women and youth through digital skills",
-                    ].map((item) => (
-                      <li key={item} className="flex items-center gap-2">
-                        <span className="w-4 h-4 rounded-full bg-accent/10 text-accent flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="bg-card rounded-2xl p-5 border border-primary/10 flex flex-col items-center justify-center text-center">
-                  <p className="text-lg mb-2">🙏</p>
-                  <h3 className="font-bold text-foreground mb-2">Thank You for Your Donation!</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    Your generosity makes a real difference. Every contribution helps us empower communities through education and technology across Africa.
-                  </p>
-                </div>
+              <div className="bg-card rounded-2xl p-5 border border-border">
+                <h3 className="font-bold text-foreground mb-3">Your Impact</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  {[
+                    "Fund scholarships for deserving students",
+                    "Support educational resources and equipment",
+                    "Enable impactful mentorship programs",
+                    "Create opportunities for vulnerable communities",
+                    "Provide access to modern technology and tools",
+                    "Empower women and youth through digital skills",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2">
+                      <span className="w-4 h-4 rounded-full bg-accent/10 text-accent flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
             <div className="card-hover p-8">
