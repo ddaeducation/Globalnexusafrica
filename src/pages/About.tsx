@@ -46,7 +46,7 @@ const About = () => {
       </section>
 
       <section className="py-16 bg-card">
-        <div className="container mx-auto px-4 max-w-5xl">
+        <div className="container mx-auto px-6 md:px-10">
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {[
               { icon: Target, title: "Our Purpose", text: "Bridging the digital skills gap in Rwanda and East Africa." },
