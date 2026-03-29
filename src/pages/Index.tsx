@@ -168,7 +168,7 @@ const Index = () => {
 
       {/* Vision & Mission */}
       <section className="py-16 bg-background">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-10">
           <h2 className="section-title">Our Vision & Mission</h2>
           <p className="section-subtitle">Shaping the future of technology education in Africa</p>
           <div className="grid md:grid-cols-2 gap-8">
@@ -192,7 +192,7 @@ const Index = () => {
 
       {/* Gallery */}
       <section className="py-16 bg-muted">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-10">
           <h2 className="section-title">Our Team & Students</h2>
           <p className="section-subtitle">Our team brings together diverse talents and expertise.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -213,7 +213,7 @@ const Index = () => {
 
       {/* Quick Links */}
       <section className="py-16 bg-background">
-        <div className="max-w-6xl mx-auto px-6 md:px-10">
+        <div className="container mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {quickLinks.map((item, i) => (
               <Link
