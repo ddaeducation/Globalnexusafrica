@@ -137,19 +137,26 @@ const Contact = () => {
 
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Heart className="h-6 w-6 text-primary" />
                 <h2 className="text-2xl font-bold text-foreground">Support Our Mission</h2>
               </div>
-              <p className="text-muted-foreground mb-6">
-                Help us provide education to underrepresented groups including females, young mothers, and people with disabilities.
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                Help us provide education to underrepresented groups including females, young mothers, and people with disabilities. Your contribution directly impacts lives and creates lasting change in communities across Africa.
               </p>
-              <div className="bg-card rounded-2xl p-6 border border-border">
+              <div className="bg-card rounded-2xl p-6 border border-border mb-6">
                 <h3 className="font-bold text-foreground mb-4">Your Impact</h3>
                 <ul className="space-y-3 text-sm text-muted-foreground">
-                  {["Fund scholarships for deserving students", "Support educational resources and equipment", "Enable impactful mentorship programs", "Create opportunities for vulnerable communities"].map((item) => (
+                  {[
+                    "Fund scholarships for deserving students",
+                    "Support educational resources and equipment",
+                    "Enable impactful mentorship programs",
+                    "Create opportunities for vulnerable communities",
+                    "Provide access to modern technology and tools",
+                    "Empower women and youth through digital skills",
+                  ].map((item) => (
                     <li key={item} className="flex items-center gap-2">
                       <span className="w-5 h-5 rounded-full bg-accent/10 text-accent flex items-center justify-center text-xs font-bold">✓</span>
                       {item}
@@ -157,9 +164,16 @@ const Contact = () => {
                   ))}
                 </ul>
               </div>
+              <div className="bg-card rounded-2xl p-6 border border-border">
+                <h3 className="font-bold text-foreground mb-3">Why Donate?</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Every donation, no matter the size, helps us train the next generation of data scientists, analysts, and developers. Together, we can bridge the digital divide and unlock potential across the continent.
+                </p>
+              </div>
             </div>
             <div className="card-hover p-8">
-              <h3 className="text-xl font-bold text-foreground mb-6">Make a Donation</h3>
+              <h3 className="text-xl font-bold text-foreground mb-2">Make a Donation</h3>
+              <p className="text-sm text-muted-foreground mb-6">Choose an amount or enter a custom value below.</p>
               <div className="flex gap-2 mb-4">
                 {(["USD", "RWF"] as const).map((cur) => (
                   <button
