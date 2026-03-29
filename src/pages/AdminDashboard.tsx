@@ -136,6 +136,16 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
     donation: {
       donation_url: "https://flutterwave.com/pay/8atwd1q3u556",
     },
+    mission: {
+      title: "Support Our Mission",
+      description: "Help us provide education to underrepresented groups including females, young mothers, and people with disabilities. Your contribution directly impacts lives and creates lasting change in communities across Africa.",
+      impact_title: "Your Impact",
+      impact_items: "Fund scholarships for deserving students, Support educational resources and equipment, Enable impactful mentorship programs, Create opportunities for vulnerable communities, Provide access to modern technology and tools, Empower women and youth through digital skills",
+    },
+    donation_card: {
+      title: "Make a Donation",
+      subtitle: "Choose an amount or enter a custom value below.",
+    },
   },
   footer: {
     contact: {
@@ -295,6 +305,16 @@ const pages: PageConfig[] = [
       ]},
       { key: "donation", label: "Donation Settings", fields: [
         { key: "donation_url", label: "Donation Payment URL", type: "url" },
+      ]},
+      { key: "mission", label: "Support Our Mission", fields: [
+        { key: "title", label: "Section Title", type: "text" },
+        { key: "description", label: "Description", type: "textarea" },
+        { key: "impact_title", label: "Impact Card Title", type: "text" },
+        { key: "impact_items", label: "Impact Items (comma-separated)", type: "textarea" },
+      ]},
+      { key: "donation_card", label: "Donation Card", fields: [
+        { key: "title", label: "Card Title", type: "text" },
+        { key: "subtitle", label: "Card Subtitle", type: "text" },
       ]},
     ],
   },
