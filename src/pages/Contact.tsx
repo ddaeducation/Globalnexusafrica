@@ -69,11 +69,11 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-card">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">Get in Touch</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-8">Get in Touch</h2>
               <div className="space-y-6">
                 {[
                   { icon: MapPin, title: "Address", text: g("info", "address", "Kigali, Rwanda\nKN 78 St, Norrsken House") },
@@ -85,17 +85,17 @@ const Contact = () => {
                       <item.icon className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-0.5">{item.title}</h3>
+                      <h3 className="font-bold text-foreground mb-0.5">{item.title}</h3>
                       {'whatsapp' in item && item.whatsapp ? (
                         <a href={`https://wa.me/${item.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm whitespace-pre-line">{item.text}</a>
                       ) : (
-                        <p className="text-gray-500 text-sm whitespace-pre-line">{item.text}</p>
+                        <p className="text-muted-foreground text-sm whitespace-pre-line">{item.text}</p>
                       )}
                     </div>
                   </div>
                 ))}
                 <div>
-                  <h3 className="font-bold text-gray-900 mb-3">Follow Us</h3>
+                  <h3 className="font-bold text-foreground mb-3">Follow Us</h3>
                   <div className="flex gap-3">
                     {socialIcons.map((s, i) => (
                       <a
@@ -103,7 +103,7 @@ const Contact = () => {
                         href={s.url || "#"}
                         target={s.url ? "_blank" : undefined}
                         rel={s.url ? "noopener noreferrer" : undefined}
-                        className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all duration-300"
+                        className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                       >
                         <s.icon className="h-4 w-4" />
                       </a>
@@ -114,12 +114,12 @@ const Contact = () => {
             </div>
 
             <div className="card-hover p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h2>
               <form className="space-y-4" onSubmit={handleSubmit}>
-                <input type="text" placeholder="Full Name *" value={form.full_name} onChange={(e) => setForm(f => ({ ...f, full_name: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" required />
-                <input type="email" placeholder="Email Address *" value={form.email} onChange={(e) => setForm(f => ({ ...f, email: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" required />
-                <input type="text" placeholder="Subject" value={form.subject} onChange={(e) => setForm(f => ({ ...f, subject: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" />
-                <textarea placeholder="Message *" rows={4} value={form.message} onChange={(e) => setForm(f => ({ ...f, message: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 resize-none focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" required />
+                <input type="text" placeholder="Full Name *" value={form.full_name} onChange={(e) => setForm(f => ({ ...f, full_name: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-border bg-muted/30 text-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" required />
+                <input type="email" placeholder="Email Address *" value={form.email} onChange={(e) => setForm(f => ({ ...f, email: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-border bg-muted/30 text-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" required />
+                <input type="text" placeholder="Subject" value={form.subject} onChange={(e) => setForm(f => ({ ...f, subject: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-border bg-muted/30 text-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" />
+                <textarea placeholder="Message *" rows={4} value={form.message} onChange={(e) => setForm(f => ({ ...f, message: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-border bg-muted/30 text-foreground resize-none focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" required />
                 <button type="submit" disabled={sending} className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50">
                   {sending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
                   {sending ? "Sending..." : "Send Message"}
@@ -130,20 +130,20 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Heart className="h-6 w-6 text-primary" />
-                <h2 className="text-2xl font-bold text-gray-900">Support Our Mission</h2>
+                <h2 className="text-2xl font-bold text-foreground">Support Our Mission</h2>
               </div>
-              <p className="text-gray-500 mb-6">
+              <p className="text-muted-foreground mb-6">
                 Help us provide education to underrepresented groups including females, young mothers, and people with disabilities.
               </p>
-              <div className="bg-white rounded-2xl p-6 border border-gray-100">
-                <h3 className="font-bold text-gray-900 mb-4">Your Impact</h3>
-                <ul className="space-y-3 text-sm text-gray-600">
+              <div className="bg-card rounded-2xl p-6 border border-border">
+                <h3 className="font-bold text-foreground mb-4">Your Impact</h3>
+                <ul className="space-y-3 text-sm text-muted-foreground">
                   {["Fund scholarships for deserving students", "Support educational resources and equipment", "Enable impactful mentorship programs", "Create opportunities for vulnerable communities"].map((item) => (
                     <li key={item} className="flex items-center gap-2">
                       <span className="w-5 h-5 rounded-full bg-accent/10 text-accent flex items-center justify-center text-xs font-bold">✓</span>

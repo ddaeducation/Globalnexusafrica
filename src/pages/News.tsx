@@ -37,7 +37,7 @@ const News = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <h2 className="section-title">Latest News</h2>
           <p className="section-subtitle">Updates, events, and achievements from our community</p>
@@ -49,8 +49,8 @@ const News = () => {
                 </div>
                 <div className="p-6">
                   <span className="text-xs font-medium text-primary bg-primary/10 px-2.5 py-1 rounded-full">{item.date}</span>
-                  <h3 className="text-lg font-bold text-gray-900 mt-3 mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-500 mb-4">{item.desc}</p>
+                  <h3 className="text-lg font-bold text-foreground mt-3 mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">{item.desc}</p>
                   {item.link && item.link !== "#" && (
                     <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-primary font-semibold text-sm hover:underline inline-flex items-center gap-1">
                       Read more <ArrowRight className="h-3 w-3" />
@@ -63,7 +63,7 @@ const News = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-card">
         <div className="container mx-auto px-4">
           <h2 className="section-title">Success Stories</h2>
           <p className="section-subtitle">Hear from graduates who transformed their careers</p>
@@ -76,11 +76,11 @@ const News = () => {
                     <img src={t.img} alt={t.name} className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900">{t.name}</h4>
+                    <h4 className="font-bold text-foreground">{t.name}</h4>
                     <p className="text-xs text-primary font-medium">{t.role}</p>
                   </div>
                 </div>
-                <p className="text-sm text-gray-500 leading-relaxed italic">"{t.quote}"</p>
+                <p className="text-sm text-muted-foreground leading-relaxed italic">"{t.quote}"</p>
               </div>
             ))}
           </div>

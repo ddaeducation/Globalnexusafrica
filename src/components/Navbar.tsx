@@ -8,7 +8,6 @@ const navLinks = [
   { path: "/programs", label: "Programs" },
   { path: "/services", label: "Services" },
   { path: "/admissions", label: "Admissions" },
-  
   { path: "/news", label: "News" },
   { path: "/contact", label: "Contact" },
 ];
@@ -27,7 +26,7 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled ? "glass shadow-lg py-2" : "bg-white shadow-md py-0"
+        scrolled ? "glass shadow-lg py-2" : "bg-card shadow-md py-0"
       }`}
     >
       <nav className="container mx-auto px-4 py-3">
@@ -39,10 +38,10 @@ const Navbar = () => {
               className="h-12 md:h-14 w-auto transition-transform duration-300 group-hover:scale-105"
             />
             <span className="leading-tight hidden sm:block">
-              <span className="block text-sm md:text-base font-bold text-gray-900">
+              <span className="block text-sm md:text-base font-bold text-foreground">
                 Global Nexus Institute
               </span>
-              <span className="block text-xs text-gray-500 tracking-wider">
+              <span className="block text-xs text-muted-foreground tracking-wider">
                 —Innovation & Excellence—
               </span>
             </span>
@@ -56,7 +55,7 @@ const Navbar = () => {
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   location.pathname === link.path
                     ? "text-primary bg-primary/5 font-semibold"
-                    : "text-gray-600 hover:text-primary hover:bg-gray-50"
+                    : "text-muted-foreground hover:text-primary hover:bg-muted"
                 }`}
               >
                 {link.label}
@@ -74,7 +73,7 @@ const Navbar = () => {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition"
+            className="lg:hidden p-2 rounded-lg hover:bg-muted transition"
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -82,7 +81,7 @@ const Navbar = () => {
         </div>
 
         {isOpen && (
-          <div className="mt-3 lg:hidden border-t border-gray-100 pt-3 animate-fade-in">
+          <div className="mt-3 lg:hidden border-t border-border pt-3 animate-fade-in">
             <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
@@ -92,7 +91,7 @@ const Navbar = () => {
                   className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
                     location.pathname === link.path
                       ? "text-primary bg-primary/5 font-semibold"
-                      : "text-gray-600 hover:text-primary hover:bg-gray-50"
+                      : "text-muted-foreground hover:text-primary hover:bg-muted"
                   }`}
                 >
                   {link.label}
