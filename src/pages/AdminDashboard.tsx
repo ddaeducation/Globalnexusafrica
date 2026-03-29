@@ -14,7 +14,7 @@ import AdminListEditor, { FieldDef } from "@/components/AdminListEditor";
 import {
   LogOut, Home, Info, BookOpen, Briefcase, Newspaper, GraduationCap, Phone,
   Save, Loader2, ChevronRight, Users, Mail, UserCheck, FileQuestion, Image as ImageIcon, Send,
-  Menu, X
+  Menu, X, FlaskConical
 } from "lucide-react";
 
 type PageConfig = {
@@ -89,6 +89,17 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
     cta: {
       title: "Ready to Get Started?",
       subtitle: "Contact us to discuss your project requirements and how we can help you achieve your goals.",
+    },
+  },
+  research: {
+    hero: {
+      title: "Research & Publications",
+      subtitle: "Driving innovation through applied research and collaboration across Africa's tech ecosystem.",
+    },
+    cta: {
+      title: "Collaborate With Us",
+      subtitle: "We welcome partnerships with universities, organizations, and researchers. Get in touch to explore opportunities.",
+      button_text: "Contact Our Team",
     },
   },
   news: {
@@ -226,6 +237,21 @@ const pages: PageConfig[] = [
     ],
   },
   { key: "services-list", label: "Services List", icon: Briefcase, sections: [] },
+  {
+    key: "research", label: "Research Page", icon: FlaskConical,
+    sections: [
+      { key: "hero", label: "Hero Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+      ]},
+      { key: "cta", label: "CTA Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+        { key: "button_text", label: "Button Text", type: "text" },
+      ]},
+    ],
+  },
+  { key: "research-areas", label: "Research Areas", icon: FlaskConical, sections: [] },
   {
     key: "news", label: "News Page", icon: Newspaper,
     sections: [
