@@ -3,6 +3,7 @@ import PageSEO from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { GraduationCap, Award, BookOpen, Phone, ArrowRight, X, Sparkles } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
 const IMG_BASE = "https://www.globalnexus.africa/images";
