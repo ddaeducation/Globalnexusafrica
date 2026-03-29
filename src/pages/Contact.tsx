@@ -210,14 +210,40 @@ const Contact = () => {
                   className="w-full pl-14 pr-4 py-3 rounded-xl border border-input bg-muted/30 text-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-ring/20 transition"
                 />
               </div>
-              <a
-                href={`${donationUrl}?amount=${encodeURIComponent(customAmount || selectedDonation || 50)}&currency=${encodeURIComponent(currency)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center bg-accent text-accent-foreground py-3.5 rounded-xl font-bold hover:opacity-90 transition shadow-md shadow-accent/30"
+              <button
+                onClick={async () => {
+                  const finalAmount = Number(customAmount) || selectedDonation || 50;
+                  if (finalAmount <= 0) {
+                    toast({ title: "Please select or enter a valid amount", variant: "destructive" });
+                    return;
+                  }
+                  setDonating(true);
+                  try {
+                    const { data, error } = await supabase.functions.invoke("create-payment", {
+                      body: { amount: finalAmount, currency },
+                    });
+                    if (error) throw error;
+                    if (data?.payment_link) {
+                      window.open(data.payment_link, "_blank");
+                    } else {
+                      throw new Error(data?.error || "Failed to create payment link");
+                    }
+                  } catch (err: any) {
+                    console.error("Payment error:", err);
+                    toast({ title: "Payment error", description: err.message || "Could not create payment link. Please try again.", variant: "destructive" });
+                  } finally {
+                    setDonating(false);
+                  }
+                }}
+                disabled={donating}
+                className="block w-full text-center bg-accent text-accent-foreground py-3.5 rounded-xl font-bold hover:opacity-90 transition shadow-md shadow-accent/30 disabled:opacity-50"
               >
-                Donate Now — {currency === "USD" ? "$" : ""}{customAmount || selectedDonation || 50}{currency === "RWF" ? " RWF" : ""}
-              </a>
+                {donating ? (
+                  <span className="inline-flex items-center gap-2"><Loader2 className="h-4 w-4 animate-spin" /> Processing...</span>
+                ) : (
+                  <>Donate Now — {currency === "USD" ? "$" : ""}{customAmount || selectedDonation || 50}{currency === "RWF" ? " RWF" : ""}</>
+                )}
+              </button>
             </div>
           </div>
         </div>
