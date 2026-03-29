@@ -1,5 +1,4 @@
 import Layout from "@/components/Layout";
-import PageSEO from "@/components/PageSEO";
 import { Users, Target, Lightbulb } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
@@ -35,7 +34,6 @@ const About = () => {
 
   return (
     <Layout>
-      <PageSEO title="About Us" description="Learn about Global Nexus Institute — bridging Africa's digital skills gap with world-class tech education and industry partnerships." path="/about" />
       <section className="hero-section py-20 text-white">
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">
@@ -48,7 +46,7 @@ const About = () => {
       </section>
 
       <section className="py-16 bg-card">
-        <div className="container mx-auto px-6 md:px-10">
+        <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {[
               { icon: Target, title: "Our Purpose", text: "Bridging the digital skills gap in Rwanda and East Africa." },
@@ -64,7 +62,7 @@ const About = () => {
               </div>
             ))}
           </div>
-          <div className="grid md:grid-cols-2 gap-6 max-w-full">
+          <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-muted rounded-2xl p-8 border border-border">
               <h3 className="text-xl font-bold text-foreground mb-3">Who We Are</h3>
               <p className="text-muted-foreground leading-relaxed">

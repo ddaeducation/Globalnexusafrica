@@ -1,10 +1,7 @@
 import Layout from "@/components/Layout";
-import PageSEO from "@/components/PageSEO";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { useSiteContent } from "@/hooks/useSiteContent";
-import { Clock, ExternalLink, CreditCard, Loader2, GraduationCap, CheckCircle2 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Clock, BookOpen, ExternalLink, CreditCard, Loader2 } from "lucide-react";
 
 type Program = {
   id: string;
@@ -24,10 +21,6 @@ type Program = {
 const Programs = () => {
   const [programs, setPrograms] = useState<Program[]>([]);
   const [loading, setLoading] = useState(true);
-  const { data: hero } = useSiteContent("programs", "hero", {
-    title: "Professional Programs",
-    subtitle: "Comprehensive programs designed to prepare you for success in the data-driven world.",
-  });
 
   useEffect(() => {
     const fetch = async () => {
@@ -43,12 +36,11 @@ const Programs = () => {
 
   return (
     <Layout>
-      <PageSEO title={hero.title} description={hero.subtitle} path="/programs" />
       <section className="hero-section py-20 text-white">
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">{hero.title}</h1>
+          <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">Professional Programs</h1>
           <p className="text-lg max-w-2xl mx-auto opacity-90 animate-fade-up-delay-1">
-            {hero.subtitle}
+            Comprehensive programs designed to prepare you for success in the data-driven world.
           </p>
         </div>
       </section>
@@ -70,27 +62,20 @@ const Programs = () => {
                     </span>
                     <h3 className="text-xl font-bold text-foreground mb-2">{p.title}</h3>
                     <p className="text-sm text-muted-foreground mb-5">{p.description}</p>
-                    <div className="flex items-center gap-2.5 text-sm text-muted-foreground mb-4">
-                      <Clock className="h-4 w-4 text-primary shrink-0" /> {p.duration}
+                    <div className="space-y-2.5 mb-5">
+                      <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                        <Clock className="h-4 w-4 text-primary shrink-0" /> {p.duration}
+                      </div>
+                      <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                        <BookOpen className="h-4 w-4 text-primary shrink-0" /> {p.focus}
+                      </div>
+                      <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                        <BookOpen className="h-4 w-4 text-primary shrink-0" /> {p.tools}
+                      </div>
                     </div>
-                    {/* Learning Outcomes */}
-                    <div className="mb-5">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Learning Outcomes</h4>
-                      <ul className="space-y-1.5">
-                        {(p.focus || "").split(",").map(s => s.trim()).filter(Boolean).slice(0, 5).map((item, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
-                              <CheckCircle2 className="h-4 w-4 text-accent shrink-0 mt-0.5" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                      </ul>
-                    </div>
-                      <div className="flex items-center justify-between pt-5 border-t border-border">
+                    <div className="flex items-center justify-between pt-5 border-t border-border">
                       <span className="text-3xl font-extrabold text-foreground">{p.price}</span>
                       <div className="flex gap-2">
-                        <Link to="/apply" className="bg-muted text-foreground px-4 py-2 rounded-xl text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition flex items-center gap-1">
-                          <GraduationCap className="h-3 w-3" /> Apply
-                        </Link>
                         <a href={p.lms_url} target="_blank" rel="noopener noreferrer" className="btn-primary !px-4 !py-2 text-sm flex items-center gap-1">
                           <ExternalLink className="h-3 w-3" /> LMS
                         </a>

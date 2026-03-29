@@ -1,7 +1,0 @@
-UPDATE programs SET focus = 'Master data wrangling with Python and Excel, Build interactive dashboards using PowerBI, Write complex SQL queries for business insights, Apply GenAI tools to automate analysis workflows, Present data-driven recommendations to stakeholders' WHERE id = '18c0d697-5d3e-4b8f-a03d-5c60336f0b08';
-
-UPDATE programs SET focus = 'Analyse business datasets using Python and Excel, Design compelling visualisations in PowerBI, Query and manage relational databases with MySQL, Develop automated reporting pipelines in VsCode, Translate data findings into actionable business strategies' WHERE id = '33fdb41b-1a90-4ba4-8c38-a1557beb1a12';
-
-UPDATE programs SET focus = 'Build predictive models with machine learning algorithms, Process natural language data using NLP techniques, Engineer features and prepare datasets for AI pipelines, Deploy data science solutions with Python and SQL, Evaluate model performance and iterate for accuracy' WHERE id = '1beeec2d-a715-4c36-b42c-185295041077';
-
-UPDATE programs SET focus = 'Implement data governance and privacy frameworks, Design scalable data storage and retrieval systems, Clean and validate datasets for analytical readiness, Apply industry-standard data quality assurance practices, Document data workflows and maintain compliance records' WHERE id = 'cd765ee5-7ecf-47db-9a1c-724812d7f05a';

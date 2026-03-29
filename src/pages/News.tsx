@@ -1,5 +1,4 @@
 import Layout from "@/components/Layout";
-import PageSEO from "@/components/PageSEO";
 import { ArrowRight, Quote } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
@@ -27,7 +26,6 @@ const News = () => {
 
   return (
     <Layout>
-      <PageSEO title="News & Events" description="Latest news, events, achievements, and success stories from Global Nexus Institute." path="/news" />
       <section className="hero-section py-20 text-white">
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">
