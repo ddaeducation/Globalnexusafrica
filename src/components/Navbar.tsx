@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 const navLinks = [
   { path: "/", label: "Home" },
@@ -15,7 +15,23 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [dark, setDark] = useState(() => document.documentElement.classList.contains("dark"));
   const location = useLocation();
+
+  const toggleDark = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    localStorage.setItem("theme", next ? "dark" : "light");
+  };
+
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      document.documentElement.classList.add("dark");
+      setDark(true);
+    }
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -61,6 +77,13 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
+            <button
+              onClick={toggleDark}
+              className="ml-1 p-2 rounded-lg hover:bg-muted transition text-muted-foreground hover:text-foreground"
+              aria-label="Toggle dark mode"
+            >
+              {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
             <a
               href="https://skilla.africa/"
               target="_blank"
@@ -97,6 +120,13 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
+              <button
+                onClick={toggleDark}
+                className="px-4 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted transition-all flex items-center gap-2"
+              >
+                {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                {dark ? "Light Mode" : "Dark Mode"}
+              </button>
               <a
                 href="https://skilla.africa/"
                 target="_blank"
