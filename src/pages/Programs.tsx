@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useSiteContent } from "@/hooks/useSiteContent";
 import { Clock, ExternalLink, CreditCard, Loader2, GraduationCap, CheckCircle2 } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
 
 type Program = {
@@ -53,6 +54,7 @@ const Programs = () => {
         </div>
       </section>
 
+      <ScrollReveal>
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           {loading ? (
@@ -106,6 +108,7 @@ const Programs = () => {
           )}
         </div>
       </section>
+      </ScrollReveal>
     </Layout>
   );
 };

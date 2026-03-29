@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import PageSEO from "@/components/PageSEO";
 import { CheckCircle, ArrowRight, BadgePercent, ChevronDown } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 import { Link } from "react-router-dom";
 
@@ -39,6 +40,7 @@ const Admissions = () => {
         </div>
       </section>
 
+      <ScrollReveal>
       <section className="py-16 bg-card">
         <div className="container mx-auto px-6 md:px-10">
           <h2 className="section-title">{g("sections", "steps_title", "How to Apply")}</h2>
@@ -64,7 +66,9 @@ const Admissions = () => {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
+      <ScrollReveal delay={100}>
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-6 md:px-10">
           <h2 className="section-title">{g("sections", "scholarships_title", "Scholarships & Financial Aid")}</h2>
@@ -91,8 +95,10 @@ const Admissions = () => {
           </div>
         </div>
       </section>
+      </ScrollReveal>
 
       {/* FAQ */}
+      <ScrollReveal delay={200}>
       <section className="py-16 bg-card">
         <div className="container mx-auto px-6 md:px-10">
           <h2 className="section-title">{g("sections", "faq_title", "Frequently Asked Questions")}</h2>
@@ -112,6 +118,7 @@ const Admissions = () => {
           </div>
         </div>
       </section>
+      </ScrollReveal>
     </Layout>
   );
 };
