@@ -141,22 +141,16 @@ const Contact = () => {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Heart className="h-6 w-6 text-primary" />
-                <h2 className="text-2xl font-bold text-foreground">Support Our Mission</h2>
+                <h2 className="text-2xl font-bold text-foreground">{g("mission", "title", "Support Our Mission")}</h2>
               </div>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Help us provide education to underrepresented groups including females, young mothers, and people with disabilities. Your contribution directly impacts lives and creates lasting change in communities across Africa.
+                {g("mission", "description", "Help us provide education to underrepresented groups including females, young mothers, and people with disabilities. Your contribution directly impacts lives and creates lasting change in communities across Africa.")}
               </p>
               <div className="bg-card rounded-2xl p-5 border border-border">
-                <h3 className="font-bold text-foreground mb-3">Your Impact</h3>
+                <h3 className="font-bold text-foreground mb-3">{g("mission", "impact_title", "Your Impact")}</h3>
                 <ul className="space-y-2 text-sm text-muted-foreground">
-                  {[
-                    "Fund scholarships for deserving students",
-                    "Support educational resources and equipment",
-                    "Enable impactful mentorship programs",
-                    "Create opportunities for vulnerable communities",
-                    "Provide access to modern technology and tools",
-                    "Empower women and youth through digital skills",
-                  ].map((item) => (
+                  {g("mission", "impact_items", "Fund scholarships for deserving students, Support educational resources and equipment, Enable impactful mentorship programs, Create opportunities for vulnerable communities, Provide access to modern technology and tools, Empower women and youth through digital skills")
+                    .split(",").map((item) => item.trim()).filter(Boolean).map((item) => (
                     <li key={item} className="flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full bg-accent/10 text-accent flex items-center justify-center text-[10px] font-bold shrink-0">✓</span>
                       {item}
@@ -166,8 +160,8 @@ const Contact = () => {
               </div>
             </div>
             <div className="card-hover p-8">
-              <h3 className="text-xl font-bold text-foreground mb-2">Make a Donation</h3>
-              <p className="text-sm text-muted-foreground mb-6">Choose an amount or enter a custom value below.</p>
+              <h3 className="text-xl font-bold text-foreground mb-2">{g("donation_card", "title", "Make a Donation")}</h3>
+              <p className="text-sm text-muted-foreground mb-6">{g("donation_card", "subtitle", "Choose an amount or enter a custom value below.")}</p>
               <div className="flex gap-2 mb-4">
                 {(["USD", "RWF"] as const).map((cur) => (
                   <button
