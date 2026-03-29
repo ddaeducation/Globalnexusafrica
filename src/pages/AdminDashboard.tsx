@@ -373,6 +373,19 @@ const defaultTestimonials = [
   { name: "Samuel KIPKOGEI", role: "Data Analyst Intern", quote: "Thanks to the Data Analytics program, I transitioned from statistics to a data analytics career successfully.", img: `${IMG_BASE}/samuel.png` },
 ];
 
+const defaultResearchAreas = [
+  { title: "Artificial Intelligence & Machine Learning", desc: "Exploring AI applications in healthcare, agriculture, and education across East Africa.", icon: "Lightbulb" },
+  { title: "Data Science & Analytics", desc: "Leveraging data-driven insights to solve real-world challenges in the region.", icon: "FileText" },
+  { title: "Educational Technology", desc: "Researching innovative approaches to digital learning and skills development.", icon: "BookOpen" },
+  { title: "Community & Development", desc: "Studying the impact of technology training on socioeconomic growth in Rwanda and beyond.", icon: "Users" },
+];
+
+const researchAreaFields: FieldDef[] = [
+  { key: "title", label: "Area Title", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+  { key: "icon", label: "Icon Name (e.g. Lightbulb, FileText, BookOpen, Users)", type: "text" },
+];
+
 const defaultServices = [
   { title: "Training Enumerators", desc: "Comprehensive training covering survey methodologies, data quality protocols, and ethical guidelines with hands-on practice.", icon: "ClipboardList", color: "from-red-500 to-rose-400" },
   { title: "Data Collection", desc: "Cutting-edge digital tools and methodologies with rigorous quality control across various sectors.", icon: "Database", color: "from-blue-500 to-cyan-400" },
