@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import PageSEO from "@/components/PageSEO";
+import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
 import { ClipboardList, Database, Cog, FileText, GraduationCap, Users, ArrowRight, Briefcase, FlaskConical } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
@@ -43,13 +44,15 @@ const Services = () => {
             {services.map((s: any, i: number) => {
               const Icon = iconMap[s.icon] || Briefcase;
               return (
-                <div key={s.title + i} className="card-hover p-7 group" style={{ animationDelay: `${i * 0.08}s` }}>
+                <ScrollReveal key={s.title + i} delay={i * 80}>
+                <div className="card-hover p-7 group">
                   <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${s.color || "from-primary to-primary/60"} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <Icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-2">{s.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
                 </div>
+                </ScrollReveal>
               );
             })}
           </div>

@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import PageSEO from "@/components/PageSEO";
+import ScrollReveal from "@/components/ScrollReveal";
 import { Users, Target, Lightbulb } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
@@ -56,14 +57,16 @@ const About = () => {
       <section className="py-16 bg-card">
         <div className="container mx-auto px-6 md:px-10">
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {valueCards.map((item) => (
-              <div key={item.title} className="text-center p-6">
+            {valueCards.map((item, i) => (
+              <ScrollReveal key={item.title} delay={i * 100}>
+              <div className="text-center p-6">
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <item.icon className="h-7 w-7 text-primary" />
                 </div>
                 <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
                 <p className="text-sm text-muted-foreground">{item.text}</p>
               </div>
+              </ScrollReveal>
             ))}
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-full">
