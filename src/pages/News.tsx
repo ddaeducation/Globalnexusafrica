@@ -62,6 +62,7 @@ const News = () => {
                   )}
                 </div>
               </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
