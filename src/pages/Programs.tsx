@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import PageSEO from "@/components/PageSEO";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { useSiteContent } from "@/hooks/useSiteContent";
 import { Clock, ExternalLink, CreditCard, Loader2, GraduationCap, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -23,6 +24,10 @@ type Program = {
 const Programs = () => {
   const [programs, setPrograms] = useState<Program[]>([]);
   const [loading, setLoading] = useState(true);
+  const { data: hero } = useSiteContent("programs", "hero", {
+    title: "Professional Programs",
+    subtitle: "Comprehensive programs designed to prepare you for success in the data-driven world.",
+  });
 
   useEffect(() => {
     const fetch = async () => {
@@ -38,12 +43,12 @@ const Programs = () => {
 
   return (
     <Layout>
-      <PageSEO title="Programs" description="Explore professional programs in data analytics, data science, AI, and software development at Global Nexus Institute." path="/programs" />
+      <PageSEO title={hero.title} description={hero.subtitle} path="/programs" />
       <section className="hero-section py-20 text-white">
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">Professional Programs</h1>
+          <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">{hero.title}</h1>
           <p className="text-lg max-w-2xl mx-auto opacity-90 animate-fade-up-delay-1">
-            Comprehensive programs designed to prepare you for success in the data-driven world.
+            {hero.subtitle}
           </p>
         </div>
       </section>
