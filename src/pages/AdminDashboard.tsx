@@ -566,7 +566,7 @@ const AdminDashboard = () => {
     }
   };
 
-  const isListEditor = ["about-team", "about-partners", "news-items", "testimonials", "services-list", "home-gallery", "admissions-steps", "footer-links"].includes(activePage);
+  const isListEditor = ["about-team", "about-partners", "news-items", "testimonials", "services-list", "home-gallery", "admissions-steps", "footer-links", "research-areas"].includes(activePage);
 
   return (
     <div className="min-h-screen bg-background flex">
