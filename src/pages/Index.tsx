@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import PageSEO from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { GraduationCap, Award, BookOpen, Phone, ArrowRight, X, Sparkles } from "lucide-react";

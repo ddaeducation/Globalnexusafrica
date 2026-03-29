@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import PageSEO from "@/components/PageSEO";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Clock, BookOpen, ExternalLink, CreditCard, Loader2 } from "lucide-react";

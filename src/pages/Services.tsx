@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import PageSEO from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { ClipboardList, Database, Cog, FileText, GraduationCap, Users, ArrowRight, Briefcase, FlaskConical } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";

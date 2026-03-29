@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import PageSEO from "@/components/PageSEO";
 import { Users, Target, Lightbulb } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 

@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import PageSEO from "@/components/PageSEO";
 import { useState } from "react";
 import { MapPin, Mail, Phone, Heart, Send, Facebook, Linkedin, Twitter, Instagram, Loader2 } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";

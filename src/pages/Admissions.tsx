@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
-import { CheckCircle, ArrowRight, BadgePercent } from "lucide-react";
+import PageSEO from "@/components/PageSEO";
+import { CheckCircle, ArrowRight, BadgePercent, ChevronDown } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 import { Link } from "react-router-dom";
 
