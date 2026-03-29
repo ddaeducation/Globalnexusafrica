@@ -213,21 +213,20 @@ const Index = () => {
 
       {/* Quick Links */}
       <section className="py-16 bg-background">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-6 md:px-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {quickLinks.map((item, i) => (
               <Link
                 key={item.title}
                 to={item.path}
-                className="card-hover p-6 group animate-fade-up"
+                className="card-hover p-6 group animate-fade-up cursor-pointer"
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                   <item.icon className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-1">{item.title}</h3>
+                <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">{item.title}</h3>
                 <p className="text-sm text-muted-foreground">{item.desc}</p>
-                <ArrowRight className="h-4 w-4 text-primary mt-3 group-hover:translate-x-1 transition-transform" />
               </Link>
             ))}
           </div>
