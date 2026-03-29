@@ -41,8 +41,8 @@ const News = () => {
 
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">Latest News</h2>
-          <p className="section-subtitle">Updates, events, and achievements from our community</p>
+          <h2 className="section-title">{g("sections", "news_title", "Latest News")}</h2>
+          <p className="section-subtitle">{g("sections", "news_subtitle", "Updates, events, and achievements from our community")}</p>
           <div className="grid md:grid-cols-2 gap-8">
             {newsItems.map((item: any, i: number) => (
               <div key={item.title + i} className="card-hover overflow-hidden group">
@@ -67,8 +67,8 @@ const News = () => {
 
       <section className="py-16 bg-card">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">Success Stories</h2>
-          <p className="section-subtitle">Hear from graduates who transformed their careers</p>
+          <h2 className="section-title">{g("sections", "stories_title", "Success Stories")}</h2>
+          <p className="section-subtitle">{g("sections", "stories_subtitle", "Hear from graduates who transformed their careers")}</p>
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((t: any, i: number) => (
               <div key={t.name + i} className="card-hover p-7 relative">
