@@ -94,6 +94,11 @@
   h1, h2, h3 {
     font-family: 'Poppins', 'Inter', sans-serif;
   }
+
+  ::placeholder {
+    color: hsl(var(--muted-foreground));
+    opacity: 0.7;
+  }
 }
 
 @layer components {
