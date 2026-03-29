@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import PageSEO from "@/components/PageSEO";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Clock, BookOpen, ExternalLink, CreditCard, Loader2, GraduationCap } from "lucide-react";
+import { Clock, BookOpen, ExternalLink, CreditCard, Loader2, GraduationCap, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 type Program = {
@@ -65,16 +65,25 @@ const Programs = () => {
                     </span>
                     <h3 className="text-xl font-bold text-foreground mb-2">{p.title}</h3>
                     <p className="text-sm text-muted-foreground mb-5">{p.description}</p>
-                    <div className="space-y-2.5 mb-5">
+                    <div className="space-y-2.5 mb-4">
                       <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
                         <Clock className="h-4 w-4 text-primary shrink-0" /> {p.duration}
                       </div>
                       <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
-                        <BookOpen className="h-4 w-4 text-primary shrink-0" /> {p.focus}
-                      </div>
-                      <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
                         <BookOpen className="h-4 w-4 text-primary shrink-0" /> {p.tools}
                       </div>
+                    </div>
+                    {/* Learning Outcomes */}
+                    <div className="mb-5">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2">Learning Outcomes</h4>
+                      <ul className="space-y-1.5">
+                        {(p.focus || "").split(",").map((item: string, idx: number) => (
+                          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                            <CheckCircle2 className="h-4 w-4 text-accent shrink-0 mt-0.5" />
+                            <span>{item.trim()}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                       <div className="flex items-center justify-between pt-5 border-t border-border">
                       <span className="text-3xl font-extrabold text-foreground">{p.price}</span>
