@@ -33,6 +33,12 @@ const About = () => {
   const partners = (c.partners as any)?.items || defaultPartners;
   const team = (c.team as any)?.items || defaultTeam;
 
+  const valueCards = [
+    { icon: Target, title: g("values", "purpose_title", "Our Purpose"), text: g("values", "purpose_text", "Bridging the digital skills gap in Rwanda and East Africa.") },
+    { icon: Users, title: g("values", "approach_title", "Our Approach"), text: g("values", "approach_text", "Combining theory with practical, hands-on industry experience.") },
+    { icon: Lightbulb, title: g("values", "edge_title", "Our Edge"), text: g("values", "edge_text", "Partnerships with leading tech companies keep us cutting-edge.") },
+  ];
+
   return (
     <Layout>
       <PageSEO title="About Us" description="Learn about Global Nexus Institute — bridging Africa's digital skills gap with world-class tech education and industry partnerships." path="/about" />
@@ -50,11 +56,7 @@ const About = () => {
       <section className="py-16 bg-card">
         <div className="container mx-auto px-6 md:px-10">
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {[
-              { icon: Target, title: "Our Purpose", text: "Bridging the digital skills gap in Rwanda and East Africa." },
-              { icon: Users, title: "Our Approach", text: "Combining theory with practical, hands-on industry experience." },
-              { icon: Lightbulb, title: "Our Edge", text: "Partnerships with leading tech companies keep us cutting-edge." },
-            ].map((item) => (
+            {valueCards.map((item) => (
               <div key={item.title} className="text-center p-6">
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <item.icon className="h-7 w-7 text-primary" />
@@ -83,8 +85,8 @@ const About = () => {
 
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">Accreditation & Partnerships</h2>
-          <p className="section-subtitle">Globally recognized certifications and industry partnerships</p>
+          <h2 className="section-title">{g("sections", "partners_title", "Accreditation & Partnerships")}</h2>
+          <p className="section-subtitle">{g("sections", "partners_subtitle", "Globally recognized certifications and industry partnerships")}</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {partners.map((p: any, i: number) => (
               <div key={p.name + i} className="card-hover p-6 text-center" style={{ animationDelay: `${i * 0.1}s` }}>
@@ -107,8 +109,8 @@ const About = () => {
 
       <section className="py-16 bg-card">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">Our Passionate Team</h2>
-          <p className="section-subtitle">Meet the experts driving innovation and excellence</p>
+          <h2 className="section-title">{g("sections", "team_title", "Our Passionate Team")}</h2>
+          <p className="section-subtitle">{g("sections", "team_subtitle", "Meet the experts driving innovation and excellence")}</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {team.map((t: any, i: number) => (
               <div key={t.name + i} className="card-hover p-6 text-center group">

@@ -7,19 +7,15 @@ import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
 const IMG_BASE = "https://www.globalnexus.africa/images";
 
-const quickLinks = [
-  { title: "Apply Now", desc: "Start your journey with Global Nexus", path: "/admissions", icon: GraduationCap },
-  { title: "Scholarships", desc: "Explore funding opportunities", path: "/admissions", icon: Award },
-  { title: "Learning Portal", desc: "Access your online courses", path: "/programs", icon: BookOpen },
-  { title: "Contact Us", desc: "Get in touch with our team", path: "/contact", icon: Phone },
-];
-
 const defaultGallery = [
   { title: "Team collaborating", image: `${IMG_BASE}/team.jpeg` },
   { title: "In-person training", image: `${IMG_BASE}/team1.jpeg` },
   { title: "Students learning", image: `${IMG_BASE}/learning.jpeg` },
   { title: "Students studying", image: `${IMG_BASE}/studing.jpeg` },
 ];
+
+const quickLinkIcons = [GraduationCap, Award, BookOpen, Phone];
+const quickLinkPaths = ["/admissions", "/admissions", "/programs", "/contact"];
 
 const Index = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -38,6 +34,13 @@ const Index = () => {
     { value: g("stats", "stat1_value", "200+"), label: g("stats", "stat1_label", "Students Trained") },
     { value: g("stats", "stat2_value", "95%"), label: g("stats", "stat2_label", "Success Rate") },
     { value: g("stats", "stat3_value", "10+"), label: g("stats", "stat3_label", "Expert Mentors") },
+  ];
+
+  const quickLinks = [
+    { title: g("quick_links", "link1_title", "Apply Now"), desc: g("quick_links", "link1_desc", "Start your journey with Global Nexus"), path: quickLinkPaths[0], icon: quickLinkIcons[0] },
+    { title: g("quick_links", "link2_title", "Scholarships"), desc: g("quick_links", "link2_desc", "Explore funding opportunities"), path: quickLinkPaths[1], icon: quickLinkIcons[1] },
+    { title: g("quick_links", "link3_title", "Learning Portal"), desc: g("quick_links", "link3_desc", "Access your online courses"), path: quickLinkPaths[2], icon: quickLinkIcons[2] },
+    { title: g("quick_links", "link4_title", "Contact Us"), desc: g("quick_links", "link4_desc", "Get in touch with our team"), path: quickLinkPaths[3], icon: quickLinkIcons[3] },
   ];
 
   const popupDetails = g(
@@ -78,25 +81,25 @@ const Index = () => {
               to="/programs"
               className="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-muted transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2"
             >
-              Explore Programs <ArrowRight className="h-4 w-4" />
+              {g("hero", "explore_text", "Explore Programs")} <ArrowRight className="h-4 w-4" />
             </Link>
             <a
-              href="https://skilla.africa/"
+              href={g("hero", "elearning_url", "https://skilla.africa/")}
               target="_blank"
               rel="noopener noreferrer"
               className="border-2 border-white/70 text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition-all duration-300"
             >
-              Our eLearning
+              {g("hero", "elearning_text", "Our eLearning")}
             </a>
           </div>
 
           <a
-            href="https://skilla.africa/auth?redirect=/become-instructor"
+            href={g("hero", "instructor_url", "https://skilla.africa/auth?redirect=/become-instructor")}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-xl text-white bg-primary hover:bg-primary-dark transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-primary/40"
           >
-            Become an Instructor
+            {g("hero", "instructor_text", "Become an Instructor")}
           </a>
 
           <div className="grid grid-cols-3 gap-4 sm:gap-6 mt-14 max-w-lg mx-auto">
@@ -113,15 +116,12 @@ const Index = () => {
       {/* Popup */}
       {showPopup && (
         <>
-          {/* Backdrop */}
           <div
             className="fixed inset-0 z-[59] bg-black/40 backdrop-blur-sm animate-fade-in"
             onClick={() => setShowPopup(false)}
           />
-          {/* Modal */}
           <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
             <div className="bg-card rounded-3xl shadow-2xl overflow-hidden relative border border-border w-full max-w-md animate-scale-in">
-              {/* Header gradient bar */}
               <div className="bg-gradient-to-r from-primary via-primary/80 to-accent px-6 py-5 text-white relative">
                 <button
                   onClick={() => setShowPopup(false)}
@@ -140,15 +140,12 @@ const Index = () => {
                 </p>
               </div>
 
-              {/* Body */}
               <div className="p-6">
-                {/* Deadline badge */}
                 <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive text-xs font-bold px-3 py-1.5 rounded-full mb-4">
                   <span className="w-2 h-2 rounded-full bg-destructive animate-pulse" />
                   {g("popup", "deadline", "Deadline: April 6, 2026")}
                 </div>
 
-                {/* Program card */}
                 <div className="bg-muted rounded-xl p-4 mb-4">
                   <h3 className="font-bold text-foreground text-base mb-3">
                     {g("popup", "program_name", "Python For Data Analyst (Online)")}
@@ -163,13 +160,12 @@ const Index = () => {
                   </ul>
                 </div>
 
-                {/* Payment & WhatsApp row */}
                 <div className="flex items-center gap-3 mb-5">
                   <div className="flex-1 bg-accent/10 text-accent border border-accent/20 rounded-lg py-2 px-3 text-center text-xs font-semibold">
-                    MOMOpay: 030700
+                    MOMOpay: {g("popup", "momopay", "030700")}
                   </div>
                   <a
-                    href="https://wa.me/250787406140"
+                    href={`https://wa.me/${g("popup", "whatsapp", "250787406140")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/20 rounded-lg py-2 px-3 text-xs font-semibold hover:bg-[#25D366]/20 transition"
@@ -181,7 +177,6 @@ const Index = () => {
                   </a>
                 </div>
 
-                {/* CTA Button */}
                 <a
                   href={g("popup", "apply_url", "https://forms.gle/ReNWMuzp6vhBLaMs8")}
                   target="_blank"
@@ -199,8 +194,8 @@ const Index = () => {
       {/* Vision & Mission */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6 md:px-10">
-          <h2 className="section-title">Our Vision & Mission</h2>
-          <p className="section-subtitle">Shaping the future of technology education in Africa</p>
+          <h2 className="section-title">{g("vision_mission", "section_title", "Our Vision & Mission")}</h2>
+          <p className="section-subtitle">{g("vision_mission", "section_subtitle", "Shaping the future of technology education in Africa")}</p>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-card p-8 rounded-2xl shadow-sm border border-border relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/40" />
@@ -223,8 +218,8 @@ const Index = () => {
       {/* Gallery */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-6 md:px-10">
-          <h2 className="section-title">Our Team & Students</h2>
-          <p className="section-subtitle">Our team brings together diverse talents and expertise.</p>
+          <h2 className="section-title">{g("gallery", "section_title", "Our Team & Students")}</h2>
+          <p className="section-subtitle">{g("gallery", "section_subtitle", "Our team brings together diverse talents and expertise.")}</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {gallery.map((item: any, i: number) => (
               <div key={i} className="rounded-2xl overflow-hidden shadow-md aspect-[4/3]">

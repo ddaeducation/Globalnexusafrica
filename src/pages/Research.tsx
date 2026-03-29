@@ -35,9 +35,9 @@ const Research = () => {
 
       <section className="py-16 bg-background">
         <div className="container mx-auto px-6">
-          <h2 className="section-title">Our Research Focus</h2>
+          <h2 className="section-title">{g("sections", "focus_title", "Our Research Focus")}</h2>
           <p className="section-subtitle">
-            We conduct impactful research that bridges the gap between academia and industry.
+            {g("sections", "focus_subtitle", "We conduct impactful research that bridges the gap between academia and industry.")}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {areas.map((area: any) => {
