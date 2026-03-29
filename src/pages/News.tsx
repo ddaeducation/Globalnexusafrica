@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import PageSEO from "@/components/PageSEO";
+import ScrollReveal from "@/components/ScrollReveal";
 import { ArrowRight, Quote } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
@@ -45,7 +46,8 @@ const News = () => {
           <p className="section-subtitle">{g("sections", "news_subtitle", "Updates, events, and achievements from our community")}</p>
           <div className="grid md:grid-cols-2 gap-8">
             {newsItems.map((item: any, i: number) => (
-              <div key={item.title + i} className="card-hover overflow-hidden group">
+              <ScrollReveal key={item.title + i} delay={i * 100}>
+              <div className="card-hover overflow-hidden group">
                 <div className="overflow-hidden">
                   <img src={item.image} alt={item.title} className="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                 </div>
@@ -60,6 +62,7 @@ const News = () => {
                   )}
                 </div>
               </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

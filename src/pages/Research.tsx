@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import PageSEO from "@/components/PageSEO";
+import ScrollReveal from "@/components/ScrollReveal";
 import { BookOpen, FileText, Users, Lightbulb } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
@@ -40,10 +41,11 @@ const Research = () => {
             {g("sections", "focus_subtitle", "We conduct impactful research that bridges the gap between academia and industry.")}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {areas.map((area: any) => {
+            {areas.map((area: any, i: number) => {
               const Icon = iconMap[area.icon] || Lightbulb;
               return (
-                <div key={area.title} className="card-hover p-6 flex gap-4">
+                <ScrollReveal key={area.title} delay={i * 100}>
+                <div className="card-hover p-6 flex gap-4">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                     <Icon className="h-6 w-6 text-primary" />
                   </div>
@@ -52,6 +54,7 @@ const Research = () => {
                     <p className="text-sm text-muted-foreground">{area.desc}</p>
                   </div>
                 </div>
+                </ScrollReveal>
               );
             })}
           </div>
