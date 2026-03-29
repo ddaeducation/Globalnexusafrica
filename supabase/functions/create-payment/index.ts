@@ -15,7 +15,8 @@ Deno.serve(async (req) => {
     const { amount, currency, email, name, redirect_url } = await req.json();
 
     // Validate input
-    if (!amount || typeof amount !== "number" || amount <= 0) {
+    const parsedAmount = Number(amount);
+    if (!parsedAmount || isNaN(parsedAmount) || parsedAmount <= 0) {
       return new Response(
         JSON.stringify({ error: "A valid positive amount is required" }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
