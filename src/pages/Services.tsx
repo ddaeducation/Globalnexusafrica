@@ -25,6 +25,7 @@ const Services = () => {
 
   return (
     <Layout>
+      <PageSEO title="Services" description="Professional data services including training, data collection, processing, report writing, and internships." path="/services" />
       <section className="hero-section py-20 text-white">
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">
