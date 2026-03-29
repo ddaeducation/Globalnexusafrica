@@ -44,7 +44,7 @@ Deno.serve(async (req) => {
 
     const payload = {
       tx_ref: txRef,
-      amount,
+      amount: parsedAmount,
       currency: cur,
       redirect_url: redirect_url || "https://globalnexusafrica.lovable.app/contact",
       customer: {
