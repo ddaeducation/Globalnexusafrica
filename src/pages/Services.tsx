@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
-import { ClipboardList, Database, Cog, FileText, GraduationCap, Users, ArrowRight, Briefcase } from "lucide-react";
+import { ClipboardList, Database, Cog, FileText, GraduationCap, Users, ArrowRight, Briefcase, FlaskConical } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
 const iconMap: Record<string, any> = {
@@ -50,6 +50,20 @@ const Services = () => {
                 </div>
               );
             })}
+          </div>
+
+          {/* Research Link */}
+          <div className="mt-12">
+            <Link to="/research" className="card-hover p-8 flex items-center gap-6 group">
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                <FlaskConical className="h-7 w-7 text-primary" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">Research & Publications</h3>
+                <p className="text-sm text-muted-foreground">Explore our applied research in AI, data science, educational technology, and community development.</p>
+              </div>
+              <ArrowRight className="h-5 w-5 text-primary group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
 
           <div className="mt-16 text-center bg-card rounded-2xl p-12 shadow-sm border border-border relative overflow-hidden">
