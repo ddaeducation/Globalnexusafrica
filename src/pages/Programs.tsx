@@ -37,6 +37,7 @@ const Programs = () => {
 
   return (
     <Layout>
+      <PageSEO title="Programs" description="Explore professional programs in data analytics, data science, AI, and software development at Global Nexus Institute." path="/programs" />
       <section className="hero-section py-20 text-white">
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">Professional Programs</h1>

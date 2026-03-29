@@ -35,6 +35,7 @@ const About = () => {
 
   return (
     <Layout>
+      <PageSEO title="About Us" description="Learn about Global Nexus Institute — bridging Africa's digital skills gap with world-class tech education and industry partnerships." path="/about" />
       <section className="hero-section py-20 text-white">
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">
