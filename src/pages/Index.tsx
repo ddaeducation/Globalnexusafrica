@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { GraduationCap, Award, BookOpen, Phone, ArrowRight, X, Sparkles } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
+const IMG_BASE = "https://www.globalnexus.africa/images";
+
 const quickLinks = [
   { title: "Apply Now", desc: "Start your journey with Global Nexus", path: "/admissions", icon: GraduationCap },
   { title: "Scholarships", desc: "Explore funding opportunities", path: "/admissions", icon: Award },
@@ -12,10 +14,10 @@ const quickLinks = [
 ];
 
 const defaultGallery = [
-  { title: "Team Photo 1", image: "/images/gallery-1.jpg" },
-  { title: "Team Photo 2", image: "/images/gallery-2.jpg" },
-  { title: "Team Photo 3", image: "/images/gallery-3.jpg" },
-  { title: "Team Photo 4", image: "/images/gallery-4.jpg" },
+  { title: "Team collaborating", image: `${IMG_BASE}/team.jpeg` },
+  { title: "In-person training", image: `${IMG_BASE}/team1.jpeg` },
+  { title: "Students learning", image: `${IMG_BASE}/learning.jpeg` },
+  { title: "Students studying", image: `${IMG_BASE}/studing.jpeg` },
 ];
 
 const Index = () => {
@@ -52,10 +54,10 @@ const Index = () => {
       {/* Hero Section */}
       <section
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
-        style={{ backgroundImage: "url(\"/lovable-uploads/fb7532f3-e7ce-41da-af33-33bfd4d503ab.jpg\")", zIndex: 50 }}
+        style={{ backgroundImage: "url(\"/lovable-uploads/fb7532f3-e7ce-41da-af33-33bfd4d503ab.jpg\")" }}
       >
         <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-50 text-center w-full max-w-4xl mx-auto py-6">
+        <div className="relative z-10 text-center w-full max-w-4xl mx-auto py-6">
           <div className="inline-flex items-center gap-2 text-white text-sm px-4 py-1.5 rounded-full mb-6 animate-fade-up">
             <Sparkles className="h-4 w-4" />
             {g("hero", "badge", "Empowering Africa's Tech Future")}
@@ -72,7 +74,7 @@ const Index = () => {
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-up-delay-3">
             <Link
               to="/programs"
-              className="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2"
+              className="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-muted transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2"
             >
               Explore Programs <ArrowRight className="h-4 w-4" />
             </Link>
@@ -97,7 +99,7 @@ const Index = () => {
 
           <div className="grid grid-cols-3 gap-4 sm:gap-6 mt-14 max-w-lg mx-auto">
             {stats.map((s) => (
-              <div key={s.label} className="rounded-2xl p-4 sm:p-5 border border-white/20 bg-transparent">
+              <div key={s.label} className="rounded-2xl p-4 sm:p-5 border border-white/20 bg-white/10 backdrop-blur-sm">
                 <div className="text-3xl sm:text-4xl font-extrabold mb-1 text-white">{s.value}</div>
                 <div className="text-xs sm:text-sm text-white/70">{s.label}</div>
               </div>
@@ -158,7 +160,7 @@ const Index = () => {
       )}
 
       {/* Vision & Mission */}
-      <section className="py-16 relative z-0">
+      <section className="py-16 bg-background">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="section-title">Our Vision & Mission</h2>
           <p className="section-subtitle">Shaping the future of technology education in Africa</p>
@@ -182,7 +184,7 @@ const Index = () => {
       </section>
 
       {/* Gallery */}
-      <section className="py-16 relative z-0">
+      <section className="py-16 bg-muted">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="section-title">Our Team & Students</h2>
           <p className="section-subtitle">Our team brings together diverse talents and expertise.</p>
@@ -193,6 +195,8 @@ const Index = () => {
                   src={item.image}
                   alt={item.title || `Team collaborating ${i + 1}`}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  onError={(e) => { (e.target as HTMLImageElement).src = '/placeholder.svg'; }}
                 />
               </div>
             ))}
@@ -201,7 +205,7 @@ const Index = () => {
       </section>
 
       {/* Quick Links */}
-      <section className="py-16 relative z-0">
+      <section className="py-16 bg-background">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {quickLinks.map((item, i) => (

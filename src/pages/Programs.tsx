@@ -45,7 +45,7 @@ const Programs = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           {loading ? (
             <div className="flex justify-center py-12">
@@ -60,26 +60,26 @@ const Programs = () => {
                     <span className="inline-block bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full mb-3">
                       {p.level}
                     </span>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{p.title}</h3>
-                    <p className="text-sm text-gray-500 mb-5">{p.description}</p>
+                    <h3 className="text-xl font-bold text-foreground mb-2">{p.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-5">{p.description}</p>
                     <div className="space-y-2.5 mb-5">
-                      <div className="flex items-center gap-2.5 text-sm text-gray-600">
+                      <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
                         <Clock className="h-4 w-4 text-primary shrink-0" /> {p.duration}
                       </div>
-                      <div className="flex items-center gap-2.5 text-sm text-gray-600">
+                      <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
                         <BookOpen className="h-4 w-4 text-primary shrink-0" /> {p.focus}
                       </div>
-                      <div className="flex items-center gap-2.5 text-sm text-gray-600">
+                      <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
                         <BookOpen className="h-4 w-4 text-primary shrink-0" /> {p.tools}
                       </div>
                     </div>
-                    <div className="flex items-center justify-between pt-5 border-t border-gray-100">
-                      <span className="text-3xl font-extrabold text-gray-900">{p.price}</span>
+                    <div className="flex items-center justify-between pt-5 border-t border-border">
+                      <span className="text-3xl font-extrabold text-foreground">{p.price}</span>
                       <div className="flex gap-2">
                         <a href={p.lms_url} target="_blank" rel="noopener noreferrer" className="btn-primary !px-4 !py-2 text-sm flex items-center gap-1">
                           <ExternalLink className="h-3 w-3" /> LMS
                         </a>
-                        <a href={p.pay_url} target="_blank" rel="noopener noreferrer" className="bg-accent text-white px-4 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition flex items-center gap-1">
+                        <a href={p.pay_url} target="_blank" rel="noopener noreferrer" className="bg-accent text-accent-foreground px-4 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition flex items-center gap-1">
                           <CreditCard className="h-3 w-3" /> Pay
                         </a>
                       </div>

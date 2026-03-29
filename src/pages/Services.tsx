@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { Link } from "react-router-dom";
-import { ClipboardList, Database, Cog, FileText, GraduationCap, Users, ArrowRight } from "lucide-react";
+import { ClipboardList, Database, Cog, FileText, GraduationCap, Users, ArrowRight, Briefcase } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
 const iconMap: Record<string, any> = {
@@ -35,7 +35,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s: any, i: number) => {
@@ -45,19 +45,19 @@ const Services = () => {
                   <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${s.color || "from-primary to-primary/60"} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <Icon className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{s.title}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
                 </div>
               );
             })}
           </div>
 
-          <div className="mt-16 text-center bg-white rounded-2xl p-12 shadow-sm border border-gray-100 relative overflow-hidden">
+          <div className="mt-16 text-center bg-card rounded-2xl p-12 shadow-sm border border-border relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary" />
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
               {g("cta", "title", "Ready to Get Started?")}
             </h2>
-            <p className="text-gray-500 mb-8 max-w-lg mx-auto">
+            <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
               {g("cta", "subtitle", "Contact us to discuss your project requirements and how we can help you achieve your goals.")}
             </p>
             <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
@@ -69,8 +69,5 @@ const Services = () => {
     </Layout>
   );
 };
-
-// Need Briefcase as fallback icon
-import { Briefcase } from "lucide-react";
 
 export default Services;
