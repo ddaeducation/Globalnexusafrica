@@ -93,7 +93,7 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
   },
   research: {
     hero: {
-      title: "Research & Publications",
+      title: "Research",
       subtitle: "Driving innovation through applied research and collaboration across Africa's tech ecosystem.",
     },
     cta: {

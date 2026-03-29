@@ -23,7 +23,7 @@ const Research = () => {
       <section className="hero-section text-white py-20 md:py-28">
         <div className="relative z-10 container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            {g("hero", "title", "Research & Publications")}
+            {g("hero", "title", "Research")}
           </h1>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
             {g("hero", "subtitle", "Driving innovation through applied research and collaboration across Africa's tech ecosystem.")}
