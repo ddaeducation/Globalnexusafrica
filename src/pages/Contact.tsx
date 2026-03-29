@@ -210,7 +210,7 @@ const Contact = () => {
                 />
               </div>
               <a
-                href={donationUrl}
+                href={`${donationUrl}?amount=${encodeURIComponent(customAmount || selectedDonation || 50)}&currency=${encodeURIComponent(currency)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full text-center bg-accent text-accent-foreground py-3.5 rounded-xl font-bold hover:opacity-90 transition shadow-md shadow-accent/30"
