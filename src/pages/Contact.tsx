@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import PageSEO from "@/components/PageSEO";
 import { useState } from "react";
 import { MapPin, Mail, Phone, Heart, Send, Facebook, Linkedin, Twitter, Instagram, Loader2 } from "lucide-react";
 import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
@@ -58,6 +59,7 @@ const Contact = () => {
 
   return (
     <Layout>
+      <PageSEO title="Contact Us" description="Get in touch with Global Nexus Institute for inquiries about programs, admissions, partnerships, or donations." path="/contact" />
       <section className="hero-section py-20 text-white">
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">
@@ -97,17 +99,20 @@ const Contact = () => {
                 <div>
                   <h3 className="font-bold text-foreground mb-3">Follow Us</h3>
                   <div className="flex gap-3">
-                    {socialIcons.map((s, i) => (
+                    {socialIcons.filter(s => s.url && s.url !== "#").map((s, i) => (
                       <a
                         key={i}
-                        href={s.url || "#"}
-                        target={s.url ? "_blank" : undefined}
-                        rel={s.url ? "noopener noreferrer" : undefined}
+                        href={s.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                       >
                         <s.icon className="h-4 w-4" />
                       </a>
                     ))}
+                    {socialIcons.every(s => !s.url || s.url === "#") && (
+                      <p className="text-sm text-muted-foreground">Coming soon</p>
+                    )}
                   </div>
                 </div>
               </div>
