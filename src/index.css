@@ -188,4 +188,8 @@
     backdrop-filter: blur(12px);
     background: rgba(255,255,255,0.85);
   }
+
+  .dark .glass {
+    background: rgba(30,30,40,0.85);
+  }
 }
