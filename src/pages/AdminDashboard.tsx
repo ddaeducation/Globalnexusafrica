@@ -146,10 +146,9 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       whatsapp: "250787406140",
     },
     highlights: {
-      item1: "Earn global certifications",
-      item2: "Master key tech skills",
-      item3: "Connect with tech leaders",
-      item4: "Soft skills & job readiness",
+      item1: "Master key tech skills",
+      item2: "Connect with tech leaders",
+      item3: "Soft skills & job readiness",
     },
     seal: {
       seal_image: "https://www.globalnexus.africa/images/seal.png",
@@ -313,7 +312,6 @@ const pages: PageConfig[] = [
         { key: "item1", label: "Highlight 1", type: "text" },
         { key: "item2", label: "Highlight 2", type: "text" },
         { key: "item3", label: "Highlight 3", type: "text" },
-        { key: "item4", label: "Highlight 4", type: "text" },
       ]},
       { key: "seal", label: "Certification Seal", fields: [
         { key: "seal_image", label: "Seal Image URL", type: "url" },
