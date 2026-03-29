@@ -29,10 +29,10 @@ const Admissions = () => {
       </section>
 
       <section className="py-16 bg-card">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-10">
           <h2 className="section-title">How to Apply</h2>
           <p className="section-subtitle">Three simple steps to start your tech career</p>
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8">
             {steps.map((s: any, idx: number) => (
               <div key={s.title + idx} className="text-center group">
                 <div className={`w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br ${s.color || "from-primary to-primary/60"} text-white flex items-center justify-center text-2xl font-extrabold shadow-lg group-hover:scale-110 transition-transform duration-300`}>
@@ -55,10 +55,10 @@ const Admissions = () => {
       </section>
 
       <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-10">
           <h2 className="section-title">Scholarships & Financial Aid</h2>
           <p className="section-subtitle">We're committed to making education accessible</p>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8">
             <div className="card-hover p-8 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/40" />
               <CheckCircle className="h-10 w-10 text-primary mb-4" />
