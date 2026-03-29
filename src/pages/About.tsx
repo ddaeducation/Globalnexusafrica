@@ -46,7 +46,7 @@ const About = () => {
       </section>
 
       <section className="py-16 bg-card">
-        <div className="container mx-auto px-4 max-w-5xl">
+        <div className="container mx-auto px-6 md:px-10">
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {[
               { icon: Target, title: "Our Purpose", text: "Bridging the digital skills gap in Rwanda and East Africa." },
@@ -80,7 +80,7 @@ const About = () => {
       </section>
 
       <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-10">
           <h2 className="section-title">Accreditation & Partnerships</h2>
           <p className="section-subtitle">Globally recognized certifications and industry partnerships</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -104,7 +104,7 @@ const About = () => {
       </section>
 
       <section className="py-16 bg-card">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-10">
           <h2 className="section-title">Our Passionate Team</h2>
           <p className="section-subtitle">Meet the experts driving innovation and excellence</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
