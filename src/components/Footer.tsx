@@ -61,7 +61,6 @@ const Footer = () => {
               </div>
             </div>
             <div className="space-y-2.5 text-gray-400 text-sm">
-              <p className="flex items-center gap-2">✦ {g("highlights", "item1", "Earn global certifications")}</p>
               <p className="flex items-center gap-2">✦ {g("highlights", "item2", "Master key tech skills")}</p>
               <p className="flex items-center gap-2">✦ {g("highlights", "item3", "Connect with tech leaders")}</p>
               <p className="flex items-center gap-2">✦ {g("highlights", "item4", "Soft skills & job readiness")}</p>
