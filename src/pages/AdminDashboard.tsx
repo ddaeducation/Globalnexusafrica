@@ -559,6 +559,8 @@ const AdminDashboard = () => {
         return <AdminListEditor title="Admission Steps" description="Edit the steps shown on the Admissions page." page="admissions" sectionKey="steps" fields={stepsFields} defaultItems={defaultSteps} userId={userId} />;
       case "footer-links":
         return <AdminListEditor title="Footer Quick Links" description="Edit the quick access links in the footer." page="footer" sectionKey="links" fields={footerLinkFields} defaultItems={defaultFooterLinks} userId={userId} />;
+      case "research-areas":
+        return <AdminListEditor title="Research Areas" description="Edit research focus areas shown on the Research page." page="research" sectionKey="areas" fields={researchAreaFields} defaultItems={defaultResearchAreas} userId={userId} />;
       default:
         return null;
     }
