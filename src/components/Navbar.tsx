@@ -94,6 +94,16 @@ const Navbar = () => {
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
+            <Link
+              to="/elearning"
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                location.pathname === "/elearning"
+                  ? "text-primary bg-primary/5 font-semibold"
+                  : "text-muted-foreground hover:text-primary hover:bg-muted"
+              }`}
+            >
+              Portal
+            </Link>
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -147,12 +157,6 @@ const Navbar = () => {
             >
               {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
-            <Link
-              to="/elearning"
-              className="ml-2 btn-primary text-sm !px-5 !py-2"
-            >
-              eLearning Portal
-            </Link>
           </div>
 
           <button
@@ -167,6 +171,16 @@ const Navbar = () => {
         {isOpen && (
           <div className="mt-3 lg:hidden border-t border-border pt-3 animate-fade-in">
             <div className="flex flex-col gap-1">
+              <Link
+                to="/elearning"
+                className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                  location.pathname === "/elearning"
+                    ? "text-primary bg-primary/5 font-semibold"
+                    : "text-muted-foreground hover:text-primary hover:bg-muted"
+                }`}
+              >
+                Portal
+              </Link>
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
@@ -201,12 +215,6 @@ const Navbar = () => {
                 {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
                 {dark ? "Light Mode" : "Dark Mode"}
               </button>
-              <Link
-                to="/elearning"
-                className="mt-2 btn-primary text-sm text-center"
-              >
-                eLearning Portal
-              </Link>
             </div>
           </div>
         )}
