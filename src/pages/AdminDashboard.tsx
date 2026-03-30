@@ -969,6 +969,7 @@ const donateItemFields: FieldDef[] = [
 const AdminDashboard = () => {
   const { isAdmin, loading: authLoading, userId, signOut } = useAdmin();
   const [activePage, setActivePage] = useState("home");
+  const [expandedGroups, setExpandedGroups] = useState<string[]>([]);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [formData, setFormData] = useState<Record<string, Record<string, Record<string, string>>>>({});
   const [saving, setSaving] = useState(false);
