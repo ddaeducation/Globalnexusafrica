@@ -56,8 +56,8 @@ const Donate = () => {
   };
 
   return (
-    <Layout>
-      <PageSEO title="Donate" description="Support Global Nexus Institute's mission to provide accessible tech education across Africa. Every contribution makes a difference." path="/donate" />
+    <>
+      <PageSEO title="Donate" description="Support Global Nexus Institute's mission to provide accessible tech education across Africa." path="/elearning?tab=donate" />
 
       <section className="hero-section py-20 text-white">
         <div className="container mx-auto px-4 text-center relative z-10">
