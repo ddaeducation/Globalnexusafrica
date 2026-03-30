@@ -22,6 +22,7 @@ type PageConfig = {
   label: string;
   icon: any;
   sections: SectionConfig[];
+  children?: PageConfig[];
 };
 
 type SectionConfig = {
@@ -588,123 +589,125 @@ const pages: PageConfig[] = [
   },
   { key: "footer-links", label: "Footer Links", icon: Phone, sections: [] },
   {
-    key: "whyus", label: "Why Us", icon: Star,
-    sections: [
-      { key: "hero", label: "Hero Section", fields: [
-        { key: "title", label: "Title", type: "text" },
-        { key: "subtitle", label: "Subtitle", type: "textarea" },
-      ]},
-      { key: "stats", label: "Statistics", fields: [
-        { key: "stat1_value", label: "Stat 1 Value", type: "text" },
-        { key: "stat1_label", label: "Stat 1 Label", type: "text" },
-        { key: "stat2_value", label: "Stat 2 Value", type: "text" },
-        { key: "stat2_label", label: "Stat 2 Label", type: "text" },
-        { key: "stat3_value", label: "Stat 3 Value", type: "text" },
-        { key: "stat3_label", label: "Stat 3 Label", type: "text" },
-        { key: "stat4_value", label: "Stat 4 Value", type: "text" },
-        { key: "stat4_label", label: "Stat 4 Label", type: "text" },
-      ]},
-      { key: "sections", label: "Section Titles", fields: [
-        { key: "reasons_title", label: "Reasons Section Title", type: "text" },
-        { key: "reasons_subtitle", label: "Reasons Section Subtitle", type: "text" },
-        { key: "track_title", label: "Track Record Title", type: "text" },
-        { key: "track_desc", label: "Track Record Description", type: "textarea" },
-      ]},
-    ],
-  },
-  { key: "whyus-reasons", label: "Why Us Reasons", icon: Star, sections: [] },
-  {
-    key: "career", label: "Career", icon: Briefcase,
-    sections: [
-      { key: "hero", label: "Hero Section", fields: [
-        { key: "title", label: "Title", type: "text" },
-        { key: "subtitle", label: "Subtitle", type: "textarea" },
-      ]},
-      { key: "sections", label: "Section Titles", fields: [
-        { key: "paths_title", label: "Career Paths Title", type: "text" },
-        { key: "paths_subtitle", label: "Career Paths Subtitle", type: "text" },
-        { key: "openings_title", label: "Openings Title", type: "text" },
-        { key: "openings_subtitle", label: "Openings Subtitle", type: "text" },
-        { key: "cta_title", label: "CTA Title", type: "text" },
-        { key: "cta_desc", label: "CTA Description", type: "textarea" },
-      ]},
-    ],
-  },
-  { key: "career-paths", label: "Career Paths", icon: Briefcase, sections: [] },
-  { key: "career-openings", label: "Job Openings", icon: Briefcase, sections: [] },
-  {
-    key: "corporate", label: "Corporate", icon: Building2,
-    sections: [
-      { key: "hero", label: "Hero Section", fields: [
-        { key: "title", label: "Title", type: "text" },
-        { key: "subtitle", label: "Subtitle", type: "textarea" },
-      ]},
-      { key: "sections", label: "Section Titles", fields: [
-        { key: "offerings_title", label: "Offerings Title", type: "text" },
-        { key: "offerings_subtitle", label: "Offerings Subtitle", type: "text" },
-        { key: "partner_title", label: "Partner Section Title", type: "text" },
-        { key: "proposal_title", label: "Proposal Card Title", type: "text" },
-        { key: "proposal_desc", label: "Proposal Card Description", type: "textarea" },
-      ]},
-    ],
-  },
-  { key: "corporate-offerings", label: "Corporate Offerings", icon: Building2, sections: [] },
-  { key: "corporate-benefits", label: "Corporate Benefits", icon: Building2, sections: [] },
-  {
-    key: "collaborate", label: "Collaborate", icon: Handshake,
-    sections: [
-      { key: "hero", label: "Hero Section", fields: [
-        { key: "title", label: "Title", type: "text" },
-        { key: "subtitle", label: "Subtitle", type: "textarea" },
-      ]},
-      { key: "sections", label: "Section Titles", fields: [
-        { key: "partners_title", label: "Partners Title", type: "text" },
-        { key: "partners_subtitle", label: "Partners Subtitle", type: "text" },
-        { key: "cta_title", label: "CTA Title", type: "text" },
-        { key: "cta_desc", label: "CTA Description", type: "textarea" },
-      ]},
-    ],
-  },
-  { key: "collaborate-types", label: "Partner Types", icon: Handshake, sections: [] },
-  {
-    key: "faqs_page", label: "FAQs Page", icon: HelpCircle,
-    sections: [
-      { key: "hero", label: "Hero Section", fields: [
-        { key: "title", label: "Title", type: "text" },
-        { key: "subtitle", label: "Subtitle", type: "textarea" },
-      ]},
-      { key: "sections", label: "Section Titles", fields: [
-        { key: "cta_title", label: "CTA Title", type: "text" },
-        { key: "cta_desc", label: "CTA Description", type: "textarea" },
-      ]},
-    ],
-  },
-  { key: "faqs-categories", label: "FAQ Categories", icon: HelpCircle, sections: [] },
-  {
-    key: "donate", label: "Donate", icon: Heart,
-    sections: [
-      { key: "hero", label: "Hero Section", fields: [
-        { key: "title", label: "Title", type: "text" },
-        { key: "subtitle", label: "Subtitle", type: "textarea" },
-      ]},
-      { key: "sections", label: "Section Titles", fields: [
-        { key: "impact_title", label: "Impact Section Title", type: "text" },
-        { key: "impact_subtitle", label: "Impact Section Subtitle", type: "text" },
-        { key: "your_impact_title", label: "Your Impact Title", type: "text" },
-        { key: "card_title", label: "Donation Card Title", type: "text" },
-        { key: "card_subtitle", label: "Donation Card Subtitle", type: "text" },
-      ]},
-    ],
-  },
-  { key: "donate-areas", label: "Donation Impact Areas", icon: Heart, sections: [] },
-  { key: "donate-items", label: "Impact Items", icon: Heart, sections: [] },
-  {
     key: "elearning", label: "eLearning Portal", icon: Monitor,
     sections: [
       { key: "settings", label: "Portal Settings", fields: [
         { key: "iframe_url", label: "eLearning Platform URL", type: "url" },
         { key: "back_label", label: "Back Button Label", type: "text" },
       ]},
+    ],
+    children: [
+      {
+        key: "whyus", label: "Why Us", icon: Star,
+        sections: [
+          { key: "hero", label: "Hero Section", fields: [
+            { key: "title", label: "Title", type: "text" },
+            { key: "subtitle", label: "Subtitle", type: "textarea" },
+          ]},
+          { key: "stats", label: "Statistics", fields: [
+            { key: "stat1_value", label: "Stat 1 Value", type: "text" },
+            { key: "stat1_label", label: "Stat 1 Label", type: "text" },
+            { key: "stat2_value", label: "Stat 2 Value", type: "text" },
+            { key: "stat2_label", label: "Stat 2 Label", type: "text" },
+            { key: "stat3_value", label: "Stat 3 Value", type: "text" },
+            { key: "stat3_label", label: "Stat 3 Label", type: "text" },
+            { key: "stat4_value", label: "Stat 4 Value", type: "text" },
+            { key: "stat4_label", label: "Stat 4 Label", type: "text" },
+          ]},
+          { key: "sections", label: "Section Titles", fields: [
+            { key: "reasons_title", label: "Reasons Section Title", type: "text" },
+            { key: "reasons_subtitle", label: "Reasons Section Subtitle", type: "text" },
+            { key: "track_title", label: "Track Record Title", type: "text" },
+            { key: "track_desc", label: "Track Record Description", type: "textarea" },
+          ]},
+        ],
+      },
+      { key: "whyus-reasons", label: "Why Us Reasons", icon: Star, sections: [] },
+      {
+        key: "career", label: "Career", icon: Briefcase,
+        sections: [
+          { key: "hero", label: "Hero Section", fields: [
+            { key: "title", label: "Title", type: "text" },
+            { key: "subtitle", label: "Subtitle", type: "textarea" },
+          ]},
+          { key: "sections", label: "Section Titles", fields: [
+            { key: "paths_title", label: "Career Paths Title", type: "text" },
+            { key: "paths_subtitle", label: "Career Paths Subtitle", type: "text" },
+            { key: "openings_title", label: "Openings Title", type: "text" },
+            { key: "openings_subtitle", label: "Openings Subtitle", type: "text" },
+            { key: "cta_title", label: "CTA Title", type: "text" },
+            { key: "cta_desc", label: "CTA Description", type: "textarea" },
+          ]},
+        ],
+      },
+      { key: "career-paths", label: "Career Paths", icon: Briefcase, sections: [] },
+      { key: "career-openings", label: "Job Openings", icon: Briefcase, sections: [] },
+      {
+        key: "corporate", label: "Corporate", icon: Building2,
+        sections: [
+          { key: "hero", label: "Hero Section", fields: [
+            { key: "title", label: "Title", type: "text" },
+            { key: "subtitle", label: "Subtitle", type: "textarea" },
+          ]},
+          { key: "sections", label: "Section Titles", fields: [
+            { key: "offerings_title", label: "Offerings Title", type: "text" },
+            { key: "offerings_subtitle", label: "Offerings Subtitle", type: "text" },
+            { key: "partner_title", label: "Partner Section Title", type: "text" },
+            { key: "proposal_title", label: "Proposal Card Title", type: "text" },
+            { key: "proposal_desc", label: "Proposal Card Description", type: "textarea" },
+          ]},
+        ],
+      },
+      { key: "corporate-offerings", label: "Corporate Offerings", icon: Building2, sections: [] },
+      { key: "corporate-benefits", label: "Corporate Benefits", icon: Building2, sections: [] },
+      {
+        key: "collaborate", label: "Collaborate", icon: Handshake,
+        sections: [
+          { key: "hero", label: "Hero Section", fields: [
+            { key: "title", label: "Title", type: "text" },
+            { key: "subtitle", label: "Subtitle", type: "textarea" },
+          ]},
+          { key: "sections", label: "Section Titles", fields: [
+            { key: "partners_title", label: "Partners Title", type: "text" },
+            { key: "partners_subtitle", label: "Partners Subtitle", type: "text" },
+            { key: "cta_title", label: "CTA Title", type: "text" },
+            { key: "cta_desc", label: "CTA Description", type: "textarea" },
+          ]},
+        ],
+      },
+      { key: "collaborate-types", label: "Partner Types", icon: Handshake, sections: [] },
+      {
+        key: "faqs_page", label: "FAQs Page", icon: HelpCircle,
+        sections: [
+          { key: "hero", label: "Hero Section", fields: [
+            { key: "title", label: "Title", type: "text" },
+            { key: "subtitle", label: "Subtitle", type: "textarea" },
+          ]},
+          { key: "sections", label: "Section Titles", fields: [
+            { key: "cta_title", label: "CTA Title", type: "text" },
+            { key: "cta_desc", label: "CTA Description", type: "textarea" },
+          ]},
+        ],
+      },
+      { key: "faqs-categories", label: "FAQ Categories", icon: HelpCircle, sections: [] },
+      {
+        key: "donate", label: "Donate", icon: Heart,
+        sections: [
+          { key: "hero", label: "Hero Section", fields: [
+            { key: "title", label: "Title", type: "text" },
+            { key: "subtitle", label: "Subtitle", type: "textarea" },
+          ]},
+          { key: "sections", label: "Section Titles", fields: [
+            { key: "impact_title", label: "Impact Section Title", type: "text" },
+            { key: "impact_subtitle", label: "Impact Section Subtitle", type: "text" },
+            { key: "your_impact_title", label: "Your Impact Title", type: "text" },
+            { key: "card_title", label: "Donation Card Title", type: "text" },
+            { key: "card_subtitle", label: "Donation Card Subtitle", type: "text" },
+          ]},
+        ],
+      },
+      { key: "donate-areas", label: "Donation Impact Areas", icon: Heart, sections: [] },
+      { key: "donate-items", label: "Impact Items", icon: Heart, sections: [] },
     ],
   },
   { key: "applications", label: "Applications", icon: Users, sections: [] },
@@ -966,6 +969,7 @@ const donateItemFields: FieldDef[] = [
 const AdminDashboard = () => {
   const { isAdmin, loading: authLoading, userId, signOut } = useAdmin();
   const [activePage, setActivePage] = useState("home");
+  const [expandedGroups, setExpandedGroups] = useState<string[]>([]);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [formData, setFormData] = useState<Record<string, Record<string, Record<string, string>>>>({});
   const [saving, setSaving] = useState(false);
@@ -991,7 +995,23 @@ const AdminDashboard = () => {
     loadContent();
   }, []);
 
-  const currentPage = pages.find((p) => p.key === activePage);
+  const findPage = (key: string): PageConfig | undefined => {
+    for (const p of pages) {
+      if (p.key === key) return p;
+      if (p.children) {
+        const child = p.children.find((c) => c.key === key);
+        if (child) return child;
+      }
+    }
+    return undefined;
+  };
+  const currentPage = findPage(activePage);
+
+  const toggleGroup = (key: string) => {
+    setExpandedGroups((prev) =>
+      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
+    );
+  };
 
   const getValue = (page: string, section: string, field: string) => {
     return formData[page]?.[section]?.[field] || "";
@@ -1104,20 +1124,61 @@ const AdminDashboard = () => {
           <p className="text-xs text-muted-foreground">Global Nexus Institute</p>
         </div>
         <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
-          {pages.map((page) => (
-            <button
-              key={page.key}
-              onClick={() => { setActivePage(page.key); setActiveSection(null); setSidebarOpen(false); }}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                activePage === page.key
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              }`}
-            >
-              <page.icon className="h-4 w-4" />
-              {page.label}
-            </button>
-          ))}
+          {pages.map((page) => {
+            const hasChildren = page.children && page.children.length > 0;
+            const isGroupExpanded = expandedGroups.includes(page.key);
+            const isChildActive = hasChildren && page.children!.some((c) => c.key === activePage);
+
+            return (
+              <div key={page.key}>
+                <button
+                  onClick={() => {
+                    if (hasChildren) {
+                      toggleGroup(page.key);
+                      setActivePage(page.key);
+                      setActiveSection(null);
+                      setSidebarOpen(false);
+                    } else {
+                      setActivePage(page.key);
+                      setActiveSection(null);
+                      setSidebarOpen(false);
+                    }
+                  }}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                    activePage === page.key
+                      ? "bg-primary text-primary-foreground"
+                      : isChildActive
+                        ? "bg-primary/10 text-primary"
+                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  }`}
+                >
+                  <page.icon className="h-4 w-4" />
+                  <span className="flex-1 text-left">{page.label}</span>
+                  {hasChildren && (
+                    <ChevronRight className={`h-3.5 w-3.5 transition-transform ${isGroupExpanded || isChildActive ? "rotate-90" : ""}`} />
+                  )}
+                </button>
+                {hasChildren && (isGroupExpanded || isChildActive) && (
+                  <div className="ml-4 mt-1 space-y-0.5 border-l-2 border-border pl-2">
+                    {page.children!.map((child) => (
+                      <button
+                        key={child.key}
+                        onClick={() => { setActivePage(child.key); setActiveSection(null); setSidebarOpen(false); }}
+                        className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+                          activePage === child.key
+                            ? "bg-primary text-primary-foreground"
+                            : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                        }`}
+                      >
+                        <child.icon className="h-3.5 w-3.5" />
+                        {child.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </nav>
         <div className="p-3 border-t border-border">
           <button
