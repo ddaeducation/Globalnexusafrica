@@ -14,7 +14,7 @@ import AdminListEditor, { FieldDef } from "@/components/AdminListEditor";
 import {
   LogOut, Home, Info, BookOpen, Briefcase, Newspaper, GraduationCap, Phone,
   Save, Loader2, ChevronRight, Users, Mail, UserCheck, FileQuestion, Image as ImageIcon, Send,
-  Menu, X, FlaskConical
+  Menu, X, FlaskConical, Star, Building2, Handshake, HelpCircle, Heart, Monitor
 } from "lucide-react";
 
 type PageConfig = {
@@ -243,6 +243,92 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       description: "Subscribe to receive updates and opportunities.",
       button_text: "Subscribe",
       placeholder: "Enter your email",
+    },
+  },
+  whyus: {
+    hero: {
+      title: "Why Choose Us",
+      subtitle: "What sets Global Nexus Institute apart as your partner in tech education.",
+    },
+    stats: {
+      stat1_value: "200+", stat1_label: "Students Trained",
+      stat2_value: "95%", stat2_label: "Completion Rate",
+      stat3_value: "10+", stat3_label: "Expert Mentors",
+      stat4_value: "5+", stat4_label: "Programs Offered",
+    },
+    sections: {
+      reasons_title: "Why Global Nexus?",
+      reasons_subtitle: "Six compelling reasons to start your journey with us",
+      track_title: "Our Track Record",
+      track_desc: "With a 95% success rate and over 200 students trained, Global Nexus Institute has established itself as a trusted partner for individuals and organizations seeking quality tech education in Africa.",
+    },
+  },
+  career: {
+    hero: {
+      title: "Career Pathways",
+      subtitle: "Launch or advance your tech career with guidance from Global Nexus Institute.",
+    },
+    sections: {
+      paths_title: "Career Paths We Prepare You For",
+      paths_subtitle: "Our programs are designed to lead directly into high-demand tech roles",
+      openings_title: "Current Openings",
+      openings_subtitle: "Join our team and make a difference in tech education",
+      cta_title: "Don't See a Fit?",
+      cta_desc: "We're always looking for passionate people. Send us your CV and we'll keep you in mind for future opportunities.",
+    },
+  },
+  corporate: {
+    hero: {
+      title: "Corporate Solutions",
+      subtitle: "Empowering organizations with data-driven talent and skills.",
+    },
+    sections: {
+      offerings_title: "What We Offer",
+      offerings_subtitle: "Comprehensive solutions for your organization's growth",
+      partner_title: "Why Partner With Us?",
+      proposal_title: "Get a Custom Proposal",
+      proposal_desc: "Tell us about your team's needs and we'll design a tailored program with clear outcomes and competitive pricing.",
+    },
+  },
+  collaborate: {
+    hero: {
+      title: "Collaborate With Us",
+      subtitle: "Together we can transform tech education and create lasting impact across Africa.",
+    },
+    sections: {
+      partners_title: "Partnership Opportunities",
+      partners_subtitle: "Multiple ways to partner and make a difference",
+      cta_title: "Let's Build Together",
+      cta_desc: "Whether you're a university, business, NGO, or government agency — we'd love to explore how we can create value together. Reach out to start a conversation.",
+    },
+  },
+  faqs_page: {
+    hero: {
+      title: "Frequently Asked Questions",
+      subtitle: "Find answers to common questions about our programs, admissions, and more.",
+    },
+    sections: {
+      cta_title: "Still Have Questions?",
+      cta_desc: "Can't find what you're looking for? Reach out to our team and we'll be happy to help.",
+    },
+  },
+  donate: {
+    hero: {
+      title: "Support Our Mission",
+      subtitle: "Your contribution directly impacts lives and creates lasting change in communities across Africa.",
+    },
+    sections: {
+      impact_title: "Where Your Donation Goes",
+      impact_subtitle: "Every contribution creates real, measurable impact",
+      your_impact_title: "Your Impact",
+      card_title: "Make a Donation",
+      card_subtitle: "Choose an amount or enter a custom value below.",
+    },
+  },
+  elearning: {
+    settings: {
+      iframe_url: "https://skilla.africa/",
+      back_label: "Portal",
     },
   },
 };
@@ -501,6 +587,126 @@ const pages: PageConfig[] = [
     ],
   },
   { key: "footer-links", label: "Footer Links", icon: Phone, sections: [] },
+  {
+    key: "whyus", label: "Why Us", icon: Star,
+    sections: [
+      { key: "hero", label: "Hero Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+      ]},
+      { key: "stats", label: "Statistics", fields: [
+        { key: "stat1_value", label: "Stat 1 Value", type: "text" },
+        { key: "stat1_label", label: "Stat 1 Label", type: "text" },
+        { key: "stat2_value", label: "Stat 2 Value", type: "text" },
+        { key: "stat2_label", label: "Stat 2 Label", type: "text" },
+        { key: "stat3_value", label: "Stat 3 Value", type: "text" },
+        { key: "stat3_label", label: "Stat 3 Label", type: "text" },
+        { key: "stat4_value", label: "Stat 4 Value", type: "text" },
+        { key: "stat4_label", label: "Stat 4 Label", type: "text" },
+      ]},
+      { key: "sections", label: "Section Titles", fields: [
+        { key: "reasons_title", label: "Reasons Section Title", type: "text" },
+        { key: "reasons_subtitle", label: "Reasons Section Subtitle", type: "text" },
+        { key: "track_title", label: "Track Record Title", type: "text" },
+        { key: "track_desc", label: "Track Record Description", type: "textarea" },
+      ]},
+    ],
+  },
+  { key: "whyus-reasons", label: "Why Us Reasons", icon: Star, sections: [] },
+  {
+    key: "career", label: "Career", icon: Briefcase,
+    sections: [
+      { key: "hero", label: "Hero Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+      ]},
+      { key: "sections", label: "Section Titles", fields: [
+        { key: "paths_title", label: "Career Paths Title", type: "text" },
+        { key: "paths_subtitle", label: "Career Paths Subtitle", type: "text" },
+        { key: "openings_title", label: "Openings Title", type: "text" },
+        { key: "openings_subtitle", label: "Openings Subtitle", type: "text" },
+        { key: "cta_title", label: "CTA Title", type: "text" },
+        { key: "cta_desc", label: "CTA Description", type: "textarea" },
+      ]},
+    ],
+  },
+  { key: "career-paths", label: "Career Paths", icon: Briefcase, sections: [] },
+  { key: "career-openings", label: "Job Openings", icon: Briefcase, sections: [] },
+  {
+    key: "corporate", label: "Corporate", icon: Building2,
+    sections: [
+      { key: "hero", label: "Hero Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+      ]},
+      { key: "sections", label: "Section Titles", fields: [
+        { key: "offerings_title", label: "Offerings Title", type: "text" },
+        { key: "offerings_subtitle", label: "Offerings Subtitle", type: "text" },
+        { key: "partner_title", label: "Partner Section Title", type: "text" },
+        { key: "proposal_title", label: "Proposal Card Title", type: "text" },
+        { key: "proposal_desc", label: "Proposal Card Description", type: "textarea" },
+      ]},
+    ],
+  },
+  { key: "corporate-offerings", label: "Corporate Offerings", icon: Building2, sections: [] },
+  { key: "corporate-benefits", label: "Corporate Benefits", icon: Building2, sections: [] },
+  {
+    key: "collaborate", label: "Collaborate", icon: Handshake,
+    sections: [
+      { key: "hero", label: "Hero Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+      ]},
+      { key: "sections", label: "Section Titles", fields: [
+        { key: "partners_title", label: "Partners Title", type: "text" },
+        { key: "partners_subtitle", label: "Partners Subtitle", type: "text" },
+        { key: "cta_title", label: "CTA Title", type: "text" },
+        { key: "cta_desc", label: "CTA Description", type: "textarea" },
+      ]},
+    ],
+  },
+  { key: "collaborate-types", label: "Partner Types", icon: Handshake, sections: [] },
+  {
+    key: "faqs_page", label: "FAQs Page", icon: HelpCircle,
+    sections: [
+      { key: "hero", label: "Hero Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+      ]},
+      { key: "sections", label: "Section Titles", fields: [
+        { key: "cta_title", label: "CTA Title", type: "text" },
+        { key: "cta_desc", label: "CTA Description", type: "textarea" },
+      ]},
+    ],
+  },
+  { key: "faqs-categories", label: "FAQ Categories", icon: HelpCircle, sections: [] },
+  {
+    key: "donate", label: "Donate", icon: Heart,
+    sections: [
+      { key: "hero", label: "Hero Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+      ]},
+      { key: "sections", label: "Section Titles", fields: [
+        { key: "impact_title", label: "Impact Section Title", type: "text" },
+        { key: "impact_subtitle", label: "Impact Section Subtitle", type: "text" },
+        { key: "your_impact_title", label: "Your Impact Title", type: "text" },
+        { key: "card_title", label: "Donation Card Title", type: "text" },
+        { key: "card_subtitle", label: "Donation Card Subtitle", type: "text" },
+      ]},
+    ],
+  },
+  { key: "donate-areas", label: "Donation Impact Areas", icon: Heart, sections: [] },
+  { key: "donate-items", label: "Impact Items", icon: Heart, sections: [] },
+  {
+    key: "elearning", label: "eLearning Portal", icon: Monitor,
+    sections: [
+      { key: "settings", label: "Portal Settings", fields: [
+        { key: "iframe_url", label: "eLearning Platform URL", type: "url" },
+        { key: "back_label", label: "Back Button Label", type: "text" },
+      ]},
+    ],
+  },
   { key: "applications", label: "Applications", icon: Users, sections: [] },
   { key: "messages", label: "Messages", icon: Mail, sections: [] },
   { key: "subscribers", label: "Subscribers", icon: UserCheck, sections: [] },
@@ -640,6 +846,123 @@ const defaultFooterLinks = [
   { label: "Research", url: "/research", external: "no" },
 ];
 
+// Why Us
+const defaultWhyUsReasons = [
+  { title: "Accredited Programs", desc: "Our programs are accredited by RTB Rwanda and NCC Education UK, ensuring internationally recognized certifications.", color: "from-red-500 to-orange-400" },
+  { title: "Expert Mentors", desc: "Learn from 10+ industry professionals with real-world experience in data science, AI, and software development.", color: "from-blue-500 to-cyan-400" },
+  { title: "Global Opportunities", desc: "We bridge local needs with global opportunities, connecting graduates to international career pathways.", color: "from-green-500 to-emerald-400" },
+  { title: "Practical Curriculum", desc: "Hands-on, project-based learning using industry-standard tools like Python, SQL, Power BI, and more.", color: "from-purple-500 to-violet-400" },
+  { title: "Innovation-Driven", desc: "We stay at the forefront of technology trends, continuously updating our programs to match industry demands.", color: "from-orange-500 to-amber-400" },
+  { title: "Inclusive Education", desc: "Committed to accessible education for underrepresented groups including women, youth, and people with disabilities.", color: "from-pink-500 to-rose-400" },
+];
+const whyUsReasonFields: FieldDef[] = [
+  { key: "title", label: "Title", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+  { key: "color", label: "Gradient Color", type: "text" },
+];
+
+// Career
+const defaultCareerPaths = [
+  { title: "Data Analyst", desc: "Analyze and interpret complex datasets to help organizations make data-driven decisions.", skills: "Python, SQL, Power BI, Excel", color: "from-blue-500 to-cyan-400" },
+  { title: "Data Scientist", desc: "Build predictive models and machine learning solutions to solve complex business problems.", skills: "Python, TensorFlow, R, Statistics", color: "from-purple-500 to-violet-400" },
+  { title: "Software Developer", desc: "Design and build web applications and software solutions for businesses across Africa.", skills: "JavaScript, React, Node.js, APIs", color: "from-green-500 to-emerald-400" },
+  { title: "Database Administrator", desc: "Manage, secure, and optimize database systems for reliable data storage and retrieval.", skills: "SQL, PostgreSQL, MongoDB, Cloud", color: "from-orange-500 to-amber-400" },
+];
+const careerPathFields: FieldDef[] = [
+  { key: "title", label: "Title", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+  { key: "skills", label: "Skills", type: "text" },
+  { key: "color", label: "Gradient Color", type: "text" },
+];
+
+const defaultCareerOpenings = [
+  { title: "Instructor — Data Analytics", type: "Full-time", location: "Kigali / Remote", desc: "Join our teaching team to deliver hands-on data analytics training to the next generation of African tech talent." },
+  { title: "Instructor — Python & AI", type: "Part-time", location: "Remote", desc: "Teach Python programming and AI fundamentals through our online eLearning platform (skilla.africa)." },
+  { title: "Student Intern — Web Development", type: "Internship", location: "Kigali", desc: "Gain real-world experience in web development while contributing to meaningful projects." },
+];
+const careerOpeningFields: FieldDef[] = [
+  { key: "title", label: "Title", type: "text" },
+  { key: "type", label: "Type (Full-time, Part-time, Internship)", type: "text" },
+  { key: "location", label: "Location", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+];
+
+// Corporate
+const defaultCorporateOfferings = [
+  { title: "Corporate Training", desc: "Customized training programs for your team in data analytics, AI, Python, and digital skills tailored to your business needs.", color: "from-blue-500 to-cyan-400" },
+  { title: "Talent Pipeline", desc: "Access our pool of skilled graduates for recruitment — data analysts, developers, and AI specialists ready to contribute.", color: "from-green-500 to-emerald-400" },
+  { title: "Data Consulting", desc: "End-to-end data solutions including collection, processing, analysis, and reporting for your organization's projects.", color: "from-purple-500 to-violet-400" },
+  { title: "Upskilling Programs", desc: "Help your existing workforce stay competitive with continuous learning in emerging technologies and methodologies.", color: "from-orange-500 to-amber-400" },
+];
+const corporateOfferingFields: FieldDef[] = [
+  { key: "title", label: "Title", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+  { key: "color", label: "Gradient Color", type: "text" },
+];
+
+const defaultCorporateBenefits = [
+  { text: "Tailored programs aligned to your business objectives" },
+  { text: "Flexible delivery — on-site, online, or hybrid" },
+  { text: "Internationally accredited certifications for participants" },
+  { text: "Measurable learning outcomes and ROI tracking" },
+  { text: "Post-training support and mentorship" },
+  { text: "Access to industry-standard tools and platforms" },
+];
+const corporateBenefitFields: FieldDef[] = [
+  { key: "text", label: "Benefit Text", type: "text" },
+];
+
+// Collaborate
+const defaultCollaborateTypes = [
+  { title: "Academic Partners", desc: "Co-develop curricula, exchange knowledge, and create joint certification programs with universities and institutions.", color: "from-blue-500 to-cyan-400" },
+  { title: "Industry Partners", desc: "Provide internships, mentorship, and real-world projects that prepare students for the workforce.", color: "from-green-500 to-emerald-400" },
+  { title: "Research Partners", desc: "Collaborate on applied research in AI, data science, educational technology, and community development.", color: "from-purple-500 to-violet-400" },
+  { title: "NGO & Development Partners", desc: "Partner on capacity-building initiatives, digital literacy programs, and community empowerment projects.", color: "from-pink-500 to-rose-400" },
+  { title: "International Organizations", desc: "Work together on cross-border education programs and technology transfer initiatives.", color: "from-orange-500 to-amber-400" },
+  { title: "Community Organizations", desc: "Support grassroots digital skills training and youth empowerment in underserved communities.", color: "from-red-500 to-rose-400" },
+];
+const collaborateTypeFields: FieldDef[] = [
+  { key: "title", label: "Title", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+  { key: "color", label: "Gradient Color", type: "text" },
+];
+
+// FAQs
+const defaultFaqCategories = [
+  { category: "Programs & Courses", faqs: "What programs does Global Nexus Institute offer?|We offer professional certifications in Data Analytics, Data Science, AI & Machine Learning, Software Development, and Cybersecurity.||Are courses available online?|Yes! We offer both online and in-person training through our eLearning platform (skilla.africa)." },
+  { category: "Admissions & Requirements", faqs: "What are the entry requirements?|Requirements vary by program. Generally, you need a high school diploma or equivalent.||How do I apply?|Visit our Admissions page and click 'Apply Now' to fill out the online application form." },
+  { category: "Fees & Payments", faqs: "What payment methods are accepted?|We accept MoMo Pay, bank transfers, and online payments. Installment plans are available.||Are scholarships available?|Yes! We offer merit-based scholarships covering up to 30% of tuition fees." },
+  { category: "Certification & Career", faqs: "Do I get a certificate upon completion?|Yes! All graduates receive a certificate of completion. Programs accredited by RTB Rwanda and NCC Education UK carry internationally recognized certifications.||Does Global Nexus help with job placement?|We provide career guidance, CV reviews, and connect graduates with our industry partners." },
+];
+const faqCategoryFields: FieldDef[] = [
+  { key: "category", label: "Category Name", type: "text" },
+  { key: "faqs", label: "FAQs (Q|A separated by || between pairs)", type: "textarea" },
+];
+
+// Donate
+const defaultDonateAreas = [
+  { title: "Scholarships", desc: "Fund tuition for students who can't afford quality tech education.", color: "from-blue-500 to-cyan-400" },
+  { title: "Women in Tech", desc: "Support programs empowering women and young mothers in technology careers.", color: "from-pink-500 to-rose-400" },
+  { title: "Community Programs", desc: "Bring digital literacy and tech skills to underserved communities across Africa.", color: "from-green-500 to-emerald-400" },
+];
+const donateAreaFields: FieldDef[] = [
+  { key: "title", label: "Title", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+  { key: "color", label: "Gradient Color", type: "text" },
+];
+
+const defaultDonateItems = [
+  { text: "Fund scholarships for deserving students" },
+  { text: "Support educational resources and equipment" },
+  { text: "Enable impactful mentorship programs" },
+  { text: "Create opportunities for vulnerable communities" },
+  { text: "Provide access to modern technology and tools" },
+  { text: "Empower women and youth through digital skills" },
+];
+const donateItemFields: FieldDef[] = [
+  { key: "text", label: "Impact Item", type: "text" },
+];
+
 const AdminDashboard = () => {
   const { isAdmin, loading: authLoading, userId, signOut } = useAdmin();
   const [activePage, setActivePage] = useState("home");
@@ -734,12 +1057,35 @@ const AdminDashboard = () => {
         return <AdminListEditor title="Footer Quick Links" description="Edit the quick access links in the footer." page="footer" sectionKey="links" fields={footerLinkFields} defaultItems={defaultFooterLinks} userId={userId} />;
       case "research-areas":
         return <AdminListEditor title="Research Areas" description="Edit research focus areas shown on the Research page." page="research" sectionKey="areas" fields={researchAreaFields} defaultItems={defaultResearchAreas} userId={userId} />;
+      case "whyus-reasons":
+        return <AdminListEditor title="Why Us Reasons" description="Edit reasons shown on the Why Us page." page="whyus" sectionKey="reasons" fields={whyUsReasonFields} defaultItems={defaultWhyUsReasons} userId={userId} />;
+      case "career-paths":
+        return <AdminListEditor title="Career Paths" description="Edit career paths shown on the Career page." page="career" sectionKey="paths" fields={careerPathFields} defaultItems={defaultCareerPaths} userId={userId} />;
+      case "career-openings":
+        return <AdminListEditor title="Job Openings" description="Edit job openings shown on the Career page." page="career" sectionKey="openings" fields={careerOpeningFields} defaultItems={defaultCareerOpenings} userId={userId} />;
+      case "corporate-offerings":
+        return <AdminListEditor title="Corporate Offerings" description="Edit offerings shown on the Corporate page." page="corporate" sectionKey="offerings" fields={corporateOfferingFields} defaultItems={defaultCorporateOfferings} userId={userId} />;
+      case "corporate-benefits":
+        return <AdminListEditor title="Corporate Benefits" description="Edit benefits shown on the Corporate page." page="corporate" sectionKey="benefits" fields={corporateBenefitFields} defaultItems={defaultCorporateBenefits} userId={userId} />;
+      case "collaborate-types":
+        return <AdminListEditor title="Partner Types" description="Edit partnership types on the Collaborate page." page="collaborate" sectionKey="types" fields={collaborateTypeFields} defaultItems={defaultCollaborateTypes} userId={userId} />;
+      case "faqs-categories":
+        return <AdminListEditor title="FAQ Categories" description="Edit FAQ categories and questions." page="faqs_page" sectionKey="categories" fields={faqCategoryFields} defaultItems={defaultFaqCategories} userId={userId} />;
+      case "donate-areas":
+        return <AdminListEditor title="Impact Areas" description="Edit donation impact areas on the Donate page." page="donate" sectionKey="areas" fields={donateAreaFields} defaultItems={defaultDonateAreas} userId={userId} />;
+      case "donate-items":
+        return <AdminListEditor title="Impact Items" description="Edit impact items on the Donate page." page="donate" sectionKey="items" fields={donateItemFields} defaultItems={defaultDonateItems} userId={userId} />;
       default:
         return null;
     }
   };
 
-  const isListEditor = ["about-team", "about-partners", "news-items", "testimonials", "services-list", "home-gallery", "admissions-steps", "footer-links", "research-areas"].includes(activePage);
+  const isListEditor = [
+    "about-team", "about-partners", "news-items", "testimonials", "services-list",
+    "home-gallery", "admissions-steps", "footer-links", "research-areas",
+    "whyus-reasons", "career-paths", "career-openings", "corporate-offerings",
+    "corporate-benefits", "collaborate-types", "faqs-categories", "donate-areas", "donate-items"
+  ].includes(activePage);
 
   return (
     <div className="min-h-screen bg-background flex">

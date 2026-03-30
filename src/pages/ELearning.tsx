@@ -1,8 +1,14 @@
 import PageSEO from "@/components/PageSEO";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { useSiteContent } from "@/hooks/useSiteContent";
 
 const ELearning = () => {
+  const { data: settings } = useSiteContent("elearning", "settings", {
+    iframe_url: "https://skilla.africa/",
+    back_label: "Portal",
+  });
+
   return (
     <>
       <PageSEO title="eLearning Portal" description="Access the Global Nexus Institute eLearning platform — courses, career paths, corporate training, and more." path="/elearning" />
@@ -16,7 +22,7 @@ const ELearning = () => {
           >
             <ArrowLeft className="h-4 w-4 text-muted-foreground group-hover:text-primary transition" />
             <span className="text-sm font-display font-bold text-foreground group-hover:text-primary transition">
-              Portal
+              {settings.back_label}
             </span>
           </Link>
         </div>
@@ -25,7 +31,7 @@ const ELearning = () => {
       <div className="pt-12">
         <div className="h-[calc(100vh-3rem)] w-full">
           <iframe
-            src="https://skilla.africa/"
+            src={settings.iframe_url}
             title="eLearning Portal - Skilla"
             className="w-full h-full border-0"
             allow="fullscreen; clipboard-write; encrypted-media"
