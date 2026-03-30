@@ -16,6 +16,7 @@ import Contact from "./pages/Contact";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
+import ELearning from "./pages/ELearning";
 
 const queryClient = new QueryClient();
 
