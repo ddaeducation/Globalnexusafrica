@@ -9,26 +9,16 @@ const ELearning = () => {
       {/* Sub-navigation */}
       <div className="fixed top-0 z-50 w-full bg-card/95 backdrop-blur-sm border-b border-border shadow-md">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex items-center gap-4 py-2">
-            <Link to="/" className="flex items-center gap-2 shrink-0 group" title="Back to main site">
-              <img
-                src="https://www.globalnexus.africa/images/lgo.png"
-                alt="Global Nexus Institute"
-                className="h-8 w-auto"
-                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-              />
-            </Link>
-            <Link
-              to="/elearning"
-              className="text-sm font-display font-bold text-primary"
-            >
-              Portal
-            </Link>
+          <div className="flex items-center gap-2 py-2">
             <Link
               to="/"
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition"
+              className="flex items-center gap-2 shrink-0 group"
+              title="Back to main site"
             >
-              Home
+              <ArrowLeft className="h-4 w-4 text-muted-foreground group-hover:text-primary transition" />
+              <span className="text-sm font-display font-bold text-foreground group-hover:text-primary transition">
+                Portal
+              </span>
             </Link>
           </div>
         </div>
