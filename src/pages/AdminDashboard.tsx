@@ -245,6 +245,92 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       placeholder: "Enter your email",
     },
   },
+  whyus: {
+    hero: {
+      title: "Why Choose Us",
+      subtitle: "What sets Global Nexus Institute apart as your partner in tech education.",
+    },
+    stats: {
+      stat1_value: "200+", stat1_label: "Students Trained",
+      stat2_value: "95%", stat2_label: "Completion Rate",
+      stat3_value: "10+", stat3_label: "Expert Mentors",
+      stat4_value: "5+", stat4_label: "Programs Offered",
+    },
+    sections: {
+      reasons_title: "Why Global Nexus?",
+      reasons_subtitle: "Six compelling reasons to start your journey with us",
+      track_title: "Our Track Record",
+      track_desc: "With a 95% success rate and over 200 students trained, Global Nexus Institute has established itself as a trusted partner for individuals and organizations seeking quality tech education in Africa.",
+    },
+  },
+  career: {
+    hero: {
+      title: "Career Pathways",
+      subtitle: "Launch or advance your tech career with guidance from Global Nexus Institute.",
+    },
+    sections: {
+      paths_title: "Career Paths We Prepare You For",
+      paths_subtitle: "Our programs are designed to lead directly into high-demand tech roles",
+      openings_title: "Current Openings",
+      openings_subtitle: "Join our team and make a difference in tech education",
+      cta_title: "Don't See a Fit?",
+      cta_desc: "We're always looking for passionate people. Send us your CV and we'll keep you in mind for future opportunities.",
+    },
+  },
+  corporate: {
+    hero: {
+      title: "Corporate Solutions",
+      subtitle: "Empowering organizations with data-driven talent and skills.",
+    },
+    sections: {
+      offerings_title: "What We Offer",
+      offerings_subtitle: "Comprehensive solutions for your organization's growth",
+      partner_title: "Why Partner With Us?",
+      proposal_title: "Get a Custom Proposal",
+      proposal_desc: "Tell us about your team's needs and we'll design a tailored program with clear outcomes and competitive pricing.",
+    },
+  },
+  collaborate: {
+    hero: {
+      title: "Collaborate With Us",
+      subtitle: "Together we can transform tech education and create lasting impact across Africa.",
+    },
+    sections: {
+      partners_title: "Partnership Opportunities",
+      partners_subtitle: "Multiple ways to partner and make a difference",
+      cta_title: "Let's Build Together",
+      cta_desc: "Whether you're a university, business, NGO, or government agency — we'd love to explore how we can create value together. Reach out to start a conversation.",
+    },
+  },
+  faqs_page: {
+    hero: {
+      title: "Frequently Asked Questions",
+      subtitle: "Find answers to common questions about our programs, admissions, and more.",
+    },
+    sections: {
+      cta_title: "Still Have Questions?",
+      cta_desc: "Can't find what you're looking for? Reach out to our team and we'll be happy to help.",
+    },
+  },
+  donate: {
+    hero: {
+      title: "Support Our Mission",
+      subtitle: "Your contribution directly impacts lives and creates lasting change in communities across Africa.",
+    },
+    sections: {
+      impact_title: "Where Your Donation Goes",
+      impact_subtitle: "Every contribution creates real, measurable impact",
+      your_impact_title: "Your Impact",
+      card_title: "Make a Donation",
+      card_subtitle: "Choose an amount or enter a custom value below.",
+    },
+  },
+  elearning: {
+    settings: {
+      iframe_url: "https://skilla.africa/",
+      back_label: "Portal",
+    },
+  },
 };
 
 const pages: PageConfig[] = [
