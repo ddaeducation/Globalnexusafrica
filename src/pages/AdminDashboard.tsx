@@ -14,7 +14,7 @@ import AdminListEditor, { FieldDef } from "@/components/AdminListEditor";
 import {
   LogOut, Home, Info, BookOpen, Briefcase, Newspaper, GraduationCap, Phone,
   Save, Loader2, ChevronRight, Users, Mail, UserCheck, FileQuestion, Image as ImageIcon, Send,
-  Menu, X, FlaskConical
+  Menu, X, FlaskConical, Star, Building2, Handshake, HelpCircle, Heart, Monitor
 } from "lucide-react";
 
 type PageConfig = {
