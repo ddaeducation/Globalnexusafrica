@@ -1,4 +1,3 @@
-import Layout from "@/components/Layout";
 import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { ChevronDown, HelpCircle } from "lucide-react";
@@ -42,8 +41,8 @@ const faqCategories = [
 ];
 
 const FAQs = () => (
-  <Layout>
-    <PageSEO title="FAQs" description="Frequently asked questions about Global Nexus Institute — programs, admissions, fees, certifications, and more." path="/faqs" />
+  <>
+    <PageSEO title="FAQs" description="Frequently asked questions about Global Nexus Institute." path="/elearning?tab=faqs" />
 
     <section className="hero-section py-20 text-white">
       <div className="container mx-auto px-4 text-center relative z-10">
@@ -93,7 +92,7 @@ const FAQs = () => (
         </div>
       </section>
     </ScrollReveal>
-  </Layout>
+  </>
 );
 
 export default FAQs;

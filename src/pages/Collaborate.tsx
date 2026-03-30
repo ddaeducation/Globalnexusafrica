@@ -1,4 +1,3 @@
-import Layout from "@/components/Layout";
 import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
@@ -14,8 +13,8 @@ const partnerTypes = [
 ];
 
 const Collaborate = () => (
-  <Layout>
-    <PageSEO title="Collaborate With Us" description="Partner with Global Nexus Institute — academic partnerships, industry collaboration, and research opportunities across Africa." path="/collaborate" />
+  <>
+    <PageSEO title="Collaborate" description="Partner with Global Nexus Institute for academic and industry collaboration." path="/elearning?tab=collaborate" />
 
     <section className="hero-section py-20 text-white">
       <div className="container mx-auto px-4 text-center relative z-10">
@@ -65,7 +64,7 @@ const Collaborate = () => (
         </div>
       </section>
     </ScrollReveal>
-  </Layout>
+  </>
 );
 
 export default Collaborate;

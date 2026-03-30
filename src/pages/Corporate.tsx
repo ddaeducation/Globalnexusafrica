@@ -1,4 +1,3 @@
-import Layout from "@/components/Layout";
 import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
@@ -21,8 +20,8 @@ const benefits = [
 ];
 
 const Corporate = () => (
-  <Layout>
-    <PageSEO title="Corporate Solutions" description="Custom corporate training, talent pipeline, and data consulting services from Global Nexus Institute for businesses across Africa." path="/corporate" />
+  <>
+    <PageSEO title="Corporate Solutions" description="Custom corporate training and data consulting from Global Nexus Institute." path="/elearning?tab=corporate" />
 
     <section className="hero-section py-20 text-white">
       <div className="container mx-auto px-4 text-center relative z-10">
@@ -85,7 +84,7 @@ const Corporate = () => (
         </div>
       </section>
     </ScrollReveal>
-  </Layout>
+  </>
 );
 
 export default Corporate;

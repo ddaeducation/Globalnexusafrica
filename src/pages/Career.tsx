@@ -1,8 +1,7 @@
-import Layout from "@/components/Layout";
 import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
-import { Briefcase, Code, BarChart3, Brain, Database, ArrowRight, MapPin, Clock } from "lucide-react";
+import { Briefcase, Code, BarChart3, Brain, Database, ArrowRight, MapPin } from "lucide-react";
 
 const careerPaths = [
   { icon: BarChart3, title: "Data Analyst", desc: "Analyze and interpret complex datasets to help organizations make data-driven decisions.", skills: "Python, SQL, Power BI, Excel", color: "from-blue-500 to-cyan-400" },
@@ -18,8 +17,8 @@ const openings = [
 ];
 
 const Career = () => (
-  <Layout>
-    <PageSEO title="Career" description="Explore career paths in data science, software development, and AI — plus current job openings at Global Nexus Institute." path="/career" />
+  <>
+    <PageSEO title="Career" description="Explore career paths in data science, software development, and AI at Global Nexus Institute." path="/elearning?tab=career" />
 
     <section className="hero-section py-20 text-white">
       <div className="container mx-auto px-4 text-center relative z-10">
@@ -97,7 +96,7 @@ const Career = () => (
         </div>
       </section>
     </ScrollReveal>
-  </Layout>
+  </>
 );
 
 export default Career;
