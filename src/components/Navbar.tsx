@@ -77,21 +77,33 @@ const Navbar = () => {
     >
       <nav className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 group">
-            <img
-              src="https://www.globalnexus.africa/images/lgo.png"
-              alt="Global Nexus Institute Logo"
-              className="h-12 md:h-14 w-auto transition-transform duration-300 group-hover:scale-105"
-            />
-            <span className="leading-tight hidden sm:block">
-              <span className="block text-sm md:text-base font-bold text-foreground">
-                Global Nexus Institute
+          <div className="flex items-center gap-4">
+            <Link to="/" className="flex items-center gap-3 group">
+              <img
+                src="https://www.globalnexus.africa/images/lgo.png"
+                alt="Global Nexus Institute Logo"
+                className="h-12 md:h-14 w-auto transition-transform duration-300 group-hover:scale-105"
+              />
+              <span className="leading-tight hidden sm:block">
+                <span className="block text-sm md:text-base font-bold text-foreground">
+                  Global Nexus Institute
+                </span>
+                <span className="block text-xs text-muted-foreground tracking-wider">
+                  —Innovation & Excellence—
+                </span>
               </span>
-              <span className="block text-xs text-muted-foreground tracking-wider">
-                —Innovation & Excellence—
-              </span>
-            </span>
-          </Link>
+            </Link>
+            <Link
+              to="/elearning"
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                location.pathname === "/elearning"
+                  ? "text-primary bg-primary/5 font-semibold"
+                  : "text-muted-foreground hover:text-primary hover:bg-muted"
+              }`}
+            >
+              Portal
+            </Link>
+          </div>
 
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
@@ -147,12 +159,6 @@ const Navbar = () => {
             >
               {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
-            <Link
-              to="/elearning"
-              className="ml-2 btn-primary text-sm !px-5 !py-2"
-            >
-              eLearning Portal
-            </Link>
           </div>
 
           <button
@@ -201,12 +207,6 @@ const Navbar = () => {
                 {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
                 {dark ? "Light Mode" : "Dark Mode"}
               </button>
-              <Link
-                to="/elearning"
-                className="mt-2 btn-primary text-sm text-center"
-              >
-                eLearning Portal
-              </Link>
             </div>
           </div>
         )}
