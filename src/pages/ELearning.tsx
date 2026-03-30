@@ -1,8 +1,13 @@
 import { useState } from "react";
-import Layout from "@/components/Layout";
 import PageSEO from "@/components/PageSEO";
 import { Link, useSearchParams } from "react-router-dom";
 import { BookOpen, HelpCircle, Heart, Briefcase, Building2, Handshake, Award, ArrowLeft } from "lucide-react";
+import WhyUsPage from "./WhyUs";
+import CareerPage from "./Career";
+import CorporatePage from "./Corporate";
+import CollaboratePage from "./Collaborate";
+import FAQsPage from "./FAQs";
+import DonatePage from "./Donate";
 
 const subPages = [
   { key: "portal", label: "Portal", icon: BookOpen },
@@ -14,13 +19,14 @@ const subPages = [
   { key: "donate", label: "Donate", icon: Heart },
 ];
 
-// Lazy imports for sub-page content
-import WhyUs from "./WhyUs";
-import Career from "./Career";
-import Corporate from "./Corporate";
-import Collaborate from "./Collaborate";
-import FAQs from "./FAQs";
-import Donate from "./Donate";
+const pageComponents: Record<string, React.FC> = {
+  "why-us": WhyUsPage,
+  "career": CareerPage,
+  "corporate": CorporatePage,
+  "collaborate": CollaboratePage,
+  "faqs": FAQsPage,
+  "donate": DonatePage,
+};
 
 const ELearning = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,35 +34,16 @@ const ELearning = () => {
 
   const setTab = (key: string) => {
     setSearchParams(key === "portal" ? {} : { tab: key });
+    window.scrollTo(0, 0);
   };
 
-  const renderContent = () => {
-    switch (activeTab) {
-      case "why-us": return <WhyUsContent />;
-      case "career": return <CareerContent />;
-      case "corporate": return <CorporateContent />;
-      case "collaborate": return <CollaborateContent />;
-      case "faqs": return <FAQsContent />;
-      case "donate": return <DonateContent />;
-      default:
-        return (
-          <div className="-mt-2 h-[calc(100vh-8rem)] w-full">
-            <iframe
-              src="https://skilla.africa/"
-              title="eLearning Portal - Skilla"
-              className="w-full h-full border-0"
-              allow="fullscreen; clipboard-write; encrypted-media"
-            />
-          </div>
-        );
-    }
-  };
+  const PageComponent = pageComponents[activeTab];
 
   return (
     <>
       <PageSEO title="eLearning Portal" description="Access the Global Nexus Institute eLearning platform — courses, career paths, corporate training, and more." path="/elearning" />
-      {/* Sticky sub-navigation bar */}
-      <div className="fixed top-0 z-50 w-full bg-card border-b border-border shadow-sm">
+      {/* Sub-navigation */}
+      <div className="fixed top-0 z-50 w-full bg-card/95 backdrop-blur-sm border-b border-border shadow-sm">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide py-2">
             <Link
@@ -84,22 +71,23 @@ const ELearning = () => {
           </div>
         </div>
       </div>
+
       <div className="pt-12">
-        {renderContent()}
+        {activeTab === "portal" ? (
+          <div className="h-[calc(100vh-3rem)] w-full">
+            <iframe
+              src="https://skilla.africa/"
+              title="eLearning Portal - Skilla"
+              className="w-full h-full border-0"
+              allow="fullscreen; clipboard-write; encrypted-media"
+            />
+          </div>
+        ) : PageComponent ? (
+          <PageComponent />
+        ) : null}
       </div>
     </>
   );
 };
-
-// Wrapper components that render page content without Layout (since ELearning has its own nav)
-const WhyUsContent = () => {
-  // Re-use the WhyUs page but we import it directly
-  return <WhyUs />;
-};
-const CareerContent = () => <Career />;
-const CorporateContent = () => <Corporate />;
-const CollaborateContent = () => <Collaborate />;
-const FAQsContent = () => <FAQs />;
-const DonateContent = () => <Donate />;
 
 export default ELearning;
