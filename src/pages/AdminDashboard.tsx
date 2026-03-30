@@ -22,6 +22,7 @@ type PageConfig = {
   label: string;
   icon: any;
   sections: SectionConfig[];
+  children?: PageConfig[];
 };
 
 type SectionConfig = {
