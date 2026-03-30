@@ -846,6 +846,123 @@ const defaultFooterLinks = [
   { label: "Research", url: "/research", external: "no" },
 ];
 
+// Why Us
+const defaultWhyUsReasons = [
+  { title: "Accredited Programs", desc: "Our programs are accredited by RTB Rwanda and NCC Education UK, ensuring internationally recognized certifications.", color: "from-red-500 to-orange-400" },
+  { title: "Expert Mentors", desc: "Learn from 10+ industry professionals with real-world experience in data science, AI, and software development.", color: "from-blue-500 to-cyan-400" },
+  { title: "Global Opportunities", desc: "We bridge local needs with global opportunities, connecting graduates to international career pathways.", color: "from-green-500 to-emerald-400" },
+  { title: "Practical Curriculum", desc: "Hands-on, project-based learning using industry-standard tools like Python, SQL, Power BI, and more.", color: "from-purple-500 to-violet-400" },
+  { title: "Innovation-Driven", desc: "We stay at the forefront of technology trends, continuously updating our programs to match industry demands.", color: "from-orange-500 to-amber-400" },
+  { title: "Inclusive Education", desc: "Committed to accessible education for underrepresented groups including women, youth, and people with disabilities.", color: "from-pink-500 to-rose-400" },
+];
+const whyUsReasonFields: FieldDef[] = [
+  { key: "title", label: "Title", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+  { key: "color", label: "Gradient Color", type: "text" },
+];
+
+// Career
+const defaultCareerPaths = [
+  { title: "Data Analyst", desc: "Analyze and interpret complex datasets to help organizations make data-driven decisions.", skills: "Python, SQL, Power BI, Excel", color: "from-blue-500 to-cyan-400" },
+  { title: "Data Scientist", desc: "Build predictive models and machine learning solutions to solve complex business problems.", skills: "Python, TensorFlow, R, Statistics", color: "from-purple-500 to-violet-400" },
+  { title: "Software Developer", desc: "Design and build web applications and software solutions for businesses across Africa.", skills: "JavaScript, React, Node.js, APIs", color: "from-green-500 to-emerald-400" },
+  { title: "Database Administrator", desc: "Manage, secure, and optimize database systems for reliable data storage and retrieval.", skills: "SQL, PostgreSQL, MongoDB, Cloud", color: "from-orange-500 to-amber-400" },
+];
+const careerPathFields: FieldDef[] = [
+  { key: "title", label: "Title", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+  { key: "skills", label: "Skills", type: "text" },
+  { key: "color", label: "Gradient Color", type: "text" },
+];
+
+const defaultCareerOpenings = [
+  { title: "Instructor — Data Analytics", type: "Full-time", location: "Kigali / Remote", desc: "Join our teaching team to deliver hands-on data analytics training to the next generation of African tech talent." },
+  { title: "Instructor — Python & AI", type: "Part-time", location: "Remote", desc: "Teach Python programming and AI fundamentals through our online eLearning platform (skilla.africa)." },
+  { title: "Student Intern — Web Development", type: "Internship", location: "Kigali", desc: "Gain real-world experience in web development while contributing to meaningful projects." },
+];
+const careerOpeningFields: FieldDef[] = [
+  { key: "title", label: "Title", type: "text" },
+  { key: "type", label: "Type (Full-time, Part-time, Internship)", type: "text" },
+  { key: "location", label: "Location", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+];
+
+// Corporate
+const defaultCorporateOfferings = [
+  { title: "Corporate Training", desc: "Customized training programs for your team in data analytics, AI, Python, and digital skills tailored to your business needs.", color: "from-blue-500 to-cyan-400" },
+  { title: "Talent Pipeline", desc: "Access our pool of skilled graduates for recruitment — data analysts, developers, and AI specialists ready to contribute.", color: "from-green-500 to-emerald-400" },
+  { title: "Data Consulting", desc: "End-to-end data solutions including collection, processing, analysis, and reporting for your organization's projects.", color: "from-purple-500 to-violet-400" },
+  { title: "Upskilling Programs", desc: "Help your existing workforce stay competitive with continuous learning in emerging technologies and methodologies.", color: "from-orange-500 to-amber-400" },
+];
+const corporateOfferingFields: FieldDef[] = [
+  { key: "title", label: "Title", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+  { key: "color", label: "Gradient Color", type: "text" },
+];
+
+const defaultCorporateBenefits = [
+  { text: "Tailored programs aligned to your business objectives" },
+  { text: "Flexible delivery — on-site, online, or hybrid" },
+  { text: "Internationally accredited certifications for participants" },
+  { text: "Measurable learning outcomes and ROI tracking" },
+  { text: "Post-training support and mentorship" },
+  { text: "Access to industry-standard tools and platforms" },
+];
+const corporateBenefitFields: FieldDef[] = [
+  { key: "text", label: "Benefit Text", type: "text" },
+];
+
+// Collaborate
+const defaultCollaborateTypes = [
+  { title: "Academic Partners", desc: "Co-develop curricula, exchange knowledge, and create joint certification programs with universities and institutions.", color: "from-blue-500 to-cyan-400" },
+  { title: "Industry Partners", desc: "Provide internships, mentorship, and real-world projects that prepare students for the workforce.", color: "from-green-500 to-emerald-400" },
+  { title: "Research Partners", desc: "Collaborate on applied research in AI, data science, educational technology, and community development.", color: "from-purple-500 to-violet-400" },
+  { title: "NGO & Development Partners", desc: "Partner on capacity-building initiatives, digital literacy programs, and community empowerment projects.", color: "from-pink-500 to-rose-400" },
+  { title: "International Organizations", desc: "Work together on cross-border education programs and technology transfer initiatives.", color: "from-orange-500 to-amber-400" },
+  { title: "Community Organizations", desc: "Support grassroots digital skills training and youth empowerment in underserved communities.", color: "from-red-500 to-rose-400" },
+];
+const collaborateTypeFields: FieldDef[] = [
+  { key: "title", label: "Title", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+  { key: "color", label: "Gradient Color", type: "text" },
+];
+
+// FAQs
+const defaultFaqCategories = [
+  { category: "Programs & Courses", faqs: "What programs does Global Nexus Institute offer?|We offer professional certifications in Data Analytics, Data Science, AI & Machine Learning, Software Development, and Cybersecurity.||Are courses available online?|Yes! We offer both online and in-person training through our eLearning platform (skilla.africa)." },
+  { category: "Admissions & Requirements", faqs: "What are the entry requirements?|Requirements vary by program. Generally, you need a high school diploma or equivalent.||How do I apply?|Visit our Admissions page and click 'Apply Now' to fill out the online application form." },
+  { category: "Fees & Payments", faqs: "What payment methods are accepted?|We accept MoMo Pay, bank transfers, and online payments. Installment plans are available.||Are scholarships available?|Yes! We offer merit-based scholarships covering up to 30% of tuition fees." },
+  { category: "Certification & Career", faqs: "Do I get a certificate upon completion?|Yes! All graduates receive a certificate of completion. Programs accredited by RTB Rwanda and NCC Education UK carry internationally recognized certifications.||Does Global Nexus help with job placement?|We provide career guidance, CV reviews, and connect graduates with our industry partners." },
+];
+const faqCategoryFields: FieldDef[] = [
+  { key: "category", label: "Category Name", type: "text" },
+  { key: "faqs", label: "FAQs (Q|A separated by || between pairs)", type: "textarea" },
+];
+
+// Donate
+const defaultDonateAreas = [
+  { title: "Scholarships", desc: "Fund tuition for students who can't afford quality tech education.", color: "from-blue-500 to-cyan-400" },
+  { title: "Women in Tech", desc: "Support programs empowering women and young mothers in technology careers.", color: "from-pink-500 to-rose-400" },
+  { title: "Community Programs", desc: "Bring digital literacy and tech skills to underserved communities across Africa.", color: "from-green-500 to-emerald-400" },
+];
+const donateAreaFields: FieldDef[] = [
+  { key: "title", label: "Title", type: "text" },
+  { key: "desc", label: "Description", type: "textarea" },
+  { key: "color", label: "Gradient Color", type: "text" },
+];
+
+const defaultDonateItems = [
+  { text: "Fund scholarships for deserving students" },
+  { text: "Support educational resources and equipment" },
+  { text: "Enable impactful mentorship programs" },
+  { text: "Create opportunities for vulnerable communities" },
+  { text: "Provide access to modern technology and tools" },
+  { text: "Empower women and youth through digital skills" },
+];
+const donateItemFields: FieldDef[] = [
+  { key: "text", label: "Impact Item", type: "text" },
+];
+
 const AdminDashboard = () => {
   const { isAdmin, loading: authLoading, userId, signOut } = useAdmin();
   const [activePage, setActivePage] = useState("home");
