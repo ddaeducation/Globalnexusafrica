@@ -17,6 +17,12 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 import ELearning from "./pages/ELearning";
+import WhyUs from "./pages/WhyUs";
+import Career from "./pages/Career";
+import Corporate from "./pages/Corporate";
+import Collaborate from "./pages/Collaborate";
+import FAQs from "./pages/FAQs";
+import Donate from "./pages/Donate";
 
 const queryClient = new QueryClient();
 

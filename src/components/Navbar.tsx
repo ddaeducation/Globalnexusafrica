@@ -4,11 +4,15 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 
 const navLinks = [
   { path: "/", label: "Home" },
-  { path: "/about", label: "About Us" },
+  { path: "/why-us", label: "Why Us" },
   { path: "/programs", label: "Programs" },
   { path: "/services", label: "Services" },
   { path: "/admissions", label: "Admissions" },
-  { path: "/news", label: "News" },
+  { path: "/career", label: "Career" },
+  { path: "/corporate", label: "Corporate" },
+  { path: "/collaborate", label: "Collaborate" },
+  { path: "/faqs", label: "FAQs" },
+  { path: "/donate", label: "Donate" },
   { path: "/contact", label: "Contact" },
 ];
 
