@@ -1,5 +1,4 @@
 import PageSEO from "@/components/PageSEO";
-import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
 import { Handshake, GraduationCap, FlaskConical, Globe, ArrowRight, Heart, Building2, Users } from "lucide-react";

@@ -1,5 +1,4 @@
 import PageSEO from "@/components/PageSEO";
-import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
 import { Building2, Users, TrendingUp, GraduationCap, ArrowRight, CheckCircle, BarChart3 } from "lucide-react";

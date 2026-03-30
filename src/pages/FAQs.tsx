@@ -1,5 +1,4 @@
 import PageSEO from "@/components/PageSEO";
-import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { Link } from "react-router-dom";
