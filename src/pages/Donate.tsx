@@ -4,30 +4,39 @@ import { useState } from "react";
 import { Heart, GraduationCap, Users, Globe, Loader2, CheckCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import { useAllSiteContent, getContent } from "@/hooks/useSiteContent";
 
 const donationAmountsUSD = [25, 50, 100, 250];
 const donationAmountsRWF = [5000, 10000, 25000, 50000];
 
-const impactAreas = [
+const defaultImpactAreas = [
   { icon: GraduationCap, title: "Scholarships", desc: "Fund tuition for students who can't afford quality tech education.", color: "from-blue-500 to-cyan-400" },
   { icon: Users, title: "Women in Tech", desc: "Support programs empowering women and young mothers in technology careers.", color: "from-pink-500 to-rose-400" },
   { icon: Globe, title: "Community Programs", desc: "Bring digital literacy and tech skills to underserved communities across Africa.", color: "from-green-500 to-emerald-400" },
 ];
 
-const impactItems = [
-  "Fund scholarships for deserving students",
-  "Support educational resources and equipment",
-  "Enable impactful mentorship programs",
-  "Create opportunities for vulnerable communities",
-  "Provide access to modern technology and tools",
-  "Empower women and youth through digital skills",
+const defaultImpactItems = [
+  { text: "Fund scholarships for deserving students" },
+  { text: "Support educational resources and equipment" },
+  { text: "Enable impactful mentorship programs" },
+  { text: "Create opportunities for vulnerable communities" },
+  { text: "Provide access to modern technology and tools" },
+  { text: "Empower women and youth through digital skills" },
 ];
+
+const iconMap: Record<string, any> = { GraduationCap, Users, Globe };
 
 const Donate = () => {
   const [selectedDonation, setSelectedDonation] = useState<number | null>(50);
   const [donating, setDonating] = useState(false);
   const [customAmount, setCustomAmount] = useState("");
   const [currency, setCurrency] = useState<"USD" | "RWF">("USD");
+
+  const { content: c } = useAllSiteContent("donate");
+  const g = (section: string, key: string, fallback: string) => getContent(c, section, key, fallback);
+
+  const impactAreas = (c.areas as any)?.items || defaultImpactAreas;
+  const impactItems = (c.items as any)?.items || defaultImpactItems;
 
   const handleDonate = async () => {
     const finalAmount = Number(customAmount) || selectedDonation || 50;
@@ -60,9 +69,11 @@ const Donate = () => {
 
       <section className="hero-section py-20 text-white">
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">Support Our Mission</h1>
+          <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">
+            {g("hero", "title", "Support Our Mission")}
+          </h1>
           <p className="text-lg max-w-2xl mx-auto opacity-90 animate-fade-up-delay-1">
-            Your contribution directly impacts lives and creates lasting change in communities across Africa.
+            {g("hero", "subtitle", "Your contribution directly impacts lives and creates lasting change in communities across Africa.")}
           </p>
         </div>
       </section>
@@ -70,28 +81,31 @@ const Donate = () => {
       <ScrollReveal>
         <section className="py-16 bg-card">
           <div className="container mx-auto px-6 md:px-10">
-            <h2 className="section-title">Where Your Donation Goes</h2>
-            <p className="section-subtitle">Every contribution creates real, measurable impact</p>
+            <h2 className="section-title">{g("sections", "impact_title", "Where Your Donation Goes")}</h2>
+            <p className="section-subtitle">{g("sections", "impact_subtitle", "Every contribution creates real, measurable impact")}</p>
             <div className="grid md:grid-cols-3 gap-6 mb-12">
-              {impactAreas.map((a, i) => (
-                <div key={a.title} className="card-hover p-7 group text-center">
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${a.color} flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300`}>
-                    <a.icon className="h-7 w-7 text-white" />
+              {impactAreas.map((a: any) => {
+                const IconComp = a.icon && typeof a.icon === "string" ? (iconMap[a.icon] || GraduationCap) : (a.icon || GraduationCap);
+                return (
+                  <div key={a.title} className="card-hover p-7 group text-center">
+                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${a.color || "from-blue-500 to-cyan-400"} flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300`}>
+                      <IconComp className="h-7 w-7 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">{a.title}</h3>
+                    <p className="text-sm text-muted-foreground">{a.desc}</p>
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{a.title}</h3>
-                  <p className="text-sm text-muted-foreground">{a.desc}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12">
               <div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Your Impact</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">{g("sections", "your_impact_title", "Your Impact")}</h3>
                 <ul className="space-y-3">
-                  {impactItems.map((item) => (
-                    <li key={item} className="flex items-center gap-3">
+                  {impactItems.map((item: any) => (
+                    <li key={item.text} className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-primary shrink-0" />
-                      <span className="text-sm text-muted-foreground">{item}</span>
+                      <span className="text-sm text-muted-foreground">{item.text}</span>
                     </li>
                   ))}
                 </ul>
@@ -100,9 +114,9 @@ const Donate = () => {
               <div className="card-hover p-8">
                 <div className="flex items-center gap-2 mb-4">
                   <Heart className="h-6 w-6 text-primary" />
-                  <h3 className="text-xl font-bold text-foreground">Make a Donation</h3>
+                  <h3 className="text-xl font-bold text-foreground">{g("sections", "card_title", "Make a Donation")}</h3>
                 </div>
-                <p className="text-sm text-muted-foreground mb-6">Choose an amount or enter a custom value below.</p>
+                <p className="text-sm text-muted-foreground mb-6">{g("sections", "card_subtitle", "Choose an amount or enter a custom value below.")}</p>
 
                 <div className="flex gap-2 mb-4">
                   {(["USD", "RWF"] as const).map((cur) => (
