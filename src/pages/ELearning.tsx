@@ -45,41 +45,17 @@ const ELearning = () => {
       {/* Sub-navigation */}
       <div className="fixed top-0 z-50 w-full bg-card/95 backdrop-blur-sm border-b border-border shadow-md">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide py-2">
+          <div className="flex items-center gap-2 py-2">
             <Link
               to="/"
-              className="flex items-center gap-2 shrink-0 mr-2 group"
+              className="flex items-center gap-2 shrink-0 group"
               title="Back to main site"
             >
               <ArrowLeft className="h-4 w-4 text-muted-foreground group-hover:text-primary transition" />
-              <img
-                src="https://www.globalnexus.africa/images/logo.png"
-                alt="Global Nexus Institute"
-                className="h-8 w-auto"
-                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-              />
-              <span className="hidden sm:inline text-sm font-display font-bold text-foreground group-hover:text-primary transition">
-                eLearning
+              <span className="text-sm font-display font-bold text-foreground group-hover:text-primary transition">
+                Portal
               </span>
             </Link>
-            <div className="h-7 w-px bg-border shrink-0" />
-            {subPages.map((page) => (
-              <button
-                key={page.key}
-                onClick={() => setTab(page.key)}
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap shrink-0 relative ${
-                  activeTab === page.key
-                    ? "text-primary font-semibold"
-                    : "text-muted-foreground hover:text-primary hover:bg-muted"
-                }`}
-              >
-                <page.icon className="h-4 w-4" />
-                {page.label}
-                {activeTab === page.key && (
-                  <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />
-                )}
-              </button>
-            ))}
           </div>
         </div>
       </div>
