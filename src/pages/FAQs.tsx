@@ -42,7 +42,7 @@ const faqCategories = [
 
 const FAQs = () => (
   <>
-    <PageSEO title="FAQs" description="Frequently asked questions about Global Nexus Institute." path="/elearning?tab=faqs" />
+    <PageSEO title="FAQs" description="Frequently asked questions about Global Nexus Institute." path="/faqs" />
 
     <section className="hero-section py-20 text-white">
       <div className="container mx-auto px-4 text-center relative z-10">

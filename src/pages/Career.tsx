@@ -18,7 +18,7 @@ const openings = [
 
 const Career = () => (
   <>
-    <PageSEO title="Career" description="Explore career paths in data science, software development, and AI at Global Nexus Institute." path="/elearning?tab=career" />
+    <PageSEO title="Career" description="Explore career paths in data science, software development, and AI at Global Nexus Institute." path="/career" />
 
     <section className="hero-section py-20 text-white">
       <div className="container mx-auto px-4 text-center relative z-10">

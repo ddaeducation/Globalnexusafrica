@@ -14,7 +14,7 @@ const partnerTypes = [
 
 const Collaborate = () => (
   <>
-    <PageSEO title="Collaborate" description="Partner with Global Nexus Institute for academic and industry collaboration." path="/elearning?tab=collaborate" />
+    <PageSEO title="Collaborate" description="Partner with Global Nexus Institute for academic and industry collaboration." path="/collaborate" />
 
     <section className="hero-section py-20 text-white">
       <div className="container mx-auto px-4 text-center relative z-10">
