@@ -995,7 +995,23 @@ const AdminDashboard = () => {
     loadContent();
   }, []);
 
-  const currentPage = pages.find((p) => p.key === activePage);
+  const findPage = (key: string): PageConfig | undefined => {
+    for (const p of pages) {
+      if (p.key === key) return p;
+      if (p.children) {
+        const child = p.children.find((c) => c.key === key);
+        if (child) return child;
+      }
+    }
+    return undefined;
+  };
+  const currentPage = findPage(activePage);
+
+  const toggleGroup = (key: string) => {
+    setExpandedGroups((prev) =>
+      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
+    );
+  };
 
   const getValue = (page: string, section: string, field: string) => {
     return formData[page]?.[section]?.[field] || "";
