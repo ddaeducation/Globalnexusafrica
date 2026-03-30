@@ -1,8 +1,7 @@
-import Layout from "@/components/Layout";
 import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
-import { Briefcase, Code, BarChart3, Brain, Database, ArrowRight, MapPin, Clock } from "lucide-react";
+import { Briefcase, Code, BarChart3, Brain, Database, ArrowRight, MapPin } from "lucide-react";
 
 const careerPaths = [
   { icon: BarChart3, title: "Data Analyst", desc: "Analyze and interpret complex datasets to help organizations make data-driven decisions.", skills: "Python, SQL, Power BI, Excel", color: "from-blue-500 to-cyan-400" },

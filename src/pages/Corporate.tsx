@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+import PageSEO from "@/components/PageSEO";
 import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
