@@ -167,7 +167,7 @@ const Donate = () => {
           </div>
         </section>
       </ScrollReveal>
-    </Layout>
+    </>
   );
 };
 

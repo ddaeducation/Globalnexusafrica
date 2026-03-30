@@ -87,7 +87,7 @@ const WhyUs = () => (
         </div>
       </section>
     </ScrollReveal>
-  </Layout>
+  </>
 );
 
 export default WhyUs;
