@@ -21,7 +21,7 @@ const benefits = [
 
 const Corporate = () => (
   <>
-    <PageSEO title="Corporate Solutions" description="Custom corporate training and data consulting from Global Nexus Institute." path="/elearning?tab=corporate" />
+    <PageSEO title="Corporate Solutions" description="Custom corporate training and data consulting from Global Nexus Institute." path="/corporate" />
 
     <section className="hero-section py-20 text-white">
       <div className="container mx-auto px-4 text-center relative z-10">

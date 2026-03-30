@@ -20,7 +20,7 @@ const stats = [
 
 const WhyUs = () => (
   <>
-    <PageSEO title="Why Choose Us" description="Discover why Global Nexus Institute is the leading tech education provider in Africa." path="/elearning?tab=why-us" />
+    <PageSEO title="Why Choose Us" description="Discover why Global Nexus Institute is the leading tech education provider in Africa." path="/why-us" />
 
     <section className="hero-section py-20 text-white">
       <div className="container mx-auto px-4 text-center relative z-10">
