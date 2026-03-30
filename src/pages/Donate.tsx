@@ -1,5 +1,4 @@
 import PageSEO from "@/components/PageSEO";
-import PageSEO from "@/components/PageSEO";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useState } from "react";
 import { Heart, GraduationCap, Users, Globe, Loader2, CheckCircle } from "lucide-react";
