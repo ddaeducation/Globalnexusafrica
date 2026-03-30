@@ -1057,12 +1057,35 @@ const AdminDashboard = () => {
         return <AdminListEditor title="Footer Quick Links" description="Edit the quick access links in the footer." page="footer" sectionKey="links" fields={footerLinkFields} defaultItems={defaultFooterLinks} userId={userId} />;
       case "research-areas":
         return <AdminListEditor title="Research Areas" description="Edit research focus areas shown on the Research page." page="research" sectionKey="areas" fields={researchAreaFields} defaultItems={defaultResearchAreas} userId={userId} />;
+      case "whyus-reasons":
+        return <AdminListEditor title="Why Us Reasons" description="Edit reasons shown on the Why Us page." page="whyus" sectionKey="reasons" fields={whyUsReasonFields} defaultItems={defaultWhyUsReasons} userId={userId} />;
+      case "career-paths":
+        return <AdminListEditor title="Career Paths" description="Edit career paths shown on the Career page." page="career" sectionKey="paths" fields={careerPathFields} defaultItems={defaultCareerPaths} userId={userId} />;
+      case "career-openings":
+        return <AdminListEditor title="Job Openings" description="Edit job openings shown on the Career page." page="career" sectionKey="openings" fields={careerOpeningFields} defaultItems={defaultCareerOpenings} userId={userId} />;
+      case "corporate-offerings":
+        return <AdminListEditor title="Corporate Offerings" description="Edit offerings shown on the Corporate page." page="corporate" sectionKey="offerings" fields={corporateOfferingFields} defaultItems={defaultCorporateOfferings} userId={userId} />;
+      case "corporate-benefits":
+        return <AdminListEditor title="Corporate Benefits" description="Edit benefits shown on the Corporate page." page="corporate" sectionKey="benefits" fields={corporateBenefitFields} defaultItems={defaultCorporateBenefits} userId={userId} />;
+      case "collaborate-types":
+        return <AdminListEditor title="Partner Types" description="Edit partnership types on the Collaborate page." page="collaborate" sectionKey="types" fields={collaborateTypeFields} defaultItems={defaultCollaborateTypes} userId={userId} />;
+      case "faqs-categories":
+        return <AdminListEditor title="FAQ Categories" description="Edit FAQ categories and questions." page="faqs_page" sectionKey="categories" fields={faqCategoryFields} defaultItems={defaultFaqCategories} userId={userId} />;
+      case "donate-areas":
+        return <AdminListEditor title="Impact Areas" description="Edit donation impact areas on the Donate page." page="donate" sectionKey="areas" fields={donateAreaFields} defaultItems={defaultDonateAreas} userId={userId} />;
+      case "donate-items":
+        return <AdminListEditor title="Impact Items" description="Edit impact items on the Donate page." page="donate" sectionKey="items" fields={donateItemFields} defaultItems={defaultDonateItems} userId={userId} />;
       default:
         return null;
     }
   };
 
-  const isListEditor = ["about-team", "about-partners", "news-items", "testimonials", "services-list", "home-gallery", "admissions-steps", "footer-links", "research-areas"].includes(activePage);
+  const isListEditor = [
+    "about-team", "about-partners", "news-items", "testimonials", "services-list",
+    "home-gallery", "admissions-steps", "footer-links", "research-areas",
+    "whyus-reasons", "career-paths", "career-openings", "corporate-offerings",
+    "corporate-benefits", "collaborate-types", "faqs-categories", "donate-areas", "donate-items"
+  ].includes(activePage);
 
   return (
     <div className="min-h-screen bg-background flex">
