@@ -215,12 +215,6 @@ const Navbar = () => {
                 {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
                 {dark ? "Light Mode" : "Dark Mode"}
               </button>
-              <Link
-                to="/elearning"
-                className="mt-2 btn-primary text-sm text-center"
-              >
-                eLearning Portal
-              </Link>
             </div>
           </div>
         )}
