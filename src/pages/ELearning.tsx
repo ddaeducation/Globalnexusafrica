@@ -43,29 +43,41 @@ const ELearning = () => {
     <>
       <PageSEO title="eLearning Portal" description="Access the Global Nexus Institute eLearning platform — courses, career paths, corporate training, and more." path="/elearning" />
       {/* Sub-navigation */}
-      <div className="fixed top-0 z-50 w-full bg-card/95 backdrop-blur-sm border-b border-border shadow-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide py-2">
+      <div className="fixed top-0 z-50 w-full bg-card/95 backdrop-blur-sm border-b border-border shadow-md">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide py-2">
             <Link
               to="/"
-              className="p-2 rounded-lg hover:bg-muted transition text-muted-foreground hover:text-foreground shrink-0 mr-1"
+              className="flex items-center gap-2 shrink-0 mr-2 group"
               title="Back to main site"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="h-4 w-4 text-muted-foreground group-hover:text-primary transition" />
+              <img
+                src="https://www.globalnexus.africa/images/logo.png"
+                alt="Global Nexus Institute"
+                className="h-8 w-auto"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              />
+              <span className="hidden sm:inline text-sm font-display font-bold text-foreground group-hover:text-primary transition">
+                eLearning
+              </span>
             </Link>
-            <div className="h-6 w-px bg-border shrink-0 mr-1" />
+            <div className="h-7 w-px bg-border shrink-0" />
             {subPages.map((page) => (
               <button
                 key={page.key}
                 onClick={() => setTab(page.key)}
-                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap shrink-0 ${
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap shrink-0 relative ${
                   activeTab === page.key
-                    ? "text-primary bg-primary/10 font-semibold"
+                    ? "text-primary font-semibold"
                     : "text-muted-foreground hover:text-primary hover:bg-muted"
                 }`}
               >
                 <page.icon className="h-4 w-4" />
                 {page.label}
+                {activeTab === page.key && (
+                  <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full" />
+                )}
               </button>
             ))}
           </div>
