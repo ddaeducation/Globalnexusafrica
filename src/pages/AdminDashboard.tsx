@@ -1124,20 +1124,61 @@ const AdminDashboard = () => {
           <p className="text-xs text-muted-foreground">Global Nexus Institute</p>
         </div>
         <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
-          {pages.map((page) => (
-            <button
-              key={page.key}
-              onClick={() => { setActivePage(page.key); setActiveSection(null); setSidebarOpen(false); }}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                activePage === page.key
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
-              }`}
-            >
-              <page.icon className="h-4 w-4" />
-              {page.label}
-            </button>
-          ))}
+          {pages.map((page) => {
+            const hasChildren = page.children && page.children.length > 0;
+            const isGroupExpanded = expandedGroups.includes(page.key);
+            const isChildActive = hasChildren && page.children!.some((c) => c.key === activePage);
+
+            return (
+              <div key={page.key}>
+                <button
+                  onClick={() => {
+                    if (hasChildren) {
+                      toggleGroup(page.key);
+                      setActivePage(page.key);
+                      setActiveSection(null);
+                      setSidebarOpen(false);
+                    } else {
+                      setActivePage(page.key);
+                      setActiveSection(null);
+                      setSidebarOpen(false);
+                    }
+                  }}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                    activePage === page.key
+                      ? "bg-primary text-primary-foreground"
+                      : isChildActive
+                        ? "bg-primary/10 text-primary"
+                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  }`}
+                >
+                  <page.icon className="h-4 w-4" />
+                  <span className="flex-1 text-left">{page.label}</span>
+                  {hasChildren && (
+                    <ChevronRight className={`h-3.5 w-3.5 transition-transform ${isGroupExpanded || isChildActive ? "rotate-90" : ""}`} />
+                  )}
+                </button>
+                {hasChildren && (isGroupExpanded || isChildActive) && (
+                  <div className="ml-4 mt-1 space-y-0.5 border-l-2 border-border pl-2">
+                    {page.children!.map((child) => (
+                      <button
+                        key={child.key}
+                        onClick={() => { setActivePage(child.key); setActiveSection(null); setSidebarOpen(false); }}
+                        className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+                          activePage === child.key
+                            ? "bg-primary text-primary-foreground"
+                            : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                        }`}
+                      >
+                        <child.icon className="h-3.5 w-3.5" />
+                        {child.label}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </nav>
         <div className="p-3 border-t border-border">
           <button
