@@ -84,12 +84,14 @@ const Navbar = () => {
             >
               {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
-            <Link
-              to="/elearning"
+            <a
+              href="https://skilla.africa/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="ml-2 btn-primary text-sm !px-5 !py-2"
             >
               eLearning Portal
-            </Link>
+            </a>
           </div>
 
           <button
@@ -125,13 +127,14 @@ const Navbar = () => {
                 {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
                 {dark ? "Light Mode" : "Dark Mode"}
               </button>
-              <Link
-                to="/elearning"
-                onClick={() => setIsOpen(false)}
+              <a
+                href="https://skilla.africa/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-2 btn-primary text-sm text-center"
               >
                 eLearning Portal
-              </Link>
+              </a>
             </div>
           </div>
         )}
