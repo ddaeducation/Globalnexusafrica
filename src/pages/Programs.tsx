@@ -6,6 +6,7 @@ import { useSiteContent } from "@/hooks/useSiteContent";
 import { Clock, ExternalLink, CreditCard, Loader2, GraduationCap, CheckCircle2 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
+import { toast } from "@/hooks/use-toast";
 
 type Program = {
   id: string;
@@ -22,9 +23,15 @@ type Program = {
   sort_order: number;
 };
 
+const parsePrice = (price: string): number => {
+  const match = price.replace(/,/g, "").match(/[\d.]+/);
+  return match ? parseFloat(match[0]) : 0;
+};
+
 const Programs = () => {
   const [programs, setPrograms] = useState<Program[]>([]);
   const [loading, setLoading] = useState(true);
+  const [payingId, setPayingId] = useState<string | null>(null);
   const { data: hero } = useSiteContent("programs", "hero", {
     title: "Professional Programs",
     subtitle: "Comprehensive programs designed to prepare you for success in the data-driven world.",
@@ -41,6 +48,36 @@ const Programs = () => {
     };
     fetch();
   }, []);
+
+  const handlePay = async (program: Program) => {
+    const amount = parsePrice(program.price);
+    if (!amount) {
+      toast({ title: "Invalid price", description: "This program does not have a valid price.", variant: "destructive" });
+      return;
+    }
+    setPayingId(program.id);
+    try {
+      const { data, error } = await supabase.functions.invoke("create-payment", {
+        body: {
+          amount,
+          currency: "USD",
+          payment_type: "course",
+          program_title: program.title,
+          redirect_url: window.location.origin + "/programs",
+        },
+      });
+      if (error) throw error;
+      if (data?.payment_link) {
+        window.open(data.payment_link, "_blank");
+      } else {
+        throw new Error("No payment link received");
+      }
+    } catch (err: any) {
+      toast({ title: "Payment error", description: err.message || "Could not create payment link.", variant: "destructive" });
+    } finally {
+      setPayingId(null);
+    }
+  };
 
   return (
     <Layout>
@@ -96,9 +133,18 @@ const Programs = () => {
                         <a href={p.lms_url} target="_blank" rel="noopener noreferrer" className="btn-primary !px-4 !py-2 text-sm flex items-center gap-1">
                           <ExternalLink className="h-3 w-3" /> LMS
                         </a>
-                        <a href={p.pay_url} target="_blank" rel="noopener noreferrer" className="bg-accent text-accent-foreground px-4 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition flex items-center gap-1">
-                          <CreditCard className="h-3 w-3" /> Pay
-                        </a>
+                        <button
+                          onClick={() => handlePay(p)}
+                          disabled={payingId === p.id}
+                          className="bg-accent text-accent-foreground px-4 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition flex items-center gap-1 disabled:opacity-50"
+                        >
+                          {payingId === p.id ? (
+                            <Loader2 className="h-3 w-3 animate-spin" />
+                          ) : (
+                            <CreditCard className="h-3 w-3" />
+                          )}
+                          Pay
+                        </button>
                       </div>
                     </div>
                   </div>
