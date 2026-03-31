@@ -12,7 +12,7 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { amount, currency, email, name, redirect_url } = await req.json();
+    const { amount, currency, email, name, redirect_url, payment_type, program_title } = await req.json();
 
     // Validate input
     const parsedAmount = Number(amount);
@@ -40,20 +40,25 @@ Deno.serve(async (req) => {
       );
     }
 
-    const txRef = `donation-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`;
+    const isCoursePay = payment_type === "course";
+    const txRef = `${isCoursePay ? "course" : "donation"}-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`;
 
     const payload = {
       tx_ref: txRef,
       amount: parsedAmount,
       currency: cur,
-      redirect_url: redirect_url || "https://globalnexusafrica.lovable.app/contact",
+      redirect_url: redirect_url || "https://globalnexusafrica.lovable.app/programs",
       customer: {
-        email: email || "donor@globalnexus.africa",
-        name: name || "Generous Donor",
+        email: email || "student@globalnexus.africa",
+        name: name || "Student",
       },
       customizations: {
-        title: "Global Nexus Institute — Donation",
-        description: `Donation of ${cur} ${amount} to Global Nexus Institute`,
+        title: isCoursePay
+          ? `Global Nexus Institute — ${program_title || "Course Payment"}`
+          : "Global Nexus Institute — Donation",
+        description: isCoursePay
+          ? `Payment of ${cur} ${amount} for ${program_title || "course"}`
+          : `Donation of ${cur} ${amount} to Global Nexus Institute`,
         logo: "https://www.globalnexus.africa/images/logo.png",
       },
     };
