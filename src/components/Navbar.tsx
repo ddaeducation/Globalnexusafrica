@@ -12,14 +12,6 @@ const navLinks = [
   { path: "/contact", label: "Contact" },
 ];
 
-const moreLinks = [
-  { path: "/why-us", label: "Why Us" },
-  { path: "/career", label: "Career" },
-  { path: "/corporate", label: "Corporate" },
-  { path: "/collaborate", label: "Collaborate" },
-  { path: "/faqs", label: "FAQs" },
-  { path: "/donate", label: "Donate" },
-];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
