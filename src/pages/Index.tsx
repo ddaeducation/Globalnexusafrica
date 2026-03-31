@@ -84,24 +84,20 @@ const Index = () => {
             >
               {g("hero", "explore_text", "Explore Programs")} <ArrowRight className="h-4 w-4" />
             </Link>
-            <a
-              href={g("hero", "elearning_url", "https://skilla.africa/")}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/elearning"
               className="border-2 border-white/70 text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition-all duration-300"
             >
               {g("hero", "elearning_text", "Our eLearning")}
-            </a>
+            </Link>
           </div>
 
-          <a
-            href={g("hero", "instructor_url", "https://skilla.africa/auth?redirect=/become-instructor")}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/elearning"
             className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-xl text-white bg-primary hover:bg-primary-dark transform transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-primary/40"
           >
             {g("hero", "instructor_text", "Become an Instructor")}
-          </a>
+          </Link>
 
           <div className="grid grid-cols-3 gap-4 sm:gap-6 mt-14 max-w-lg mx-auto">
             {stats.map((s) => (
