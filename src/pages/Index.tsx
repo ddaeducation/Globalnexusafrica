@@ -84,14 +84,12 @@ const Index = () => {
             >
               {g("hero", "explore_text", "Explore Programs")} <ArrowRight className="h-4 w-4" />
             </Link>
-            <a
-              href={g("hero", "elearning_url", "https://skilla.africa/")}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/elearning"
               className="border-2 border-white/70 text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition-all duration-300"
             >
               {g("hero", "elearning_text", "Our eLearning")}
-            </a>
+            </Link>
           </div>
 
           <a
