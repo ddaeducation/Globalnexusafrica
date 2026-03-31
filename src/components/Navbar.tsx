@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Sun, Moon, ChevronDown } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 const navLinks = [
   { path: "/", label: "Home" },
@@ -12,21 +12,10 @@ const navLinks = [
   { path: "/contact", label: "Contact" },
 ];
 
-const moreLinks = [
-  { path: "/why-us", label: "Why Us" },
-  { path: "/career", label: "Career" },
-  { path: "/corporate", label: "Corporate" },
-  { path: "/collaborate", label: "Collaborate" },
-  { path: "/faqs", label: "FAQs" },
-  { path: "/donate", label: "Donate" },
-];
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dark, setDark] = useState(() => document.documentElement.classList.contains("dark"));
-  const [moreOpen, setMoreOpen] = useState(false);
-  const moreRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   const toggleDark = () => {
@@ -50,24 +39,9 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close dropdown on outside click
   useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
-        setMoreOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
-
-  // Close dropdown on route change
-  useEffect(() => {
-    setMoreOpen(false);
     setIsOpen(false);
   }, [location.pathname]);
-
-  const isMoreActive = moreLinks.some((l) => location.pathname === l.path);
 
   return (
     <header
@@ -108,38 +82,6 @@ const Navbar = () => {
               </Link>
             ))}
 
-            {/* More dropdown */}
-            <div className="relative" ref={moreRef}>
-              <button
-                onClick={() => setMoreOpen(!moreOpen)}
-                className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  isMoreActive
-                    ? "text-primary bg-primary/5 font-semibold"
-                    : "text-muted-foreground hover:text-primary hover:bg-muted"
-                }`}
-              >
-                More
-                <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${moreOpen ? "rotate-180" : ""}`} />
-              </button>
-              {moreOpen && (
-                <div className="absolute right-0 top-full mt-1 w-44 bg-card border border-border rounded-xl shadow-lg py-1 animate-fade-in z-50">
-                  {moreLinks.map((link) => (
-                    <Link
-                      key={link.path}
-                      to={link.path}
-                      className={`block px-4 py-2.5 text-sm font-medium transition-all ${
-                        location.pathname === link.path
-                          ? "text-primary bg-primary/5 font-semibold"
-                          : "text-muted-foreground hover:text-primary hover:bg-muted"
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
             <button
               onClick={toggleDark}
               className="ml-1 p-2 rounded-lg hover:bg-muted transition text-muted-foreground hover:text-foreground"
@@ -168,20 +110,6 @@ const Navbar = () => {
           <div className="mt-3 lg:hidden border-t border-border pt-3 animate-fade-in">
             <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
-                    location.pathname === link.path
-                      ? "text-primary bg-primary/5 font-semibold"
-                      : "text-muted-foreground hover:text-primary hover:bg-muted"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <div className="px-4 pt-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">More</div>
-              {moreLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
