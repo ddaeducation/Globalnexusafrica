@@ -57,7 +57,7 @@ const AdminMessages = () => {
               <div className="flex items-start justify-between gap-4">
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-3 mb-1">
-                    <span className="font-semibold text-foreground">{msg.full_name}</span>
+                    <span className="font-semibold text-foreground">{msg.full_name || msg.email || "Unknown"}</span>
                     <span className="text-xs text-muted-foreground">{msg.email}</span>
                   </div>
                   {msg.subject && <p className="text-sm font-medium text-foreground mb-1">{msg.subject}</p>}

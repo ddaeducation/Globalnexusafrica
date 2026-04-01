@@ -78,9 +78,9 @@ const AdminApplications = () => {
   const filtered = applications.filter((a) => {
     const q = search.toLowerCase();
     return (
-      a.full_name.toLowerCase().includes(q) ||
-      a.email.toLowerCase().includes(q) ||
-      a.program_applying_for.toLowerCase().includes(q)
+      (a.full_name || "").toLowerCase().includes(q) ||
+      (a.email || "").toLowerCase().includes(q) ||
+      (a.program_applying_for || "").toLowerCase().includes(q)
     );
   });
 
