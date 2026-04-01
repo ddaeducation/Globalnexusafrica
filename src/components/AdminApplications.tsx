@@ -205,7 +205,8 @@ const AdminApplications = () => {
                     className="rounded border-gray-300"
                   />
                 </th>
-                <th className="px-3 py-3 w-10 text-center bg-gray-50">#</th>
+                <th className="px-3 py-3 w-10 text-center bg-muted/50">#</th>
+                <th className="px-3 py-3 w-10 bg-muted/50" />
                 {columns.map(col => (
                   <th
                     key={col.key}
