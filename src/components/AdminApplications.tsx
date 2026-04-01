@@ -117,7 +117,7 @@ const AdminApplications = () => {
     const headerRow = columns.map(c => c.label).join(",");
     const rows = filtered.map(app =>
       columns.map(col => {
-        const val = formatCell(col.key, app[col.key as keyof Application]);
+        const val = formatCell(col.key, app[col.key as keyof Application], app);
         return `"${String(val).replace(/"/g, '""')}"`;
       }).join(",")
     );
