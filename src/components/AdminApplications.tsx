@@ -78,9 +78,9 @@ const AdminApplications = () => {
   const filtered = applications.filter((a) => {
     const q = search.toLowerCase();
     return (
-      a.full_name.toLowerCase().includes(q) ||
-      a.email.toLowerCase().includes(q) ||
-      a.program_applying_for.toLowerCase().includes(q)
+      (a.full_name || "").toLowerCase().includes(q) ||
+      (a.email || "").toLowerCase().includes(q) ||
+      (a.program_applying_for || "").toLowerCase().includes(q)
     );
   });
 
@@ -90,7 +90,7 @@ const AdminApplications = () => {
       return new Date(value).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
     if (key === "date_of_birth" && typeof value === "string")
       return new Date(value).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
-    if (!value) return "—";
+    if (!value && value !== false) return "—";
     return String(value);
   };
 
