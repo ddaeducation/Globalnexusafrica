@@ -234,8 +234,15 @@ const AdminApplications = () => {
                       className="rounded border-gray-300"
                     />
                   </td>
-                  <td className="px-3 py-2.5 text-center text-gray-400 text-xs font-mono">
+                  <td className="px-3 py-2.5 text-center text-muted-foreground text-xs font-mono">
                     {idx + 1}
+                  </td>
+                  <td className="px-3 py-2.5">
+                    <div className="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[10px] font-bold uppercase">
+                      {app.full_name
+                        ? app.full_name.split(" ").map(w => w[0]).join("").slice(0, 2)
+                        : <User className="h-3.5 w-3.5" />}
+                    </div>
                   </td>
                   {columns.map(col => (
                     <td
