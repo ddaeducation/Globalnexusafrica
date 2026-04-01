@@ -80,7 +80,7 @@ const ApplicationForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.full_name || !form.gender || !form.email || !form.phone_number || !form.program_applying_for) {
+    if (!form.full_name.trim() || !form.gender || !form.email.trim() || !form.phone_number.trim() || !form.program_applying_for) {
       toast({ title: "Missing fields", description: "Please fill in all required fields.", variant: "destructive" });
       return;
     }

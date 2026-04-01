@@ -84,13 +84,15 @@ const AdminApplications = () => {
     );
   });
 
-  const formatCell = (key: string, value: unknown): string => {
+  const formatCell = (key: string, value: unknown, app?: Application): string => {
     if (key === "has_disability") return value ? "Yes" : "No";
     if (key === "created_at" && typeof value === "string")
       return new Date(value).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
     if (key === "date_of_birth" && typeof value === "string")
       return new Date(value).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+    if (key === "full_name" && (!value || !String(value).trim())) return app?.email || "Unknown";
     if (!value && value !== false) return "—";
+    if (typeof value === "string" && !value.trim()) return "—";
     return String(value);
   };
 
