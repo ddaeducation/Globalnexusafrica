@@ -90,7 +90,7 @@ const AdminApplications = () => {
       return new Date(value).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
     if (key === "date_of_birth" && typeof value === "string")
       return new Date(value).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
-    if (!value) return "—";
+    if (!value && value !== false) return "—";
     return String(value);
   };
 
