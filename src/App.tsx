@@ -53,6 +53,8 @@ const App = () => (
             <Route path="/collaborate" element={<Layout><Collaborate /></Layout>} />
             <Route path="/faqs" element={<Layout><FAQs /></Layout>} />
             <Route path="/donate" element={<Layout><Donate /></Layout>} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="*" element={<NotFound />} />
