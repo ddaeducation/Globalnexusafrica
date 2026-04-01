@@ -18,6 +18,8 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 import ELearning from "./pages/ELearning";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import WhyUs from "./pages/WhyUs";
 import Career from "./pages/Career";
 import Corporate from "./pages/Corporate";
@@ -51,6 +53,8 @@ const App = () => (
             <Route path="/collaborate" element={<Layout><Collaborate /></Layout>} />
             <Route path="/faqs" element={<Layout><FAQs /></Layout>} />
             <Route path="/donate" element={<Layout><Donate /></Layout>} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="*" element={<NotFound />} />
