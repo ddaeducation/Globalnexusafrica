@@ -243,9 +243,9 @@ const AdminApplications = () => {
                     <td
                       key={col.key}
                       className="px-3 py-2.5 text-gray-700 whitespace-nowrap truncate max-w-[220px]"
-                      title={formatCell(col.key, app[col.key as keyof Application])}
+                      title={formatCell(col.key, app[col.key as keyof Application], app)}
                     >
-                      {formatCell(col.key, app[col.key as keyof Application])}
+                      {formatCell(col.key, app[col.key as keyof Application], app)}
                     </td>
                   ))}
                   <td className="px-3 py-2.5 text-center sticky right-0 bg-white z-10">
