@@ -84,13 +84,15 @@ const AdminApplications = () => {
     );
   });
 
-  const formatCell = (key: string, value: unknown): string => {
+  const formatCell = (key: string, value: unknown, app?: Application): string => {
     if (key === "has_disability") return value ? "Yes" : "No";
     if (key === "created_at" && typeof value === "string")
       return new Date(value).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
     if (key === "date_of_birth" && typeof value === "string")
       return new Date(value).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+    if (key === "full_name" && (!value || !String(value).trim())) return app?.email || "Unknown";
     if (!value && value !== false) return "—";
+    if (typeof value === "string" && !value.trim()) return "—";
     return String(value);
   };
 
@@ -115,7 +117,7 @@ const AdminApplications = () => {
     const headerRow = columns.map(c => c.label).join(",");
     const rows = filtered.map(app =>
       columns.map(col => {
-        const val = formatCell(col.key, app[col.key as keyof Application]);
+        const val = formatCell(col.key, app[col.key as keyof Application], app);
         return `"${String(val).replace(/"/g, '""')}"`;
       }).join(",")
     );
@@ -241,9 +243,9 @@ const AdminApplications = () => {
                     <td
                       key={col.key}
                       className="px-3 py-2.5 text-gray-700 whitespace-nowrap truncate max-w-[220px]"
-                      title={formatCell(col.key, app[col.key as keyof Application])}
+                      title={formatCell(col.key, app[col.key as keyof Application], app)}
                     >
-                      {formatCell(col.key, app[col.key as keyof Application])}
+                      {formatCell(col.key, app[col.key as keyof Application], app)}
                     </td>
                   ))}
                   <td className="px-3 py-2.5 text-center sticky right-0 bg-white z-10">
