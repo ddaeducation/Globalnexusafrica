@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, Trash2, Users, Search, Download, X } from "lucide-react";
+import { Loader2, Trash2, Users, Search, Download, X, User } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
 type Application = {
