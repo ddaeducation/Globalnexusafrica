@@ -69,6 +69,7 @@ const AdminMessages = () => {
                   {msg.subject && <p className="text-sm font-medium text-foreground mb-1">{msg.subject}</p>}
                   <p className="text-sm text-muted-foreground whitespace-pre-wrap">{msg.message}</p>
                   <p className="text-xs text-muted-foreground mt-2">{new Date(msg.created_at).toLocaleString()}</p>
+                  </div>
                 </div>
                 <button onClick={() => handleDelete(msg.id)} className="p-2 text-destructive hover:bg-destructive/10 rounded-lg transition shrink-0">
                   <Trash2 className="h-4 w-4" />
