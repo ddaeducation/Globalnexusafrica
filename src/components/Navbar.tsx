@@ -162,6 +162,21 @@ const Navbar = () => {
               >
                 eLearning Portal
               </Link>
+              {user ? (
+                <button
+                  onClick={async () => { await supabase.auth.signOut(); }}
+                  className="mt-1 px-4 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted transition-all text-center"
+                >
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  className="mt-1 px-4 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted transition-all flex items-center gap-2"
+                >
+                  <LogIn className="h-4 w-4" /> Login
+                </Link>
+              )}
             </div>
           </div>
         )}
