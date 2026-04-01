@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
-import { Loader2, Trash2, Mail, User } from "lucide-react";
+import { Loader2, Trash2, Mail } from "lucide-react";
 
 type Message = {
   id: string;
@@ -55,21 +55,14 @@ const AdminMessages = () => {
           {messages.map((msg) => (
             <div key={msg.id} className="bg-card border border-border rounded-xl p-5">
               <div className="flex items-start justify-between gap-4">
-                <div className="flex items-start gap-3 min-w-0 flex-1">
-                  <div className="w-9 h-9 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 text-sm font-bold uppercase">
-                    {msg.full_name
-                      ? msg.full_name.split(" ").map(w => w[0]).join("").slice(0, 2)
-                      : <User className="h-4 w-4" />}
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="font-semibold text-foreground">{msg.full_name || msg.email || "Unknown"}</span>
+                    <span className="text-xs text-muted-foreground">{msg.email}</span>
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-3 mb-1">
-                      <span className="font-semibold text-foreground">{msg.full_name || "Unknown"}</span>
-                      <span className="text-xs text-muted-foreground">{msg.email}</span>
-                    </div>
                   {msg.subject && <p className="text-sm font-medium text-foreground mb-1">{msg.subject}</p>}
                   <p className="text-sm text-muted-foreground whitespace-pre-wrap">{msg.message}</p>
                   <p className="text-xs text-muted-foreground mt-2">{new Date(msg.created_at).toLocaleString()}</p>
-                  </div>
                 </div>
                 <button onClick={() => handleDelete(msg.id)} className="p-2 text-destructive hover:bg-destructive/10 rounded-lg transition shrink-0">
                   <Trash2 className="h-4 w-4" />

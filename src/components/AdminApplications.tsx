@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Loader2, Trash2, Users, Search, Download, X, User } from "lucide-react";
+import { Loader2, Trash2, Users, Search, Download, X } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
 type Application = {
@@ -205,8 +205,7 @@ const AdminApplications = () => {
                     className="rounded border-gray-300"
                   />
                 </th>
-                <th className="px-3 py-3 w-10 text-center bg-muted/50">#</th>
-                <th className="px-3 py-3 w-10 bg-muted/50" />
+                <th className="px-3 py-3 w-10 text-center bg-gray-50">#</th>
                 {columns.map(col => (
                   <th
                     key={col.key}
@@ -235,15 +234,8 @@ const AdminApplications = () => {
                       className="rounded border-gray-300"
                     />
                   </td>
-                  <td className="px-3 py-2.5 text-center text-muted-foreground text-xs font-mono">
+                  <td className="px-3 py-2.5 text-center text-gray-400 text-xs font-mono">
                     {idx + 1}
-                  </td>
-                  <td className="px-3 py-2.5">
-                    <div className="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[10px] font-bold uppercase">
-                      {app.full_name
-                        ? app.full_name.split(" ").map(w => w[0]).join("").slice(0, 2)
-                        : <User className="h-3.5 w-3.5" />}
-                    </div>
                   </td>
                   {columns.map(col => (
                     <td
