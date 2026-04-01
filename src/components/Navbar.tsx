@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Sun, Moon, LogIn } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 const navLinks = [
   { path: "/", label: "Home" },
@@ -17,18 +16,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dark, setDark] = useState(() => document.documentElement.classList.contains("dark"));
-  const [user, setUser] = useState<any>(null);
   const location = useLocation();
-
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-    });
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
-    return () => subscription.unsubscribe();
-  }, []);
 
   const toggleDark = () => {
     const next = !dark;
@@ -107,21 +95,6 @@ const Navbar = () => {
             >
               eLearning Portal
             </Link>
-            {user ? (
-              <button
-                onClick={async () => { await supabase.auth.signOut(); }}
-                className="ml-2 px-4 py-2 rounded-xl text-sm font-medium border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition"
-              >
-                Logout
-              </button>
-            ) : (
-              <Link
-                to="/login"
-                className="ml-2 px-4 py-2 rounded-xl text-sm font-medium border border-border text-muted-foreground hover:text-foreground hover:bg-muted transition flex items-center gap-1.5"
-              >
-                <LogIn className="h-3.5 w-3.5" /> Login
-              </Link>
-            )}
           </div>
 
           <button
@@ -162,21 +135,6 @@ const Navbar = () => {
               >
                 eLearning Portal
               </Link>
-              {user ? (
-                <button
-                  onClick={async () => { await supabase.auth.signOut(); }}
-                  className="mt-1 px-4 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted transition-all text-center"
-                >
-                  Logout
-                </button>
-              ) : (
-                <Link
-                  to="/login"
-                  className="mt-1 px-4 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted transition-all flex items-center gap-2"
-                >
-                  <LogIn className="h-4 w-4" /> Login
-                </Link>
-              )}
             </div>
           </div>
         )}
