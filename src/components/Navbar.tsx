@@ -9,7 +9,7 @@ const navLinks = [
   { path: "/services", label: "Services" },
   { path: "/admissions", label: "Admissions" },
   { path: "/news", label: "News" },
-  { path: "/contact", label: "Contact" },
+  { path: "/contact", label: "Donate" },
 ];
 
 const Navbar = () => {
