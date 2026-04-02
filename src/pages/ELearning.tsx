@@ -35,9 +35,11 @@ const ELearning = () => {
       <div className="pt-12">
         <div className="h-[calc(100vh-3rem)] w-full">
           <iframe
-            src={settings.iframe_url}
+            src={iframeUrl}
             title="eLearning Portal - Skilla"
             className="w-full h-full border-0"
+            allow="fullscreen; clipboard-write; encrypted-media"
+          />
             allow="fullscreen; clipboard-write; encrypted-media"
           />
         </div>
