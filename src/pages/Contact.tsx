@@ -61,85 +61,19 @@ const Contact = () => {
 
   return (
     <Layout>
-      <PageSEO title="Contact Us" description="Get in touch with Global Nexus Institute for inquiries about programs, admissions, partnerships, or donations." path="/contact" />
+      <PageSEO title="Donate" description="Support Global Nexus Institute's mission through donations and get in touch for inquiries." path="/contact" />
       <section className="hero-section py-20 text-white">
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4 animate-fade-up">
-            {g("hero", "title", "Contact Us")}
+            {g("mission", "title", "Support Our Mission")}
           </h1>
           <p className="text-lg max-w-2xl mx-auto opacity-90 animate-fade-up-delay-1">
-            {g("hero", "subtitle", "Get in touch for inquiries about programs, admissions, or partnerships.")}
+            {g("mission", "description", "Help us provide education to underrepresented groups including females, young mothers, and people with disabilities.")}
           </p>
         </div>
       </section>
 
       <ScrollReveal>
-      <section className="py-16 bg-card">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-2xl font-bold text-foreground mb-8">Get in Touch</h2>
-              <div className="space-y-6">
-                {[
-                  { icon: MapPin, title: "Address", text: g("info", "address", "Kigali, Rwanda\nKN 78 St, Norrsken House") },
-                  { icon: Mail, title: "Email", text: g("info", "email", "info@globalnexus.africa") },
-                  { icon: Phone, title: "Phone", text: g("info", "phone", "+250 787 406 140\n+254 707 825 181"), whatsapp: "250787406140" },
-                ].map((item) => (
-                  <div key={item.title} className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                      <item.icon className="h-5 w-5 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-foreground mb-0.5">{item.title}</h3>
-                      {'whatsapp' in item && item.whatsapp ? (
-                        <a href={`https://wa.me/${item.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm whitespace-pre-line">{item.text}</a>
-                      ) : (
-                        <p className="text-muted-foreground text-sm whitespace-pre-line">{item.text}</p>
-                      )}
-                    </div>
-                  </div>
-                ))}
-                <div>
-                  <h3 className="font-bold text-foreground mb-3">Follow Us</h3>
-                  <div className="flex gap-3">
-                    {socialIcons.filter(s => s.url && s.url !== "#").map((s, i) => (
-                      <a
-                        key={i}
-                        href={s.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                      >
-                        <s.icon className="h-4 w-4" />
-                      </a>
-                    ))}
-                    {socialIcons.every(s => !s.url || s.url === "#") && (
-                      <p className="text-sm text-muted-foreground">Coming soon</p>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="card-hover p-8">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h2>
-              <form className="space-y-4" onSubmit={handleSubmit}>
-                <input type="text" placeholder="Full Name *" value={form.full_name} onChange={(e) => setForm(f => ({ ...f, full_name: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-border bg-muted/30 text-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" required />
-                <input type="email" placeholder="Email Address *" value={form.email} onChange={(e) => setForm(f => ({ ...f, email: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-border bg-muted/30 text-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" required />
-                <input type="text" placeholder="Subject" value={form.subject} onChange={(e) => setForm(f => ({ ...f, subject: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-border bg-muted/30 text-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" />
-                <textarea placeholder="Message *" rows={4} value={form.message} onChange={(e) => setForm(f => ({ ...f, message: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-border bg-muted/30 text-foreground resize-none focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" required />
-                <button type="submit" disabled={sending} className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50">
-                  {sending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
-                  {sending ? "Sending..." : "Send Message"}
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-      </ScrollReveal>
-
-      <ScrollReveal delay={100}>
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
@@ -244,6 +178,72 @@ const Contact = () => {
                   <>Donate Now — {currency === "USD" ? "$" : ""}{customAmount || selectedDonation || 50}{currency === "RWF" ? " RWF" : ""}</>
                 )}
               </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      </ScrollReveal>
+
+      <ScrollReveal delay={100}>
+      <section className="py-16 bg-card">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-2xl font-bold text-foreground mb-8">Get in Touch</h2>
+              <div className="space-y-6">
+                {[
+                  { icon: MapPin, title: "Address", text: g("info", "address", "Kigali, Rwanda\nKN 78 St, Norrsken House") },
+                  { icon: Mail, title: "Email", text: g("info", "email", "info@globalnexus.africa") },
+                  { icon: Phone, title: "Phone", text: g("info", "phone", "+250 787 406 140\n+254 707 825 181"), whatsapp: "250787406140" },
+                ].map((item) => (
+                  <div key={item.title} className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                      <item.icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-foreground mb-0.5">{item.title}</h3>
+                      {'whatsapp' in item && item.whatsapp ? (
+                        <a href={`https://wa.me/${item.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm whitespace-pre-line">{item.text}</a>
+                      ) : (
+                        <p className="text-muted-foreground text-sm whitespace-pre-line">{item.text}</p>
+                      )}
+                    </div>
+                  </div>
+                ))}
+                <div>
+                  <h3 className="font-bold text-foreground mb-3">Follow Us</h3>
+                  <div className="flex gap-3">
+                    {socialIcons.filter(s => s.url && s.url !== "#").map((s, i) => (
+                      <a
+                        key={i}
+                        href={s.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                      >
+                        <s.icon className="h-4 w-4" />
+                      </a>
+                    ))}
+                    {socialIcons.every(s => !s.url || s.url === "#") && (
+                      <p className="text-sm text-muted-foreground">Coming soon</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="card-hover p-8">
+              <h2 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h2>
+              <form className="space-y-4" onSubmit={handleSubmit}>
+                <input type="text" placeholder="Full Name *" value={form.full_name} onChange={(e) => setForm(f => ({ ...f, full_name: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-border bg-muted/30 text-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" required />
+                <input type="email" placeholder="Email Address *" value={form.email} onChange={(e) => setForm(f => ({ ...f, email: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-border bg-muted/30 text-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" required />
+                <input type="text" placeholder="Subject" value={form.subject} onChange={(e) => setForm(f => ({ ...f, subject: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-border bg-muted/30 text-foreground focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" />
+                <textarea placeholder="Message *" rows={4} value={form.message} onChange={(e) => setForm(f => ({ ...f, message: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-border bg-muted/30 text-foreground resize-none focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition" required />
+                <button type="submit" disabled={sending} className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50">
+                  {sending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
+                  {sending ? "Sending..." : "Send Message"}
+                </button>
+              </form>
             </div>
           </div>
         </div>
