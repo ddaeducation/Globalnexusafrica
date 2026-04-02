@@ -40,8 +40,6 @@ const ELearning = () => {
             className="w-full h-full border-0"
             allow="fullscreen; clipboard-write; encrypted-media"
           />
-            allow="fullscreen; clipboard-write; encrypted-media"
-          />
         </div>
       </div>
     </>
