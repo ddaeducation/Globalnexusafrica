@@ -1,13 +1,17 @@
 import PageSEO from "@/components/PageSEO";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useSiteContent } from "@/hooks/useSiteContent";
 
 const ELearning = () => {
+  const [searchParams] = useSearchParams();
   const { data: settings } = useSiteContent("elearning", "settings", {
     iframe_url: "https://skilla.africa/",
     back_label: "Portal",
   });
+
+  const courseUrl = searchParams.get("course");
+  const iframeUrl = courseUrl || settings.iframe_url;
 
   return (
     <>

@@ -130,7 +130,7 @@ const Programs = () => {
                         <Link to="/apply" className="bg-muted text-foreground px-4 py-2 rounded-xl text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition flex items-center gap-1">
                           <GraduationCap className="h-3 w-3" /> Apply
                         </Link>
-                        <Link to="/elearning" className="btn-primary !px-4 !py-2 text-sm flex items-center gap-1">
+                        <Link to={`/elearning?course=${encodeURIComponent(p.lms_url)}`} className="btn-primary !px-4 !py-2 text-sm flex items-center gap-1">
                           <ExternalLink className="h-3 w-3" /> LMS
                         </Link>
                         <button
