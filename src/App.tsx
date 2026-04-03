@@ -27,6 +27,8 @@ import Donate from "./pages/Donate";
 import CertificateVerify from "./pages/CertificateVerify";
 import ELearningLogin from "./pages/ELearningLogin";
 import ELearningSignup from "./pages/ELearningSignup";
+import ELearningForgotPassword from "./pages/ELearningForgotPassword";
+import ELearningResetPassword from "./pages/ELearningResetPassword";
 
 const queryClient = new QueryClient();
 
