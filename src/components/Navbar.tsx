@@ -68,6 +68,14 @@ const Navbar = () => {
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
+            {location.pathname === "/elearning" && (
+              <Link
+                to="/"
+                className="inline-flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-semibold text-primary hover:bg-primary/5 transition-all duration-200 mr-1"
+              >
+                <ArrowLeft className="h-4 w-4" /> Portal
+              </Link>
+            )}
             {navLinks.map((link) => (
               <Link
                 key={link.path}
