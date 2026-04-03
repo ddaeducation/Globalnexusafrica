@@ -23,7 +23,6 @@ const ELearning = () => {
         navigate("/elearning/login");
         return;
       }
-      setIsAuthenticated(true);
       setAuthChecked(true);
     };
     checkAuth();
