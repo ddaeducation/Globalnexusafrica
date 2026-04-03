@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { Mail, Lock, ArrowLeft, AlertCircle } from "lucide-react";
+import { Mail, Lock, ArrowLeft, AlertCircle, Eye, EyeOff } from "lucide-react";
 import PageSEO from "@/components/PageSEO";
 
 const ELearningLogin = () => {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
