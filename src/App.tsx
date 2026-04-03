@@ -27,6 +27,8 @@ import Donate from "./pages/Donate";
 import CertificateVerify from "./pages/CertificateVerify";
 import ELearningLogin from "./pages/ELearningLogin";
 import ELearningSignup from "./pages/ELearningSignup";
+import ELearningForgotPassword from "./pages/ELearningForgotPassword";
+import ELearningResetPassword from "./pages/ELearningResetPassword";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +53,8 @@ const App = () => (
             <Route path="/elearning" element={<ELearning />} />
             <Route path="/elearning/login" element={<ELearningLogin />} />
             <Route path="/elearning/signup" element={<ELearningSignup />} />
+            <Route path="/elearning/forgot-password" element={<ELearningForgotPassword />} />
+            <Route path="/elearning/reset-password" element={<ELearningResetPassword />} />
             <Route path="/elearning/:courseSlug" element={<ELearning />} />
             <Route path="/why-us" element={<Layout><WhyUs /></Layout>} />
             <Route path="/career" element={<Layout><Career /></Layout>} />
