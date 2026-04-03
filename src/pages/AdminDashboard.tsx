@@ -48,9 +48,9 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       hero_image: "https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images/hello.avif",
       explore_text: "Explore Programs",
       elearning_text: "Our eLearning",
-      elearning_url: "https://skilla.africa/",
+      elearning_url: "/elearning",
       instructor_text: "Become an Instructor",
-      instructor_url: "https://skilla.africa/auth?redirect=/become-instructor",
+      instructor_url: "/elearning",
     },
     stats: {
       stat1_value: "200+", stat1_label: "Students Trained",
