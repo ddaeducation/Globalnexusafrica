@@ -3,7 +3,7 @@ import PageSEO from "@/components/PageSEO";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useSiteContent } from "@/hooks/useSiteContent";
-import { Clock, ExternalLink, CreditCard, Loader2, GraduationCap, CheckCircle2 } from "lucide-react";
+import { Clock, ExternalLink, Loader2, GraduationCap, CheckCircle2 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
