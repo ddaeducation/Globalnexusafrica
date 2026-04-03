@@ -596,120 +596,118 @@ const pages: PageConfig[] = [
         { key: "back_label", label: "Back Button Label", type: "text" },
       ]},
     ],
-    children: [
-      {
-        key: "whyus", label: "Why Us", icon: Star,
-        sections: [
-          { key: "hero", label: "Hero Section", fields: [
-            { key: "title", label: "Title", type: "text" },
-            { key: "subtitle", label: "Subtitle", type: "textarea" },
-          ]},
-          { key: "stats", label: "Statistics", fields: [
-            { key: "stat1_value", label: "Stat 1 Value", type: "text" },
-            { key: "stat1_label", label: "Stat 1 Label", type: "text" },
-            { key: "stat2_value", label: "Stat 2 Value", type: "text" },
-            { key: "stat2_label", label: "Stat 2 Label", type: "text" },
-            { key: "stat3_value", label: "Stat 3 Value", type: "text" },
-            { key: "stat3_label", label: "Stat 3 Label", type: "text" },
-            { key: "stat4_value", label: "Stat 4 Value", type: "text" },
-            { key: "stat4_label", label: "Stat 4 Label", type: "text" },
-          ]},
-          { key: "sections", label: "Section Titles", fields: [
-            { key: "reasons_title", label: "Reasons Section Title", type: "text" },
-            { key: "reasons_subtitle", label: "Reasons Section Subtitle", type: "text" },
-            { key: "track_title", label: "Track Record Title", type: "text" },
-            { key: "track_desc", label: "Track Record Description", type: "textarea" },
-          ]},
-        ],
-      },
-      { key: "whyus-reasons", label: "Why Us Reasons", icon: Star, sections: [] },
-      {
-        key: "career", label: "Career", icon: Briefcase,
-        sections: [
-          { key: "hero", label: "Hero Section", fields: [
-            { key: "title", label: "Title", type: "text" },
-            { key: "subtitle", label: "Subtitle", type: "textarea" },
-          ]},
-          { key: "sections", label: "Section Titles", fields: [
-            { key: "paths_title", label: "Career Paths Title", type: "text" },
-            { key: "paths_subtitle", label: "Career Paths Subtitle", type: "text" },
-            { key: "openings_title", label: "Openings Title", type: "text" },
-            { key: "openings_subtitle", label: "Openings Subtitle", type: "text" },
-            { key: "cta_title", label: "CTA Title", type: "text" },
-            { key: "cta_desc", label: "CTA Description", type: "textarea" },
-          ]},
-        ],
-      },
-      { key: "career-paths", label: "Career Paths", icon: Briefcase, sections: [] },
-      { key: "career-openings", label: "Job Openings", icon: Briefcase, sections: [] },
-      {
-        key: "corporate", label: "Corporate", icon: Building2,
-        sections: [
-          { key: "hero", label: "Hero Section", fields: [
-            { key: "title", label: "Title", type: "text" },
-            { key: "subtitle", label: "Subtitle", type: "textarea" },
-          ]},
-          { key: "sections", label: "Section Titles", fields: [
-            { key: "offerings_title", label: "Offerings Title", type: "text" },
-            { key: "offerings_subtitle", label: "Offerings Subtitle", type: "text" },
-            { key: "partner_title", label: "Partner Section Title", type: "text" },
-            { key: "proposal_title", label: "Proposal Card Title", type: "text" },
-            { key: "proposal_desc", label: "Proposal Card Description", type: "textarea" },
-          ]},
-        ],
-      },
-      { key: "corporate-offerings", label: "Corporate Offerings", icon: Building2, sections: [] },
-      { key: "corporate-benefits", label: "Corporate Benefits", icon: Building2, sections: [] },
-      {
-        key: "collaborate", label: "Collaborate", icon: Handshake,
-        sections: [
-          { key: "hero", label: "Hero Section", fields: [
-            { key: "title", label: "Title", type: "text" },
-            { key: "subtitle", label: "Subtitle", type: "textarea" },
-          ]},
-          { key: "sections", label: "Section Titles", fields: [
-            { key: "partners_title", label: "Partners Title", type: "text" },
-            { key: "partners_subtitle", label: "Partners Subtitle", type: "text" },
-            { key: "cta_title", label: "CTA Title", type: "text" },
-            { key: "cta_desc", label: "CTA Description", type: "textarea" },
-          ]},
-        ],
-      },
-      { key: "collaborate-types", label: "Partner Types", icon: Handshake, sections: [] },
-      {
-        key: "faqs_page", label: "FAQs Page", icon: HelpCircle,
-        sections: [
-          { key: "hero", label: "Hero Section", fields: [
-            { key: "title", label: "Title", type: "text" },
-            { key: "subtitle", label: "Subtitle", type: "textarea" },
-          ]},
-          { key: "sections", label: "Section Titles", fields: [
-            { key: "cta_title", label: "CTA Title", type: "text" },
-            { key: "cta_desc", label: "CTA Description", type: "textarea" },
-          ]},
-        ],
-      },
-      { key: "faqs-categories", label: "FAQ Categories", icon: HelpCircle, sections: [] },
-      {
-        key: "donate", label: "Donate", icon: Heart,
-        sections: [
-          { key: "hero", label: "Hero Section", fields: [
-            { key: "title", label: "Title", type: "text" },
-            { key: "subtitle", label: "Subtitle", type: "textarea" },
-          ]},
-          { key: "sections", label: "Section Titles", fields: [
-            { key: "impact_title", label: "Impact Section Title", type: "text" },
-            { key: "impact_subtitle", label: "Impact Section Subtitle", type: "text" },
-            { key: "your_impact_title", label: "Your Impact Title", type: "text" },
-            { key: "card_title", label: "Donation Card Title", type: "text" },
-            { key: "card_subtitle", label: "Donation Card Subtitle", type: "text" },
-          ]},
-        ],
-      },
-      { key: "donate-areas", label: "Donation Impact Areas", icon: Heart, sections: [] },
-      { key: "donate-items", label: "Impact Items", icon: Heart, sections: [] },
+  },
+  {
+    key: "whyus", label: "Why Us", icon: Star,
+    sections: [
+      { key: "hero", label: "Hero Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+      ]},
+      { key: "stats", label: "Statistics", fields: [
+        { key: "stat1_value", label: "Stat 1 Value", type: "text" },
+        { key: "stat1_label", label: "Stat 1 Label", type: "text" },
+        { key: "stat2_value", label: "Stat 2 Value", type: "text" },
+        { key: "stat2_label", label: "Stat 2 Label", type: "text" },
+        { key: "stat3_value", label: "Stat 3 Value", type: "text" },
+        { key: "stat3_label", label: "Stat 3 Label", type: "text" },
+        { key: "stat4_value", label: "Stat 4 Value", type: "text" },
+        { key: "stat4_label", label: "Stat 4 Label", type: "text" },
+      ]},
+      { key: "sections", label: "Section Titles", fields: [
+        { key: "reasons_title", label: "Reasons Section Title", type: "text" },
+        { key: "reasons_subtitle", label: "Reasons Section Subtitle", type: "text" },
+        { key: "track_title", label: "Track Record Title", type: "text" },
+        { key: "track_desc", label: "Track Record Description", type: "textarea" },
+      ]},
     ],
   },
+  { key: "whyus-reasons", label: "Why Us Reasons", icon: Star, sections: [] },
+  {
+    key: "career", label: "Career", icon: Briefcase,
+    sections: [
+      { key: "hero", label: "Hero Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+      ]},
+      { key: "sections", label: "Section Titles", fields: [
+        { key: "paths_title", label: "Career Paths Title", type: "text" },
+        { key: "paths_subtitle", label: "Career Paths Subtitle", type: "text" },
+        { key: "openings_title", label: "Openings Title", type: "text" },
+        { key: "openings_subtitle", label: "Openings Subtitle", type: "text" },
+        { key: "cta_title", label: "CTA Title", type: "text" },
+        { key: "cta_desc", label: "CTA Description", type: "textarea" },
+      ]},
+    ],
+  },
+  { key: "career-paths", label: "Career Paths", icon: Briefcase, sections: [] },
+  { key: "career-openings", label: "Job Openings", icon: Briefcase, sections: [] },
+  {
+    key: "corporate", label: "Corporate", icon: Building2,
+    sections: [
+      { key: "hero", label: "Hero Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+      ]},
+      { key: "sections", label: "Section Titles", fields: [
+        { key: "offerings_title", label: "Offerings Title", type: "text" },
+        { key: "offerings_subtitle", label: "Offerings Subtitle", type: "text" },
+        { key: "partner_title", label: "Partner Section Title", type: "text" },
+        { key: "proposal_title", label: "Proposal Card Title", type: "text" },
+        { key: "proposal_desc", label: "Proposal Card Description", type: "textarea" },
+      ]},
+    ],
+  },
+  { key: "corporate-offerings", label: "Corporate Offerings", icon: Building2, sections: [] },
+  { key: "corporate-benefits", label: "Corporate Benefits", icon: Building2, sections: [] },
+  {
+    key: "collaborate", label: "Collaborate", icon: Handshake,
+    sections: [
+      { key: "hero", label: "Hero Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+      ]},
+      { key: "sections", label: "Section Titles", fields: [
+        { key: "partners_title", label: "Partners Title", type: "text" },
+        { key: "partners_subtitle", label: "Partners Subtitle", type: "text" },
+        { key: "cta_title", label: "CTA Title", type: "text" },
+        { key: "cta_desc", label: "CTA Description", type: "textarea" },
+      ]},
+    ],
+  },
+  { key: "collaborate-types", label: "Partner Types", icon: Handshake, sections: [] },
+  {
+    key: "faqs_page", label: "FAQs Page", icon: HelpCircle,
+    sections: [
+      { key: "hero", label: "Hero Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+      ]},
+      { key: "sections", label: "Section Titles", fields: [
+        { key: "cta_title", label: "CTA Title", type: "text" },
+        { key: "cta_desc", label: "CTA Description", type: "textarea" },
+      ]},
+    ],
+  },
+  { key: "faqs-categories", label: "FAQ Categories", icon: HelpCircle, sections: [] },
+  {
+    key: "donate", label: "Donate", icon: Heart,
+    sections: [
+      { key: "hero", label: "Hero Section", fields: [
+        { key: "title", label: "Title", type: "text" },
+        { key: "subtitle", label: "Subtitle", type: "textarea" },
+      ]},
+      { key: "sections", label: "Section Titles", fields: [
+        { key: "impact_title", label: "Impact Section Title", type: "text" },
+        { key: "impact_subtitle", label: "Impact Section Subtitle", type: "text" },
+        { key: "your_impact_title", label: "Your Impact Title", type: "text" },
+        { key: "card_title", label: "Donation Card Title", type: "text" },
+        { key: "card_subtitle", label: "Donation Card Subtitle", type: "text" },
+      ]},
+    ],
+  },
+  { key: "donate-areas", label: "Donation Impact Areas", icon: Heart, sections: [] },
+  { key: "donate-items", label: "Impact Items", icon: Heart, sections: [] },
   { key: "applications", label: "Applications", icon: Users, sections: [] },
   { key: "messages", label: "Messages", icon: Mail, sections: [] },
   { key: "subscribers", label: "Subscribers", icon: UserCheck, sections: [] },
