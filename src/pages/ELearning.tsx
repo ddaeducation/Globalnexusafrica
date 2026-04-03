@@ -1,16 +1,20 @@
 import PageSEO from "@/components/PageSEO";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useSiteContent } from "@/hooks/useSiteContent";
 
+const SKILLA_BASE = "https://skilla.africa";
+
 const ELearning = () => {
-  const [searchParams] = useSearchParams();
+  const { courseSlug } = useParams();
   const { data: settings } = useSiteContent("elearning", "settings", {
-    iframe_url: "https://skilla.africa/",
+    iframe_url: SKILLA_BASE + "/",
   });
 
-  const courseUrl = searchParams.get("course");
-  const iframeUrl = courseUrl || settings.iframe_url;
+  // Build iframe URL: if a courseSlug is provided, map it to skilla internally
+  const iframeUrl = courseSlug
+    ? `${SKILLA_BASE}/course/${courseSlug}`
+    : settings.iframe_url;
 
   return (
     <>
