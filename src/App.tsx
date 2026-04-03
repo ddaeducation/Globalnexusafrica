@@ -23,6 +23,7 @@ import ELearningSignup from "./pages/ELearningSignup";
 import ELearningProfile from "./pages/ELearningProfile";
 import ELearningForgotPassword from "./pages/ELearningForgotPassword";
 import ELearningResetPassword from "./pages/ELearningResetPassword";
+import ELearningOnboarding from "./pages/ELearningOnboarding";
 import WhyUs from "./pages/WhyUs";
 import Career from "./pages/Career";
 import Corporate from "./pages/Corporate";
