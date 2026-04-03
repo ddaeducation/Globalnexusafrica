@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Sun, Moon, ArrowLeft } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 const navLinks = [
   { path: "/", label: "Home" },
@@ -12,11 +12,7 @@ const navLinks = [
   { path: "/donate", label: "Donate" },
 ];
 
-interface NavbarProps {
-  isELearning?: boolean;
-}
-
-const Navbar = ({ isELearning = false }: NavbarProps) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dark, setDark] = useState(() => document.documentElement.classList.contains("dark"));
@@ -55,33 +51,21 @@ const Navbar = ({ isELearning = false }: NavbarProps) => {
     >
       <nav className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Link to="/" className="flex items-center gap-3 group">
-              <img
-                src="https://www.globalnexus.africa/images/lgo.png"
-                alt="Global Nexus Institute Logo"
-                className="h-12 md:h-14 w-auto transition-transform duration-300 group-hover:scale-105"
-              />
-              <span className="leading-tight hidden sm:block">
-                <span className="block text-sm md:text-base font-bold text-foreground">
-                  Global Nexus Institute
-                </span>
-                <span className="block text-xs text-muted-foreground tracking-wider">
-                  —Innovation & Excellence—
-                </span>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img
+              src="https://www.globalnexus.africa/images/lgo.png"
+              alt="Global Nexus Institute Logo"
+              className="h-12 md:h-14 w-auto transition-transform duration-300 group-hover:scale-105"
+            />
+            <span className="leading-tight hidden sm:block">
+              <span className="block text-sm md:text-base font-bold text-foreground">
+                Global Nexus Institute
               </span>
-            </Link>
-
-            {isELearning && (
-              <Link
-                to="/"
-                className="hidden lg:inline-flex items-center gap-1.5 ml-4 px-3 py-1.5 rounded-full border border-border text-sm font-medium text-muted-foreground hover:text-primary hover:border-primary transition-all"
-              >
-                <ArrowLeft className="h-3.5 w-3.5" />
-                Main Site
-              </Link>
-            )}
-          </div>
+              <span className="block text-xs text-muted-foreground tracking-wider">
+                —Innovation & Excellence—
+              </span>
+            </span>
+          </Link>
 
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
@@ -125,15 +109,6 @@ const Navbar = ({ isELearning = false }: NavbarProps) => {
         {isOpen && (
           <div className="mt-3 lg:hidden border-t border-border pt-3 animate-fade-in">
             <div className="flex flex-col gap-1">
-              {isELearning && (
-                <Link
-                  to="/"
-                  className="px-4 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted transition-all flex items-center gap-2"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  Main Site
-                </Link>
-              )}
               {navLinks.map((link) => (
                 <Link
                   key={link.path}

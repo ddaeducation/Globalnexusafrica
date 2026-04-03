@@ -1,7 +1,7 @@
 import PageSEO from "@/components/PageSEO";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import { useSiteContent } from "@/hooks/useSiteContent";
-import Navbar from "@/components/Navbar";
 
 const ELearning = () => {
   const [searchParams] = useSearchParams();
@@ -15,8 +15,15 @@ const ELearning = () => {
   return (
     <>
       <PageSEO title="eLearning Portal" description="Access the Global Nexus Institute eLearning platform — courses, career paths, corporate training, and more." path="/elearning" />
-      <Navbar isELearning />
-      <div className="pt-20 h-screen w-full">
+      <Link
+        to="/"
+        className="fixed top-3 left-3 z-[9999] inline-flex items-center gap-2 bg-card/95 backdrop-blur-sm border border-border shadow-lg rounded-full px-4 py-2 text-sm font-medium text-foreground hover:text-primary hover:border-primary transition-all"
+        title="Back to Main Site"
+      >
+        <ArrowLeft className="h-4 w-4" />
+        <span className="hidden sm:inline">Main Site</span>
+      </Link>
+      <div className="h-screen w-full">
         <iframe
           src={iframeUrl}
           title="eLearning Portal - Skilla"
