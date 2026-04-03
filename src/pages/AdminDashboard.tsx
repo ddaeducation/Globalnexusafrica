@@ -590,12 +590,7 @@ const pages: PageConfig[] = [
   { key: "footer-links", label: "Footer Links", icon: Phone, sections: [] },
   {
     key: "elearning", label: "eLearning Portal", icon: Monitor,
-    sections: [
-      { key: "settings", label: "Portal Settings", fields: [
-        { key: "iframe_url", label: "eLearning Platform URL", type: "url" },
-        { key: "back_label", label: "Back Button Label", type: "text" },
-      ]},
-    ],
+    sections: [],
     children: [
       {
         key: "whyus", label: "Why Us", icon: Star,
@@ -622,7 +617,6 @@ const pages: PageConfig[] = [
           ]},
         ],
       },
-      { key: "whyus-reasons", label: "Why Us Reasons", icon: Star, sections: [] },
       {
         key: "career", label: "Career", icon: Briefcase,
         sections: [
@@ -640,8 +634,6 @@ const pages: PageConfig[] = [
           ]},
         ],
       },
-      { key: "career-paths", label: "Career Paths", icon: Briefcase, sections: [] },
-      { key: "career-openings", label: "Job Openings", icon: Briefcase, sections: [] },
       {
         key: "corporate", label: "Corporate", icon: Building2,
         sections: [
@@ -658,8 +650,6 @@ const pages: PageConfig[] = [
           ]},
         ],
       },
-      { key: "corporate-offerings", label: "Corporate Offerings", icon: Building2, sections: [] },
-      { key: "corporate-benefits", label: "Corporate Benefits", icon: Building2, sections: [] },
       {
         key: "collaborate", label: "Collaborate", icon: Handshake,
         sections: [
@@ -675,9 +665,8 @@ const pages: PageConfig[] = [
           ]},
         ],
       },
-      { key: "collaborate-types", label: "Partner Types", icon: Handshake, sections: [] },
       {
-        key: "faqs_page", label: "FAQs Page", icon: HelpCircle,
+        key: "faqs_page", label: "FAQs", icon: HelpCircle,
         sections: [
           { key: "hero", label: "Hero Section", fields: [
             { key: "title", label: "Title", type: "text" },
@@ -689,7 +678,6 @@ const pages: PageConfig[] = [
           ]},
         ],
       },
-      { key: "faqs-categories", label: "FAQ Categories", icon: HelpCircle, sections: [] },
       {
         key: "donate", label: "Donate", icon: Heart,
         sections: [
@@ -706,8 +694,6 @@ const pages: PageConfig[] = [
           ]},
         ],
       },
-      { key: "donate-areas", label: "Donation Impact Areas", icon: Heart, sections: [] },
-      { key: "donate-items", label: "Impact Items", icon: Heart, sections: [] },
     ],
   },
   { key: "applications", label: "Applications", icon: Users, sections: [] },
