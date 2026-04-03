@@ -11,7 +11,6 @@ const ELearning = () => {
   const { courseSlug } = useParams();
   const navigate = useNavigate();
   const [authChecked, setAuthChecked] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const { data: settings } = useSiteContent("elearning", "settings", {
     iframe_url: LMS_BASE + "/",
