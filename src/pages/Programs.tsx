@@ -3,7 +3,7 @@ import PageSEO from "@/components/PageSEO";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useSiteContent } from "@/hooks/useSiteContent";
-import { Clock, ExternalLink, CreditCard, Loader2, GraduationCap, CheckCircle2 } from "lucide-react";
+import { Clock, ExternalLink, Loader2, GraduationCap, CheckCircle2 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
@@ -131,20 +131,8 @@ const Programs = () => {
                           <GraduationCap className="h-3 w-3" /> Apply
                         </Link>
                         <Link to={`/elearning?course=${encodeURIComponent(p.lms_url)}`} className="btn-primary !px-4 !py-2 text-sm flex items-center gap-1">
-                          <ExternalLink className="h-3 w-3" /> LMS
+                          <ExternalLink className="h-3 w-3" /> Go to Course
                         </Link>
-                        <button
-                          onClick={() => handlePay(p)}
-                          disabled={payingId === p.id}
-                          className="bg-accent text-accent-foreground px-4 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition flex items-center gap-1 disabled:opacity-50"
-                        >
-                          {payingId === p.id ? (
-                            <Loader2 className="h-3 w-3 animate-spin" />
-                          ) : (
-                            <CreditCard className="h-3 w-3" />
-                          )}
-                          Pay
-                        </button>
                       </div>
                     </div>
                   </div>
