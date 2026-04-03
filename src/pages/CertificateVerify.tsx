@@ -2,7 +2,7 @@ import PageSEO from "@/components/PageSEO";
 import Layout from "@/components/Layout";
 import { useSearchParams } from "react-router-dom";
 import { ShieldCheck, Search, AlertCircle } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
