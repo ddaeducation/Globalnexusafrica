@@ -6,7 +6,6 @@ import { useSiteContent } from "@/hooks/useSiteContent";
 import { Clock, ExternalLink, Loader2, GraduationCap, CheckCircle2 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Link } from "react-router-dom";
-import { toast } from "@/hooks/use-toast";
 
 type Program = {
   id: string;
@@ -23,22 +22,16 @@ type Program = {
   sort_order: number;
 };
 
-const parsePrice = (price: string): number => {
-  const match = price.replace(/,/g, "").match(/[\d.]+/);
-  return match ? parseFloat(match[0]) : 0;
-};
-
 const Programs = () => {
   const [programs, setPrograms] = useState<Program[]>([]);
   const [loading, setLoading] = useState(true);
-  const [payingId, setPayingId] = useState<string | null>(null);
   const { data: hero } = useSiteContent("programs", "hero", {
     title: "Professional Programs",
     subtitle: "Comprehensive programs designed to prepare you for success in the data-driven world.",
   });
 
   useEffect(() => {
-    const fetch = async () => {
+    const fetchPrograms = async () => {
       const { data } = await supabase
         .from("programs")
         .select("*")
@@ -46,38 +39,8 @@ const Programs = () => {
       if (data) setPrograms(data);
       setLoading(false);
     };
-    fetch();
+    fetchPrograms();
   }, []);
-
-  const handlePay = async (program: Program) => {
-    const amount = parsePrice(program.price);
-    if (!amount) {
-      toast({ title: "Invalid price", description: "This program does not have a valid price.", variant: "destructive" });
-      return;
-    }
-    setPayingId(program.id);
-    try {
-      const { data, error } = await supabase.functions.invoke("create-payment", {
-        body: {
-          amount,
-          currency: "USD",
-          payment_type: "course",
-          program_title: program.title,
-          redirect_url: window.location.origin + "/programs",
-        },
-      });
-      if (error) throw error;
-      if (data?.payment_link) {
-        window.open(data.payment_link, "_blank");
-      } else {
-        throw new Error("No payment link received");
-      }
-    } catch (err: any) {
-      toast({ title: "Payment error", description: err.message || "Could not create payment link.", variant: "destructive" });
-    } finally {
-      setPayingId(null);
-    }
-  };
 
   return (
     <Layout>

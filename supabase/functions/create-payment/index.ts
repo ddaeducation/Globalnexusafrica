@@ -49,8 +49,8 @@ Deno.serve(async (req) => {
       currency: cur,
       redirect_url: redirect_url || "https://globalnexusafrica.lovable.app/programs",
       customer: {
-        email: email || "student@globalnexus.africa",
-        name: name || "Student",
+        email: email || "info@globalnexus.africa",
+        name: name || "Supporter",
       },
       customizations: {
         title: isCoursePay
