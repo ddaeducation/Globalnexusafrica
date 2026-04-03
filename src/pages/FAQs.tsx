@@ -9,7 +9,7 @@ const defaultFaqCategories = [
     category: "Programs & Courses",
     faqs: [
       { q: "What programs does Global Nexus Institute offer?", a: "We offer professional certifications in Data Analytics, Data Science, AI & Machine Learning, Software Development, and Cybersecurity. Programs range from 4-week short courses to multi-month comprehensive certifications." },
-      { q: "Are courses available online?", a: "Yes! We offer both online and in-person training. Online programs are delivered through our eLearning platform (skilla.africa) with live sessions, while in-person training is held at our Kigali campus." },
+      { q: "Are courses available online?", a: "Yes! We offer both online and in-person training. Online programs are delivered through our eLearning platform (globalnexus.africa/elearning) with live sessions, while in-person training is held at our Kigali campus." },
       { q: "How long do programs typically take?", a: "Program durations vary: short courses are 4–6 weeks, professional certificates are 8–12 weeks, and comprehensive programs can run for several months." },
       { q: "What tools and technologies will I learn?", a: "Depending on your program, you'll work with Python, SQL, Power BI, Excel, TensorFlow, R, JavaScript, React, and more — all industry-standard tools." },
     ],
