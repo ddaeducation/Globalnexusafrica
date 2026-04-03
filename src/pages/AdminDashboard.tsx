@@ -183,7 +183,7 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       faq2_q: "How long do the programs take?",
       faq2_a: "Program duration ranges from 4 weeks for short courses to several months for comprehensive certifications. Each program page lists the specific duration.",
       faq3_q: "Are classes online or in-person?",
-      faq3_a: "We offer both online and in-person training options. Our online programs are delivered through our eLearning platform (skilla.africa) with live sessions, while in-person sessions are held at our Kigali campus.",
+      faq3_a: "We offer both online and in-person training options. Our online programs are delivered through our eLearning platform (globalnexus.africa/elearning) with live sessions, while in-person sessions are held at our Kigali campus.",
       faq4_q: "What payment methods are accepted?",
       faq4_a: "We accept MoMo Pay, bank transfers, and online payments through our payment portal. Installment plans are available for most programs.",
       faq5_q: "Do you offer certificates upon completion?",
