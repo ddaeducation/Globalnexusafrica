@@ -1,25 +1,49 @@
 import PageSEO from "@/components/PageSEO";
 import Layout from "@/components/Layout";
 import { useSearchParams } from "react-router-dom";
-import { ShieldCheck, Search } from "lucide-react";
+import { ShieldCheck, Search, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/integrations/supabase/client";
+
+interface CertificateRecord {
+  certificate_id: string;
+  student_name: string;
+  program_title: string;
+  issue_date: string;
+}
 
 const CertificateVerify = () => {
   const [searchParams] = useSearchParams();
   const certId = searchParams.get("id") || "";
   const [inputId, setInputId] = useState(certId);
-  const [status, setStatus] = useState<"idle" | "verified" | "not_found">(
-    "idle"
-  );
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState<CertificateRecord | null>(null);
+  const [status, setStatus] = useState<"idle" | "found" | "not_found">("idle");
 
-  const handleVerify = (e: React.FormEvent) => {
+  const handleVerify = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputId.trim()) return;
-    // For now, show a placeholder verification result
-    // This can be connected to a database later
-    setStatus("verified");
+
+    setLoading(true);
+    setStatus("idle");
+
+    const { data, error } = await supabase
+      .from("certificates")
+      .select("certificate_id, student_name, program_title, issue_date")
+      .eq("certificate_id", inputId.trim())
+      .maybeSingle();
+
+    setLoading(false);
+
+    if (error || !data) {
+      setStatus("not_found");
+      setResult(null);
+    } else {
+      setStatus("found");
+      setResult(data);
+    }
   };
 
   return (
@@ -47,27 +71,45 @@ const CertificateVerify = () => {
               }}
               className="flex-1"
             />
-            <Button type="submit">
+            <Button type="submit" disabled={loading}>
               <Search className="h-4 w-4 mr-2" />
-              Verify
+              {loading ? "Checking…" : "Verify"}
             </Button>
           </form>
 
-          {status === "verified" && (
-            <div className="rounded-lg border border-green-500/30 bg-green-50 dark:bg-green-950/20 p-6 text-left">
-              <h2 className="text-lg font-semibold text-green-700 dark:text-green-400 mb-2">
+          {status === "found" && result && (
+            <div className="rounded-lg border border-primary/30 bg-primary/5 p-6 text-left space-y-2">
+              <h2 className="text-lg font-semibold text-primary mb-3">
                 ✅ Certificate is Valid
               </h2>
-              <p className="text-sm text-muted-foreground">
+              <p><span className="font-medium">Certificate ID:</span> {result.certificate_id}</p>
+              <p><span className="font-medium">Student Name:</span> {result.student_name}</p>
+              <p><span className="font-medium">Program:</span> {result.program_title}</p>
+              <p><span className="font-medium">Issue Date:</span> {new Date(result.issue_date).toLocaleDateString()}</p>
+              <p className="text-sm text-muted-foreground pt-2">
                 This certificate was issued by Global Nexus Institute. For
-                further details, please contact us at{" "}
-                <a
-                  href="mailto:info@globalnexus.africa"
-                  className="text-primary underline"
-                >
+                further details, contact{" "}
+                <a href="mailto:info@globalnexus.africa" className="text-primary underline">
                   info@globalnexus.africa
-                </a>
-                .
+                </a>.
+              </p>
+            </div>
+          )}
+
+          {status === "not_found" && (
+            <div className="rounded-lg border border-destructive/30 bg-destructive/5 p-6 text-left">
+              <div className="flex items-center gap-2 mb-2">
+                <AlertCircle className="h-5 w-5 text-destructive" />
+                <h2 className="text-lg font-semibold text-destructive">
+                  Certificate Not Found
+                </h2>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                No certificate matches this ID. Please double-check the ID and try again, or contact{" "}
+                <a href="mailto:info@globalnexus.africa" className="text-primary underline">
+                  info@globalnexus.africa
+                </a>{" "}
+                for assistance.
               </p>
             </div>
           )}

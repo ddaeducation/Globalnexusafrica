@@ -74,6 +74,33 @@ export type Database = {
         }
         Relationships: []
       }
+      certificates: {
+        Row: {
+          certificate_id: string
+          created_at: string
+          id: string
+          issue_date: string
+          program_title: string
+          student_name: string
+        }
+        Insert: {
+          certificate_id: string
+          created_at?: string
+          id?: string
+          issue_date?: string
+          program_title: string
+          student_name: string
+        }
+        Update: {
+          certificate_id?: string
+          created_at?: string
+          id?: string
+          issue_date?: string
+          program_title?: string
+          student_name?: string
+        }
+        Relationships: []
+      }
       contact_messages: {
         Row: {
           created_at: string
