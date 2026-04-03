@@ -56,25 +56,6 @@ const CertificateVerify = () => {
   const handleVerify = async (e: React.FormEvent) => {
     e.preventDefault();
     doVerify(inputId);
-
-    setLoading(true);
-    setStatus("idle");
-
-    const { data, error } = await supabase
-      .from("certificates")
-      .select("certificate_id, student_name, program_title, issue_date")
-      .eq("certificate_id", inputId.trim())
-      .maybeSingle();
-
-    setLoading(false);
-
-    if (error || !data) {
-      setStatus("not_found");
-      setResult(null);
-    } else {
-      setStatus("found");
-      setResult(data);
-    }
   };
 
   return (
