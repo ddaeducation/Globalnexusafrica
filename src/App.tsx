@@ -44,13 +44,13 @@ const App = () => (
             <Route path="/admissions" element={<Admissions />} />
             <Route path="/apply" element={<Apply />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/donate" element={<Layout><Donate /></Layout>} />
             <Route path="/elearning" element={<ELearning />} />
             <Route path="/why-us" element={<Layout><WhyUs /></Layout>} />
             <Route path="/career" element={<Layout><Career /></Layout>} />
             <Route path="/corporate" element={<Layout><Corporate /></Layout>} />
             <Route path="/collaborate" element={<Layout><Collaborate /></Layout>} />
             <Route path="/faqs" element={<Layout><FAQs /></Layout>} />
-            <Route path="/donate" element={<Layout><Donate /></Layout>} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="*" element={<NotFound />} />
