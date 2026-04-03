@@ -15,14 +15,16 @@ const ELearning = () => {
   return (
     <>
       <PageSEO title="eLearning Portal" description="Access the Global Nexus Institute eLearning platform — courses, career paths, corporate training, and more." path="/elearning" />
-      <Link
-        to="/"
-        className="fixed top-3 left-[calc(520px-3cm)] z-[9999] inline-flex items-center gap-2 bg-card/95 backdrop-blur-sm border border-border shadow-lg rounded-full px-4 py-2 text-sm font-medium text-foreground hover:text-primary hover:border-primary transition-all"
-        title="Back to Main Site"
-      >
-        <ArrowLeft className="h-4 w-4" />
-        <span className="hidden sm:inline">Main Site</span>
-      </Link>
+      <div className="fixed top-0 left-0 right-0 z-[9999] h-[50px] bg-transparent pointer-events-none">
+        <Link
+          to="/"
+          className="pointer-events-auto absolute top-[10px] left-[calc(520px-3cm)] inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-foreground hover:text-primary transition-all"
+          title="Back to Main Site"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          <span className="hidden sm:inline">Main Site</span>
+        </Link>
+      </div>
       <div className="h-screen w-full">
         <iframe
           src={iframeUrl}
