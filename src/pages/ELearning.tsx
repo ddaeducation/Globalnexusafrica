@@ -24,14 +24,28 @@ const ELearning = () => {
         return;
       }
 
-      // Check if onboarding is completed
+      // Check if profile exists
       const { data: profile } = await supabase
         .from("profiles")
-        .select("onboarding_completed")
+        .select("username, onboarding_completed")
         .eq("id", session.user.id)
         .maybeSingle();
 
-      if (profile && !profile.onboarding_completed) {
+      if (!profile) {
+        // Existing user with no profile — create one and send to profile setup
+        const meta = session.user.user_metadata || {};
+        const tempUsername = session.user.email?.split("@")[0]?.replace(/[^a-zA-Z0-9_.]/g, "") || `user_${Date.now()}`;
+        await supabase.from("profiles").upsert({
+          id: session.user.id,
+          full_name: meta.full_name || "",
+          username: `${tempUsername}_${Math.floor(Math.random() * 1000)}`,
+        });
+        navigate("/elearning/profile?setup=true");
+        return;
+      }
+
+      // Check if onboarding questions are completed
+      if (!profile.onboarding_completed) {
         navigate("/elearning/onboarding");
         return;
       }
