@@ -155,6 +155,38 @@ export type Database = {
         }
         Relationships: []
       }
+      elearning_user_answers: {
+        Row: {
+          answer: string
+          created_at: string
+          id: string
+          question_id: string
+          user_id: string
+        }
+        Insert: {
+          answer?: string
+          created_at?: string
+          id?: string
+          question_id: string
+          user_id: string
+        }
+        Update: {
+          answer?: string
+          created_at?: string
+          id?: string
+          question_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "elearning_user_answers_question_id_fkey"
+            columns: ["question_id"]
+            isOneToOne: false
+            referencedRelation: "custom_questions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       email_send_log: {
         Row: {
           created_at: string
@@ -247,18 +279,21 @@ export type Database = {
           created_at: string
           full_name: string
           id: string
+          onboarding_completed: boolean
           username: string
         }
         Insert: {
           created_at?: string
           full_name?: string
           id: string
+          onboarding_completed?: boolean
           username: string
         }
         Update: {
           created_at?: string
           full_name?: string
           id?: string
+          onboarding_completed?: boolean
           username?: string
         }
         Relationships: []
