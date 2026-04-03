@@ -131,20 +131,8 @@ const Programs = () => {
                           <GraduationCap className="h-3 w-3" /> Apply
                         </Link>
                         <Link to={`/elearning?course=${encodeURIComponent(p.lms_url)}`} className="btn-primary !px-4 !py-2 text-sm flex items-center gap-1">
-                          <ExternalLink className="h-3 w-3" /> LMS
+                          <ExternalLink className="h-3 w-3" /> Go to Course
                         </Link>
-                        <button
-                          onClick={() => handlePay(p)}
-                          disabled={payingId === p.id}
-                          className="bg-accent text-accent-foreground px-4 py-2 rounded-xl text-sm font-semibold hover:opacity-90 transition flex items-center gap-1 disabled:opacity-50"
-                        >
-                          {payingId === p.id ? (
-                            <Loader2 className="h-3 w-3 animate-spin" />
-                          ) : (
-                            <CreditCard className="h-3 w-3" />
-                          )}
-                          Pay
-                        </button>
                       </div>
                     </div>
                   </div>
