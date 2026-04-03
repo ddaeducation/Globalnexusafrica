@@ -24,6 +24,7 @@ import Corporate from "./pages/Corporate";
 import Collaborate from "./pages/Collaborate";
 import FAQs from "./pages/FAQs";
 import Donate from "./pages/Donate";
+import CertificateVerify from "./pages/CertificateVerify";
 
 const queryClient = new QueryClient();
 
