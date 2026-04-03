@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { Lock, Mail, AlertCircle, UserPlus } from "lucide-react";
+import { Lock, Mail, AlertCircle } from "lucide-react";
 import PageSEO from "@/components/PageSEO";
 
 const ELearningLogin = () => {

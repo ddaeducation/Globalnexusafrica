@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { UserPlus, Mail, Lock, User, AlertCircle } from "lucide-react";
 import PageSEO from "@/components/PageSEO";
