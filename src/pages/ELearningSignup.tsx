@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { Mail, Lock, User, ArrowLeft, AlertCircle, CheckCircle } from "lucide-react";
+import { Mail, Lock, User, ArrowLeft, AlertCircle, CheckCircle, Eye, EyeOff } from "lucide-react";
 import PageSEO from "@/components/PageSEO";
 
 const ELearningSignup = () => {
