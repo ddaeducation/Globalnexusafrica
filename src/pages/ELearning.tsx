@@ -3,17 +3,17 @@ import { Link, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useSiteContent } from "@/hooks/useSiteContent";
 
-const SKILLA_BASE = "https://skilla.africa";
+const LMS_BASE = "https://skilla.africa";
 
 const ELearning = () => {
   const { courseSlug } = useParams();
   const { data: settings } = useSiteContent("elearning", "settings", {
-    iframe_url: SKILLA_BASE + "/",
+    iframe_url: LMS_BASE + "/",
   });
 
-  // Build iframe URL: if a courseSlug is provided, map it to skilla internally
+  // Build iframe URL: map clean slug to internal LMS course page
   const iframeUrl = courseSlug
-    ? `${SKILLA_BASE}/course/${courseSlug}`
+    ? `${LMS_BASE}/course/${courseSlug}`
     : settings.iframe_url;
 
   return (
