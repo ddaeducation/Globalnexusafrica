@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { ClipboardList, Loader2, AlertCircle } from "lucide-react";
 import PageSEO from "@/components/PageSEO";
