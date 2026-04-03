@@ -22,7 +22,7 @@ const ELearning = () => {
       <div className="fixed top-0 left-0 right-0 z-[9999] h-[50px] bg-transparent pointer-events-none">
         <Link
           to="/"
-          className="pointer-events-auto absolute top-[10px] left-[calc(520px-3cm)] inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-foreground hover:text-primary transition-all"
+          className="pointer-events-auto absolute top-[10px] left-[calc(520px-3cm)] inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-gray-900 bg-white/80 backdrop-blur-sm rounded-md shadow-sm hover:text-primary transition-all"
           title="Back to Main Site"
         >
           <ArrowLeft className="h-4 w-4" />
