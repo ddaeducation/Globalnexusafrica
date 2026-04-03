@@ -22,9 +22,40 @@ const CertificateVerify = () => {
   const [result, setResult] = useState<CertificateRecord | null>(null);
   const [status, setStatus] = useState<"idle" | "found" | "not_found">("idle");
 
+  const doVerify = async (id: string) => {
+    if (!id.trim()) return;
+    setInputId(id);
+    setLoading(true);
+    setStatus("idle");
+
+    const { data, error } = await supabase
+      .from("certificates")
+      .select("certificate_id, student_name, program_title, issue_date")
+      .eq("certificate_id", id.trim())
+      .maybeSingle();
+
+    setLoading(false);
+
+    if (error || !data) {
+      setStatus("not_found");
+      setResult(null);
+    } else {
+      setStatus("found");
+      setResult(data);
+    }
+  };
+
+  // Auto-verify when QR code provides an id via query param
+  useEffect(() => {
+    if (certId) {
+      doVerify(certId);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [certId]);
+
   const handleVerify = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!inputId.trim()) return;
+    doVerify(inputId);
 
     setLoading(true);
     setStatus("idle");
