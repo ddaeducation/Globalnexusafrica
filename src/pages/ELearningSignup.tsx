@@ -13,7 +13,7 @@ const ELearningSignup = () => {
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [usernameStatus, setUsernameStatus] = useState<"idle" | "checking" | "available" | "taken">("idle");
-  const navigate = useNavigate();
+  
 
   const checkUsername = async (value: string) => {
     if (!value.trim()) {
