@@ -62,7 +62,7 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       subtitle: "Don't miss this opportunity to join us!",
       deadline: "Deadline: April 6, 2026",
       program_name: "Python For Data Analyst (Online)",
-      details: "• Learn With our platform: www.skilla.africa\n• 4 Weeks, live online sessions\n• Led by Professional Data Analysts & Scientists\n• Live sessions Start on: April 6, 2026\n• WhatsApp: +250787406140",
+      details: "• Learn on our eLearning platform: globalnexus.africa/elearning\n• 4 Weeks, live online sessions\n• Led by Professional Data Analysts & Scientists\n• Live sessions Start on: April 6, 2026\n• WhatsApp: +250787406140",
       apply_url: "https://forms.gle/ReNWMuzp6vhBLaMs8",
       apply_button_text: "Apply For Python For Data Analyst",
       momopay: "030700",

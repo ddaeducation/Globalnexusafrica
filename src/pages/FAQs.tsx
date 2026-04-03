@@ -36,7 +36,7 @@ const defaultFaqCategories = [
     faqs: [
       { q: "Do I get a certificate upon completion?", a: "Yes! All graduates receive a certificate of completion. Programs accredited by RTB Rwanda and NCC Education UK carry internationally recognized certifications." },
       { q: "Does Global Nexus help with job placement?", a: "We provide career guidance, CV reviews, and connect graduates with our industry partners for internship and job opportunities." },
-      { q: "Can I become an instructor?", a: "Yes! If you have relevant expertise, visit our eLearning platform (skilla.africa) and apply through the 'Become an Instructor' option." },
+      { q: "Can I become an instructor?", a: "Yes! If you have relevant expertise, visit our eLearning platform (globalnexus.africa/elearning) and apply through the 'Become an Instructor' option." },
     ],
   },
 ];
