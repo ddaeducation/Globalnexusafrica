@@ -23,19 +23,6 @@ const ELearning = () => {
         navigate("/elearning/login");
         return;
       }
-
-      // Check if onboarding is completed
-      const { data: profile } = await supabase
-        .from("profiles")
-        .select("onboarding_completed")
-        .eq("id", session.user.id)
-        .maybeSingle();
-
-      if (profile && !profile.onboarding_completed) {
-        navigate("/elearning/onboarding");
-        return;
-      }
-
       setAuthChecked(true);
     };
     checkAuth();

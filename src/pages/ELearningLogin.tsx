@@ -117,15 +117,6 @@ const ELearningLogin = () => {
               {loading ? "Signing in..." : "Sign In"}
             </button>
 
-            <div className="text-center">
-              <Link
-                to="/elearning/forgot-password"
-                className="text-sm text-primary hover:underline font-medium"
-              >
-                Forgot password?
-              </Link>
-            </div>
-
             <p className="text-center text-sm text-muted-foreground">
               Don't have an account?{" "}
               <Link
