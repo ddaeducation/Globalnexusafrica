@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, ArrowLeft } from "lucide-react";
 
 const navLinks = [
   { path: "/", label: "Home" },
@@ -68,6 +68,14 @@ const Navbar = () => {
           </Link>
 
           <div className="hidden lg:flex items-center gap-1">
+            {location.pathname === "/elearning" && (
+              <Link
+                to="/"
+                className="inline-flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-semibold text-primary hover:bg-primary/5 transition-all duration-200 mr-1"
+              >
+                <ArrowLeft className="h-4 w-4" /> Portal
+              </Link>
+            )}
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -109,6 +117,14 @@ const Navbar = () => {
         {isOpen && (
           <div className="mt-3 lg:hidden border-t border-border pt-3 animate-fade-in">
             <div className="flex flex-col gap-1">
+              {location.pathname === "/elearning" && (
+                <Link
+                  to="/"
+                  className="inline-flex items-center gap-1 px-4 py-2.5 rounded-lg text-sm font-semibold text-primary hover:bg-primary/5 transition-all"
+                >
+                  <ArrowLeft className="h-4 w-4" /> Portal
+                </Link>
+              )}
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
