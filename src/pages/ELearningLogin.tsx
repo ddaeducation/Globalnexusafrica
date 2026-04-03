@@ -113,6 +113,12 @@ const ELearningLogin = () => {
               </div>
             </div>
 
+            <div className="text-right">
+              <Link to="/elearning/forgot-password" className="text-sm text-primary hover:underline">
+                Forgot Password?
+              </Link>
+            </div>
+
             <button
               type="submit"
               disabled={loading}
