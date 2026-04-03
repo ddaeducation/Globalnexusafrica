@@ -18,6 +18,11 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 import ELearning from "./pages/ELearning";
+import ELearningLogin from "./pages/ELearningLogin";
+import ELearningSignup from "./pages/ELearningSignup";
+import ELearningForgotPassword from "./pages/ELearningForgotPassword";
+import ELearningResetPassword from "./pages/ELearningResetPassword";
+import ELearningProfile from "./pages/ELearningProfile";
 import WhyUs from "./pages/WhyUs";
 import Career from "./pages/Career";
 import Corporate from "./pages/Corporate";
@@ -47,6 +52,11 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/donate" element={<Layout><Donate /></Layout>} />
             <Route path="/elearning" element={<ELearning />} />
+            <Route path="/elearning/login" element={<ELearningLogin />} />
+            <Route path="/elearning/signup" element={<ELearningSignup />} />
+            <Route path="/elearning/forgot-password" element={<ELearningForgotPassword />} />
+            <Route path="/elearning/reset-password" element={<ELearningResetPassword />} />
+            <Route path="/elearning/profile" element={<ELearningProfile />} />
             <Route path="/elearning/:courseSlug" element={<ELearning />} />
             <Route path="/why-us" element={<Layout><WhyUs /></Layout>} />
             <Route path="/career" element={<Layout><Career /></Layout>} />
