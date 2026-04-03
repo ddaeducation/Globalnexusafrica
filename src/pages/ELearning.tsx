@@ -1,17 +1,46 @@
-import PageSEO from "@/components/PageSEO";
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import { useSiteContent } from "@/hooks/useSiteContent";
+import PageSEO from "@/components/PageSEO";
 
 const LMS_BASE = "https://skilla.africa";
 
 const ELearning = () => {
   const { courseSlug } = useParams();
+  const navigate = useNavigate();
+  const [checking, setChecking] = useState(true);
   const { data: settings } = useSiteContent("elearning", "settings", {
     iframe_url: LMS_BASE + "/",
   });
 
-  // Build iframe URL: map clean slug to internal LMS course page
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) {
+        navigate("/elearning/login", { replace: true });
+      } else {
+        setChecking(false);
+      }
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!session) {
+        navigate("/elearning/login", { replace: true });
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [navigate]);
+
+  if (checking) {
+    return (
+      <div className="h-screen flex items-center justify-center bg-background">
+        <p className="text-muted-foreground">Loading...</p>
+      </div>
+    );
+  }
+
   const iframeUrl = courseSlug
     ? `${LMS_BASE}/course/${courseSlug}`
     : settings.iframe_url;

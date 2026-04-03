@@ -25,6 +25,8 @@ import Collaborate from "./pages/Collaborate";
 import FAQs from "./pages/FAQs";
 import Donate from "./pages/Donate";
 import CertificateVerify from "./pages/CertificateVerify";
+import ELearningLogin from "./pages/ELearningLogin";
+import ELearningSignup from "./pages/ELearningSignup";
 
 const queryClient = new QueryClient();
 
