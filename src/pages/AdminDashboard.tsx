@@ -932,7 +932,7 @@ const collaborateTypeFields: FieldDef[] = [
 
 // FAQs
 const defaultFaqCategories = [
-  { category: "Programs & Courses", faqs: "What programs does Global Nexus Institute offer?|We offer professional certifications in Data Analytics, Data Science, AI & Machine Learning, Software Development, and Cybersecurity.||Are courses available online?|Yes! We offer both online and in-person training through our eLearning platform (skilla.africa)." },
+  { category: "Programs & Courses", faqs: "What programs does Global Nexus Institute offer?|We offer professional certifications in Data Analytics, Data Science, AI & Machine Learning, Software Development, and Cybersecurity.||Are courses available online?|Yes! We offer both online and in-person training through our eLearning platform (globalnexus.africa/elearning)." },
   { category: "Admissions & Requirements", faqs: "What are the entry requirements?|Requirements vary by program. Generally, you need a high school diploma or equivalent.||How do I apply?|Visit our Admissions page and click 'Apply Now' to fill out the online application form." },
   { category: "Fees & Payments", faqs: "What payment methods are accepted?|We accept MoMo Pay, bank transfers, and online payments. Installment plans are available.||Are scholarships available?|Yes! We offer merit-based scholarships covering up to 30% of tuition fees." },
   { category: "Certification & Career", faqs: "Do I get a certificate upon completion?|Yes! All graduates receive a certificate of completion. Programs accredited by RTB Rwanda and NCC Education UK carry internationally recognized certifications.||Does Global Nexus help with job placement?|We provide career guidance, CV reviews, and connect graduates with our industry partners." },
