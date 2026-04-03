@@ -24,6 +24,7 @@ import Corporate from "./pages/Corporate";
 import Collaborate from "./pages/Collaborate";
 import FAQs from "./pages/FAQs";
 import Donate from "./pages/Donate";
+import CertificateVerify from "./pages/CertificateVerify";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,7 @@ const App = () => (
             <Route path="/corporate" element={<Layout><Corporate /></Layout>} />
             <Route path="/collaborate" element={<Layout><Collaborate /></Layout>} />
             <Route path="/faqs" element={<Layout><FAQs /></Layout>} />
+            <Route path="/certificate/verify" element={<CertificateVerify />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="*" element={<NotFound />} />
