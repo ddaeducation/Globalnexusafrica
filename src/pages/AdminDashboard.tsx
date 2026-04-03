@@ -48,9 +48,9 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       hero_image: "https://raw.githubusercontent.com/ddaeducation/globalnexus.africa/main/public/images/hello.avif",
       explore_text: "Explore Programs",
       elearning_text: "Our eLearning",
-      elearning_url: "https://skilla.africa/",
+      elearning_url: "/elearning",
       instructor_text: "Become an Instructor",
-      instructor_url: "https://skilla.africa/auth?redirect=/become-instructor",
+      instructor_url: "/elearning",
     },
     stats: {
       stat1_value: "200+", stat1_label: "Students Trained",
@@ -62,7 +62,7 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       subtitle: "Don't miss this opportunity to join us!",
       deadline: "Deadline: April 6, 2026",
       program_name: "Python For Data Analyst (Online)",
-      details: "• Learn With our platform: www.skilla.africa\n• 4 Weeks, live online sessions\n• Led by Professional Data Analysts & Scientists\n• Live sessions Start on: April 6, 2026\n• WhatsApp: +250787406140",
+      details: "• Learn on our eLearning platform: globalnexus.africa/elearning\n• 4 Weeks, live online sessions\n• Led by Professional Data Analysts & Scientists\n• Live sessions Start on: April 6, 2026\n• WhatsApp: +250787406140",
       apply_url: "https://forms.gle/ReNWMuzp6vhBLaMs8",
       apply_button_text: "Apply For Python For Data Analyst",
       momopay: "030700",
@@ -183,7 +183,7 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
       faq2_q: "How long do the programs take?",
       faq2_a: "Program duration ranges from 4 weeks for short courses to several months for comprehensive certifications. Each program page lists the specific duration.",
       faq3_q: "Are classes online or in-person?",
-      faq3_a: "We offer both online and in-person training options. Our online programs are delivered through our eLearning platform (skilla.africa) with live sessions, while in-person sessions are held at our Kigali campus.",
+      faq3_a: "We offer both online and in-person training options. Our online programs are delivered through our eLearning platform (globalnexus.africa/elearning) with live sessions, while in-person sessions are held at our Kigali campus.",
       faq4_q: "What payment methods are accepted?",
       faq4_a: "We accept MoMo Pay, bank transfers, and online payments through our payment portal. Installment plans are available for most programs.",
       faq5_q: "Do you offer certificates upon completion?",
@@ -880,7 +880,7 @@ const careerPathFields: FieldDef[] = [
 
 const defaultCareerOpenings = [
   { title: "Instructor — Data Analytics", type: "Full-time", location: "Kigali / Remote", desc: "Join our teaching team to deliver hands-on data analytics training to the next generation of African tech talent." },
-  { title: "Instructor — Python & AI", type: "Part-time", location: "Remote", desc: "Teach Python programming and AI fundamentals through our online eLearning platform (skilla.africa)." },
+  { title: "Instructor — Python & AI", type: "Part-time", location: "Remote", desc: "Teach Python programming and AI fundamentals through our online eLearning platform (globalnexus.africa/elearning)." },
   { title: "Student Intern — Web Development", type: "Internship", location: "Kigali", desc: "Gain real-world experience in web development while contributing to meaningful projects." },
 ];
 const careerOpeningFields: FieldDef[] = [
@@ -932,7 +932,7 @@ const collaborateTypeFields: FieldDef[] = [
 
 // FAQs
 const defaultFaqCategories = [
-  { category: "Programs & Courses", faqs: "What programs does Global Nexus Institute offer?|We offer professional certifications in Data Analytics, Data Science, AI & Machine Learning, Software Development, and Cybersecurity.||Are courses available online?|Yes! We offer both online and in-person training through our eLearning platform (skilla.africa)." },
+  { category: "Programs & Courses", faqs: "What programs does Global Nexus Institute offer?|We offer professional certifications in Data Analytics, Data Science, AI & Machine Learning, Software Development, and Cybersecurity.||Are courses available online?|Yes! We offer both online and in-person training through our eLearning platform (globalnexus.africa/elearning)." },
   { category: "Admissions & Requirements", faqs: "What are the entry requirements?|Requirements vary by program. Generally, you need a high school diploma or equivalent.||How do I apply?|Visit our Admissions page and click 'Apply Now' to fill out the online application form." },
   { category: "Fees & Payments", faqs: "What payment methods are accepted?|We accept MoMo Pay, bank transfers, and online payments. Installment plans are available.||Are scholarships available?|Yes! We offer merit-based scholarships covering up to 30% of tuition fees." },
   { category: "Certification & Career", faqs: "Do I get a certificate upon completion?|Yes! All graduates receive a certificate of completion. Programs accredited by RTB Rwanda and NCC Education UK carry internationally recognized certifications.||Does Global Nexus help with job placement?|We provide career guidance, CV reviews, and connect graduates with our industry partners." },

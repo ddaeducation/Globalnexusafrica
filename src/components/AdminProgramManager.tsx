@@ -37,7 +37,7 @@ const emptyProgram: Omit<Program, "id"> = {
   focus: "",
   tools: "",
   price: "",
-  lms_url: "https://skilla.africa/",
+  lms_url: "/elearning",
   pay_url: "https://store.pesapal.com/globalnexusinstituteltd",
   accent: "from-red-500 to-orange-400",
   sort_order: 0,

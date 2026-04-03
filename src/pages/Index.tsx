@@ -47,7 +47,7 @@ const Index = () => {
   const popupDetails = g(
     "popup",
     "details",
-    `• Learn With our platform: www.skilla.africa
+    `• Learn on our eLearning platform: globalnexus.africa/elearning
 • 4 Weeks, live online sessions
 • Led by Professional Data Analysts & Scientists
 • Live sessions Start on: April 6, 2026
