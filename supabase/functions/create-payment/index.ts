@@ -49,7 +49,7 @@ Deno.serve(async (req) => {
       currency: cur,
       redirect_url: redirect_url || "https://globalnexusafrica.lovable.app/programs",
       customer: {
-        email: email || "info@globalnexus.africa",
+        email: email || "ndayisengatheoneste79@gmail.com",
         name: name || "Supporter",
       },
       customizations: {
