@@ -23,6 +23,7 @@ import ELearningSignup from "./pages/ELearningSignup";
 import ELearningProfile from "./pages/ELearningProfile";
 import ELearningForgotPassword from "./pages/ELearningForgotPassword";
 import ELearningResetPassword from "./pages/ELearningResetPassword";
+import ELearningOnboarding from "./pages/ELearningOnboarding";
 import WhyUs from "./pages/WhyUs";
 import Career from "./pages/Career";
 import Corporate from "./pages/Corporate";
@@ -57,6 +58,7 @@ const App = () => (
             <Route path="/elearning/profile" element={<ELearningProfile />} />
             <Route path="/elearning/forgot-password" element={<ELearningForgotPassword />} />
             <Route path="/elearning/reset-password" element={<ELearningResetPassword />} />
+            <Route path="/elearning/onboarding" element={<ELearningOnboarding />} />
             <Route path="/elearning/:courseSlug" element={<ELearning />} />
             <Route path="/why-us" element={<Layout><WhyUs /></Layout>} />
             <Route path="/career" element={<Layout><Career /></Layout>} />
