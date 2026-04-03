@@ -32,7 +32,7 @@ const ELearning = () => {
       <div className="h-screen w-full">
         <iframe
           src={iframeUrl}
-          title="eLearning Portal - Skilla"
+          title="eLearning Portal"
           className="w-full h-full border-0"
           allow="fullscreen; clipboard-write; encrypted-media"
         />
