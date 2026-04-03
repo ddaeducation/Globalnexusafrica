@@ -328,7 +328,7 @@ const defaults: Record<string, Record<string, Record<string, string>>> = {
   },
   elearning: {
     settings: {
-      iframe_url: "/elearning",
+      iframe_url: "https://skilla.africa/",
       back_label: "Portal",
     },
   },
