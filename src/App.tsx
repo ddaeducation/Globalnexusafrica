@@ -25,6 +25,7 @@ import Collaborate from "./pages/Collaborate";
 import FAQs from "./pages/FAQs";
 import Donate from "./pages/Donate";
 import CertificateVerify from "./pages/CertificateVerify";
+import { StudentLogin, InstructorLogin } from "./pages/ELearningLogin";
 
 const queryClient = new QueryClient();
 
