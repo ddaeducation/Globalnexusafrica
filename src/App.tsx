@@ -54,6 +54,8 @@ const App = () => (
             <Route path="/collaborate" element={<Layout><Collaborate /></Layout>} />
             <Route path="/faqs" element={<Layout><FAQs /></Layout>} />
             <Route path="/certificate/verify" element={<CertificateVerify />} />
+            <Route path="/login/student" element={<StudentLogin />} />
+            <Route path="/login/instructor" element={<InstructorLogin />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="*" element={<NotFound />} />
