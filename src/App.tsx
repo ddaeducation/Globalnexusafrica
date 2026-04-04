@@ -25,6 +25,7 @@ import Collaborate from "./pages/Collaborate";
 import FAQs from "./pages/FAQs";
 import Donate from "./pages/Donate";
 import CertificateVerify from "./pages/CertificateVerify";
+import { StudentLogin, InstructorLogin } from "./pages/ELearningLogin";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +55,8 @@ const App = () => (
             <Route path="/collaborate" element={<Layout><Collaborate /></Layout>} />
             <Route path="/faqs" element={<Layout><FAQs /></Layout>} />
             <Route path="/certificate/verify" element={<CertificateVerify />} />
+            <Route path="/login/student" element={<StudentLogin />} />
+            <Route path="/login/instructor" element={<InstructorLogin />} />
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="*" element={<NotFound />} />

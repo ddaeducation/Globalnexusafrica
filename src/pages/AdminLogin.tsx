@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { Lock, Mail, AlertCircle, Eye, EyeOff } from "lucide-react";
+import { Lock, AlertCircle, Eye, EyeOff, Shield, AtSign } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
@@ -44,53 +45,66 @@ const AdminLogin = () => {
     }
   };
 
+  const inputStyle = {
+    background: "hsl(220 20% 16%)",
+    border: "1px solid hsl(220 15% 22%)",
+    color: "hsl(0 0% 90%)",
+  };
+
+  const focusInput = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.target.style.borderColor = "hsl(var(--primary))";
+    e.target.style.boxShadow = "0 0 0 3px hsla(var(--primary) / 0.15)";
+  };
+
+  const blurInput = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.target.style.borderColor = "hsl(220 15% 22%)";
+    e.target.style.boxShadow = "none";
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-12"
+    <div
+      className="min-h-screen flex items-center justify-center px-4 py-12"
       style={{
         background: "linear-gradient(135deg, hsl(220 20% 10%) 0%, hsl(220 25% 14%) 50%, hsl(220 20% 10%) 100%)",
       }}
     >
-      {/* Decorative glow */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-20 blur-[120px] pointer-events-none"
-        style={{ background: "hsl(var(--primary))" }}
+      <div
+        className="fixed top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-15 blur-[120px] pointer-events-none"
+        style={{ background: "hsl(0 70% 50%)" }}
       />
 
       <div className="w-full max-w-md relative z-10">
-        {/* Card */}
-        <div className="rounded-2xl border p-8 sm:p-10 shadow-2xl"
-          style={{
-            background: "hsl(220 20% 13%)",
-            borderColor: "hsl(220 15% 20%)",
-          }}
+        <div
+          className="rounded-2xl border p-8 sm:p-10 shadow-2xl"
+          style={{ background: "hsl(220 20% 13%)", borderColor: "hsl(220 15% 20%)" }}
         >
-          {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold italic mb-1" style={{ color: "hsl(0 0% 95%)" }}>
-              Sign In
-            </h1>
-            <p className="text-sm" style={{ color: "hsl(220 10% 55%)" }}>
-              Sign in to access the admin dashboard
-            </p>
+          {/* Icon */}
+          <div
+            className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+            style={{ background: "hsl(0 70% 50% / 0.12)", color: "hsl(0 70% 60%)" }}
+          >
+            <Shield className="h-7 w-7" />
           </div>
 
-          {/* Divider */}
+          <h1 className="text-3xl font-bold italic mb-1" style={{ color: "hsl(0 0% 95%)" }}>
+            Admin Sign In
+          </h1>
+          <p className="text-sm mb-8" style={{ color: "hsl(220 10% 55%)" }}>
+            Authorized personnel only — admin dashboard access
+          </p>
+
           <div className="relative flex items-center mb-8">
             <div className="flex-1 h-px" style={{ background: "hsl(220 15% 22%)" }} />
-            <span className="px-4 text-xs uppercase tracking-widest font-medium"
-              style={{ color: "hsl(220 10% 45%)" }}
-            >
+            <span className="px-4 text-xs uppercase tracking-widest font-medium" style={{ color: "hsl(220 10% 45%)" }}>
               Continue with email
             </span>
             <div className="flex-1 h-px" style={{ background: "hsl(220 15% 22%)" }} />
           </div>
 
-          {/* Error */}
           {error && (
-            <div className="flex items-center gap-2 text-sm p-3 rounded-xl mb-6"
-              style={{
-                background: "hsla(0 70% 50% / 0.12)",
-                color: "hsl(0 80% 65%)",
-              }}
+            <div
+              className="flex items-center gap-2 text-sm p-3 rounded-xl mb-6"
+              style={{ background: "hsla(0 70% 50% / 0.12)", color: "hsl(0 80% 65%)" }}
             >
               <AlertCircle className="h-4 w-4 shrink-0" />
               {error}
@@ -98,35 +112,28 @@ const AdminLogin = () => {
           )}
 
           <form onSubmit={handleLogin} className="space-y-5">
-            {/* Email */}
             <div>
               <label className="block text-sm font-medium mb-2" style={{ color: "hsl(0 0% 85%)" }}>
                 Email
               </label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200"
-                style={{
-                  background: "hsl(220 20% 16%)",
-                  border: "1px solid hsl(220 15% 22%)",
-                  color: "hsl(0 0% 90%)",
-                }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = "hsl(var(--primary))";
-                  e.target.style.boxShadow = "0 0 0 3px hsla(var(--primary) / 0.15)";
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = "hsl(220 15% 22%)";
-                  e.target.style.boxShadow = "none";
-                }}
-                placeholder="your@email.com"
-                required
-              />
+              <div className="relative">
+                <span className="absolute left-3.5 top-1/2 -translate-y-1/2" style={{ color: "hsl(220 10% 45%)" }}>
+                  <AtSign className="h-4 w-4" />
+                </span>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full pl-11 pr-4 py-3 rounded-xl text-sm outline-none transition-all duration-200"
+                  style={inputStyle}
+                  onFocus={focusInput}
+                  onBlur={blurInput}
+                  placeholder="admin@globalnexus.africa"
+                  required
+                />
+              </div>
             </div>
 
-            {/* Password */}
             <div>
               <div className="flex items-center justify-between mb-2">
                 <label className="text-sm font-medium" style={{ color: "hsl(0 0% 85%)" }}>
@@ -142,24 +149,17 @@ const AdminLogin = () => {
                 </button>
               </div>
               <div className="relative">
+                <span className="absolute left-3.5 top-1/2 -translate-y-1/2" style={{ color: "hsl(220 10% 45%)" }}>
+                  <Lock className="h-4 w-4" />
+                </span>
                 <input
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-3 pr-11 rounded-xl text-sm outline-none transition-all duration-200"
-                  style={{
-                    background: "hsl(220 20% 16%)",
-                    border: "1px solid hsl(220 15% 22%)",
-                    color: "hsl(0 0% 90%)",
-                  }}
-                  onFocus={(e) => {
-                    e.target.style.borderColor = "hsl(var(--primary))";
-                    e.target.style.boxShadow = "0 0 0 3px hsla(var(--primary) / 0.15)";
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.borderColor = "hsl(220 15% 22%)";
-                    e.target.style.boxShadow = "none";
-                  }}
+                  className="w-full pl-11 pr-11 py-3 rounded-xl text-sm outline-none transition-all duration-200"
+                  style={inputStyle}
+                  onFocus={focusInput}
+                  onBlur={blurInput}
                   placeholder="••••••••"
                   required
                 />
@@ -175,7 +175,6 @@ const AdminLogin = () => {
               </div>
             </div>
 
-            {/* Submit */}
             <button
               type="submit"
               disabled={loading}
@@ -208,7 +207,6 @@ const AdminLogin = () => {
             </button>
           </form>
 
-          {/* Footer text */}
           <p className="text-center text-sm mt-6" style={{ color: "hsl(220 10% 45%)" }}>
             Global Nexus Institute — Admin Portal
           </p>
