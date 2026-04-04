@@ -1,54 +1,20 @@
-import { useState, useEffect } from "react";
 import PageSEO from "@/components/PageSEO";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useSiteContent } from "@/hooks/useSiteContent";
-import { supabase } from "@/integrations/supabase/client";
-import ELearningLogin from "@/components/ELearningLogin";
 
 const LMS_BASE = "https://skilla.africa";
 
 const ELearning = () => {
   const { courseSlug } = useParams();
-  const [session, setSession] = useState<any>(null);
-  const [checkingAuth, setCheckingAuth] = useState(true);
-
   const { data: settings } = useSiteContent("elearning", "settings", {
     iframe_url: LMS_BASE + "/",
   });
 
-  useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, sess) => {
-      setSession(sess);
-      setCheckingAuth(false);
-    });
-    supabase.auth.getSession().then(({ data: { session: sess } }) => {
-      setSession(sess);
-      setCheckingAuth(false);
-    });
-    return () => subscription.unsubscribe();
-  }, []);
-
+  // Build iframe URL: map clean slug to internal LMS course page
   const iframeUrl = courseSlug
     ? `${LMS_BASE}/course/${courseSlug}`
     : settings.iframe_url;
-
-  if (checkingAuth) {
-    return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: "#0f1419" }}>
-        <div className="w-8 h-8 border-2 border-white/20 border-t-primary rounded-full animate-spin" />
-      </div>
-    );
-  }
-
-  if (!session) {
-    return (
-      <>
-        <PageSEO title="eLearning Portal — Sign In" description="Sign in to access the Global Nexus Institute eLearning platform." path="/elearning" />
-        <ELearningLogin onSuccess={() => {}} />
-      </>
-    );
-  }
 
   return (
     <>
